@@ -43,7 +43,7 @@ $DxvkMarker = 'attila_optimizer_dxvk.txt'
 $AttilaAppId = '325610'
 
 # Mod yapımı için gereken tablolar (db\<tablo>\ klasör adları).
-$ModDataTablePattern = '^(main_units|land_units|campaign_difficulty_handicap_effects|effects|effect_bonus_value_.+|effect_bundles.*|campaign_effect_scopes|campaign_bonus_value_ids_.+|factions|faction_groups|units_to_.+|unit_set.*|building_units_allowed|building_effects_junction|building_levels|building_chains|building_culture_variants|technologies|technology_effects_junction)_tables$'
+$ModDataTablePattern = '^(main_units|land_units|campaign_difficulty_handicap_effects|effects|effect_bonus_value_.+|effect_bundles.*|campaign_effect_scopes|campaign_bonus_value_ids_.+|factions|faction_groups|units_to_.+|unit_set.*|building_units_allowed|building_effects_junction|building_levels|building_chains|building_culture_variants|technologies|technology_effects_junction|missions|mission_issuers|incidents|dilemmas|cdir_events_.+|message_events|message_event_strings|campaign_payload_ui_details)_tables$'
 
 function Write-Title($text) {
     Write-Host ''
