@@ -27,6 +27,12 @@ Bu sınır hiçbir araçla kaldırılamaz. Kaynak kodu olmadan oyunu 64-bit'e ç
    - **2:** Ayar düzeltmesi (önce otomatik yedek alır)
    - **3:** DXVK kur (GitHub'dan son sürümü indirir)
 
+Mod yapımı için:
+- **6:** Oyunun ve Workshop modlarının `.pack` dosyalarından yalnızca gereken veritabanı
+  tablolarını (birimler, efektler, zorluk bonusları...) çıkarır ve masaüstüne
+  `AttilaModData.zip` olarak koyar. 1 GB'lık pack'ler de birkaç saniyede taranır, çünkü
+  yalnızca dosya listesi okunur ve sadece istenen tablolar kopyalanır.
+
 Geri almak için:
 - **4:** DXVK'yı kaldırır, oyun DirectX 11'e döner.
 - **5:** Ayar dosyasını son yedekten geri yükler.

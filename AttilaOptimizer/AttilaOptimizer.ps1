@@ -13,18 +13,24 @@
                           Savaşlardaki işlemci (draw call) darboğazını azaltmayı hedefler.
       4. DXVK kaldırma  : DXVK dosyalarını siler, varsa eski dosyaları geri yükler.
       5. Ayar geri alma : preferences.script.txt dosyasını en son yedekten geri yükler.
+      6. Mod verisi     : Oyunun ve Workshop modlarının .pack dosyalarından yalnızca mod
+                          yapımı için gereken veritabanı tablolarını çıkarıp küçük bir
+                          ZIP dosyası olarak masaüstüne koyar.
 
     Kullanım: AttilaOptimizer.bat dosyasına çift tıklayın.
-    Ya da: powershell -ExecutionPolicy Bypass -File AttilaOptimizer.ps1 [-Action Status|Tweak|InstallDxvk|RemoveDxvk|RestorePrefs]
+    Ya da: powershell -ExecutionPolicy Bypass -File AttilaOptimizer.ps1 [-Action Status|Tweak|InstallDxvk|RemoveDxvk|RestorePrefs|ExportModData]
 #>
 
 [CmdletBinding()]
 param(
-    [ValidateSet('Menu', 'Status', 'Tweak', 'InstallDxvk', 'RemoveDxvk', 'RestorePrefs')]
+    [ValidateSet('Menu', 'Status', 'Tweak', 'InstallDxvk', 'RemoveDxvk', 'RestorePrefs', 'ExportModData')]
     [string]$Action = 'Menu',
 
     # Elle oyun klasörü vermek için (otomatik bulunamazsa).
-    [string]$GameDir
+    [string]$GameDir,
+
+    # Mod verisinin yazılacağı klasör (varsayılan: masaüstü).
+    [string]$OutDir
 )
 
 $ErrorActionPreference = 'Stop'
@@ -34,6 +40,10 @@ $PrefsDir   = Join-Path $env:APPDATA 'The Creative Assembly\Attila\scripts'
 $PrefsFile  = Join-Path $PrefsDir 'preferences.script.txt'
 $DxvkFiles  = @('d3d11.dll', 'dxgi.dll')
 $DxvkMarker = 'attila_optimizer_dxvk.txt'
+$AttilaAppId = '325610'
+
+# Mod yapımı için gereken tablolar (db\<tablo>\ klasör adları).
+$ModDataTablePattern = '^(main_units|land_units|campaign_difficulty_handicap_effects|effects|effect_bonus_value_.+|effect_bundles.*|campaign_effect_scopes|campaign_bonus_value_ids_.+|factions|faction_groups|units_to_.+|unit_set.*|building_units_allowed|technologies|technology_effects_junction)_tables$'
 
 function Write-Title($text) {
     Write-Host ''
@@ -276,6 +286,138 @@ function Invoke-RemoveDxvk {
     Write-Ok 'DXVK kaldırıldı, oyun DirectX 11 ile çalışacak.'
 }
 
+# --- Mod verisi: .pack dosyalarından tablo çıkarma -------------------------------
+
+# PFH4 (Attila) pack dosyasının içindekiler listesini okur. Veri bölümüne dokunmaz,
+# bu yüzden 1 GB'lık pack'ler de hızlıca taranır.
+function Get-PackEntries($path) {
+    $stream = [IO.File]::OpenRead($path)
+    try {
+        $reader = New-Object IO.BinaryReader($stream)
+        $preamble = [Text.Encoding]::ASCII.GetString($reader.ReadBytes(4))
+        if ($preamble -ne 'PFH4') { return $null }
+
+        $flags = $reader.ReadUInt32()
+        $packsCount = $reader.ReadUInt32()
+        $packsIndexSize = $reader.ReadUInt32()
+        $filesCount = $reader.ReadUInt32()
+        $filesIndexSize = $reader.ReadUInt32()
+        [void]$reader.ReadUInt32()   # zaman damgası
+
+        # Şifreli pack'ler (ör. music.pack) bizi ilgilendirmiyor.
+        if ($flags -band 0x90) { return $null }
+        if ($flags -band 0x100) { [void]$reader.ReadBytes(20) }
+        $hasTimestamps = ($flags -band 0x40) -ne 0
+
+        [void]$reader.ReadBytes([int]$packsIndexSize)
+        $index = $reader.ReadBytes([int]$filesIndexSize)
+        $offset = [int64]$stream.Position
+
+        $entries = New-Object Collections.Generic.List[object]
+        $pos = 0
+        for ($i = 0; $i -lt $filesCount; $i++) {
+            $size = [BitConverter]::ToUInt32($index, $pos)
+            $pos += 4
+            if ($hasTimestamps) { $pos += 4 }
+            $end = [Array]::IndexOf($index, [byte]0, $pos)
+            $name = [Text.Encoding]::UTF8.GetString($index, $pos, $end - $pos).Replace('\', '/')
+            $pos = $end + 1
+            $entries.Add([pscustomobject]@{ Path = $name; Size = $size; Offset = $offset })
+            $offset += $size
+        }
+        return $entries
+    } finally {
+        $stream.Dispose()
+    }
+}
+
+function Test-ModDataEntry($entryPath, $includeLocs) {
+    $parts = $entryPath.Split('/')
+    if ($parts.Count -eq 3 -and $parts[0] -eq 'db' -and $parts[1] -match $ModDataTablePattern) { return $true }
+    return ($includeLocs -and $entryPath.EndsWith('.loc'))
+}
+
+function Export-PackEntries($packPath, $entries, $destDir) {
+    $stream = [IO.File]::OpenRead($packPath)
+    try {
+        foreach ($e in $entries) {
+            $target = Join-Path $destDir $e.Path
+            New-Item -ItemType Directory -Path (Split-Path $target) -Force | Out-Null
+            $buffer = New-Object byte[] $e.Size
+            [void]$stream.Seek($e.Offset, 'Begin')
+            $read = 0
+            while ($read -lt $e.Size) {
+                $n = $stream.Read($buffer, $read, $e.Size - $read)
+                if ($n -le 0) { throw "Pack beklenenden kısa: $packPath" }
+                $read += $n
+            }
+            [IO.File]::WriteAllBytes($target, $buffer)
+        }
+    } finally {
+        $stream.Dispose()
+    }
+}
+
+function Invoke-ExportModData {
+    Write-Title 'Mod verisi dışa aktarma'
+    $dir = Get-GameDirOrAsk
+
+    # Oyun klasörü <kütüphane>\steamapps\common\<oyun> biçiminde; Workshop aynı kütüphanede.
+    $steamapps = Split-Path (Split-Path $dir)
+    $workshop = Join-Path $steamapps "workshop\content\$AttilaAppId"
+
+    $packs = @(Get-ChildItem (Join-Path $dir 'data') -Filter '*.pack' -ErrorAction SilentlyContinue)
+    if (Test-Path $workshop) {
+        $packs += @(Get-ChildItem $workshop -Filter '*.pack' -Recurse -ErrorAction SilentlyContinue)
+    } else {
+        Write-Warn "Workshop klasörü bulunamadı: $workshop"
+    }
+
+    $base = $OutDir
+    if (-not $base) { $base = [Environment]::GetFolderPath('Desktop') }
+    $outRoot = Join-Path $base 'AttilaModData'
+    if (Test-Path $outRoot) { Remove-Item $outRoot -Recurse -Force }
+    New-Item -ItemType Directory -Path $outRoot | Out-Null
+
+    $manifest = New-Object Collections.Generic.List[string]
+    foreach ($pack in $packs) {
+        try {
+            $entries = Get-PackEntries $pack.FullName
+        } catch {
+            Write-Warn "$($pack.Name) okunamadı: $($_.Exception.Message)"
+            continue
+        }
+        if (-not $entries) { continue }
+
+        # Yerelleştirme dosyaları yalnızca MK1212 pack'lerinden alınır; oyununkiler çok büyük.
+        $includeLocs = $pack.Name -match '1212'
+        $wanted = @($entries | Where-Object { Test-ModDataEntry $_.Path $includeLocs })
+        if ($wanted.Count -eq 0) { continue }
+
+        $folder = $pack.Name
+        if ($pack.FullName.StartsWith($workshop)) { $folder = "workshop_$($pack.Directory.Name)_$($pack.Name)" }
+        Export-PackEntries $pack.FullName $wanted (Join-Path $outRoot $folder)
+        $manifest.Add("$folder`t$($wanted.Count)")
+        Write-Ok "$($pack.Name): $($wanted.Count) dosya"
+    }
+
+    # Mod yöneticisinin yükleme sırası, alt modun önceliğini ayarlamak için gerekli.
+    $userScript = Join-Path $PrefsDir 'user.script.txt'
+    if (Test-Path $userScript) { Copy-Item $userScript $outRoot }
+    Set-Content -Path (Join-Path $outRoot 'manifest.tsv') -Value $manifest -Encoding UTF8
+
+    $zip = "$outRoot.zip"
+    if (Test-Path $zip) { Remove-Item $zip -Force }
+    Compress-Archive -Path (Join-Path $outRoot '*') -DestinationPath $zip
+    $sizeMb = [Math]::Round((Get-Item $zip).Length / 1MB, 1)
+    Write-Ok "Hazır: $zip ($sizeMb MB)"
+    if ($sizeMb -gt 29) {
+        Write-Warn 'ZIP 30 MB sınırını aşıyor. Bu çıktının ekran görüntüsünü gönderin, listeyi daraltalım.'
+    } else {
+        Write-Info 'Bu ZIP dosyasını sohbete yükleyin.'
+    }
+}
+
 # --- Durum raporu --------------------------------------------------------------
 
 function Show-Status {
@@ -331,6 +473,7 @@ function Invoke-Action($name) {
             'InstallDxvk'  { Invoke-InstallDxvk }
             'RemoveDxvk'   { Invoke-RemoveDxvk }
             'RestorePrefs' { Invoke-RestorePrefs }
+            'ExportModData' { Invoke-ExportModData }
         }
     } catch {
         Write-Err $_.Exception.Message
@@ -349,6 +492,7 @@ while ($true) {
     Write-Host '  3) DXVK kur (Vulkan, işlemci darboğazı için)'
     Write-Host '  4) DXVK kaldır'
     Write-Host '  5) Ayar dosyasını son yedekten geri yükle'
+    Write-Host '  6) Mod verisini dışa aktar (tablolar, ZIP olarak masaüstüne)'
     Write-Host '  0) Çıkış'
     switch (Read-Host 'Seçim') {
         '1' { Invoke-Action 'Status' }
@@ -356,6 +500,7 @@ while ($true) {
         '3' { Invoke-Action 'InstallDxvk' }
         '4' { Invoke-Action 'RemoveDxvk' }
         '5' { Invoke-Action 'RestorePrefs' }
+        '6' { Invoke-Action 'ExportModData' }
         '0' { return }
         default { Write-Warn 'Geçersiz seçim.' }
     }
