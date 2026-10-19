@@ -16,6 +16,7 @@ import argparse
 import csv
 import glob
 import os
+import re
 import shutil
 import subprocess
 
@@ -48,6 +49,20 @@ BUILDING_UPKEEP_EFFECT = 'att_effect_building_upkeep_mod'
 # Bina tanımı değiştiği için bu, AI'nın mescitlerini de etkiler.
 MOSQUE_SANITATION = {1: 1, 2: 2, 3: 3, 4: 4}
 MOSQUE_RELIGIONS = ('sunni', 'shia', 'ibadi')
+
+# Selçuklu Ticaret Ağı: campaigns/main_attila/factions/mk_fact_seljuks.lua, sahip olunan kervan
+# şehri ve liman sayısına göre aşağıdaki paketleri uygular. Liste uzunlukları o dosyadan okunur.
+TRADE_SCRIPT = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                            'campaigns', 'main_attila', 'factions', 'mk_fact_seljuks.lua')
+CARAVAN_COMMERCE_PER_CITY = 5      # şehir başına karadan ticaret serveti (%)
+CARAVAN_TARIFF_PER_CITY = 3        # şehir başına ticaret anlaşması geliri (%)
+PORT_COMMERCE_PER_PORT = 10        # liman başına deniz ticareti serveti (%)
+PORT_TARIFF_PER_PORT = 5           # liman başına ticaret anlaşması geliri (%)
+
+COMMERCE_LAND = ('att_effect_economy_gdp_mod_commerce_land', 'faction_to_region_own_unseen')
+COMMERCE_SEA = ('att_effect_economy_gdp_mod_commerce_sea', 'faction_to_region_own_unseen')
+TARIFF = ('att_effect_economy_trade_tariff_mod', 'faction_to_faction_own')
+PUBLIC_ORDER_EFFECT = ('att_effect_public_order_base', 'faction_to_province_own')
 
 # (anahtar, bonus_value_id'ler, kapsam, değer, (simge, negatif simge), öncelik, açıklama)
 # Simgeler oyundaki eşdeğer efektlerden alındı; maliyet efektlerinde ters çevrilidir.
@@ -164,6 +179,40 @@ def ai_building_upkeep_compensation(data_dir):
     return result
 
 
+def lua_list_length(path, name):
+    body = re.search(name + r'\s*=\s*\{(.*?)\}', open(path, encoding='utf-8').read(), re.S).group(1)
+    return len(re.findall(r'"[^"]+"', body))
+
+
+def trade_bundles():
+    """[(anahtar, simge, başlık, açıklama, [(efekt, kapsam, değer)])]"""
+    cities = lua_list_length(TRADE_SCRIPT, 'PB_CARAVAN_CITIES')
+    ports = lua_list_length(TRADE_SCRIPT, 'PB_PORTS')
+    bundles = []
+    for n in range(1, cities + 1):
+        bundles.append((
+            f'pb_bundle_seljuk_caravan_{n}', f'tax_growth_{min(n, 5)}.png', f'Silk Road: Caravan Cities ({n}/{cities})',
+            f'Your caravans reach {n} of the {cities} great trade cities of the Anatolian Silk Road: Iconion, '
+            'Kayseri, Ancyra, Malatya, Sis, Diyarbakir, Dvin and Tabriz.',
+            [(*COMMERCE_LAND, CARAVAN_COMMERCE_PER_CITY * n), (*TARIFF, CARAVAN_TARIFF_PER_CITY * n)]))
+    for n in range(1, ports + 1):
+        bundles.append((
+            f'pb_bundle_seljuk_ports_{n}', f'tax_growth_{min(n, 5)}.png', f'Silk Road: Sea Gates ({n}/{ports})',
+            f'You hold {n} of the {ports} sea gates of Anatolian trade: Sinope, Attaleia, Smyrna and Caffa.',
+            [(*COMMERCE_SEA, PORT_COMMERCE_PER_PORT * n), (*TARIFF, PORT_TARIFF_PER_PORT * n)]))
+    bundles.append((
+        'pb_bundle_seljuk_caravanserai', 'tax_growth_3.png', 'Seljuk Caravanserais',
+        'A chain of state caravanserais shelters merchants along the roads, and the Sultan repays the losses '
+        'of those robbed on them.',
+        [(*TARIFF, 10), (*PUBLIC_ORDER_EFFECT, 1)]))
+    bundles.append((
+        'pb_bundle_seljuk_two_seas', 'tax_growth_5.png', 'Between Two Seas',
+        'With Sinope on the Black Sea and Attaleia on the Mediterranean, the goods of the north and the south '
+        'cross Anatolia under Seljuk protection.',
+        [(*TARIFF, 15), (*COMMERCE_LAND, 10)]))
+    return bundles
+
+
 def write_tsv(out_dir, table, file_name, version, header, rows):
     path = os.path.join(out_dir, 'db', table, file_name + '.tsv')
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -250,6 +299,19 @@ def build_tables(data_dir, out_dir):
     write_tsv(out_dir, 'building_effects_junction_tables', name, 3,
               ['building', 'effect', 'effect_scope', 'value', 'value_damaged', 'value_ruined'], building_effects)
 
+    # Selçuklu Ticaret Ağı paketleri.
+    bundles = trade_bundles()
+    write_tsv(out_dir, 'effect_bundles_tables', name, 1,
+              ['key', 'localised_description', 'localised_title', 'ui_icon', 'bundle_target'],
+              [[key, 'Placeholder', title, icon, 'faction'] for key, icon, title, _, _ in bundles])
+    write_tsv(out_dir, 'effect_bundles_to_effects_junctions_tables', name, 2,
+              ['effect_bundle_key', 'effect_key', 'effect_scope', 'value', 'advancement_stage'],
+              [[key, effect, scope, f'{value:.4f}', 'start_turn_completed']
+               for key, _, _, _, contents in bundles for effect, scope, value in contents])
+    for key, _, title, description, _ in bundles:
+        loc.append([f'effect_bundles_localised_title_{key}', title, 'true'])
+        loc.append([f'effect_bundles_localised_description_{key}', description, 'true'])
+
     write_tsv(out_dir, 'effects_tables', name, 1, ['effect', 'icon', 'priority', 'icon_negative'], effects)
     write_tsv(out_dir, 'effect_bonus_value_basic_junction_tables', name, 0, ['effect', 'bonus_value_id'], basic)
     write_tsv(out_dir, 'unit_sets_tables', name, 0, ['key'], unit_sets)
@@ -269,6 +331,7 @@ def build_tables(data_dir, out_dir):
     print(f'General muhafızları ({GENERAL_UPKEEP}): {", ".join(generals)}')
     print(f'Bakımı yarıya inen bina seviyesi: {len(level_rows)}')
     print(f'AI bina bakımı telafisi (zorluk: %): {compensation}')
+    print(f'Ticaret paketleri: {len(bundles)}')
 
 
 def main():
@@ -287,9 +350,11 @@ def main():
     if os.path.exists(pack):
         os.remove(pack)
     subprocess.run([args.rpfm, '-g', 'attila', 'pack', 'create', '-p', pack], check=True)
-    for folder in ('db', 'text'):
-        subprocess.run([args.rpfm, '-g', 'attila', 'pack', 'add', '-p', pack, '-t', args.schema,
-                        '-F', f'{os.path.join(tsv_dir, folder)};'], check=True)
+    # TSV dosyaları pack içindeki yerlerini kendi başlık satırlarından alır; betik klasörü ise açıkça verilir.
+    campaigns = os.path.dirname(os.path.dirname(os.path.dirname(TRADE_SCRIPT)))
+    for folder in (f'{os.path.join(tsv_dir, "db")};', f'{os.path.join(tsv_dir, "text")};', f'{campaigns};campaigns'):
+        subprocess.run([args.rpfm, '-g', 'attila', 'pack', 'add', '-p', pack, '-t', args.schema, '-F', folder],
+                       check=True)
     print(f'Pack: {pack}')
 
 

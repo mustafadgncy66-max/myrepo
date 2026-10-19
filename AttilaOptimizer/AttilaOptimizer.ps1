@@ -334,7 +334,8 @@ function Get-PackEntries($path) {
 function Test-ModDataEntry($entryPath, $includeLocs, $includeScripts) {
     $parts = $entryPath.Split('/')
     if ($parts.Count -eq 3 -and $parts[0] -eq 'db' -and $parts[1] -match $ModDataTablePattern) { return $true }
-    if ($includeScripts -and $entryPath.EndsWith('.lua')) { return $true }
+    # Betikler ve olay görselleri (boyut ve biçim örneği için) yalnızca Workshop modlarından alınır.
+    if ($includeScripts -and ($entryPath.EndsWith('.lua') -or $entryPath.StartsWith('ui/eventpics/'))) { return $true }
     return ($includeLocs -and $entryPath.EndsWith('.loc'))
 }
 

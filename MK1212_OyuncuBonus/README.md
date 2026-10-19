@@ -15,6 +15,23 @@ verilir, AI fraksiyonları etkilenmez. Tüm zorluk seviyelerinde çalışır.
 | Eyalet başkenti mescitleri | sanitasyon I/II/III/IV: +1/+2/+3/+4 (önce 0/+1/+1/+1) |
 | Birim bakımı | 120 ve altı değişmez; 460 → ~180; aradakiler doğrusal |
 
+## Selçuklu Ticaret Ağı (İpek Yolu)
+
+Yalnızca Selçuklu oynarken çalışan bir betik (`campaigns/main_attila/factions/mk_fact_seljuks.lua`),
+her tur başında sahip olunan bölgelere göre fraksiyon paketleri uygular. MK1212 bu dosyayı oyuncunun
+fraksiyonuna göre kendisi yükler; MK1212'nin kendi İpek Yolu kodu kapalıdır, yalnızca baharat
+limanları çalışır.
+
+| Paket | Koşul | Etki |
+|---|---|---|
+| Silk Road: Caravan Cities (n/8) | Konya, Kayseri, Ankara, Malatya, Sis, Diyarbakır, Dvin, Tebriz'den n tanesi | karadan ticaret serveti +%5×n, ticaret anlaşması geliri +%3×n |
+| Silk Road: Sea Gates (n/4) | Sinop, Antalya, İzmir, Kefe'den n tanesi | deniz ticareti serveti +%10×n, ticaret anlaşması geliri +%5×n |
+| Seljuk Caravanserais | en az 4 kervan şehri | ticaret anlaşması geliri +%10, eyalet başına kamu düzeni +1 |
+| Between Two Seas | Sinop ve Antalya birlikte | ticaret anlaşması geliri +%15, karadan ticaret serveti +%10 |
+
+Başlangıçta 4/8 kervan şehri, 1/4 liman ve kervansaray paketi etkindir; Sinop alınınca
+"Between Two Seas" eklenir.
+
 Bakım örnekleri:
 
 | Şu anki bakım | Yeni bakım |
@@ -67,6 +84,8 @@ Kampanyada:
 - Small Mosque (II) bilgi panelinde **Sanitation: +2** ve **Maintenance cost: −200** görünmeli;
   inşa maliyeti 6000 yerine **3000** olmalı.
 - Kuvvet Topla ekranında ve orduda Selçuklu general muhafızı **250** göstermeli.
+- Fraksiyon etkilerinde "Silk Road: Caravan Cities (4/8)", "Silk Road: Sea Gates (1/4)" ve
+  "Seljuk Caravanserais" görünmeli (ilk tur sonunda kesinleşir).
 
 Zorluk bonusları mevcut bir kayıtta devreye girmeyebilir. Görünmüyorsa yeni bir kampanya başlatın.
 

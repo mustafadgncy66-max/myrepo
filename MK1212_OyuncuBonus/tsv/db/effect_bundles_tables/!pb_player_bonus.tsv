@@ -1,0 +1,16 @@
+key	localised_description	localised_title	ui_icon	bundle_target
+#effect_bundles_tables;1;db/effect_bundles_tables/!pb_player_bonus				
+pb_bundle_seljuk_caravan_1	Placeholder	Silk Road: Caravan Cities (1/8)	tax_growth_1.png	faction
+pb_bundle_seljuk_caravan_2	Placeholder	Silk Road: Caravan Cities (2/8)	tax_growth_2.png	faction
+pb_bundle_seljuk_caravan_3	Placeholder	Silk Road: Caravan Cities (3/8)	tax_growth_3.png	faction
+pb_bundle_seljuk_caravan_4	Placeholder	Silk Road: Caravan Cities (4/8)	tax_growth_4.png	faction
+pb_bundle_seljuk_caravan_5	Placeholder	Silk Road: Caravan Cities (5/8)	tax_growth_5.png	faction
+pb_bundle_seljuk_caravan_6	Placeholder	Silk Road: Caravan Cities (6/8)	tax_growth_5.png	faction
+pb_bundle_seljuk_caravan_7	Placeholder	Silk Road: Caravan Cities (7/8)	tax_growth_5.png	faction
+pb_bundle_seljuk_caravan_8	Placeholder	Silk Road: Caravan Cities (8/8)	tax_growth_5.png	faction
+pb_bundle_seljuk_ports_1	Placeholder	Silk Road: Sea Gates (1/4)	tax_growth_1.png	faction
+pb_bundle_seljuk_ports_2	Placeholder	Silk Road: Sea Gates (2/4)	tax_growth_2.png	faction
+pb_bundle_seljuk_ports_3	Placeholder	Silk Road: Sea Gates (3/4)	tax_growth_3.png	faction
+pb_bundle_seljuk_ports_4	Placeholder	Silk Road: Sea Gates (4/4)	tax_growth_4.png	faction
+pb_bundle_seljuk_caravanserai	Placeholder	Seljuk Caravanserais	tax_growth_3.png	faction
+pb_bundle_seljuk_two_seas	Placeholder	Between Two Seas	tax_growth_5.png	faction

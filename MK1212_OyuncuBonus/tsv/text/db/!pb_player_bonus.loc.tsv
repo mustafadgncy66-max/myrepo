@@ -87,3 +87,31 @@ effects_description_pb_effect_upkeep_78	Player bonus - Upkeep cost: %+n% for exp
 effects_description_pb_effect_upkeep_79	Player bonus - Upkeep cost: %+n% for expensive units	true
 effects_description_pb_effect_upkeep_generals	Player bonus - Upkeep cost: %+n% for generals (balance)	true
 effects_description_pb_effect_building_upkeep_ai	Maintenance cost: %+n%	true
+effect_bundles_localised_title_pb_bundle_seljuk_caravan_1	Silk Road: Caravan Cities (1/8)	true
+effect_bundles_localised_description_pb_bundle_seljuk_caravan_1	Your caravans reach 1 of the 8 great trade cities of the Anatolian Silk Road: Iconion, Kayseri, Ancyra, Malatya, Sis, Diyarbakir, Dvin and Tabriz.	true
+effect_bundles_localised_title_pb_bundle_seljuk_caravan_2	Silk Road: Caravan Cities (2/8)	true
+effect_bundles_localised_description_pb_bundle_seljuk_caravan_2	Your caravans reach 2 of the 8 great trade cities of the Anatolian Silk Road: Iconion, Kayseri, Ancyra, Malatya, Sis, Diyarbakir, Dvin and Tabriz.	true
+effect_bundles_localised_title_pb_bundle_seljuk_caravan_3	Silk Road: Caravan Cities (3/8)	true
+effect_bundles_localised_description_pb_bundle_seljuk_caravan_3	Your caravans reach 3 of the 8 great trade cities of the Anatolian Silk Road: Iconion, Kayseri, Ancyra, Malatya, Sis, Diyarbakir, Dvin and Tabriz.	true
+effect_bundles_localised_title_pb_bundle_seljuk_caravan_4	Silk Road: Caravan Cities (4/8)	true
+effect_bundles_localised_description_pb_bundle_seljuk_caravan_4	Your caravans reach 4 of the 8 great trade cities of the Anatolian Silk Road: Iconion, Kayseri, Ancyra, Malatya, Sis, Diyarbakir, Dvin and Tabriz.	true
+effect_bundles_localised_title_pb_bundle_seljuk_caravan_5	Silk Road: Caravan Cities (5/8)	true
+effect_bundles_localised_description_pb_bundle_seljuk_caravan_5	Your caravans reach 5 of the 8 great trade cities of the Anatolian Silk Road: Iconion, Kayseri, Ancyra, Malatya, Sis, Diyarbakir, Dvin and Tabriz.	true
+effect_bundles_localised_title_pb_bundle_seljuk_caravan_6	Silk Road: Caravan Cities (6/8)	true
+effect_bundles_localised_description_pb_bundle_seljuk_caravan_6	Your caravans reach 6 of the 8 great trade cities of the Anatolian Silk Road: Iconion, Kayseri, Ancyra, Malatya, Sis, Diyarbakir, Dvin and Tabriz.	true
+effect_bundles_localised_title_pb_bundle_seljuk_caravan_7	Silk Road: Caravan Cities (7/8)	true
+effect_bundles_localised_description_pb_bundle_seljuk_caravan_7	Your caravans reach 7 of the 8 great trade cities of the Anatolian Silk Road: Iconion, Kayseri, Ancyra, Malatya, Sis, Diyarbakir, Dvin and Tabriz.	true
+effect_bundles_localised_title_pb_bundle_seljuk_caravan_8	Silk Road: Caravan Cities (8/8)	true
+effect_bundles_localised_description_pb_bundle_seljuk_caravan_8	Your caravans reach 8 of the 8 great trade cities of the Anatolian Silk Road: Iconion, Kayseri, Ancyra, Malatya, Sis, Diyarbakir, Dvin and Tabriz.	true
+effect_bundles_localised_title_pb_bundle_seljuk_ports_1	Silk Road: Sea Gates (1/4)	true
+effect_bundles_localised_description_pb_bundle_seljuk_ports_1	You hold 1 of the 4 sea gates of Anatolian trade: Sinope, Attaleia, Smyrna and Caffa.	true
+effect_bundles_localised_title_pb_bundle_seljuk_ports_2	Silk Road: Sea Gates (2/4)	true
+effect_bundles_localised_description_pb_bundle_seljuk_ports_2	You hold 2 of the 4 sea gates of Anatolian trade: Sinope, Attaleia, Smyrna and Caffa.	true
+effect_bundles_localised_title_pb_bundle_seljuk_ports_3	Silk Road: Sea Gates (3/4)	true
+effect_bundles_localised_description_pb_bundle_seljuk_ports_3	You hold 3 of the 4 sea gates of Anatolian trade: Sinope, Attaleia, Smyrna and Caffa.	true
+effect_bundles_localised_title_pb_bundle_seljuk_ports_4	Silk Road: Sea Gates (4/4)	true
+effect_bundles_localised_description_pb_bundle_seljuk_ports_4	You hold 4 of the 4 sea gates of Anatolian trade: Sinope, Attaleia, Smyrna and Caffa.	true
+effect_bundles_localised_title_pb_bundle_seljuk_caravanserai	Seljuk Caravanserais	true
+effect_bundles_localised_description_pb_bundle_seljuk_caravanserai	A chain of state caravanserais shelters merchants along the roads, and the Sultan repays the losses of those robbed on them.	true
+effect_bundles_localised_title_pb_bundle_seljuk_two_seas	Between Two Seas	true
+effect_bundles_localised_description_pb_bundle_seljuk_two_seas	With Sinope on the Black Sea and Attaleia on the Mediterranean, the goods of the north and the south cross Anatolia under Seljuk protection.	true
