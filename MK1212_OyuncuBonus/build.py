@@ -25,7 +25,7 @@ DIFFICULTIES = range(-3, 4)        # Legendary (-3) ... Easy/en kolay (3)
 INCOME_PCT = 15                    # tüm binalardan servet
 RESEARCH_PCT = 100                 # araştırma hızı; +%100 = süre yarıya
 PUBLIC_ORDER = 5                   # eyalet başına kamu düzeni
-GROWTH = 4                         # eyalet başına büyüme (teknolojiler +1/+2 verir)
+GROWTH = 8                         # eyalet başına büyüme (teknolojiler +1/+2 verir)
 UPKEEP_FREE_UNTIL = 120            # bu bakıma kadar indirim yok
 UPKEEP_ANCHOR = (460, 180)         # 460 bakımlı birim 180'e iner; aradakiler doğrusal
 

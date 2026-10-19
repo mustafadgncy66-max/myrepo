@@ -8,7 +8,7 @@ verilir, AI fraksiyonları etkilenmez. Tüm zorluk seviyelerinde çalışır.
 | Tüm binalardan servet | +%15 |
 | Araştırma hızı | +%100 (teknoloji süresi yarıya iner) |
 | Kamu düzeni | eyalet başına +5 |
-| Büyüme | eyalet başına +4 |
+| Büyüme | eyalet başına +8 |
 | Bakım | 120 ve altı değişmez; 460 → ~180; aradakiler doğrusal |
 
 Bakım örnekleri:
@@ -45,7 +45,7 @@ Bakım örnekleri:
 
 Kampanyada:
 - Bir eyaletin kamu düzeni ipucunda **"Player bonus - Public order: +5"** görünmeli.
-- Büyüme ipucunda **"Player bonus - Growth: +4"** görünmeli.
+- Büyüme ipucunda **"Player bonus - Growth: +8"** görünmeli.
 - Askere alma panelinde, bakımı ~460 olan bir birim ~180 göstermeli.
 
 Zorluk bonusları mevcut bir kayıtta devreye girmeyebilir. Görünmüyorsa yeni bir kampanya başlatın.
