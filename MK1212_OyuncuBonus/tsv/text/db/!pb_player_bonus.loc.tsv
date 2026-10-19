@@ -4,6 +4,8 @@ effects_description_pb_effect_gdp_all	Player bonus - Wealth: %+n% from all build
 effects_description_pb_effect_research_rate	Player bonus - Research rate: %+n%	true
 effects_description_pb_effect_public_order	Player bonus - Public order: %+n	true
 effects_description_pb_effect_growth	Player bonus - Growth: %+n	true
+effects_description_pb_effect_building_upkeep	Player bonus - Maintenance cost: %+n%	true
+effects_description_pb_effect_replenishment	Player bonus - Replenishment: %+n%	true
 effects_description_pb_effect_upkeep_01	Player bonus - Upkeep cost: %+n% for expensive units	true
 effects_description_pb_effect_upkeep_02	Player bonus - Upkeep cost: %+n% for expensive units	true
 effects_description_pb_effect_upkeep_03	Player bonus - Upkeep cost: %+n% for expensive units	true

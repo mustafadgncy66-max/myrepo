@@ -4,6 +4,8 @@ pb_effect_gdp_all	wealth_positive.png	162	wealth_negative.png
 pb_effect_research_rate	technology_positive.png	61	technology_negative.png
 pb_effect_public_order	public_order_positive.png	5	public_order_negative.png
 pb_effect_growth	growth_positive.png	30	growth_negative.png
+pb_effect_building_upkeep	wealth_negative.png	101	wealth_positive.png
+pb_effect_replenishment	replenishment_positive.png	101	replenishment_negative.png
 pb_effect_upkeep_01	military_spending_negative.png	101	military_spending_positive.png
 pb_effect_upkeep_02	military_spending_negative.png	101	military_spending_positive.png
 pb_effect_upkeep_03	military_spending_negative.png	101	military_spending_positive.png

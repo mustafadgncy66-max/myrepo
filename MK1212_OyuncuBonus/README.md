@@ -9,7 +9,9 @@ verilir, AI fraksiyonları etkilenmez. Tüm zorluk seviyelerinde çalışır.
 | Araştırma hızı | +%100 (teknoloji süresi yarıya iner) |
 | Kamu düzeni | eyalet başına +5 |
 | Büyüme | eyalet başına +8 |
-| Bakım | 120 ve altı değişmez; 460 → ~180; aradakiler doğrusal |
+| Bina bakım maliyeti | −%50 |
+| İkmal | +10 |
+| Birim bakımı | 120 ve altı değişmez; 460 → ~180; aradakiler doğrusal |
 
 Bakım örnekleri:
 
@@ -22,6 +24,9 @@ Bakım örnekleri:
 | 460 | ~179 |
 | 600 | ~204 |
 | 1000 | ~280 |
+
+General muhafızları da aynı ölçekle iner (ör. Gulaman-i-Hass: 563 → ~197). `build.py` içindeki
+`GENERAL_UPKEEP_FACTOR` ile generallere ayrıca çarpan uygulanabilir.
 
 ## Nasıl çalışır
 
