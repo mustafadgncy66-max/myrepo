@@ -28,6 +28,7 @@ RESEARCH_PCT = 100                 # araştırma hızı; +%100 = süre yarıya
 PUBLIC_ORDER = 5                   # eyalet başına kamu düzeni
 GROWTH = 8                         # eyalet başına büyüme (teknolojiler +1/+2 verir)
 REPLENISHMENT = 10                 # ikmal hızı (AI zorluğa göre +2...+9 alır)
+CONSTRUCTION_COST_PCT = -50        # bina yapım ve yükseltme maliyeti
 UPKEEP_FREE_UNTIL = 120            # bu bakıma kadar indirim yok
 UPKEEP_ANCHOR = (460, 180)         # 460 bakımlı birim 180'e iner; aradakiler doğrusal
 
@@ -48,19 +49,22 @@ BUILDING_UPKEEP_EFFECT = 'att_effect_building_upkeep_mod'
 MOSQUE_SANITATION = {1: 1, 2: 2, 3: 3, 4: 4}
 MOSQUE_RELIGIONS = ('sunni', 'shia', 'ibadi')
 
-# (anahtar, bonus_value_id, kapsam, değer, (simge, negatif simge), öncelik, açıklama)
+# (anahtar, bonus_value_id'ler, kapsam, değer, (simge, negatif simge), öncelik, açıklama)
 # Simgeler oyundaki eşdeğer efektlerden alındı; maliyet efektlerinde ters çevrilidir.
 SIMPLE_EFFECTS = [
-    ('gdp_all', 'gdp_mod_all', 'faction_to_region_own', INCOME_PCT,
+    ('gdp_all', ('gdp_mod_all',), 'faction_to_region_own', INCOME_PCT,
      ('wealth_positive.png', 'wealth_negative.png'), 162, 'Player bonus - Wealth: %+n% from all buildings'),
-    ('research_rate', 'research_rate_mod', 'faction_to_faction_own', RESEARCH_PCT,
+    ('research_rate', ('research_rate_mod',), 'faction_to_faction_own', RESEARCH_PCT,
      ('technology_positive.png', 'technology_negative.png'), 61, 'Player bonus - Research rate: %+n%'),
-    ('public_order', 'province_public_order_happiness_building_positive_factor', 'faction_to_province_own', PUBLIC_ORDER,
+    ('public_order', ('province_public_order_happiness_building_positive_factor',), 'faction_to_province_own', PUBLIC_ORDER,
      ('public_order_positive.png', 'public_order_negative.png'), 5, 'Player bonus - Public order: %+n'),
-    ('growth', 'province_development_growth_added_faction', 'faction_to_province_own', GROWTH,
+    ('growth', ('province_development_growth_added_faction',), 'faction_to_province_own', GROWTH,
      ('growth_positive.png', 'growth_negative.png'), 30, 'Player bonus - Growth: %+n'),
-    ('replenishment', 'replenishment_percentage_bonus', 'faction_to_force_own', REPLENISHMENT,
+    ('replenishment', ('replenishment_percentage_bonus',), 'faction_to_force_own', REPLENISHMENT,
      ('replenishment_positive.png', 'replenishment_negative.png'), 101, 'Player bonus - Replenishment: %+n%'),
+    ('construction_cost', ('building_cost_mod', 'building_conversion_cost_mod'), 'faction_to_region_own',
+     CONSTRUCTION_COST_PCT, ('construction_negative.png', 'construction_positive.png'), 101,
+     'Player bonus - Construction cost: %+n%'),
 ]
 
 
@@ -196,10 +200,10 @@ def build_tables(data_dir, out_dir):
         set_units.extend(['', '', '', unit, unit_set, 'false'] for unit in sorted(units))
         handicap.extend([d, 'true', effect, 'faction_to_force_own_unseen', f'{value:.4f}', ''] for d in DIFFICULTIES)
 
-    for key, bonus, scope, value, icons, priority, text in SIMPLE_EFFECTS:
+    for key, bonuses, scope, value, icons, priority, text in SIMPLE_EFFECTS:
         effect = f'{PREFIX}_effect_{key}'
         add_effect(effect, icons, priority, text)
-        basic.append([effect, bonus])
+        basic.extend([effect, bonus] for bonus in bonuses)
         handicap.extend([d, 'true', effect, scope, f'{value:.4f}', ''] for d in DIFFICULTIES)
 
     # Birim bakımı.

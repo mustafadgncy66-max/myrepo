@@ -11,6 +11,7 @@ verilir, AI fraksiyonları etkilenmez. Tüm zorluk seviyelerinde çalışır.
 | Büyüme | eyalet başına +8 |
 | Bina bakım maliyeti | tüm binalarda yarıya (kartlarda görünür; ör. Ghulam Barracks 100 → 50) |
 | İkmal | +10 |
+| Bina yapım ve yükseltme maliyeti | −%50 (yalnızca oyuncu; ör. Small Mosque 6000 → 3000) |
 | Eyalet başkenti mescitleri | sanitasyon I/II/III/IV: +1/+2/+3/+4 (önce 0/+1/+1/+1) |
 | Birim bakımı | 120 ve altı değişmez; 460 → ~180; aradakiler doğrusal |
 
@@ -63,7 +64,8 @@ Kampanyada:
   büyüme etkisi de eklenir, bu yüzden tam +8 görünmeyebilir.
 - Askere alma panelinde, bakımı ~460 olan bir birim ~180 göstermeli
   (ör. Askeri Lancers: 409 → 172).
-- Small Mosque (II) bilgi panelinde **Sanitation: +2** ve **Maintenance cost: −200** görünmeli.
+- Small Mosque (II) bilgi panelinde **Sanitation: +2** ve **Maintenance cost: −200** görünmeli;
+  inşa maliyeti 6000 yerine **3000** olmalı.
 - Kuvvet Topla ekranında ve orduda Selçuklu general muhafızı **250** göstermeli.
 
 Zorluk bonusları mevcut bir kayıtta devreye girmeyebilir. Görünmüyorsa yeni bir kampanya başlatın.
