@@ -4659,7 +4659,6 @@ unit_caste	unit_category	unit_class	unit_record	unit_set	exclude
 			mk_per_t3_turkoman_lancers	pb_unit_set_upkeep_64	false
 			mk_pol_t3_foreign_german_mounted_maa	pb_unit_set_upkeep_64	false
 			mk_por_t3_general_bodyguards	pb_unit_set_upkeep_64	false
-			mk_rum_t1_bodyguards	pb_unit_set_upkeep_64	false
 			mk_rum_t1_royal_ghulams	pb_unit_set_upkeep_64	false
 			mk_rum_t2_kapikulu_sipahis	pb_unit_set_upkeep_64	false
 			mk_rum_t3_kapikulu_ulufecis	pb_unit_set_upkeep_64	false
@@ -4739,8 +4738,6 @@ unit_caste	unit_category	unit_class	unit_record	unit_set	exclude
 			mk_nic_t2_oikeioi	pb_unit_set_upkeep_65	false
 			mk_nor_t3_general_bodyguard	pb_unit_set_upkeep_65	false
 			mk_per_t3_ghulaman	pb_unit_set_upkeep_65	false
-			mk_rum_t1_sultan_bodyguards	pb_unit_set_upkeep_65	false
-			mk_rum_t2_general_bodyguard	pb_unit_set_upkeep_65	false
 			mk_sal_t3_atabegs_ghilman	pb_unit_set_upkeep_65	false
 			mk_teu_t2_grandmaster_bodyguard	pb_unit_set_upkeep_65	false
 			mk_tou_t3_gendarmes	pb_unit_set_upkeep_65	false
@@ -4841,7 +4838,6 @@ unit_caste	unit_category	unit_class	unit_record	unit_set	exclude
 			mk_pol_t3_general_bodyguard	pb_unit_set_upkeep_66	false
 			mk_pol_t3_king_bodyguard	pb_unit_set_upkeep_66	false
 			mk_por_t3_king_bodyguards	pb_unit_set_upkeep_66	false
-			mk_rum_t2_sultan_bodyguards	pb_unit_set_upkeep_66	false
 			mk_rum_t3_kapikulu_sipahis	pb_unit_set_upkeep_66	false
 			mk_sav_t3_bodyguard	pb_unit_set_upkeep_66	false
 			mk_sic_t3_bodyguard	pb_unit_set_upkeep_66	false
@@ -4895,8 +4891,6 @@ unit_caste	unit_category	unit_class	unit_record	unit_set	exclude
 			mk_mon_t3_ilkhan_keshiq	pb_unit_set_upkeep_67	false
 			mk_mon_t3_ilkhan_keshiq_lancers	pb_unit_set_upkeep_67	false
 			mk_mon_t3_ilkhan_tarkhan	pb_unit_set_upkeep_67	false
-			mk_rum_t3_general_bodyguard	pb_unit_set_upkeep_67	false
-			mk_rum_t3_sultan_bodyguards	pb_unit_set_upkeep_67	false
 			mk_volga_t3_bodyguards	pb_unit_set_upkeep_67	false
 			mk_volga_t3_khan_bodyguard	pb_unit_set_upkeep_67	false
 			mymod_lit_t3_hussars	pb_unit_set_upkeep_67	false
@@ -5049,3 +5043,9 @@ unit_caste	unit_category	unit_class	unit_record	unit_set	exclude
 			mk_ghu_t3_war_elephants	pb_unit_set_upkeep_79	false
 			mk_ghu_t3_war_elephants_naphta	pb_unit_set_upkeep_79	false
 			mk_mon_t3_ilkhan_war_elephants	pb_unit_set_upkeep_79	false
+			mk_rum_t1_bodyguards	pb_unit_set_generals	false
+			mk_rum_t1_sultan_bodyguards	pb_unit_set_generals	false
+			mk_rum_t2_general_bodyguard	pb_unit_set_generals	false
+			mk_rum_t2_sultan_bodyguards	pb_unit_set_generals	false
+			mk_rum_t3_general_bodyguard	pb_unit_set_generals	false
+			mk_rum_t3_sultan_bodyguards	pb_unit_set_generals	false

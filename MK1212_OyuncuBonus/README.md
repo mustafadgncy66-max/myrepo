@@ -1,6 +1,6 @@
 # MK1212 Oyuncu Bonusu
 
-Medieval Kingdoms 1212 AD için küçük bir alt mod. Bonuslar **yalnızca insan oyuncuya**
+Medieval Kingdoms 1212 AD için küçük bir alt mod. Bonusların çoğu **yalnızca insan oyuncuya**
 verilir, AI fraksiyonları etkilenmez. Tüm zorluk seviyelerinde çalışır.
 
 | Bonus | Değer |
@@ -9,7 +9,7 @@ verilir, AI fraksiyonları etkilenmez. Tüm zorluk seviyelerinde çalışır.
 | Araştırma hızı | +%100 (teknoloji süresi yarıya iner) |
 | Kamu düzeni | eyalet başına +5 |
 | Büyüme | eyalet başına +8 |
-| Bina bakım maliyeti | −%50 |
+| Bina bakım maliyeti | tüm binalarda yarıya (kartlarda görünür; ör. Ghulam Barracks 100 → 50) |
 | İkmal | +10 |
 | Eyalet başkenti mescitleri | sanitasyon I/II/III/IV: +1/+2/+3/+4 (önce 0/+1/+1/+1) |
 | Birim bakımı | 120 ve altı değişmez; 460 → ~180; aradakiler doğrusal |
@@ -26,8 +26,8 @@ Bakım örnekleri:
 | 600 | ~204 |
 | 1000 | ~280 |
 
-General muhafızları da aynı ölçekle iner (ör. Gulaman-i-Hass: 563 → ~197). `build.py` içindeki
-`GENERAL_UPKEEP_FACTOR` ile generallere ayrıca çarpan uygulanabilir.
+Selçuklu general muhafızlarının bakımı sabit **250**'dir (askere alma ekranında ve orduda).
+Bu birimler yukarıdaki ölçeğin dışındadır.
 
 ## Nasıl çalışır
 
@@ -37,9 +37,13 @@ General muhafızları da aynı ölçekle iner (ör. Gulaman-i-Hass: 563 → ~197
   Bandlar, kurulu modlarınızla (MK1212 + Earl'ün realistic modları) oyunda geçerli olan
   bakım değerlerinden hesaplanmıştır.
 - Bonusların anahtarları yenidir (`pb_` önekli); MK1212'nin satırlarına dokunmazlar.
-- Tek istisna mescitler: Sünni, Şii ve İbadi başkent mescitlerinin sanitasyon satırları MK1212'nin
-  satırlarını ezer. Bina tanımı ortak olduğu için bu değişiklik **AI'nın mescitlerini de etkiler**.
-  Ezmenin çalışması için mod, yükleme sırasında **MK1212'nin üstünde** olmalıdır.
+- Kartlarda görünmesi gereken değerler ise MK1212'nin satırlarını ezer. Ezmenin çalışması için mod,
+  yükleme sırasında **MK1212'nin üstünde** olmalıdır:
+  - **Bina bakımı:** 450 bina seviyesinin bakımı yarıya iner. Bina tanımı ortak olduğu için AI'ya
+    zorluk seviyesine göre telafi eklenir (Normal'de +%45); AI'nın ödediği bakım değişmez.
+  - **Selçuklu general muhafızları:** 6 birimin bakımı 250. Selçuklu fraksiyon özelliği profesyonel
+    birimlere −%20 verdiği için oyuncuya bu birimlerde +%20 eklenir; orduda da 250 görünür.
+  - **Mescitler:** Sünni, Şii ve İbadi başkent mescitlerinin sanitasyonu. AI'nın mescitlerini de etkiler.
 
 ## Kurulum
 
@@ -59,7 +63,8 @@ Kampanyada:
   büyüme etkisi de eklenir, bu yüzden tam +8 görünmeyebilir.
 - Askere alma panelinde, bakımı ~460 olan bir birim ~180 göstermeli
   (ör. Askeri Lancers: 409 → 172).
-- Small Mosque (II) bilgi panelinde **Sanitation: +2** görünmeli; bakım maliyeti yarıya inmiş olmalı.
+- Small Mosque (II) bilgi panelinde **Sanitation: +2** ve **Maintenance cost: −200** görünmeli.
+- Kuvvet Topla ekranında ve orduda Selçuklu general muhafızı **250** göstermeli.
 
 Zorluk bonusları mevcut bir kayıtta devreye girmeyebilir. Görünmüyorsa yeni bir kampanya başlatın.
 
