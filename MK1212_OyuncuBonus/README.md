@@ -44,9 +44,12 @@ Bakım örnekleri:
 ## Doğrulama
 
 Kampanyada:
-- Bir eyaletin kamu düzeni ipucunda **"Player bonus - Public order: +5"** görünmeli.
-- Büyüme ipucunda **"Player bonus - Growth: +8"** görünmeli.
-- Askere alma panelinde, bakımı ~460 olan bir birim ~180 göstermeli.
+- Eyalet ayrıntılarında kamu düzeninin **Buildings** satırı +5 artmış olmalı
+  (bonus oyunun bina kaynaklı kamu düzeni kategorisini kullanır).
+- Büyüme ipucunda **Faction** satırı +8 artmış olmalı. Bu satıra siyasi güç seviyesinin
+  büyüme etkisi de eklenir, bu yüzden tam +8 görünmeyebilir.
+- Askere alma panelinde, bakımı ~460 olan bir birim ~180 göstermeli
+  (ör. Askeri Lancers: 409 → 172).
 
 Zorluk bonusları mevcut bir kayıtta devreye girmeyebilir. Görünmüyorsa yeni bir kampanya başlatın.
 
