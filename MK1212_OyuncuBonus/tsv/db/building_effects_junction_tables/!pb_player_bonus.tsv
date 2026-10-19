@@ -1,0 +1,14 @@
+building	effect	effect_scope	value	value_damaged	value_ruined
+#building_effects_junction_tables;3;db/building_effects_junction_tables/!pb_player_bonus					
+mk_bld_religion_sunni_major_1	att_effect_sanitation_buildings	region_to_region_own	1.0000	0.0000	0.0000
+mk_bld_religion_sunni_major_2	att_effect_sanitation_buildings	region_to_region_own	2.0000	0.0000	0.0000
+mk_bld_religion_sunni_major_3	att_effect_sanitation_buildings	region_to_region_own	3.0000	0.0000	0.0000
+mk_bld_religion_sunni_major_4	att_effect_sanitation_buildings	region_to_region_own	4.0000	0.0000	0.0000
+mk_bld_religion_shia_major_1	att_effect_sanitation_buildings	region_to_region_own	1.0000	0.0000	0.0000
+mk_bld_religion_shia_major_2	att_effect_sanitation_buildings	region_to_region_own	2.0000	0.0000	0.0000
+mk_bld_religion_shia_major_3	att_effect_sanitation_buildings	region_to_region_own	3.0000	0.0000	0.0000
+mk_bld_religion_shia_major_4	att_effect_sanitation_buildings	region_to_region_own	4.0000	0.0000	0.0000
+mk_bld_religion_ibadi_major_1	att_effect_sanitation_buildings	region_to_region_own	1.0000	0.0000	0.0000
+mk_bld_religion_ibadi_major_2	att_effect_sanitation_buildings	region_to_region_own	2.0000	0.0000	0.0000
+mk_bld_religion_ibadi_major_3	att_effect_sanitation_buildings	region_to_region_own	3.0000	0.0000	0.0000
+mk_bld_religion_ibadi_major_4	att_effect_sanitation_buildings	region_to_region_own	4.0000	0.0000	0.0000

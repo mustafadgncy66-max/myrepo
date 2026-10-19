@@ -32,6 +32,12 @@ GENERAL_UPKEEP_FACTOR = 1.0        # general muhafızlarına ek çarpan (1.0 = n
 BUILDING_UPKEEP_PCT = -50          # bina bakım maliyeti
 REPLENISHMENT = 10                 # ikmal hızı (AI zorluğa göre +2...+9 alır)
 
+# Eyalet başkenti mescitlerinin sanitasyonu: {seviye: değer}. MK1212'de I. seviye 0, diğerleri +1.
+# Bina tanımı değiştiği için bu, AI'nın mescitlerini de etkiler. Satırlar MK1212'ninkileri ezer,
+# bu yüzden mod yükleme sırasında MK1212'nin üstünde olmalıdır.
+MOSQUE_SANITATION = {1: 1, 2: 2, 3: 3, 4: 4}
+MOSQUE_RELIGIONS = ('sunni', 'shia', 'ibadi')
+
 # (anahtar, bonus_value_id, kapsam, değer, (simge, negatif simge), öncelik, açıklama)
 # Simgeler oyundaki eşdeğer efektlerden alındı; maliyet efektlerinde ters çevrilidir.
 SIMPLE_EFFECTS = [
@@ -146,6 +152,12 @@ def build_tables(units, out_dir):
         set_bonus.append(['upkeep_mod', effect, unit_set])
         set_units += [['', '', '', unit, unit_set, 'false'] for unit in sorted(bands[pct])]
         handicap += [[d, 'true', effect, 'faction_to_force_own_unseen', f'{-pct:.4f}', ''] for d in DIFFICULTIES]
+
+    building_effects = [[f'mk_bld_religion_{religion}_major_{level}', 'att_effect_sanitation_buildings',
+                         'region_to_region_own', f'{value:.4f}', '0.0000', '0.0000']
+                        for religion in MOSQUE_RELIGIONS for level, value in MOSQUE_SANITATION.items()]
+    write_tsv(out_dir, 'building_effects_junction_tables', name, 3,
+              ['building', 'effect', 'effect_scope', 'value', 'value_damaged', 'value_ruined'], building_effects)
 
     write_tsv(out_dir, 'effects_tables', name, 1, ['effect', 'icon', 'priority', 'icon_negative'], effects)
     write_tsv(out_dir, 'effect_bonus_value_basic_junction_tables', name, 0, ['effect', 'bonus_value_id'], basic)
