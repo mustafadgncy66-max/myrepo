@@ -331,10 +331,25 @@ function Get-PackEntries($path) {
     }
 }
 
-function Test-ModDataEntry($entryPath, $includeLocs) {
+function Test-ModDataEntry($entryPath, $includeLocs, $includeScripts) {
     $parts = $entryPath.Split('/')
     if ($parts.Count -eq 3 -and $parts[0] -eq 'db' -and $parts[1] -match $ModDataTablePattern) { return $true }
+    if ($includeScripts -and $entryPath.EndsWith('.lua')) { return $true }
     return ($includeLocs -and $entryPath.EndsWith('.loc'))
+}
+
+# Küçük pack'lerin tam içerik listesini, büyüklerin klasör özetini yazar.
+function Write-PackIndex($entries, $destFile) {
+    if ($entries.Count -le 3000) {
+        $lines = $entries | ForEach-Object { "$($_.Path)`t$($_.Size)" }
+    } else {
+        $lines = $entries | Group-Object { ($_.Path -split '/')[0] } | ForEach-Object {
+            $total = ($_.Group | Measure-Object Size -Sum).Sum
+            "$($_.Name)/`t$($_.Count) dosya`t$total"
+        }
+    }
+    New-Item -ItemType Directory -Path (Split-Path $destFile) -Force | Out-Null
+    Set-Content -Path $destFile -Value $lines -Encoding UTF8
 }
 
 function Export-PackEntries($packPath, $entries, $destDir) {
@@ -390,12 +405,17 @@ function Invoke-ExportModData {
         if (-not $entries) { continue }
 
         # Yerelleştirme dosyaları yalnızca MK1212 pack'lerinden alınır; oyununkiler çok büyük.
+        # Betikler ve içerik listesi yalnızca Workshop modlarından alınır.
+        $isWorkshop = $pack.FullName.StartsWith($workshop)
         $includeLocs = $pack.Name -match '1212'
-        $wanted = @($entries | Where-Object { Test-ModDataEntry $_.Path $includeLocs })
-        if ($wanted.Count -eq 0) { continue }
+        $wanted = @($entries | Where-Object { Test-ModDataEntry $_.Path $includeLocs $isWorkshop })
 
         $folder = $pack.Name
-        if ($pack.FullName.StartsWith($workshop)) { $folder = "workshop_$($pack.Directory.Name)_$($pack.Name)" }
+        if ($isWorkshop) {
+            $folder = "workshop_$($pack.Directory.Name)_$($pack.Name)"
+            Write-PackIndex $entries (Join-Path $outRoot "$folder\_index.tsv")
+        }
+        if ($wanted.Count -eq 0) { continue }
         Export-PackEntries $pack.FullName $wanted (Join-Path $outRoot $folder)
         $manifest.Add("$folder`t$($wanted.Count)")
         Write-Ok "$($pack.Name): $($wanted.Count) dosya"
