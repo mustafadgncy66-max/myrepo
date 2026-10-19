@@ -1,0 +1,9 @@
+id	choice_key	dilemma_key	payload_key	value
+#cdir_events_dilemma_payloads_tables;2;db/cdir_events_dilemma_payloads_tables/!pb_player_bonus				
+8800017	FIRST	pb_dilemma_seljuk_divan	TREASURY	AMOUNT[-4000]
+8800018	FIRST	pb_dilemma_seljuk_divan	pb_payload_seljuk_walls	DURATION[30];GLOBAL
+8800019	SECOND	pb_dilemma_seljuk_divan	TREASURY	AMOUNT[-2000]
+8800020	SECOND	pb_dilemma_seljuk_divan	pb_payload_seljuk_frontier	DURATION[20];GLOBAL
+8800024	FIRST	pb_dilemma_seljuk_caravanserais	TREASURY	AMOUNT[-5000]
+8800025	FIRST	pb_dilemma_seljuk_caravanserais	pb_payload_seljuk_hans	DURATION[0];GLOBAL
+8800026	SECOND	pb_dilemma_seljuk_caravanserais	TREASURY	AMOUNT[3000]

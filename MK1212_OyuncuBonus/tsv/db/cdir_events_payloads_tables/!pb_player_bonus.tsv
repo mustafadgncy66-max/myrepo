@@ -1,0 +1,7 @@
+payload_key	effect_bundle_key
+#cdir_events_payloads_tables;0;db/cdir_events_payloads_tables/!pb_player_bonus	
+pb_payload_seljuk_sinope	pb_bundle_seljuk_sinope
+pb_payload_seljuk_refugees	pb_bundle_seljuk_refugees
+pb_payload_seljuk_walls	pb_bundle_seljuk_walls
+pb_payload_seljuk_frontier	pb_bundle_seljuk_frontier
+pb_payload_seljuk_hans	pb_bundle_seljuk_hans

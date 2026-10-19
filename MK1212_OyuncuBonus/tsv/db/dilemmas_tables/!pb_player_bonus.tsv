@@ -1,0 +1,4 @@
+key	generate	localised_description	localised_title	ui_icon	ui_image	prioritized	event_category
+#dilemmas_tables;3;db/dilemmas_tables/!pb_player_bonus							
+pb_dilemma_seljuk_divan	false	The emirs gather before the Sultan. The horde has not yet reached Anatolia, but none doubt that it will. Some urge that the walls of Konya, Kayseri and Sivas be rebuilt in stone; others say the Turkmen of the frontier should be summoned and armed.	The Sultan's Divan	rom_event_document.png	pb_seljuk_divan	true	Historical
+pb_dilemma_seljuk_caravanserais	false	Trade along the Anatolian roads grows, but merchants fear bandits and harsh winters. The vizier proposes a chain of great caravanserais, a day's journey apart, built and guarded by the state.	The Sultan's Hans	rom_event_document.png	pb_seljuk_caravanserai	true	Historical

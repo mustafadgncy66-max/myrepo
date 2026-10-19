@@ -87,6 +87,22 @@ effects_description_pb_effect_upkeep_78	Player bonus - Upkeep cost: %+n% for exp
 effects_description_pb_effect_upkeep_79	Player bonus - Upkeep cost: %+n% for expensive units	true
 effects_description_pb_effect_upkeep_generals	Player bonus - Upkeep cost: %+n% for generals (balance)	true
 effects_description_pb_effect_building_upkeep_ai	Maintenance cost: %+n%	true
+missions_localised_title_pb_mission_seljuk_sinope	The Conquest of Sinope	true
+missions_localised_description_pb_mission_seljuk_sinope	Sinope, the jewel of the Black Sea coast, is held by the Greeks. Whoever holds it controls the trade between Anatolia and the northern lands. Sultan Kaykaus has resolved to take it, so that Seljuk caravans may reach the sea in the north as they already do at Attaleia in the south.	true
+incidents_localised_title_pb_incident_seljuk_mongol_threat	A Storm in the East	true
+incidents_localised_description_pb_incident_seljuk_mongol_threat	Merchants and refugees pour in from Khwarazm with terrible news: a horde from the eastern steppes, led by a khan called Chinggis, is burning the great cities of Transoxiana. Scholars, craftsmen and whole families seek shelter in the lands of Rum.	true
+cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_divanFIRST	Raise the walls	true
+cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_divanFIRST	Stone by stone, the walls of the great cities rise again.	true
+cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_divanSECOND	Summon the Turkmen	true
+cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_divanSECOND	Riders from the frontier answer the Sultan's call.	true
+dilemmas_localised_title_pb_dilemma_seljuk_divan	The Sultan's Divan	true
+dilemmas_localised_description_pb_dilemma_seljuk_divan	The emirs gather before the Sultan. The horde has not yet reached Anatolia, but none doubt that it will. Some urge that the walls of Konya, Kayseri and Sivas be rebuilt in stone; others say the Turkmen of the frontier should be summoned and armed.	true
+cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_caravanseraisFIRST	Build them	true
+cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_caravanseraisFIRST	The great hans rise along the roads, and the caravans follow.	true
+cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_caravanseraisSECOND	Leave it to the merchants	true
+cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_caravanseraisSECOND	The merchants build their own inns and pay the Sultan for the privilege.	true
+dilemmas_localised_title_pb_dilemma_seljuk_caravanserais	The Sultan's Hans	true
+dilemmas_localised_description_pb_dilemma_seljuk_caravanserais	Trade along the Anatolian roads grows, but merchants fear bandits and harsh winters. The vizier proposes a chain of great caravanserais, a day's journey apart, built and guarded by the state.	true
 effect_bundles_localised_title_pb_bundle_seljuk_caravan_1	Silk Road: Caravan Cities (1/8)	true
 effect_bundles_localised_description_pb_bundle_seljuk_caravan_1	Your caravans reach 1 of the 8 great trade cities of the Anatolian Silk Road: Iconion, Kayseri, Ancyra, Malatya, Sis, Diyarbakir, Dvin and Tabriz.	true
 effect_bundles_localised_title_pb_bundle_seljuk_caravan_2	Silk Road: Caravan Cities (2/8)	true
@@ -115,3 +131,13 @@ effect_bundles_localised_title_pb_bundle_seljuk_caravanserai	Seljuk Caravanserai
 effect_bundles_localised_description_pb_bundle_seljuk_caravanserai	A chain of state caravanserais shelters merchants along the roads, and the Sultan repays the losses of those robbed on them.	true
 effect_bundles_localised_title_pb_bundle_seljuk_two_seas	Between Two Seas	true
 effect_bundles_localised_description_pb_bundle_seljuk_two_seas	With Sinope on the Black Sea and Attaleia on the Mediterranean, the goods of the north and the south cross Anatolia under Seljuk protection.	true
+effect_bundles_localised_title_pb_bundle_seljuk_sinope	The Conquest of Sinope	true
+effect_bundles_localised_description_pb_bundle_seljuk_sinope	Sinope has fallen and its harbour now serves the Sultanate. Merchants from the Crimea and the Pontic coast pay their dues to Seljuk officials.	true
+effect_bundles_localised_title_pb_bundle_seljuk_refugees	Refugees from the East	true
+effect_bundles_localised_description_pb_bundle_seljuk_refugees	Scholars, craftsmen and whole families fleeing the horde have found shelter in the lands of Rum.	true
+effect_bundles_localised_title_pb_bundle_seljuk_walls	Walls of the Sultanate	true
+effect_bundles_localised_description_pb_bundle_seljuk_walls	The walls of Konya, Kayseri and Sivas have been rebuilt in stone. The people sleep easier behind them.	true
+effect_bundles_localised_title_pb_bundle_seljuk_frontier	Call of the Frontier	true
+effect_bundles_localised_description_pb_bundle_seljuk_frontier	The Turkmen of the frontier have answered the Sultan's call, and their riders fill the ranks.	true
+effect_bundles_localised_title_pb_bundle_seljuk_hans	The Sultan's Hans	true
+effect_bundles_localised_description_pb_bundle_seljuk_hans	A chain of great caravanserais, a day's journey apart, shelters the caravans that cross Anatolia.	true

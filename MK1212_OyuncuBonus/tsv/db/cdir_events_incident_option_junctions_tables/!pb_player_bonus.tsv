@@ -1,0 +1,5 @@
+id	incident_key	option_key	value
+#cdir_events_incident_option_junctions_tables;2;db/cdir_events_incident_option_junctions_tables/!pb_player_bonus			
+8800010	pb_incident_seljuk_mongol_threat	CND_CAMPAIGN	main_attila
+8800011	pb_incident_seljuk_mongol_threat	GEN_TARGET_NONE	
+8800012	pb_incident_seljuk_mongol_threat	VAR_CHANCE	100

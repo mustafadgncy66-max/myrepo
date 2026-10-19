@@ -85,11 +85,34 @@ function PB_Seljuk_Trade_Update(faction)
 	set_bundle("pb_bundle_seljuk_two_seas", owned[SINOPE] == true and owned[ATTALEIA] == true, faction_name);
 end
 
+-- Selçuklu hikâye zinciri (MK1212'de yılda 2 tur, 1. tur 1212 ilkbaharı). Her olay tek bir turda
+-- tetiklenir ve FactionTurnStart her tur bir kez geldiği için ayrıca kayıt tutmaya gerek yoktur.
+-- Görev, haber ve kararların içeriği ve ödülleri build.py'dedir.
+local SINOPE_MISSION_TURN = 2;   -- Sinop'un fethi (tarihte 1214)
+local MONGOL_EVENT_TURN = 12;    -- Harezm'in düşüşü haberi; MK1212'nin Moğol istilası 15. turda
+local CARAVANSERAI_TURN = 19;    -- Alaeddin Keykubad dönemi, Sultan hanları (1221)
+
+function PB_Seljuk_Story(faction)
+	local turn = cm:model():turn_number();
+
+	if turn == SINOPE_MISSION_TURN and not owned_regions(faction)[SINOPE] then
+		cm:trigger_mission(SELJUKS, "pb_mission_seljuk_sinope");
+	elseif turn == MONGOL_EVENT_TURN then
+		cm:trigger_incident(SELJUKS, "pb_incident_seljuk_mongol_threat");
+		cm:trigger_dilemma(SELJUKS, "pb_dilemma_seljuk_divan");
+	elseif turn == CARAVANSERAI_TURN then
+		cm:trigger_dilemma(SELJUKS, "pb_dilemma_seljuk_caravanserais");
+	end
+end
+
 cm:add_listener(
 	"FactionTurnStart_PB_Seljuk_Trade",
 	"FactionTurnStart",
 	function(context) return context:faction():name() == SELJUKS end,
-	function(context) PB_Seljuk_Trade_Update(context:faction()) end,
+	function(context)
+		PB_Seljuk_Trade_Update(context:faction());
+		PB_Seljuk_Story(context:faction());
+	end,
 	true
 );
 

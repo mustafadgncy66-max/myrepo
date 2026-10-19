@@ -1,0 +1,3 @@
+id	incident_key	payload_key	value
+#cdir_events_incident_payloads_tables;2;db/cdir_events_incident_payloads_tables/!pb_player_bonus			
+8800013	pb_incident_seljuk_mongol_threat	pb_payload_seljuk_refugees	DURATION[10];GLOBAL

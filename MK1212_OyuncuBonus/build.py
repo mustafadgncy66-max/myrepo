@@ -64,6 +64,75 @@ COMMERCE_SEA = ('att_effect_economy_gdp_mod_commerce_sea', 'faction_to_region_ow
 TARIFF = ('att_effect_economy_trade_tariff_mod', 'faction_to_faction_own')
 PUBLIC_ORDER_EFFECT = ('att_effect_public_order_base', 'faction_to_province_own')
 
+GDP_ALL = ('att_effect_economy_gdp_mod_all', 'faction_to_region_own')
+GROWTH_EFFECT = ('att_effects_province_growth_faction', 'faction_to_province_own')
+RESEARCH = ('att_effect_technology_research_points_mod', 'faction_to_faction_own')
+REPLENISHMENT_EFFECT = ('att_effect_force_all_campaign_replenishment_rate', 'faction_to_force_own')
+RECRUITMENT_COST = ('att_effect_force_all_campaign_recruitment_cost_all', 'faction_to_force_own_unseen')
+
+# Selçuklu hikâye zinciri. Tetikleme turları mk_fact_seljuks.lua'dadır; olay görselleri ui/eventpics altındadır.
+# Ödül paketleri: (anahtar, simge, başlık, açıklama, [(efekt, kapsam, değer)])
+STORY_BUNDLES = [
+    ('pb_bundle_seljuk_sinope', 'faction_leader_positive.png', 'The Conquest of Sinope',
+     'Sinope has fallen and its harbour now serves the Sultanate. Merchants from the Crimea and the Pontic '
+     'coast pay their dues to Seljuk officials.',
+     [(*PUBLIC_ORDER_EFFECT, 3), (*GDP_ALL, 10)]),
+    ('pb_bundle_seljuk_refugees', 'tax_growth_2.png', 'Refugees from the East',
+     'Scholars, craftsmen and whole families fleeing the horde have found shelter in the lands of Rum.',
+     [(*GROWTH_EFFECT, 3), (*RESEARCH, 10)]),
+    ('pb_bundle_seljuk_walls', 'faction_leader_positive.png', 'Walls of the Sultanate',
+     'The walls of Konya, Kayseri and Sivas have been rebuilt in stone. The people sleep easier behind them.',
+     [(*PUBLIC_ORDER_EFFECT, 3), (*REPLENISHMENT_EFFECT, 15)]),
+    ('pb_bundle_seljuk_frontier', 'faction_leader_positive.png', 'Call of the Frontier',
+     'The Turkmen of the frontier have answered the Sultan\'s call, and their riders fill the ranks.',
+     [(*RECRUITMENT_COST, -20), (*REPLENISHMENT_EFFECT, 10)]),
+    ('pb_bundle_seljuk_hans', 'tax_growth_4.png', 'The Sultan\'s Hans',
+     'A chain of great caravanserais, a day\'s journey apart, shelters the caravans that cross Anatolia.',
+     [(*TARIFF, 20), (*COMMERCE_LAND, 15)]),
+]
+
+STORY_MISSIONS = [{
+    'key': 'pb_mission_seljuk_sinope', 'image': 'pb_seljuk_sinope', 'region': 'att_reg_bithynia_amasea',
+    'turns': 12, 'title': 'The Conquest of Sinope',
+    'description': 'Sinope, the jewel of the Black Sea coast, is held by the Greeks. Whoever holds it controls the '
+                   'trade between Anatolia and the northern lands. Sultan Kaykaus has resolved to take it, so that '
+                   'Seljuk caravans may reach the sea in the north as they already do at Attaleia in the south.',
+    'payloads': [('TREASURY', 'AMOUNT[6000]'), ('pb_bundle_seljuk_sinope', 'DURATION[10];GLOBAL')],
+}]
+
+STORY_INCIDENTS = [{
+    'key': 'pb_incident_seljuk_mongol_threat', 'image': 'pb_seljuk_mongol_threat', 'title': 'A Storm in the East',
+    'description': 'Merchants and refugees pour in from Khwarazm with terrible news: a horde from the eastern '
+                   'steppes, led by a khan called Chinggis, is burning the great cities of Transoxiana. Scholars, '
+                   'craftsmen and whole families seek shelter in the lands of Rum.',
+    'payloads': [('pb_bundle_seljuk_refugees', 'DURATION[10];GLOBAL')],
+}]
+
+STORY_DILEMMAS = [{
+    'key': 'pb_dilemma_seljuk_divan', 'image': 'pb_seljuk_divan', 'title': 'The Sultan\'s Divan',
+    'description': 'The emirs gather before the Sultan. The horde has not yet reached Anatolia, but none doubt that '
+                   'it will. Some urge that the walls of Konya, Kayseri and Sivas be rebuilt in stone; others say '
+                   'the Turkmen of the frontier should be summoned and armed.',
+    'choices': [
+        ('FIRST', 'Raise the walls', 'Stone by stone, the walls of the great cities rise again.',
+         [('TREASURY', 'AMOUNT[-4000]'), ('pb_bundle_seljuk_walls', 'DURATION[30];GLOBAL')]),
+        ('SECOND', 'Summon the Turkmen', 'Riders from the frontier answer the Sultan\'s call.',
+         [('TREASURY', 'AMOUNT[-2000]'), ('pb_bundle_seljuk_frontier', 'DURATION[20];GLOBAL')]),
+    ],
+}, {
+    'key': 'pb_dilemma_seljuk_caravanserais', 'image': 'pb_seljuk_caravanserai', 'title': 'The Sultan\'s Hans',
+    'description': 'Trade along the Anatolian roads grows, but merchants fear bandits and harsh winters. The vizier '
+                   'proposes a chain of great caravanserais, a day\'s journey apart, built and guarded by the state.',
+    'choices': [
+        ('FIRST', 'Build them', 'The great hans rise along the roads, and the caravans follow.',
+         [('TREASURY', 'AMOUNT[-5000]'), ('pb_bundle_seljuk_hans', 'DURATION[0];GLOBAL')]),
+        ('SECOND', 'Leave it to the merchants', 'The merchants build their own inns and pay the Sultan for the privilege.',
+         [('TREASURY', 'AMOUNT[3000]')]),
+    ],
+}]
+
+STORY_FIRST_ID = 8800000           # MK1212'nin kimlikleri 440000'in altında
+
 # (anahtar, bonus_value_id'ler, kapsam, değer, (simge, negatif simge), öncelik, açıklama)
 # Simgeler oyundaki eşdeğer efektlerden alındı; maliyet efektlerinde ters çevrilidir.
 SIMPLE_EFFECTS = [
@@ -213,6 +282,81 @@ def trade_bundles():
     return bundles
 
 
+def table_schema(data_dir, table):
+    """Kurulu dosyalardaki en yeni (başlık, sürüm)."""
+    return max((read_tsv(path)[:2] for path in table_files(data_dir, table)), key=lambda hv: hv[1])
+
+
+def payload_key(payload):
+    """Efekt paketleri cdir_events_payloads üzerinden bağlanır; TREASURY gibi hazır anahtarlar olduğu gibi kalır."""
+    return payload.replace('pb_bundle_', 'pb_payload_') if payload.startswith('pb_bundle_') else payload
+
+
+def write_story_tables(data_dir, out_dir, name, loc):
+    ids = iter(range(STORY_FIRST_ID, STORY_FIRST_ID + 100000))
+    tables = {}
+
+    def add(table, row):
+        tables.setdefault(table, []).append(row)
+
+    for m in STORY_MISSIONS:
+        add('missions_tables', {'key': m['key'], 'generate': 'false', 'localised_description': m['description'],
+                                'localised_title': m['title'], 'mission_type': 'CAPTURE_REGIONS',
+                                'ui_icon': 'rom_event_mission.png', 'ui_image': m['image'], 'prioritised': 'true',
+                                'event_category': 'Military'})
+        options = [('CND_CAMPAIGN', 'main_attila'), ('GEN_TARGET_REGION', ''), ('GEN_CND_REGION', m['region']),
+                   ('GEN_CND_NOT_OWNS', ''), ('VAR_CHANCE', '100'), ('VAR_MISSION_LENGTH_MIN', str(m['turns'])),
+                   ('VAR_MISSION_LENGTH_MAX', str(m['turns']))]
+        for option, value in options:
+            add('cdir_events_mission_option_junctions_tables',
+                {'id': str(next(ids)), 'mission_key': m['key'], 'option_key': option, 'value': value})
+        for payload, value in m['payloads'] + [('TARGET', 'EVENT')]:
+            add('cdir_events_mission_payloads_tables', {'id': str(next(ids)), 'mission_key': m['key'],
+                                                         'payload_key': payload_key(payload),
+                                                         'status_key': 'SUCCESS', 'value': value})
+        add('cdir_events_mission_issuer_junctions_tables', {'issuer_key': 'CLAN_ELDERS', 'mission_key': m['key']})
+        loc.append([f'missions_localised_title_{m["key"]}', m['title'], 'true'])
+        loc.append([f'missions_localised_description_{m["key"]}', m['description'], 'true'])
+
+    for i in STORY_INCIDENTS:
+        add('incidents_tables', {'key': i['key'], 'generate': 'false', 'ui_icon': 'message_generic_news.png',
+                                 'ui_image': i['image'], 'prioritised': 'true', 'event_category': 'Historical'})
+        for option, value in (('CND_CAMPAIGN', 'main_attila'), ('GEN_TARGET_NONE', ''), ('VAR_CHANCE', '100')):
+            add('cdir_events_incident_option_junctions_tables',
+                {'id': str(next(ids)), 'incident_key': i['key'], 'option_key': option, 'value': value})
+        for payload, value in i['payloads']:
+            add('cdir_events_incident_payloads_tables', {'id': str(next(ids)), 'incident_key': i['key'],
+                                                          'payload_key': payload_key(payload), 'value': value})
+        loc.append([f'incidents_localised_title_{i["key"]}', i['title'], 'true'])
+        loc.append([f'incidents_localised_description_{i["key"]}', i['description'], 'true'])
+
+    for d in STORY_DILEMMAS:
+        add('dilemmas_tables', {'key': d['key'], 'generate': 'false', 'localised_description': d['description'],
+                                'localised_title': d['title'], 'ui_icon': 'rom_event_document.png',
+                                'ui_image': d['image'], 'prioritized': 'true', 'event_category': 'Historical'})
+        for option, value in (('CND_CAMPAIGN', 'main_attila'), ('GEN_TARGET_NONE', ''), ('VAR_CHANCE', '100')):
+            add('cdir_events_dilemma_option_junctions_tables',
+                {'id': str(next(ids)), 'dilemma_key': d['key'], 'option_key': option, 'value': value})
+        for choice, label, outcome, payloads in d['choices']:
+            add('cdir_events_dilemma_choice_details_tables', {'choice_key': choice, 'dilemma_key': d['key']})
+            for payload, value in payloads:
+                add('cdir_events_dilemma_payloads_tables', {'id': str(next(ids)), 'choice_key': choice,
+                                                             'dilemma_key': d['key'],
+                                                             'payload_key': payload_key(payload), 'value': value})
+            prefix = 'cdir_events_dilemma_choice_details_localised_choice'
+            loc.append([f'{prefix}_label_{d["key"]}{choice}', label, 'true'])
+            loc.append([f'{prefix}_title_{d["key"]}{choice}', outcome, 'true'])
+        loc.append([f'dilemmas_localised_title_{d["key"]}', d['title'], 'true'])
+        loc.append([f'dilemmas_localised_description_{d["key"]}', d['description'], 'true'])
+
+    for key, *_ in STORY_BUNDLES:
+        add('cdir_events_payloads_tables', {'payload_key': payload_key(key), 'effect_bundle_key': key})
+
+    for table, rows in tables.items():
+        header, version = table_schema(data_dir, table)
+        write_tsv(out_dir, table, name, version, header, [[row.get(c, '') for c in header] for row in rows])
+
+
 def write_tsv(out_dir, table, file_name, version, header, rows):
     path = os.path.join(out_dir, 'db', table, file_name + '.tsv')
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -299,8 +443,9 @@ def build_tables(data_dir, out_dir):
     write_tsv(out_dir, 'building_effects_junction_tables', name, 3,
               ['building', 'effect', 'effect_scope', 'value', 'value_damaged', 'value_ruined'], building_effects)
 
-    # Selçuklu Ticaret Ağı paketleri.
-    bundles = trade_bundles()
+    # Selçuklu Ticaret Ağı ve hikâye ödül paketleri.
+    bundles = trade_bundles() + STORY_BUNDLES
+    write_story_tables(data_dir, out_dir, name, loc)
     write_tsv(out_dir, 'effect_bundles_tables', name, 1,
               ['key', 'localised_description', 'localised_title', 'ui_icon', 'bundle_target'],
               [[key, 'Placeholder', title, icon, 'faction'] for key, icon, title, _, _ in bundles])
@@ -331,7 +476,8 @@ def build_tables(data_dir, out_dir):
     print(f'General muhafızları ({GENERAL_UPKEEP}): {", ".join(generals)}')
     print(f'Bakımı yarıya inen bina seviyesi: {len(level_rows)}')
     print(f'AI bina bakımı telafisi (zorluk: %): {compensation}')
-    print(f'Ticaret paketleri: {len(bundles)}')
+    print(f'Ticaret ve hikâye paketleri: {len(bundles)}; görev {len(STORY_MISSIONS)}, haber {len(STORY_INCIDENTS)}, '
+          f'karar {len(STORY_DILEMMAS)}')
 
 
 def main():
@@ -350,9 +496,11 @@ def main():
     if os.path.exists(pack):
         os.remove(pack)
     subprocess.run([args.rpfm, '-g', 'attila', 'pack', 'create', '-p', pack], check=True)
-    # TSV dosyaları pack içindeki yerlerini kendi başlık satırlarından alır; betik klasörü ise açıkça verilir.
+    # TSV dosyaları pack içindeki yerlerini kendi başlık satırlarından alır; betik ve görsel klasörleri açıkça verilir.
     campaigns = os.path.dirname(os.path.dirname(os.path.dirname(TRADE_SCRIPT)))
-    for folder in (f'{os.path.join(tsv_dir, "db")};', f'{os.path.join(tsv_dir, "text")};', f'{campaigns};campaigns'):
+    ui = os.path.join(os.path.dirname(campaigns), 'ui')
+    for folder in (f'{os.path.join(tsv_dir, "db")};', f'{os.path.join(tsv_dir, "text")};', f'{campaigns};campaigns',
+                   f'{ui};ui'):
         subprocess.run([args.rpfm, '-g', 'attila', 'pack', 'add', '-p', pack, '-t', args.schema, '-F', folder],
                        check=True)
     print(f'Pack: {pack}')

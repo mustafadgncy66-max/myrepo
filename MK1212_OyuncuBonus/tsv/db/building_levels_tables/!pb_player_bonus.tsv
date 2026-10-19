@@ -1,452 +1,452 @@
 level_name	chain	level	create_time	create_cost	upkeep_cost	commodity	commodity_vol	only_in_capital	military_prestige	naval_prestige	economic_prestige	enlightenment_prestige	destruction_terminator	faction_unique	religion_requirement	first_in_world_bundle	resource_requirement	unique_index	can_convert	building_instance_key	audio_building_type	should_show_building_level_in_ui_for_technology	health_override	development_point_cost	has_aqueduct	can_be_damaged	requires_primary_slot_in_group
 #building_levels_tables;11;db/building_levels_tables/!pb_player_bonus																											
-att_bld_all_resources_port_military_2	att_bch_resources_port_regular	2	4	4500	75		0	false	0	0	0	0	false	false				11951	true		military_port	true	0.0000	0	false	true	
-att_bld_all_resources_port_military_3	att_bch_resources_port_regular	3	6	7500	150		0	false	0	0	0	0	false	false				11956	true		military_port	true	0.0000	0	false	true	
-att_bld_all_resources_port_military_4	att_bch_resources_port_regular	4	8	12000	225		0	false	0	0	0	1	false	false				11959	true		military_port	true	0.0000	0	false	true	
-att_bld_eastern_sassanid_military_cavalry_4	att_bch_eastern_sassanid_military_cavalry	3	5	11500	600		0	false	0	0	0	0	false	false			res_rom_iron	8873	true	att_military_cavalry	military	true	0.0000	0	false	true	
-att_bld_eastern_sassanid_military_infantry_4	att_bch_eastern_sassanid_military_infantry	3	5	8000	500		0	false	0	0	0	0	false	false			res_rom_iron	8843	true	att_military_infantry	military	true	0.0000	0	false	true	
-att_bld_eastern_sassanid_military_minor_4	att_bch_eastern_sassanid_military_minor	3	5	7000	400		0	false	0	0	0	0	false	false			res_rom_iron	8825	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-att_bld_eastern_sassanid_port_military_4	att_bch_eastern_sassanid_port_minor	3	8	11500	500		0	false	0	0	0	0	false	false				11453	true		military_port	true	0.0000	0	false	true	
-att_bld_eastern_sassanid_water_minor_1	att_bch_eastern_sassanid_water_minor	0	1	1000	10		0	false	0	0	0	0	false	false				9114	true	att_water_minor	town	true	0.0000	0	false	true	
-att_bld_eastern_sassanid_water_minor_2	att_bch_eastern_sassanid_water_minor	1	2	1500	20		0	false	0	0	0	0	false	false				9116	true	att_water_minor	town	true	0.0000	0	false	true	
-att_bld_eastern_sassanid_water_minor_3	att_bch_eastern_sassanid_water_minor	2	3	2500	38		0	false	0	0	0	0	false	false				9126	true	att_water_minor	town	true	0.0000	0	false	true	
-att_bld_eastern_sassanid_water_minor_4	att_bch_eastern_sassanid_water_minor	3	4	4000	75		0	false	0	0	0	0	false	false			res_rom_marble	9129	true	att_water_minor	town	true	0.0000	0	false	true	
-att_bld_eos_military_infantry_5_east_church	att_bch_eastern_sassanid_military_infantry	4	6	10000	500		0	false	0	0	0	0	false	false			res_rom_iron	13892	true	att_military_infantry	military	true	0.0000	0	false	true	
-att_bld_eos_military_infantry_5_judaism	att_bch_eastern_sassanid_military_infantry	4	6	10000	500		0	false	0	0	0	0	false	false			res_rom_iron	13897	true	att_military_infantry	military	true	0.0000	0	false	true	
-att_bld_eos_military_infantry_5_semitic	att_bch_eastern_sassanid_military_infantry	4	6	10000	500		0	false	0	0	0	0	false	false			res_rom_iron	13886	true	att_military_infantry	military	true	0.0000	0	false	true	
-att_bld_eos_military_infantry_5_zoroastrian	att_bch_eastern_sassanid_military_infantry	4	6	10000	500		0	false	0	0	0	0	false	false			res_rom_iron	13906	true	att_military_infantry	military	true	0.0000	0	false	true	
-att_bld_religion_arian_legendary_1	att_bch_religion_arian_legendary	0	3	2500	100		0	false	0	0	0	0	false	false	att_rel_chr_arian			11836	true	att_religious_christian	roman_temple	false	0.0000	0	false	true	
-att_bld_religion_arian_legendary_2	att_bch_religion_arian_legendary	1	4	4000	300		0	false	0	0	0	0	false	false	att_rel_chr_arian			11837	true	att_religious_christian	roman_temple	false	0.0000	0	false	true	
-att_bld_religion_arian_legendary_3	att_bch_religion_arian_legendary	2	5	7000	500		0	false	0	0	0	0	false	false	att_rel_chr_arian		res_rom_lead	11842	true	att_religious_christian	roman_temple	false	0.0000	0	false	true	
-att_bld_religion_arian_legendary_4	att_bch_religion_arian_legendary	3	6	11500	750		0	false	0	0	0	1	false	false	att_rel_chr_arian		res_rom_marble	11846	true	att_religious_christian	roman_temple	false	0.0000	0	false	true	
-att_bld_religion_arian_legendary_5	att_bch_religion_arian_legendary	4	8	25000	1500		0	false	0	0	0	0	false	false	att_rel_chr_arian		res_rom_marble	11853	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_arian_major_1	att_bch_religion_arian_major	0	3	2500	100		0	false	0	0	0	0	false	false	att_rel_chr_arian			10654	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_arian_major_church_2	att_bch_religion_arian_major	1	4	4000	300		0	false	0	0	0	0	false	false	att_rel_chr_arian			10663	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_arian_major_church_3	att_bch_religion_arian_major	2	5	7000	500		0	false	0	0	0	0	false	false	att_rel_chr_arian		res_rom_lead	10671	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_arian_major_church_4	att_bch_religion_arian_major	3	6	11500	750		0	false	0	0	0	1	false	false	att_rel_chr_arian		res_rom_marble	10680	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_arian_major_monestary_2	att_bch_religion_arian_major	1	4	4000	300		0	false	0	0	0	0	false	false	att_rel_chr_arian			10687	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_arian_major_monestary_3	att_bch_religion_arian_major	2	5	7000	500		0	false	0	0	0	0	false	false	att_rel_chr_arian		res_rom_lead	10696	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_arian_major_monestary_4	att_bch_religion_arian_major	3	6	11500	750		0	false	0	0	0	1	false	false	att_rel_chr_arian		res_rom_marble	10704	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_arian_minor_1	att_bch_religion_arian_minor	0	2	2000	50		0	false	0	0	0	0	false	false	att_rel_chr_arian			10624	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_arian_minor_2	att_bch_religion_arian_minor	1	3	3000	100		0	false	0	0	0	0	false	false	att_rel_chr_arian			10633	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_arian_minor_3	att_bch_religion_arian_minor	2	4	5000	200		0	false	0	0	0	0	false	false	att_rel_chr_arian			10640	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_arian_minor_4	att_bch_religion_arian_minor	3	5	8000	300		0	false	0	0	0	1	false	false	att_rel_chr_arian			10649	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_catholic_legendary_1	att_bch_religion_catholic_legendary	0	3	2500	100		0	false	0	0	0	0	false	false	att_rel_chr_catholic			11809	true	att_religious_christian	city	false	0.0000	0	false	true	
-att_bld_religion_catholic_legendary_2	att_bch_religion_catholic_legendary	1	4	4000	300		0	false	0	0	0	0	false	false	att_rel_chr_catholic			11811	true	att_religious_christian	city	false	0.0000	0	false	true	
-att_bld_religion_catholic_legendary_3	att_bch_religion_catholic_legendary	2	5	7000	500		0	false	0	0	0	0	false	false	att_rel_chr_catholic		res_rom_lead	11815	true	att_religious_christian	city	false	0.0000	0	false	true	
-att_bld_religion_catholic_legendary_4	att_bch_religion_catholic_legendary	3	6	11500	750		0	false	0	0	0	1	false	false	att_rel_chr_catholic		res_rom_marble	11820	true	att_religious_christian	city	false	0.0000	0	false	true	
-att_bld_religion_catholic_legendary_5	att_bch_religion_catholic_legendary	4	8	25000	1500		0	false	0	0	0	0	false	false	att_rel_chr_catholic		res_rom_marble	11830	true	att_religious_christian	city	true	0.0000	0	false	true	
-att_bld_religion_catholic_major_1	att_bch_religion_catholic_major	0	3	3750	100		0	false	0	0	0	0	false	false	att_rel_chr_catholic			10720	true	att_religious_christian	city	true	0.0000	0	false	true	
-att_bld_religion_catholic_major_church_2	att_bch_religion_catholic_major	1	4	6000	200		0	false	0	0	0	0	false	false	att_rel_chr_catholic			10726	true	att_religious_christian	city	true	0.0000	0	false	true	
-att_bld_religion_catholic_major_church_3	att_bch_religion_catholic_major	2	5	10500	300		0	false	0	0	0	0	false	false	att_rel_chr_catholic			10736	true	att_religious_christian	city	true	0.0000	0	false	true	
-att_bld_religion_catholic_major_church_4	att_bch_religion_catholic_major	3	6	17250	400		0	false	0	0	0	1	false	false	att_rel_chr_catholic			10738	true	att_religious_christian	city	true	0.0000	0	false	true	
-att_bld_religion_catholic_minor_1	att_bch_religion_catholic_minor	0	3	3750	100		0	false	0	0	0	0	false	false	att_rel_chr_catholic			10710	true	att_religious_christian	city	true	0.0000	0	false	true	
-att_bld_religion_catholic_minor_2	att_bch_religion_catholic_minor	1	4	6000	300		0	false	0	0	0	0	false	false	att_rel_chr_catholic			10714	true	att_religious_christian	city	true	0.0000	0	false	true	
-att_bld_religion_catholic_minor_3	att_bch_religion_catholic_minor	2	5	10500	500		0	false	0	0	0	0	false	false	att_rel_chr_catholic			10715	true	att_religious_christian	city	true	0.0000	0	false	true	
-att_bld_religion_catholic_minor_4	att_bch_religion_catholic_minor	3	6	17250	750		0	false	0	0	0	1	false	false	att_rel_chr_catholic			10717	true	att_religious_christian	city	true	0.0000	0	false	true	
-att_bld_religion_celtic_minor_water_2	att_bch_religion_celtic_minor	1	3	3000	30		0	false	0	0	0	0	false	false	att_rel_pag_celtic			10297	true	att_religious_minor	barbarian_shrine	true	0.0000	0	false	true	
-att_bld_religion_celtic_minor_water_3	att_bch_religion_celtic_minor	2	4	5000	60		0	false	0	0	0	0	false	false	att_rel_pag_celtic			10306	true	att_religious_minor	barbarian_shrine	true	0.0000	0	false	true	
-att_bld_religion_celtic_minor_water_4	att_bch_religion_celtic_minor	3	5	8000	120		0	false	0	0	0	0	false	false	att_rel_pag_celtic			10315	true	att_religious_minor	barbarian_shrine	true	0.0000	0	false	true	
-att_bld_religion_orthodox_legendary_1	att_bch_religion_orthodox_legendary	0	3	2500	100		0	false	0	0	0	0	false	false	att_rel_chr_orthodox			11785	true	att_religious_christian	roman_temple	false	0.0000	0	false	true	
-att_bld_religion_orthodox_legendary_2	att_bch_religion_orthodox_legendary	1	4	4000	300		0	false	0	0	0	0	false	false	att_rel_chr_orthodox			11787	true	att_religious_christian	roman_temple	false	0.0000	0	false	true	
-att_bld_religion_orthodox_legendary_3	att_bch_religion_orthodox_legendary	2	5	7000	500		0	false	0	0	0	0	false	false	att_rel_chr_orthodox		res_rom_lead	11797	true	att_religious_christian	roman_temple	false	0.0000	0	false	true	
-att_bld_religion_orthodox_legendary_4	att_bch_religion_orthodox_legendary	3	6	11500	750		0	false	0	0	0	1	false	false	att_rel_chr_orthodox		res_rom_marble	11798	true	att_religious_christian	roman_temple	false	0.0000	0	false	true	
-att_bld_religion_orthodox_legendary_5	att_bch_religion_orthodox_legendary	4	8	25000	1500		0	false	0	0	0	0	false	false	att_rel_chr_orthodox		res_rom_marble	11803	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_orthodox_major_1	att_bch_religion_orthodox_major	0	3	3750	100		0	false	0	0	0	0	false	false	att_rel_chr_orthodox			10600	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_orthodox_major_church_2	att_bch_religion_orthodox_major	1	4	6000	200		0	false	0	0	0	0	false	false	att_rel_chr_orthodox			10603	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_orthodox_major_church_3	att_bch_religion_orthodox_major	2	5	10500	300		0	false	0	0	0	0	false	false	att_rel_chr_orthodox			10604	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_orthodox_major_church_4	att_bch_religion_orthodox_major	3	6	17250	400		0	false	0	0	0	1	false	false	att_rel_chr_orthodox			10610	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_orthodox_minor_1	att_bch_religion_orthodox_minor	0	2	3750	100		0	false	0	0	0	0	false	false	att_rel_chr_orthodox			10584	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_orthodox_minor_2	att_bch_religion_orthodox_minor	1	3	6000	300		0	false	0	0	0	0	false	false	att_rel_chr_orthodox			10586	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_orthodox_minor_3	att_bch_religion_orthodox_minor	2	4	10500	500		0	false	0	0	0	0	false	false	att_rel_chr_orthodox			10589	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_religion_orthodox_minor_4	att_bch_religion_orthodox_minor	3	5	17250	750		0	false	0	0	0	1	false	false	att_rel_chr_orthodox			10596	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-att_bld_roman_east_military_cavalry_2	att_bch_roman_east_military	1	3	3000	100		0	false	0	0	0	0	false	false				8786	true	att_military_cavalry	military	true	0.0000	0	false	true	
-att_bld_roman_east_military_cavalry_3	att_bch_roman_east_military	2	4	5000	300		0	false	0	0	0	0	false	false				8789	true	att_military_cavalry	military	true	0.0000	0	false	true	
-att_bld_roman_east_military_cavalry_4	att_bch_roman_east_military	3	5	8000	500		0	false	0	0	0	0	false	false			res_rom_iron	8796	true	att_military_cavalry	military	true	0.0000	0	false	true	
-att_bld_roman_east_military_infantry_2	att_bch_roman_east_military	1	3	3000	100		0	false	0	0	0	0	false	false				8746	true	att_military_infantry	military	true	0.0000	0	false	true	
-att_bld_roman_east_military_infantry_3	att_bch_roman_east_military	2	4	5000	300		0	false	0	0	0	0	false	false				8755	true	att_military_infantry	military	true	0.0000	0	false	true	
-att_bld_roman_east_military_infantry_4	att_bch_roman_east_military	3	5	8000	500		0	false	0	0	0	0	false	false			res_rom_iron	8761	true	att_military_infantry	military	true	0.0000	0	false	true	
-att_bld_roman_east_military_skirmisher_2	att_bch_roman_east_military	1	3	3000	100		0	false	0	0	0	0	false	false				8765	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-att_bld_roman_east_military_skirmisher_3	att_bch_roman_east_military	2	4	5000	200		0	false	0	0	0	0	false	false				8774	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-att_bld_roman_east_military_skirmisher_4	att_bch_roman_east_military	3	5	8000	400		0	false	0	0	0	0	false	false			res_rom_iron	8776	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-att_bld_roman_east_port_military_4	att_bch_roman_east_port_minor	3	8	11500	500		0	false	0	0	0	0	false	false				11472	true		military_port	true	0.0000	0	false	true	
-att_bld_roman_water_aqueducts_2	att_bch_roman_water_major	1	2	3000	25		0	false	0	0	0	0	false	false				9188	true	att_water_major	town	true	0.0000	0	true	true	
-att_bld_roman_water_aqueducts_3	att_bch_roman_water_major	2	3	5000	50		0	false	0	0	0	0	false	false				9193	true	att_water_major	town	true	0.0000	0	true	true	
-att_bld_roman_water_aqueducts_4	att_bch_roman_water_major	3	4	8000	100		0	false	0	0	0	0	false	false			res_rom_lead	9203	true	att_water_major	town	true	0.0000	0	true	true	
-att_bld_roman_water_major_1	att_bch_roman_water_major	0	1	2000	13		0	false	0	0	0	0	false	false				9185	true	att_water_major	town	true	0.0000	0	false	true	
-att_bld_roman_water_sewers_2	att_bch_roman_water_major	1	2	3000	25		0	false	0	0	0	0	false	false				9211	true	att_water_major	town	true	0.0000	0	false	true	
-att_bld_roman_water_sewers_3	att_bch_roman_water_major	2	3	5000	50		0	false	0	0	0	0	false	false				9221	true	att_water_major	town	true	0.0000	0	false	true	
-att_bld_roman_water_sewers_4	att_bch_roman_water_major	3	4	8000	100		0	false	0	0	0	0	false	false			res_rom_lead	9229	true	att_water_major	town	true	0.0000	0	false	true	
-att_bld_roman_west_military_cavalry_2	att_bch_roman_west_military	1	3	3000	100		0	false	0	0	0	0	false	false				8725	true	att_military_cavalry	military	true	0.0000	0	false	true	
-att_bld_roman_west_military_cavalry_3	att_bch_roman_west_military	2	4	5000	300		0	false	0	0	0	0	false	false				8726	true	att_military_cavalry	military	true	0.0000	0	false	true	
-att_bld_roman_west_military_cavalry_4	att_bch_roman_west_military	3	5	8000	500		0	false	0	0	0	0	false	false			res_rom_iron	8735	true	att_military_cavalry	military	true	0.0000	0	false	true	
-att_bld_roman_west_military_infantry_2	att_bch_roman_west_military	1	3	3000	100		0	false	0	0	0	0	false	false				8691	true	att_military_infantry	military	true	0.0000	0	false	true	
-att_bld_roman_west_military_infantry_3	att_bch_roman_west_military	2	4	5000	300		0	false	0	0	0	0	false	false				8701	true	att_military_infantry	military	true	0.0000	0	false	true	
-att_bld_roman_west_military_infantry_4	att_bch_roman_west_military	3	5	8000	500		0	false	0	0	0	0	false	false			res_rom_iron	8711	true	att_military_infantry	military	true	0.0000	0	false	true	
-att_bld_roman_west_military_skirmisher_2	att_bch_roman_west_military	1	3	3000	100		0	false	0	0	0	0	false	false				8718	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-att_bld_roman_west_military_skirmisher_3	att_bch_roman_west_military	2	4	5000	200		0	false	0	0	0	0	false	false				8721	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-att_bld_roman_west_military_skirmisher_4	att_bch_roman_west_military	3	5	8000	400		0	false	0	0	0	0	false	false			res_rom_iron	8723	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-att_bld_roman_west_port_military_4	att_bch_roman_west_port_minor	3	8	11500	500		0	false	0	0	0	0	false	false				11493	true		military_port	true	0.0000	0	false	true	
-att_slav_wonder_1	att_slav_bch_wonder	0	8	50000	500		0	true	0	0	0	50	false	true				14453	true	att_slav_bch_wonder	barbarian_shrine	true	0.0000	0	false	true	
-att_slav_wonder_civic_2	att_slav_bch_wonder	1	16	100000	1500		0	true	0	0	0	75	false	true				14467	true	att_slav_bch_wonder	barbarian_shrine	true	0.0000	0	false	true	
-att_slav_wonder_civic_3	att_slav_bch_wonder	2	32	150000	3000		0	true	0	0	0	100	false	true				14468	true	att_slav_bch_wonder	barbarian_shrine	true	0.0000	0	false	true	
-att_slav_wonder_military_2	att_slav_bch_wonder	1	16	100000	1500		0	true	0	0	0	75	false	true				14454	true	att_slav_bch_wonder	barbarian_shrine	true	0.0000	0	false	true	
-att_slav_wonder_military_3	att_slav_bch_wonder	2	32	150000	3000		0	true	0	0	0	100	false	true				14462	true	att_slav_bch_wonder	barbarian_shrine	true	0.0000	0	false	true	
-bel_bld_roman_military_4	bel_bch_roman_military	3	5	8000	500		0	false	0	0	0	0	false	false			res_rom_iron	13239	true	att_military_precursor	military	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_military_armory_2	mk_bch_afrkingdoms_military_armory	1	3	4500	100		0	false	0	0	0	0	false	false				21087	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_military_armory_3	mk_bch_afrkingdoms_military_armory	2	4	7500	150		0	false	0	0	0	0	false	false			res_rom_iron	21096	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_military_armory_4	mk_bch_afrkingdoms_military_armory	3	5	12000	200		0	false	0	0	0	1	false	false			res_rom_iron	21103	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_military_barracks_1	mk_bch_afrkingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				21025	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_military_barracks_2	mk_bch_afrkingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				21033	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_military_barracks_3	mk_bch_afrkingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				21038	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_military_garrison_1	mk_bch_afrkingdoms_military_garrison	0	2	2250	50		0	false	0	0	0	0	false	false				21047	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_military_garrison_2	mk_bch_afrkingdoms_military_garrison	1	3	3600	100		0	false	0	0	0	0	false	false				21049	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_military_garrison_3	mk_bch_afrkingdoms_military_garrison	2	4	6300	150		0	false	0	0	0	0	false	false				21050	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_military_garrison_4	mk_bch_afrkingdoms_military_garrison	3	4	10500	200		0	false	0	0	0	0	false	false				21057	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_military_mercs_1	mk_bch_afrkingdoms_military_barracks	1	3	4500	100		0	false	0	0	0	0	false	false				23919	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_military_mercs_2	mk_bch_afrkingdoms_military_barracks	2	5	9000	200		0	false	0	0	0	0	false	false				23927	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_military_siege_1	mk_bch_afrkingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				21059	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_military_siege_2	mk_bch_afrkingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				21065	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_military_siege_3	mk_bch_afrkingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				21074	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_water_major_1	mk_bch_afrkingdoms_water_major	0	1	1500	25		0	false	0	0	0	0	false	false				21157	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_water_major_2	mk_bch_afrkingdoms_water_major	1	2	2250	50		0	false	0	0	0	0	false	false				21162	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_water_major_3	mk_bch_afrkingdoms_water_major	2	3	3750	75		0	false	0	0	0	0	false	false				21167	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_water_major_4	mk_bch_afrkingdoms_water_major	3	4	6000	100		0	false	0	0	0	0	false	false				21170	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_water_minor_1	mk_bch_afrkingdoms_water_minor	0	1	1500	25		0	false	0	0	0	0	false	false				21177	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_water_minor_2	mk_bch_afrkingdoms_water_minor	1	2	2250	50		0	false	0	0	0	0	false	false				21180	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_water_minor_3	mk_bch_afrkingdoms_water_minor	2	3	3750	75		0	false	0	0	0	0	false	false				21187	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_afrkingdoms_water_minor_4	mk_bch_afrkingdoms_water_minor	3	4	6000	100		0	false	0	0	0	0	false	false				21195	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_arakingdoms_military_armory_2	mk_bch_arakingdoms_military_armory	1	3	4500	100		0	false	0	0	0	0	false	false				18939	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_arakingdoms_military_armory_3	mk_bch_arakingdoms_military_armory	2	4	7500	150		0	false	0	0	0	0	false	false			res_rom_iron	18941	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_arakingdoms_military_armory_4	mk_bch_arakingdoms_military_armory	3	5	12000	200		0	false	0	0	0	1	false	false			res_rom_iron	18948	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_arakingdoms_military_barracks_1	mk_bch_arakingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				18951	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_arakingdoms_military_barracks_2	mk_bch_arakingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				18960	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_arakingdoms_military_barracks_3	mk_bch_arakingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				18970	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_arakingdoms_military_garrison_1	mk_bch_arakingdoms_military_garrison	0	2	2250	50		0	false	0	0	0	0	false	false				18976	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_arakingdoms_military_garrison_2	mk_bch_arakingdoms_military_garrison	1	3	3600	100		0	false	0	0	0	0	false	false				18983	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_arakingdoms_military_garrison_3	mk_bch_arakingdoms_military_garrison	2	4	6300	150		0	false	0	0	0	0	false	false				18989	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_arakingdoms_military_garrison_4	mk_bch_arakingdoms_military_garrison	3	4	10500	200		0	false	0	0	0	0	false	false				18994	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_arakingdoms_military_mamluk_1	mk_bch_arakingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false			res_att_slaves	19026	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_arakingdoms_military_mamluk_2	mk_bch_arakingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false			res_att_slaves	19035	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_arakingdoms_military_mamluk_3	mk_bch_arakingdoms_military_barracks	3	5	12000	150		0	false	0	0	0	0	false	false			res_att_slaves	19040	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_arakingdoms_military_siege_1	mk_bch_arakingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				19001	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_arakingdoms_military_siege_2	mk_bch_arakingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				19009	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_arakingdoms_military_siege_3	mk_bch_arakingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				19017	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_arakingdoms_water_major_1	mk_bch_arakingdoms_water_major	0	1	1500	25		0	false	0	0	0	0	false	false				19104	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_arakingdoms_water_major_2	mk_bch_arakingdoms_water_major	1	2	2250	50		0	false	0	0	0	0	false	false				19112	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_arakingdoms_water_major_3	mk_bch_arakingdoms_water_major	2	3	3750	75		0	false	0	0	0	0	false	false				19113	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_arakingdoms_water_major_4	mk_bch_arakingdoms_water_major	3	4	6000	100		0	false	0	0	0	1	false	false				19116	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_arakingdoms_water_minor_1	mk_bch_arakingdoms_water_minor	0	1	1500	25		0	false	0	0	0	0	false	false				19124	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_arakingdoms_water_minor_2	mk_bch_arakingdoms_water_minor	1	2	2250	50		0	false	0	0	0	0	false	false				19134	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_arakingdoms_water_minor_3	mk_bch_arakingdoms_water_minor	2	3	3750	75		0	false	0	0	0	0	false	false				19139	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_arakingdoms_water_minor_4	mk_bch_arakingdoms_water_minor	3	4	6000	100		0	false	0	0	0	1	false	false				19143	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_military_armory_2	mk_bch_cenkingdoms_military_armory	1	3	4500	100		0	false	0	0	0	0	false	false				21677	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_military_armory_3	mk_bch_cenkingdoms_military_armory	2	4	7500	150		0	false	0	0	0	0	false	false			res_rom_iron	21682	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_military_armory_4	mk_bch_cenkingdoms_military_armory	3	5	12000	200		0	false	0	0	0	1	false	false			res_rom_iron	21684	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_military_barracks_1	mk_bch_cenkingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				21688	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_military_barracks_2	mk_bch_cenkingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				21694	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_military_barracks_3	mk_bch_cenkingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				21699	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_military_garrison_1	mk_bch_cenkingdoms_military_garrison	0	2	2250	50		0	false	0	0	0	0	false	false				21704	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_military_garrison_2	mk_bch_cenkingdoms_military_garrison	1	3	3600	100		0	false	0	0	0	0	false	false				21705	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_military_garrison_3	mk_bch_cenkingdoms_military_garrison	2	4	6300	150		0	false	0	0	0	0	false	false				21709	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_military_garrison_4	mk_bch_cenkingdoms_military_garrison	3	4	10500	200		0	false	0	0	0	0	false	false				21719	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_military_mercs_1	mk_bch_cenkingdoms_military_barracks	1	3	4500	100		0	false	0	0	0	0	false	false				23963	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_military_mercs_1_east	mk_bch_cenkingdoms_military_barracks	1	3	4500	100		0	false	0	0	0	0	false	false				23935	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_military_mercs_2	mk_bch_cenkingdoms_military_barracks	2	5	9000	200		0	false	0	0	0	0	false	false				23970	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_military_mercs_2_east	mk_bch_cenkingdoms_military_barracks	2	5	9000	200		0	false	0	0	0	0	false	false				23939	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_military_siege_1	mk_bch_cenkingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				21732	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_military_siege_2	mk_bch_cenkingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				21736	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_military_siege_3	mk_bch_cenkingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				21737	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_military_tournament_1	mk_bch_cenkingdoms_military_barracks	1	3	4500	100		0	false	0	0	0	0	false	false				21743	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_military_tournament_2	mk_bch_cenkingdoms_military_barracks	2	5	9000	200		0	false	0	0	0	0	false	false				21748	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_water_major_1	mk_bch_cenkingdoms_water_major	0	1	1500	25		0	false	0	0	0	0	false	false				21818	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_water_major_2	mk_bch_cenkingdoms_water_major	1	2	2250	50		0	false	0	0	0	0	false	false				21819	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_water_major_3	mk_bch_cenkingdoms_water_major	2	3	3750	75		0	false	0	0	0	0	false	false				21821	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_water_major_4	mk_bch_cenkingdoms_water_major	3	4	6000	100		0	false	0	0	0	0	false	false				21822	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_water_minor_1	mk_bch_cenkingdoms_water_minor	0	1	1500	25		0	false	0	0	0	0	false	false				21832	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_water_minor_2	mk_bch_cenkingdoms_water_minor	1	2	2250	50		0	false	0	0	0	0	false	false				21833	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_water_minor_3	mk_bch_cenkingdoms_water_minor	2	3	3750	75		0	false	0	0	0	0	false	false				21834	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_cenkingdoms_water_minor_4	mk_bch_cenkingdoms_water_minor	3	4	6000	100		0	false	0	0	0	0	false	false				21838	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_crukingdoms_military_armory_2	mk_bch_crukingdoms_military_armory	1	3	4500	100		0	false	0	0	0	0	false	false				22775	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_crukingdoms_military_armory_3	mk_bch_crukingdoms_military_armory	2	4	7500	150		0	false	0	0	0	0	false	false			res_rom_iron	22778	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_crukingdoms_military_armory_4	mk_bch_crukingdoms_military_armory	3	5	12000	200		0	false	0	0	0	1	false	false			res_rom_iron	22781	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_crukingdoms_military_siege_1	mk_bch_crukingdoms_military_armory	1	3	4500	50		0	false	0	0	0	0	false	false				22786	true	att_milupgrades_siege	military	true	0.0000	0	false	true	
-mk_bld_crukingdoms_military_siege_2	mk_bch_crukingdoms_military_armory	2	4	7500	100		0	false	0	0	0	0	false	false				22796	true	att_milupgrades_siege	military	true	0.0000	0	false	true	
-mk_bld_crukingdoms_military_siege_3	mk_bch_crukingdoms_military_armory	3	5	12000	200		0	false	0	0	0	0	false	false				22804	true	att_milupgrades_siege	military	true	0.0000	0	false	true	
-mk_bld_crukingdoms_order_crusader_1	mk_bch_crukingdoms_order	1	3	4500	150		0	false	0	0	0	0	false	false				22918	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_crukingdoms_order_crusader_2	mk_bch_crukingdoms_order	2	4	7500	150		0	false	0	0	0	0	false	false				22920	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_crukingdoms_order_crusader_3	mk_bch_crukingdoms_order	3	5	10000	200		0	false	0	0	0	0	false	false				22926	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_crukingdoms_order_generic	mk_bch_crukingdoms_order	0	2	3000	75		0	false	0	0	0	0	false	false				22872	true	att_military_precursor	military	true	0.0000	0	false	true	
-mk_bld_crukingdoms_order_hospitaller_1	mk_bch_crukingdoms_order	1	3	4500	150		0	false	0	0	0	0	false	false				22882	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_crukingdoms_order_hospitaller_2	mk_bch_crukingdoms_order	2	4	7500	150		0	false	0	0	0	0	false	false				22891	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_crukingdoms_order_hospitaller_3	mk_bch_crukingdoms_order	3	5	10000	200		0	false	0	0	0	0	false	true				22898	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_crukingdoms_order_lazarus_1	mk_bch_crukingdoms_order	1	3	4500	150		0	false	0	0	0	0	false	false				22904	true	att_water_major	military	true	0.0000	0	false	true	
-mk_bld_crukingdoms_order_lazarus_2	mk_bch_crukingdoms_order	2	4	7500	150		0	false	0	0	0	0	false	false				22909	true	att_water_major	military	true	0.0000	0	false	true	
-mk_bld_crukingdoms_order_lazarus_3	mk_bch_crukingdoms_order	3	5	10000	200		0	false	0	0	0	0	false	true				22914	true	att_water_major	military	true	0.0000	0	false	true	
-mk_bld_easkingdoms_military_armory_2	mk_bch_easkingdoms_military_armory	1	3	4500	100		0	false	0	0	0	0	false	false				14858	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_easkingdoms_military_armory_3	mk_bch_easkingdoms_military_armory	2	4	7500	150		0	false	0	0	0	0	false	false			res_rom_iron	14861	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_easkingdoms_military_armory_4	mk_bch_easkingdoms_military_armory	3	5	12000	200		0	false	0	0	0	1	false	false			res_rom_iron	14866	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_easkingdoms_military_barracks_1	mk_bch_easkingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				14874	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_easkingdoms_military_barracks_2	mk_bch_easkingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				14875	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_easkingdoms_military_barracks_3	mk_bch_easkingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				14877	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_easkingdoms_military_garrison_1	mk_bch_easkingdoms_military_garrison	0	2	2250	50		0	false	0	0	0	0	false	false				14620	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_easkingdoms_military_garrison_2	mk_bch_easkingdoms_military_garrison	1	3	3600	100		0	false	0	0	0	0	false	false				14623	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_easkingdoms_military_garrison_3	mk_bch_easkingdoms_military_garrison	2	4	6300	150		0	false	0	0	0	0	false	false				14633	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_easkingdoms_military_garrison_4	mk_bch_easkingdoms_military_garrison	3	4	10500	200		0	false	0	0	0	0	false	false				14641	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_easkingdoms_military_mercs_1	mk_bch_easkingdoms_military_barracks	1	3	4500	100		0	false	0	0	0	0	false	false				23909	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_easkingdoms_military_mercs_2	mk_bch_easkingdoms_military_barracks	2	5	9000	200		0	false	0	0	0	0	false	false				23912	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_easkingdoms_military_siege_1	mk_bch_easkingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				14886	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_easkingdoms_military_siege_2	mk_bch_easkingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				14896	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_easkingdoms_military_siege_3	mk_bch_easkingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				14905	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_easkingdoms_water_major_1	mk_bch_easkingdoms_water_major	0	1	1500	25		0	false	0	0	0	0	false	false				15184	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_easkingdoms_water_major_2	mk_bch_easkingdoms_water_major	1	2	2250	50		0	false	0	0	0	0	false	false				15188	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_easkingdoms_water_major_3	mk_bch_easkingdoms_water_major	2	3	3750	75		0	false	0	0	0	0	false	false				15195	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_easkingdoms_water_major_4	mk_bch_easkingdoms_water_major	3	4	6000	100		0	false	0	0	0	1	false	false				15199	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_easkingdoms_water_minor_1	mk_bch_easkingdoms_water_minor	0	1	1500	25		0	false	0	0	0	0	false	false				15200	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_easkingdoms_water_minor_2	mk_bch_easkingdoms_water_minor	1	2	2250	50		0	false	0	0	0	0	false	false				15209	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_easkingdoms_water_minor_3	mk_bch_easkingdoms_water_minor	2	3	3750	75		0	false	0	0	0	0	false	false				15210	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_easkingdoms_water_minor_4	mk_bch_easkingdoms_water_minor	3	4	6000	100		0	false	0	0	0	1	false	false				15219	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_military_armory_2	mk_bch_ibekingdoms_military_armory	1	3	4500	100		0	false	0	0	0	0	false	false				16544	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_military_armory_3	mk_bch_ibekingdoms_military_armory	2	4	7500	150		0	false	0	0	0	0	false	false			res_rom_iron	16553	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_military_armory_4	mk_bch_ibekingdoms_military_armory	3	5	12000	200		0	false	0	0	0	1	false	false			res_rom_iron	16563	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_military_barracks_1	mk_bch_ibekingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				16573	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_military_barracks_2	mk_bch_ibekingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				16583	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_military_barracks_3	mk_bch_ibekingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				16593	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_military_garrison_1	mk_bch_ibekingdoms_military_garrison	0	2	2250	50		0	false	0	0	0	0	false	false				16597	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_military_garrison_2	mk_bch_ibekingdoms_military_garrison	1	3	3600	100		0	false	0	0	0	0	false	false				16603	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_military_garrison_3	mk_bch_ibekingdoms_military_garrison	2	4	6300	150		0	false	0	0	0	0	false	false				16605	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_military_garrison_4	mk_bch_ibekingdoms_military_garrison	3	4	10500	200		0	false	0	0	0	0	false	false				16611	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_military_siege_1	mk_bch_ibekingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				16617	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_military_siege_2	mk_bch_ibekingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				16627	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_military_siege_3	mk_bch_ibekingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				16629	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_military_tournament_1	mk_bch_ibekingdoms_military_barracks	1	3	4500	100		0	false	0	0	0	0	false	false				16631	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_military_tournament_2	mk_bch_ibekingdoms_military_barracks	2	5	9000	200		0	false	0	0	0	0	false	false				16639	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_water_major_1	mk_bch_ibekingdoms_water_major	0	1	1500	25		0	false	0	0	0	0	false	false				16711	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_water_major_2	mk_bch_ibekingdoms_water_major	1	2	2250	50		0	false	0	0	0	0	false	false				16714	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_water_major_3	mk_bch_ibekingdoms_water_major	2	3	3750	75		0	false	0	0	0	0	false	false				16721	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_water_major_4	mk_bch_ibekingdoms_water_major	3	4	6000	100		0	false	0	0	0	1	false	false				16724	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_water_minor_1	mk_bch_ibekingdoms_water_minor	0	1	1500	25		0	false	0	0	0	0	false	false				16732	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_water_minor_2	mk_bch_ibekingdoms_water_minor	1	2	2250	50		0	false	0	0	0	0	false	false				16735	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_water_minor_3	mk_bch_ibekingdoms_water_minor	2	3	3750	75		0	false	0	0	0	0	false	false				16742	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_ibekingdoms_water_minor_4	mk_bch_ibekingdoms_water_minor	3	4	6000	100		0	false	0	0	0	1	false	false				16744	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_itakingdoms_military_armory_2	mk_bch_itakingdoms_military_armory	1	3	4500	100		0	false	0	0	0	0	false	false				17188	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_itakingdoms_military_armory_3	mk_bch_itakingdoms_military_armory	2	4	7500	150		0	false	0	0	0	0	false	false			res_rom_iron	17197	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_itakingdoms_military_armory_4	mk_bch_itakingdoms_military_armory	3	5	12000	200		0	false	0	0	0	1	false	false			res_rom_iron	17207	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_itakingdoms_military_barracks_1	mk_bch_itakingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				17212	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_itakingdoms_military_barracks_2	mk_bch_itakingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				17213	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_itakingdoms_military_barracks_3	mk_bch_itakingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				17218	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_itakingdoms_military_garrison_1	mk_bch_itakingdoms_military_garrison	0	2	2250	50		0	false	0	0	0	0	false	false				17223	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_itakingdoms_military_garrison_2	mk_bch_itakingdoms_military_garrison	1	3	3600	100		0	false	0	0	0	0	false	false				17232	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_itakingdoms_military_garrison_3	mk_bch_itakingdoms_military_garrison	2	4	6300	150		0	false	0	0	0	0	false	false				17237	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_itakingdoms_military_garrison_4	mk_bch_itakingdoms_military_garrison	3	4	10500	200		0	false	0	0	0	0	false	false				17239	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_itakingdoms_military_siege_1	mk_bch_itakingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				17251	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_itakingdoms_military_siege_2	mk_bch_itakingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				17252	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_itakingdoms_military_siege_3	mk_bch_itakingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				17260	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_itakingdoms_military_tournament_1	mk_bch_itakingdoms_military_barracks	1	3	4500	100		0	false	0	0	0	0	false	false				17265	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_itakingdoms_military_tournament_2	mk_bch_itakingdoms_military_barracks	2	5	9000	200		0	false	0	0	0	0	false	false				17269	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_itakingdoms_water_major_1	mk_bch_itakingdoms_water_major	0	1	1500	25		0	false	0	0	0	0	false	false				17348	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_itakingdoms_water_major_2	mk_bch_itakingdoms_water_major	1	2	2250	50		0	false	0	0	0	0	false	false				17352	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_itakingdoms_water_major_3	mk_bch_itakingdoms_water_major	2	3	3750	75		0	false	0	0	0	0	false	false				17355	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_itakingdoms_water_major_4	mk_bch_itakingdoms_water_major	3	4	6000	100		0	false	0	0	0	1	false	false				17359	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_itakingdoms_water_minor_1	mk_bch_itakingdoms_water_minor	0	1	1500	25		0	false	0	0	0	0	false	false				17369	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_itakingdoms_water_minor_2	mk_bch_itakingdoms_water_minor	1	2	2250	50		0	false	0	0	0	0	false	false				17375	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_itakingdoms_water_minor_3	mk_bch_itakingdoms_water_minor	2	3	3750	75		0	false	0	0	0	0	false	false				17383	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_itakingdoms_water_minor_4	mk_bch_itakingdoms_water_minor	3	4	6000	100		0	false	0	0	0	1	false	false				17392	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_mookingdoms_military_armory_2	mk_bch_mookingdoms_military_armory	1	3	4500	100		0	false	0	0	0	0	false	false				23579	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_mookingdoms_military_armory_3	mk_bch_mookingdoms_military_armory	2	4	7500	150		0	false	0	0	0	0	false	false			res_rom_iron	23585	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_mookingdoms_military_armory_4	mk_bch_mookingdoms_military_armory	3	5	12000	200		0	false	0	0	0	1	false	false			res_rom_iron	23595	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_mookingdoms_military_barracks_1	mk_bch_mookingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				23596	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_mookingdoms_military_barracks_2	mk_bch_mookingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				23601	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_mookingdoms_military_barracks_3	mk_bch_mookingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				23605	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_mookingdoms_military_garrison_1	mk_bch_mookingdoms_military_garrison	0	2	2250	50		0	false	0	0	0	0	false	false				23614	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_mookingdoms_military_garrison_2	mk_bch_mookingdoms_military_garrison	1	3	3600	100		0	false	0	0	0	0	false	false				23621	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_mookingdoms_military_garrison_3	mk_bch_mookingdoms_military_garrison	2	4	6300	150		0	false	0	0	0	0	false	false				23630	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_mookingdoms_military_garrison_4	mk_bch_mookingdoms_military_garrison	3	4	10500	200		0	false	0	0	0	0	false	false				23637	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_mookingdoms_military_mercs_1	mk_bch_mookingdoms_military_barracks	1	3	4500	100		0	false	0	0	0	0	false	false				23904	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_mookingdoms_military_mercs_2	mk_bch_mookingdoms_military_barracks	2	5	9000	200		0	false	0	0	0	0	false	false				23907	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_mookingdoms_military_siege_1	mk_bch_mookingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				23647	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_mookingdoms_military_siege_2	mk_bch_mookingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				23656	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_mookingdoms_military_siege_3	mk_bch_mookingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				23666	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_mookingdoms_water_major_1	mk_bch_mookingdoms_water_major	0	1	1500	25		0	false	0	0	0	0	false	false				23704	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_mookingdoms_water_major_2	mk_bch_mookingdoms_water_major	1	2	2250	50		0	false	0	0	0	0	false	false				23707	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_mookingdoms_water_major_3	mk_bch_mookingdoms_water_major	2	3	3750	75		0	false	0	0	0	0	false	false				23715	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_mookingdoms_water_major_4	mk_bch_mookingdoms_water_major	3	4	6000	100		0	false	0	0	0	1	false	false				23723	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_mookingdoms_water_minor_1	mk_bch_mookingdoms_water_minor	0	1	1500	25		0	false	0	0	0	0	false	false				23724	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_mookingdoms_water_minor_2	mk_bch_mookingdoms_water_minor	1	2	2250	50		0	false	0	0	0	0	false	false				23730	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_mookingdoms_water_minor_3	mk_bch_mookingdoms_water_minor	2	3	3750	75		0	false	0	0	0	0	false	false				23737	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_mookingdoms_water_minor_4	mk_bch_mookingdoms_water_minor	3	4	6000	100		0	false	0	0	0	1	false	false				23744	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_military_armory_2	mk_bch_nomkingdoms_military_armory	1	3	4500	100		0	false	0	0	0	0	false	false				20314	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_military_armory_3	mk_bch_nomkingdoms_military_armory	2	4	7500	150		0	false	0	0	0	0	false	false			res_rom_iron	20315	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_military_armory_4	mk_bch_nomkingdoms_military_armory	3	5	12000	200		0	false	0	0	0	1	false	false			res_rom_iron	20322	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_military_barracks_1	mk_bch_nomkingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				20326	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_military_barracks_2	mk_bch_nomkingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				20329	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_military_barracks_3	mk_bch_nomkingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				20330	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_military_garrison_1	mk_bch_nomkingdoms_military_garrison	0	2	2250	50		0	false	0	0	0	0	false	false				20338	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_military_garrison_2	mk_bch_nomkingdoms_military_garrison	1	3	3600	100		0	false	0	0	0	0	false	false				20345	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_military_garrison_3	mk_bch_nomkingdoms_military_garrison	2	4	6300	150		0	false	0	0	0	0	false	false				20348	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_military_garrison_4	mk_bch_nomkingdoms_military_garrison	3	4	10500	200		0	false	0	0	0	0	false	false				20351	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_military_mercs_1	mk_bch_nomkingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				20385	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_military_mercs_2	mk_bch_nomkingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				20386	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_military_mercs_3	mk_bch_nomkingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				20394	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_military_siege_1	mk_bch_nomkingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				20359	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_military_siege_2	mk_bch_nomkingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				20366	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_military_siege_3	mk_bch_nomkingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				20375	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_water_major_1	mk_bch_nomkingdoms_water_major	0	1	1500	25		0	false	0	0	0	0	false	false				20453	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_water_major_2	mk_bch_nomkingdoms_water_major	1	2	2250	50		0	false	0	0	0	0	false	false				20459	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_water_major_3	mk_bch_nomkingdoms_water_major	2	3	3750	75		0	false	0	0	0	0	false	false				20467	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_water_major_4	mk_bch_nomkingdoms_water_major	3	4	6000	100		0	false	0	0	0	0	false	false				20472	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_water_minor_1	mk_bch_nomkingdoms_water_minor	0	1	1500	25		0	false	0	0	0	0	false	false				20477	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_water_minor_2	mk_bch_nomkingdoms_water_minor	1	2	2250	50		0	false	0	0	0	0	false	false				20482	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_water_minor_3	mk_bch_nomkingdoms_water_minor	2	3	3750	75		0	false	0	0	0	0	false	false				20485	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_nomkingdoms_water_minor_4	mk_bch_nomkingdoms_water_minor	3	4	6000	100		0	false	0	0	0	0	false	false				20494	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_military_armory_2	mk_bch_ortkingdoms_military_armory	1	3	4500	100		0	false	0	0	0	0	false	false				17962	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_military_armory_3	mk_bch_ortkingdoms_military_armory	2	4	7500	150		0	false	0	0	0	0	false	false			res_rom_iron	17967	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_military_armory_4	mk_bch_ortkingdoms_military_armory	3	5	12000	200		0	false	0	0	0	1	false	false			res_rom_iron	17977	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_military_barracks_1	mk_bch_ortkingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				18240	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_military_barracks_2	mk_bch_ortkingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				18241	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_military_barracks_3	mk_bch_ortkingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				18245	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_military_garrison_1	mk_bch_ortkingdoms_military_garrison	0	2	2250	50		0	false	0	0	0	0	false	false				17997	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_military_garrison_2	mk_bch_ortkingdoms_military_garrison	1	3	3600	100		0	false	0	0	0	0	false	false				18002	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_military_garrison_3	mk_bch_ortkingdoms_military_garrison	2	4	6300	150		0	false	0	0	0	0	false	false				18011	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_military_garrison_4	mk_bch_ortkingdoms_military_garrison	3	4	10500	200		0	false	0	0	0	0	false	false				18016	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_military_mercs_1	mk_bch_ortkingdoms_military_barracks	1	3	4500	100		0	false	0	0	0	0	false	false				18038	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_military_mercs_2	mk_bch_ortkingdoms_military_barracks	2	5	9000	200		0	false	0	0	0	0	false	false				18048	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_military_siege_1	mk_bch_ortkingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				18030	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_military_siege_2	mk_bch_ortkingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				18036	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_military_siege_3	mk_bch_ortkingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				18037	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_water_major_1	mk_bch_ortkingdoms_water_major	0	1	1500	25		0	false	0	0	0	0	false	false				18142	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_water_major_2	mk_bch_ortkingdoms_water_major	1	2	2250	50		0	false	0	0	0	0	false	false				18143	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_water_major_3	mk_bch_ortkingdoms_water_major	2	3	3750	75		0	false	0	0	0	0	false	false				18153	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_water_major_4	mk_bch_ortkingdoms_water_major	3	4	6000	100		0	false	0	0	0	1	false	false				18160	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_water_minor_1	mk_bch_ortkingdoms_water_minor	0	1	1500	25		0	false	0	0	0	0	false	false				18162	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_water_minor_2	mk_bch_ortkingdoms_water_minor	1	2	2250	50		0	false	0	0	0	0	false	false				18171	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_water_minor_3	mk_bch_ortkingdoms_water_minor	2	3	3750	75		0	false	0	0	0	0	false	false				18175	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_ortkingdoms_water_minor_4	mk_bch_ortkingdoms_water_minor	3	4	6000	100		0	false	0	0	0	1	false	false				18183	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_religion_baltic_temple_major_1	mk_bch_religion_baltic_major	0	3	3000	50		0	false	0	0	0	0	false	false	att_rel_pag_slavic			19793	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_baltic_temple_major_2	mk_bch_religion_baltic_major	1	4	4500	100		0	false	0	0	0	0	false	false	att_rel_pag_slavic			19796	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_baltic_temple_major_3	mk_bch_religion_baltic_major	2	5	7500	150		0	false	0	0	0	0	false	false	att_rel_pag_slavic			19799	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_baltic_temple_major_4	mk_bch_religion_baltic_major	3	6	10000	200		0	false	0	0	0	1	false	false	att_rel_pag_slavic			19800	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_baltic_temple_minor_1	mk_bch_religion_baltic_minor	0	3	3000	100		0	false	0	0	0	0	false	false	att_rel_pag_slavic			19801	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_baltic_temple_minor_2	mk_bch_religion_baltic_minor	1	4	4500	200		0	false	0	0	0	0	false	false	att_rel_pag_slavic			19804	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_baltic_temple_minor_3	mk_bch_religion_baltic_minor	2	5	7500	300		0	false	0	0	0	0	false	false	att_rel_pag_slavic			19810	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_baltic_temple_minor_4	mk_bch_religion_baltic_minor	3	6	10000	400		0	false	0	0	0	1	false	false	att_rel_pag_slavic			19819	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_bogomilism_major_1	mk_bch_religion_bogomilism_major	0	3	3750	100		0	false	0	0	0	0	false	false	mk_rel_chr_bogomilist			22151	true	att_religious_christian	city	true	0.0000	0	false	true	
-mk_bld_religion_bogomilism_major_church_2	mk_bch_religion_bogomilism_major	1	4	6000	200		0	false	0	0	0	0	false	false	mk_rel_chr_bogomilist			22158	true	att_religious_christian	city	true	0.0000	0	false	true	
-mk_bld_religion_bogomilism_major_church_3	mk_bch_religion_bogomilism_major	2	5	10500	300		0	false	0	0	0	0	false	false	mk_rel_chr_bogomilist			22164	true	att_religious_christian	city	true	0.0000	0	false	true	
-mk_bld_religion_bogomilism_major_church_4	mk_bch_religion_bogomilism_major	3	6	17250	400		0	false	0	0	0	1	false	false	mk_rel_chr_bogomilist			22171	true	att_religious_christian	city	true	0.0000	0	false	true	
-mk_bld_religion_bogomilism_minor_1	mk_bch_religion_bogomilism_minor	0	3	3750	100		0	false	0	0	0	0	false	false	mk_rel_chr_bogomilist			22196	true	att_religious_christian	city	true	0.0000	0	false	true	
-mk_bld_religion_bogomilism_minor_2	mk_bch_religion_bogomilism_minor	1	4	6000	300		0	false	0	0	0	0	false	false	mk_rel_chr_bogomilist			22204	true	att_religious_christian	city	true	0.0000	0	false	true	
-mk_bld_religion_bogomilism_minor_3	mk_bch_religion_bogomilism_minor	2	5	10500	500		0	false	0	0	0	0	false	false	mk_rel_chr_bogomilist			22206	true	att_religious_christian	city	true	0.0000	0	false	true	
-mk_bld_religion_bogomilism_minor_4	mk_bch_religion_bogomilism_minor	3	6	17250	750		0	false	0	0	0	1	false	false	mk_rel_chr_bogomilist			22207	true	att_religious_christian	city	true	0.0000	0	false	true	
-mk_bld_religion_cathar_major_1	mk_bch_religion_catharism_major	0	3	3750	100		0	false	0	0	0	0	false	false	mk_rel_chr_cathar			22079	true	att_religious_christian	city	true	0.0000	0	false	true	
-mk_bld_religion_cathar_major_church_2	mk_bch_religion_catharism_major	1	4	6000	200		0	false	0	0	0	0	false	false	mk_rel_chr_cathar			22089	true	att_religious_christian	city	true	0.0000	0	false	true	
-mk_bld_religion_cathar_major_church_3	mk_bch_religion_catharism_major	2	5	10500	300		0	false	0	0	0	0	false	false	mk_rel_chr_cathar			22098	true	att_religious_christian	city	true	0.0000	0	false	true	
-mk_bld_religion_cathar_major_church_4	mk_bch_religion_catharism_major	3	6	17250	400		0	false	0	0	0	1	false	false	mk_rel_chr_cathar			22100	true	att_religious_christian	city	true	0.0000	0	false	true	
-mk_bld_religion_cathar_minor_1	mk_bch_religion_catharism_minor	0	3	3750	100		0	false	0	0	0	0	false	false	mk_rel_chr_cathar			22117	true	att_religious_christian	city	true	0.0000	0	false	true	
-mk_bld_religion_cathar_minor_2	mk_bch_religion_catharism_minor	1	4	6000	300		0	false	0	0	0	0	false	false	mk_rel_chr_cathar			22118	true	att_religious_christian	city	true	0.0000	0	false	true	
-mk_bld_religion_cathar_minor_3	mk_bch_religion_catharism_minor	2	5	10500	500		0	false	0	0	0	0	false	false	mk_rel_chr_cathar			22121	true	att_religious_christian	city	true	0.0000	0	false	true	
-mk_bld_religion_cathar_minor_4	mk_bch_religion_catharism_minor	3	6	17250	750		0	false	0	0	0	1	false	false	mk_rel_chr_cathar			22126	true	att_religious_christian	city	true	0.0000	0	false	true	
-mk_bld_religion_eastern_major_church_1	mk_bch_religion_eastern_orthodox_major	1	4	6000	200		0	false	0	0	0	0	false	false	att_rel_church_east			20523	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-mk_bld_religion_eastern_major_church_2	mk_bch_religion_eastern_orthodox_major	2	5	10500	300		0	false	0	0	0	0	false	false	att_rel_church_east			20529	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-mk_bld_religion_eastern_major_church_3	mk_bch_religion_eastern_orthodox_major	3	6	17250	400		0	false	0	0	0	0	false	false	att_rel_church_east			20534	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-mk_bld_religion_eastern_major_generic	mk_bch_religion_eastern_orthodox_major	0	3	3750	100		0	false	0	0	0	0	false	false	att_rel_church_east			20516	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-mk_bld_religion_eastern_minor_church_1	mk_bch_religion_eastern_orthodox_minor	1	3	6000	300		0	false	0	0	0	0	false	false	att_rel_church_east			20572	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-mk_bld_religion_eastern_minor_church_2	mk_bch_religion_eastern_orthodox_minor	2	4	10500	500		0	false	0	0	0	0	false	false	att_rel_church_east			20579	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-mk_bld_religion_eastern_minor_church_3	mk_bch_religion_eastern_orthodox_minor	3	5	17250	750		0	false	0	0	0	0	false	false	att_rel_church_east			20585	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-mk_bld_religion_eastern_minor_generic	mk_bch_religion_eastern_orthodox_minor	0	2	3750	100		0	false	0	0	0	0	false	false	att_rel_church_east			20570	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
-mk_bld_religion_ibadi_major_1	mk_bch_religion_ibadi_major	0	3	3750	100		0	false	0	0	0	0	false	false	mk_rel_ibadi_islam			22231	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_ibadi_major_2	mk_bch_religion_ibadi_major	1	4	6000	200		0	false	0	0	0	0	false	false	mk_rel_ibadi_islam			22234	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_ibadi_major_3	mk_bch_religion_ibadi_major	2	5	10500	300		0	false	0	0	0	0	false	false	mk_rel_ibadi_islam			22242	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_ibadi_major_4	mk_bch_religion_ibadi_major	3	6	17250	400		0	false	0	0	0	1	false	false	mk_rel_ibadi_islam			22248	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_ibadi_minor_1	mk_bch_religion_ibadi_minor	0	3	3750	100		0	false	0	0	0	0	false	false	mk_rel_ibadi_islam			22261	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_ibadi_minor_2	mk_bch_religion_ibadi_minor	1	4	6000	300		0	false	0	0	0	0	false	false	mk_rel_ibadi_islam			22270	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_ibadi_minor_3	mk_bch_religion_ibadi_minor	2	5	10500	500		0	false	0	0	0	0	false	false	mk_rel_ibadi_islam			22273	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_ibadi_minor_4	mk_bch_religion_ibadi_minor	3	6	17250	750		0	false	0	0	0	1	false	false	mk_rel_ibadi_islam			22282	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_jewish_major_synagogue_1	mk_bch_religion_jewish_synagogue_major	0	3	3750	100		0	false	0	0	0	0	false	false	att_rel_judaism			18246	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_jewish_major_synagogue_2	mk_bch_religion_jewish_synagogue_major	1	4	6000	200		0	false	0	0	0	0	false	false	att_rel_judaism			18253	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_jewish_major_synagogue_3	mk_bch_religion_jewish_synagogue_major	2	5	10500	300		0	false	0	0	0	0	false	false	att_rel_judaism			18255	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_jewish_major_synagogue_4	mk_bch_religion_jewish_synagogue_major	3	6	17250	400		0	false	0	0	0	1	false	false	att_rel_judaism			18256	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_jewish_minor_synagogue_1	mk_bch_religion_jewish_synagogue_minor	0	3	3750	100		0	false	0	0	0	0	false	false	att_rel_judaism			18264	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_jewish_minor_synagogue_2	mk_bch_religion_jewish_synagogue_minor	1	4	6000	300		0	false	0	0	0	0	false	false	att_rel_judaism			18273	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_jewish_minor_synagogue_3	mk_bch_religion_jewish_synagogue_minor	2	5	10500	500		0	false	0	0	0	0	false	false	att_rel_judaism			18274	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_jewish_minor_synagogue_4	mk_bch_religion_jewish_synagogue_minor	3	6	17250	750		0	false	0	0	0	1	false	false	att_rel_judaism			18283	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_shia_major_1	mk_bch_religion_shia_major	0	3	3750	100		0	false	0	0	0	0	false	false	mk_rel_shia_islam			18369	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_shia_major_2	mk_bch_religion_shia_major	1	4	6000	200		0	false	0	0	0	0	false	false	mk_rel_shia_islam			18372	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_shia_major_3	mk_bch_religion_shia_major	2	5	10500	300		0	false	0	0	0	0	false	false	mk_rel_shia_islam			18382	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_shia_major_4	mk_bch_religion_shia_major	3	6	17250	400		0	false	0	0	0	1	false	false	mk_rel_shia_islam			18385	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_shia_minor_1	mk_bch_religion_shia_minor	0	3	3750	100		0	false	0	0	0	0	false	false	mk_rel_shia_islam			18398	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_shia_minor_2	mk_bch_religion_shia_minor	1	4	6000	300		0	false	0	0	0	0	false	false	mk_rel_shia_islam			18401	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_shia_minor_3	mk_bch_religion_shia_minor	2	5	10500	500		0	false	0	0	0	0	false	false	mk_rel_shia_islam			18410	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_shia_minor_4	mk_bch_religion_shia_minor	3	6	17250	750		0	false	0	0	0	1	false	false	mk_rel_shia_islam			18418	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_sunni_major_1	mk_bch_religion_sunni_major	0	3	3750	100		0	false	0	0	0	0	false	false	att_rel_semitic_paganism			14574	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_sunni_major_2	mk_bch_religion_sunni_major	1	4	6000	200		0	false	0	0	0	0	false	false	att_rel_semitic_paganism			14578	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_sunni_major_3	mk_bch_religion_sunni_major	2	5	10500	300		0	false	0	0	0	0	false	false	att_rel_semitic_paganism			14588	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_sunni_major_4	mk_bch_religion_sunni_major	3	6	17250	400		0	false	0	0	0	1	false	false	att_rel_semitic_paganism			14592	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_sunni_minor_1	mk_bch_religion_sunni_minor	0	3	3750	100		0	false	0	0	0	0	false	false	att_rel_semitic_paganism			14598	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_sunni_minor_2	mk_bch_religion_sunni_minor	1	4	6000	300		0	false	0	0	0	0	false	false	att_rel_semitic_paganism			14605	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_sunni_minor_3	mk_bch_religion_sunni_minor	2	5	10500	500		0	false	0	0	0	0	false	false	att_rel_semitic_paganism			14608	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_sunni_minor_4	mk_bch_religion_sunni_minor	3	6	17250	750		0	false	0	0	0	1	false	false	att_rel_semitic_paganism			14616	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_tengri_temple_major_1	mk_bch_religion_tengri_major	0	3	3000	50		0	false	0	0	0	0	false	false	att_rel_pag_tengri			19821	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_tengri_temple_major_2	mk_bch_religion_tengri_major	1	4	4500	100		0	false	0	0	0	0	false	false	att_rel_pag_tengri			19826	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_tengri_temple_major_3	mk_bch_religion_tengri_major	2	5	7500	150		0	false	0	0	0	0	false	false	att_rel_pag_tengri			19828	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_tengri_temple_major_4	mk_bch_religion_tengri_major	3	6	10000	200		0	false	0	0	0	1	false	false	att_rel_pag_tengri			19834	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_tengri_temple_minor_1	mk_bch_religion_tengri_minor	0	3	3000	100		0	false	0	0	0	0	false	false	att_rel_pag_tengri			19837	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_tengri_temple_minor_2	mk_bch_religion_tengri_minor	1	4	4500	200		0	false	0	0	0	0	false	false	att_rel_pag_tengri			19847	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_tengri_temple_minor_3	mk_bch_religion_tengri_minor	2	5	7500	300		0	false	0	0	0	0	false	false	att_rel_pag_tengri			19851	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_tengri_temple_minor_4	mk_bch_religion_tengri_minor	3	6	10000	400		0	false	0	0	0	1	false	false	att_rel_pag_tengri			19852	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_zoro_temple_major_1	mk_bch_religion_zoroastrian_major	0	3	3000	50		0	false	0	0	0	0	false	false	att_rel_east_zoroastrian			22295	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_zoro_temple_major_2	mk_bch_religion_zoroastrian_major	1	4	4500	100		0	false	0	0	0	0	false	false	att_rel_east_zoroastrian			22298	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_zoro_temple_major_3	mk_bch_religion_zoroastrian_major	2	5	7500	150		0	false	0	0	0	0	false	false	att_rel_east_zoroastrian			22301	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_zoro_temple_major_4	mk_bch_religion_zoroastrian_major	3	6	10000	200		0	false	0	0	0	1	false	false	att_rel_east_zoroastrian			22306	true	att_religious_major	city	true	0.0000	0	false	true	
-mk_bld_religion_zoro_temple_minor_1	mk_bch_religion_zoroastrian_minor	0	3	3000	100		0	false	0	0	0	0	false	false	att_rel_east_zoroastrian			22307	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_zoro_temple_minor_2	mk_bch_religion_zoroastrian_minor	1	4	4500	200		0	false	0	0	0	0	false	false	att_rel_east_zoroastrian			22310	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_zoro_temple_minor_3	mk_bch_religion_zoroastrian_minor	2	5	7500	300		0	false	0	0	0	0	false	false	att_rel_east_zoroastrian			22318	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_religion_zoro_temple_minor_4	mk_bch_religion_zoroastrian_minor	3	6	10000	400		0	false	0	0	0	1	false	false	att_rel_east_zoroastrian			22324	true	att_religious_minor	city	true	0.0000	0	false	true	
-mk_bld_slakingdoms_military_armory_2	mk_bch_slakingdoms_military_armory	1	3	4500	100		0	false	0	0	0	0	false	false				19598	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_slakingdoms_military_armory_3	mk_bch_slakingdoms_military_armory	2	4	7500	150		0	false	0	0	0	0	false	false			res_rom_iron	19600	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_slakingdoms_military_armory_4	mk_bch_slakingdoms_military_armory	3	5	12000	200		0	false	0	0	0	1	false	false			res_rom_iron	19606	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_slakingdoms_military_barracks_1	mk_bch_slakingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				19615	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_slakingdoms_military_barracks_2	mk_bch_slakingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				19619	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_slakingdoms_military_barracks_3	mk_bch_slakingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				19622	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_slakingdoms_military_garrison_1	mk_bch_slakingdoms_military_garrison	0	2	2250	50		0	false	0	0	0	0	false	false				19641	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_slakingdoms_military_garrison_2	mk_bch_slakingdoms_military_garrison	1	3	3600	100		0	false	0	0	0	0	false	false				19644	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_slakingdoms_military_garrison_3	mk_bch_slakingdoms_military_garrison	2	4	6300	150		0	false	0	0	0	0	false	false				19645	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_slakingdoms_military_garrison_4	mk_bch_slakingdoms_military_garrison	3	4	10500	200		0	false	0	0	0	0	false	false				19650	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_slakingdoms_military_mercs_1	mk_bch_slakingdoms_military_barracks	1	3	4500	100		0	false	0	0	0	0	false	false				19651	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_slakingdoms_military_mercs_2	mk_bch_slakingdoms_military_barracks	2	5	9000	200		0	false	0	0	0	0	false	false				19659	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_slakingdoms_military_siege_1	mk_bch_slakingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				19669	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_slakingdoms_military_siege_2	mk_bch_slakingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				19674	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_slakingdoms_military_siege_3	mk_bch_slakingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				19683	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_slakingdoms_water_major_1	mk_bch_slakingdoms_water_major	0	1	1500	25		0	false	0	0	0	0	false	false				19737	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_slakingdoms_water_major_2	mk_bch_slakingdoms_water_major	1	2	2250	50		0	false	0	0	0	0	false	false				19746	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_slakingdoms_water_major_3	mk_bch_slakingdoms_water_major	2	3	3750	75		0	false	0	0	0	0	false	false				19750	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_slakingdoms_water_major_4	mk_bch_slakingdoms_water_major	3	4	6000	100		0	false	0	0	0	0	false	false				19753	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_slakingdoms_water_minor_1	mk_bch_slakingdoms_water_minor	0	1	1500	25		0	false	0	0	0	0	false	false				19757	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_slakingdoms_water_minor_2	mk_bch_slakingdoms_water_minor	1	2	2250	50		0	false	0	0	0	0	false	false				19767	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_slakingdoms_water_minor_3	mk_bch_slakingdoms_water_minor	2	3	3750	75		0	false	0	0	0	0	false	false				19777	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_slakingdoms_water_minor_4	mk_bch_slakingdoms_water_minor	3	4	6000	100		0	false	0	0	0	0	false	false				19786	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_weskingdoms_military_armory_2	mk_bch_weskingdoms_military_armory	1	3	4500	100		0	false	0	0	0	0	false	false				15674	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_weskingdoms_military_armory_3	mk_bch_weskingdoms_military_armory	2	4	7500	150		0	false	0	0	0	0	false	false			res_rom_iron	15676	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_weskingdoms_military_armory_4	mk_bch_weskingdoms_military_armory	3	5	12000	200		0	false	0	0	0	1	false	false			res_rom_iron	15678	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
-mk_bld_weskingdoms_military_barracks_1	mk_bch_weskingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				15680	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_weskingdoms_military_barracks_2	mk_bch_weskingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				15685	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_weskingdoms_military_barracks_3	mk_bch_weskingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				15694	true	att_military_infantry	military	true	0.0000	0	false	true	
-mk_bld_weskingdoms_military_garrison_1	mk_bch_weskingdoms_military_garrison	0	2	2250	50		0	false	0	0	0	0	false	false				15704	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_weskingdoms_military_garrison_2	mk_bch_weskingdoms_military_garrison	1	3	3600	100		0	false	0	0	0	0	false	false				15714	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_weskingdoms_military_garrison_3	mk_bch_weskingdoms_military_garrison	2	4	6300	150		0	false	0	0	0	0	false	false				15719	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_weskingdoms_military_garrison_4	mk_bch_weskingdoms_military_garrison	3	4	10500	200		0	false	0	0	0	0	false	false				15721	true	mk_military_garrison	military	true	0.0000	0	false	true	
-mk_bld_weskingdoms_military_mercs_1	mk_bch_weskingdoms_military_barracks	1	3	4500	100		0	false	0	0	0	0	false	false				23947	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_weskingdoms_military_mercs_2	mk_bch_weskingdoms_military_barracks	2	5	9000	200		0	false	0	0	0	0	false	false				23955	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_weskingdoms_military_siege_1	mk_bch_weskingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				15726	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_weskingdoms_military_siege_2	mk_bch_weskingdoms_military_barracks	2	4	7500	100		0	false	0	0	0	0	false	false				15732	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_weskingdoms_military_siege_3	mk_bch_weskingdoms_military_barracks	3	5	12000	200		0	false	0	0	0	0	false	false				15740	true	att_military_skirmisher	military	true	0.0000	0	false	true	
-mk_bld_weskingdoms_military_tournament_1	mk_bch_weskingdoms_military_barracks	1	3	4500	100		0	false	0	0	0	0	false	false				15880	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_weskingdoms_military_tournament_2	mk_bch_weskingdoms_military_barracks	2	5	9000	200		0	false	0	0	0	0	false	false				15885	true	att_military_cavalry	military	true	0.0000	0	false	true	
-mk_bld_weskingdoms_water_major_1	mk_bch_weskingdoms_water_major	0	1	1500	25		0	false	0	0	0	0	false	false				15787	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_weskingdoms_water_major_2	mk_bch_weskingdoms_water_major	1	2	2250	50		0	false	0	0	0	0	false	false				15793	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_weskingdoms_water_major_3	mk_bch_weskingdoms_water_major	2	3	3750	75		0	false	0	0	0	0	false	false				15796	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_weskingdoms_water_major_4	mk_bch_weskingdoms_water_major	3	4	6000	100		0	false	0	0	0	1	false	false				15805	true	att_water_major	town	true	0.0000	0	false	true	
-mk_bld_weskingdoms_water_minor_1	mk_bch_weskingdoms_water_minor	0	1	1500	25		0	false	0	0	0	0	false	false				15815	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_weskingdoms_water_minor_2	mk_bch_weskingdoms_water_minor	1	2	2250	50		0	false	0	0	0	0	false	false				15821	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_weskingdoms_water_minor_3	mk_bch_weskingdoms_water_minor	2	3	3750	75		0	false	0	0	0	0	false	false				15824	true	att_water_minor	town	true	0.0000	0	false	true	
-mk_bld_weskingdoms_water_minor_4	mk_bch_weskingdoms_water_minor	3	4	6000	100		0	false	0	0	0	1	false	false				15830	true	att_water_minor	town	true	0.0000	0	false	true	
+att_bld_all_resources_port_military_2	att_bch_resources_port_regular	2	4	4500	38		0	false	0	0	0	0	false	false				11951	true		military_port	true	0.0000	0	false	true	
+att_bld_all_resources_port_military_3	att_bch_resources_port_regular	3	6	7500	75		0	false	0	0	0	0	false	false				11956	true		military_port	true	0.0000	0	false	true	
+att_bld_all_resources_port_military_4	att_bch_resources_port_regular	4	8	12000	113		0	false	0	0	0	1	false	false				11959	true		military_port	true	0.0000	0	false	true	
+att_bld_eastern_sassanid_military_cavalry_4	att_bch_eastern_sassanid_military_cavalry	3	5	11500	300		0	false	0	0	0	0	false	false			res_rom_iron	8873	true	att_military_cavalry	military	true	0.0000	0	false	true	
+att_bld_eastern_sassanid_military_infantry_4	att_bch_eastern_sassanid_military_infantry	3	5	8000	250		0	false	0	0	0	0	false	false			res_rom_iron	8843	true	att_military_infantry	military	true	0.0000	0	false	true	
+att_bld_eastern_sassanid_military_minor_4	att_bch_eastern_sassanid_military_minor	3	5	7000	200		0	false	0	0	0	0	false	false			res_rom_iron	8825	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+att_bld_eastern_sassanid_port_military_4	att_bch_eastern_sassanid_port_minor	3	8	11500	250		0	false	0	0	0	0	false	false				11453	true		military_port	true	0.0000	0	false	true	
+att_bld_eastern_sassanid_water_minor_1	att_bch_eastern_sassanid_water_minor	0	1	1000	5		0	false	0	0	0	0	false	false				9114	true	att_water_minor	town	true	0.0000	0	false	true	
+att_bld_eastern_sassanid_water_minor_2	att_bch_eastern_sassanid_water_minor	1	2	1500	10		0	false	0	0	0	0	false	false				9116	true	att_water_minor	town	true	0.0000	0	false	true	
+att_bld_eastern_sassanid_water_minor_3	att_bch_eastern_sassanid_water_minor	2	3	2500	19		0	false	0	0	0	0	false	false				9126	true	att_water_minor	town	true	0.0000	0	false	true	
+att_bld_eastern_sassanid_water_minor_4	att_bch_eastern_sassanid_water_minor	3	4	4000	38		0	false	0	0	0	0	false	false			res_rom_marble	9129	true	att_water_minor	town	true	0.0000	0	false	true	
+att_bld_eos_military_infantry_5_east_church	att_bch_eastern_sassanid_military_infantry	4	6	10000	250		0	false	0	0	0	0	false	false			res_rom_iron	13892	true	att_military_infantry	military	true	0.0000	0	false	true	
+att_bld_eos_military_infantry_5_judaism	att_bch_eastern_sassanid_military_infantry	4	6	10000	250		0	false	0	0	0	0	false	false			res_rom_iron	13897	true	att_military_infantry	military	true	0.0000	0	false	true	
+att_bld_eos_military_infantry_5_semitic	att_bch_eastern_sassanid_military_infantry	4	6	10000	250		0	false	0	0	0	0	false	false			res_rom_iron	13886	true	att_military_infantry	military	true	0.0000	0	false	true	
+att_bld_eos_military_infantry_5_zoroastrian	att_bch_eastern_sassanid_military_infantry	4	6	10000	250		0	false	0	0	0	0	false	false			res_rom_iron	13906	true	att_military_infantry	military	true	0.0000	0	false	true	
+att_bld_religion_arian_legendary_1	att_bch_religion_arian_legendary	0	3	2500	50		0	false	0	0	0	0	false	false	att_rel_chr_arian			11836	true	att_religious_christian	roman_temple	false	0.0000	0	false	true	
+att_bld_religion_arian_legendary_2	att_bch_religion_arian_legendary	1	4	4000	150		0	false	0	0	0	0	false	false	att_rel_chr_arian			11837	true	att_religious_christian	roman_temple	false	0.0000	0	false	true	
+att_bld_religion_arian_legendary_3	att_bch_religion_arian_legendary	2	5	7000	250		0	false	0	0	0	0	false	false	att_rel_chr_arian		res_rom_lead	11842	true	att_religious_christian	roman_temple	false	0.0000	0	false	true	
+att_bld_religion_arian_legendary_4	att_bch_religion_arian_legendary	3	6	11500	375		0	false	0	0	0	1	false	false	att_rel_chr_arian		res_rom_marble	11846	true	att_religious_christian	roman_temple	false	0.0000	0	false	true	
+att_bld_religion_arian_legendary_5	att_bch_religion_arian_legendary	4	8	25000	750		0	false	0	0	0	0	false	false	att_rel_chr_arian		res_rom_marble	11853	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_arian_major_1	att_bch_religion_arian_major	0	3	2500	50		0	false	0	0	0	0	false	false	att_rel_chr_arian			10654	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_arian_major_church_2	att_bch_religion_arian_major	1	4	4000	150		0	false	0	0	0	0	false	false	att_rel_chr_arian			10663	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_arian_major_church_3	att_bch_religion_arian_major	2	5	7000	250		0	false	0	0	0	0	false	false	att_rel_chr_arian		res_rom_lead	10671	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_arian_major_church_4	att_bch_religion_arian_major	3	6	11500	375		0	false	0	0	0	1	false	false	att_rel_chr_arian		res_rom_marble	10680	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_arian_major_monestary_2	att_bch_religion_arian_major	1	4	4000	150		0	false	0	0	0	0	false	false	att_rel_chr_arian			10687	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_arian_major_monestary_3	att_bch_religion_arian_major	2	5	7000	250		0	false	0	0	0	0	false	false	att_rel_chr_arian		res_rom_lead	10696	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_arian_major_monestary_4	att_bch_religion_arian_major	3	6	11500	375		0	false	0	0	0	1	false	false	att_rel_chr_arian		res_rom_marble	10704	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_arian_minor_1	att_bch_religion_arian_minor	0	2	2000	25		0	false	0	0	0	0	false	false	att_rel_chr_arian			10624	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_arian_minor_2	att_bch_religion_arian_minor	1	3	3000	50		0	false	0	0	0	0	false	false	att_rel_chr_arian			10633	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_arian_minor_3	att_bch_religion_arian_minor	2	4	5000	100		0	false	0	0	0	0	false	false	att_rel_chr_arian			10640	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_arian_minor_4	att_bch_religion_arian_minor	3	5	8000	150		0	false	0	0	0	1	false	false	att_rel_chr_arian			10649	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_catholic_legendary_1	att_bch_religion_catholic_legendary	0	3	2500	50		0	false	0	0	0	0	false	false	att_rel_chr_catholic			11809	true	att_religious_christian	city	false	0.0000	0	false	true	
+att_bld_religion_catholic_legendary_2	att_bch_religion_catholic_legendary	1	4	4000	150		0	false	0	0	0	0	false	false	att_rel_chr_catholic			11811	true	att_religious_christian	city	false	0.0000	0	false	true	
+att_bld_religion_catholic_legendary_3	att_bch_religion_catholic_legendary	2	5	7000	250		0	false	0	0	0	0	false	false	att_rel_chr_catholic		res_rom_lead	11815	true	att_religious_christian	city	false	0.0000	0	false	true	
+att_bld_religion_catholic_legendary_4	att_bch_religion_catholic_legendary	3	6	11500	375		0	false	0	0	0	1	false	false	att_rel_chr_catholic		res_rom_marble	11820	true	att_religious_christian	city	false	0.0000	0	false	true	
+att_bld_religion_catholic_legendary_5	att_bch_religion_catholic_legendary	4	8	25000	750		0	false	0	0	0	0	false	false	att_rel_chr_catholic		res_rom_marble	11830	true	att_religious_christian	city	true	0.0000	0	false	true	
+att_bld_religion_catholic_major_1	att_bch_religion_catholic_major	0	3	3750	50		0	false	0	0	0	0	false	false	att_rel_chr_catholic			10720	true	att_religious_christian	city	true	0.0000	0	false	true	
+att_bld_religion_catholic_major_church_2	att_bch_religion_catholic_major	1	4	6000	100		0	false	0	0	0	0	false	false	att_rel_chr_catholic			10726	true	att_religious_christian	city	true	0.0000	0	false	true	
+att_bld_religion_catholic_major_church_3	att_bch_religion_catholic_major	2	5	10500	150		0	false	0	0	0	0	false	false	att_rel_chr_catholic			10736	true	att_religious_christian	city	true	0.0000	0	false	true	
+att_bld_religion_catholic_major_church_4	att_bch_religion_catholic_major	3	6	17250	200		0	false	0	0	0	1	false	false	att_rel_chr_catholic			10738	true	att_religious_christian	city	true	0.0000	0	false	true	
+att_bld_religion_catholic_minor_1	att_bch_religion_catholic_minor	0	3	3750	50		0	false	0	0	0	0	false	false	att_rel_chr_catholic			10710	true	att_religious_christian	city	true	0.0000	0	false	true	
+att_bld_religion_catholic_minor_2	att_bch_religion_catholic_minor	1	4	6000	150		0	false	0	0	0	0	false	false	att_rel_chr_catholic			10714	true	att_religious_christian	city	true	0.0000	0	false	true	
+att_bld_religion_catholic_minor_3	att_bch_religion_catholic_minor	2	5	10500	250		0	false	0	0	0	0	false	false	att_rel_chr_catholic			10715	true	att_religious_christian	city	true	0.0000	0	false	true	
+att_bld_religion_catholic_minor_4	att_bch_religion_catholic_minor	3	6	17250	375		0	false	0	0	0	1	false	false	att_rel_chr_catholic			10717	true	att_religious_christian	city	true	0.0000	0	false	true	
+att_bld_religion_celtic_minor_water_2	att_bch_religion_celtic_minor	1	3	3000	15		0	false	0	0	0	0	false	false	att_rel_pag_celtic			10297	true	att_religious_minor	barbarian_shrine	true	0.0000	0	false	true	
+att_bld_religion_celtic_minor_water_3	att_bch_religion_celtic_minor	2	4	5000	30		0	false	0	0	0	0	false	false	att_rel_pag_celtic			10306	true	att_religious_minor	barbarian_shrine	true	0.0000	0	false	true	
+att_bld_religion_celtic_minor_water_4	att_bch_religion_celtic_minor	3	5	8000	60		0	false	0	0	0	0	false	false	att_rel_pag_celtic			10315	true	att_religious_minor	barbarian_shrine	true	0.0000	0	false	true	
+att_bld_religion_orthodox_legendary_1	att_bch_religion_orthodox_legendary	0	3	2500	50		0	false	0	0	0	0	false	false	att_rel_chr_orthodox			11785	true	att_religious_christian	roman_temple	false	0.0000	0	false	true	
+att_bld_religion_orthodox_legendary_2	att_bch_religion_orthodox_legendary	1	4	4000	150		0	false	0	0	0	0	false	false	att_rel_chr_orthodox			11787	true	att_religious_christian	roman_temple	false	0.0000	0	false	true	
+att_bld_religion_orthodox_legendary_3	att_bch_religion_orthodox_legendary	2	5	7000	250		0	false	0	0	0	0	false	false	att_rel_chr_orthodox		res_rom_lead	11797	true	att_religious_christian	roman_temple	false	0.0000	0	false	true	
+att_bld_religion_orthodox_legendary_4	att_bch_religion_orthodox_legendary	3	6	11500	375		0	false	0	0	0	1	false	false	att_rel_chr_orthodox		res_rom_marble	11798	true	att_religious_christian	roman_temple	false	0.0000	0	false	true	
+att_bld_religion_orthodox_legendary_5	att_bch_religion_orthodox_legendary	4	8	25000	750		0	false	0	0	0	0	false	false	att_rel_chr_orthodox		res_rom_marble	11803	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_orthodox_major_1	att_bch_religion_orthodox_major	0	3	3750	50		0	false	0	0	0	0	false	false	att_rel_chr_orthodox			10600	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_orthodox_major_church_2	att_bch_religion_orthodox_major	1	4	6000	100		0	false	0	0	0	0	false	false	att_rel_chr_orthodox			10603	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_orthodox_major_church_3	att_bch_religion_orthodox_major	2	5	10500	150		0	false	0	0	0	0	false	false	att_rel_chr_orthodox			10604	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_orthodox_major_church_4	att_bch_religion_orthodox_major	3	6	17250	200		0	false	0	0	0	1	false	false	att_rel_chr_orthodox			10610	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_orthodox_minor_1	att_bch_religion_orthodox_minor	0	2	3750	50		0	false	0	0	0	0	false	false	att_rel_chr_orthodox			10584	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_orthodox_minor_2	att_bch_religion_orthodox_minor	1	3	6000	150		0	false	0	0	0	0	false	false	att_rel_chr_orthodox			10586	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_orthodox_minor_3	att_bch_religion_orthodox_minor	2	4	10500	250		0	false	0	0	0	0	false	false	att_rel_chr_orthodox			10589	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_religion_orthodox_minor_4	att_bch_religion_orthodox_minor	3	5	17250	375		0	false	0	0	0	1	false	false	att_rel_chr_orthodox			10596	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+att_bld_roman_east_military_cavalry_2	att_bch_roman_east_military	1	3	3000	50		0	false	0	0	0	0	false	false				8786	true	att_military_cavalry	military	true	0.0000	0	false	true	
+att_bld_roman_east_military_cavalry_3	att_bch_roman_east_military	2	4	5000	150		0	false	0	0	0	0	false	false				8789	true	att_military_cavalry	military	true	0.0000	0	false	true	
+att_bld_roman_east_military_cavalry_4	att_bch_roman_east_military	3	5	8000	250		0	false	0	0	0	0	false	false			res_rom_iron	8796	true	att_military_cavalry	military	true	0.0000	0	false	true	
+att_bld_roman_east_military_infantry_2	att_bch_roman_east_military	1	3	3000	50		0	false	0	0	0	0	false	false				8746	true	att_military_infantry	military	true	0.0000	0	false	true	
+att_bld_roman_east_military_infantry_3	att_bch_roman_east_military	2	4	5000	150		0	false	0	0	0	0	false	false				8755	true	att_military_infantry	military	true	0.0000	0	false	true	
+att_bld_roman_east_military_infantry_4	att_bch_roman_east_military	3	5	8000	250		0	false	0	0	0	0	false	false			res_rom_iron	8761	true	att_military_infantry	military	true	0.0000	0	false	true	
+att_bld_roman_east_military_skirmisher_2	att_bch_roman_east_military	1	3	3000	50		0	false	0	0	0	0	false	false				8765	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+att_bld_roman_east_military_skirmisher_3	att_bch_roman_east_military	2	4	5000	100		0	false	0	0	0	0	false	false				8774	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+att_bld_roman_east_military_skirmisher_4	att_bch_roman_east_military	3	5	8000	200		0	false	0	0	0	0	false	false			res_rom_iron	8776	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+att_bld_roman_east_port_military_4	att_bch_roman_east_port_minor	3	8	11500	250		0	false	0	0	0	0	false	false				11472	true		military_port	true	0.0000	0	false	true	
+att_bld_roman_water_aqueducts_2	att_bch_roman_water_major	1	2	3000	13		0	false	0	0	0	0	false	false				9188	true	att_water_major	town	true	0.0000	0	true	true	
+att_bld_roman_water_aqueducts_3	att_bch_roman_water_major	2	3	5000	25		0	false	0	0	0	0	false	false				9193	true	att_water_major	town	true	0.0000	0	true	true	
+att_bld_roman_water_aqueducts_4	att_bch_roman_water_major	3	4	8000	50		0	false	0	0	0	0	false	false			res_rom_lead	9203	true	att_water_major	town	true	0.0000	0	true	true	
+att_bld_roman_water_major_1	att_bch_roman_water_major	0	1	2000	7		0	false	0	0	0	0	false	false				9185	true	att_water_major	town	true	0.0000	0	false	true	
+att_bld_roman_water_sewers_2	att_bch_roman_water_major	1	2	3000	13		0	false	0	0	0	0	false	false				9211	true	att_water_major	town	true	0.0000	0	false	true	
+att_bld_roman_water_sewers_3	att_bch_roman_water_major	2	3	5000	25		0	false	0	0	0	0	false	false				9221	true	att_water_major	town	true	0.0000	0	false	true	
+att_bld_roman_water_sewers_4	att_bch_roman_water_major	3	4	8000	50		0	false	0	0	0	0	false	false			res_rom_lead	9229	true	att_water_major	town	true	0.0000	0	false	true	
+att_bld_roman_west_military_cavalry_2	att_bch_roman_west_military	1	3	3000	50		0	false	0	0	0	0	false	false				8725	true	att_military_cavalry	military	true	0.0000	0	false	true	
+att_bld_roman_west_military_cavalry_3	att_bch_roman_west_military	2	4	5000	150		0	false	0	0	0	0	false	false				8726	true	att_military_cavalry	military	true	0.0000	0	false	true	
+att_bld_roman_west_military_cavalry_4	att_bch_roman_west_military	3	5	8000	250		0	false	0	0	0	0	false	false			res_rom_iron	8735	true	att_military_cavalry	military	true	0.0000	0	false	true	
+att_bld_roman_west_military_infantry_2	att_bch_roman_west_military	1	3	3000	50		0	false	0	0	0	0	false	false				8691	true	att_military_infantry	military	true	0.0000	0	false	true	
+att_bld_roman_west_military_infantry_3	att_bch_roman_west_military	2	4	5000	150		0	false	0	0	0	0	false	false				8701	true	att_military_infantry	military	true	0.0000	0	false	true	
+att_bld_roman_west_military_infantry_4	att_bch_roman_west_military	3	5	8000	250		0	false	0	0	0	0	false	false			res_rom_iron	8711	true	att_military_infantry	military	true	0.0000	0	false	true	
+att_bld_roman_west_military_skirmisher_2	att_bch_roman_west_military	1	3	3000	50		0	false	0	0	0	0	false	false				8718	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+att_bld_roman_west_military_skirmisher_3	att_bch_roman_west_military	2	4	5000	100		0	false	0	0	0	0	false	false				8721	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+att_bld_roman_west_military_skirmisher_4	att_bch_roman_west_military	3	5	8000	200		0	false	0	0	0	0	false	false			res_rom_iron	8723	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+att_bld_roman_west_port_military_4	att_bch_roman_west_port_minor	3	8	11500	250		0	false	0	0	0	0	false	false				11493	true		military_port	true	0.0000	0	false	true	
+att_slav_wonder_1	att_slav_bch_wonder	0	8	50000	250		0	true	0	0	0	50	false	true				14453	true	att_slav_bch_wonder	barbarian_shrine	true	0.0000	0	false	true	
+att_slav_wonder_civic_2	att_slav_bch_wonder	1	16	100000	750		0	true	0	0	0	75	false	true				14467	true	att_slav_bch_wonder	barbarian_shrine	true	0.0000	0	false	true	
+att_slav_wonder_civic_3	att_slav_bch_wonder	2	32	150000	1500		0	true	0	0	0	100	false	true				14468	true	att_slav_bch_wonder	barbarian_shrine	true	0.0000	0	false	true	
+att_slav_wonder_military_2	att_slav_bch_wonder	1	16	100000	750		0	true	0	0	0	75	false	true				14454	true	att_slav_bch_wonder	barbarian_shrine	true	0.0000	0	false	true	
+att_slav_wonder_military_3	att_slav_bch_wonder	2	32	150000	1500		0	true	0	0	0	100	false	true				14462	true	att_slav_bch_wonder	barbarian_shrine	true	0.0000	0	false	true	
+bel_bld_roman_military_4	bel_bch_roman_military	3	5	8000	250		0	false	0	0	0	0	false	false			res_rom_iron	13239	true	att_military_precursor	military	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_military_armory_2	mk_bch_afrkingdoms_military_armory	1	3	4500	50		0	false	0	0	0	0	false	false				21087	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_military_armory_3	mk_bch_afrkingdoms_military_armory	2	4	7500	75		0	false	0	0	0	0	false	false			res_rom_iron	21096	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_military_armory_4	mk_bch_afrkingdoms_military_armory	3	5	12000	100		0	false	0	0	0	1	false	false			res_rom_iron	21103	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_military_barracks_1	mk_bch_afrkingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				21025	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_military_barracks_2	mk_bch_afrkingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				21033	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_military_barracks_3	mk_bch_afrkingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				21038	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_military_garrison_1	mk_bch_afrkingdoms_military_garrison	0	2	2250	25		0	false	0	0	0	0	false	false				21047	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_military_garrison_2	mk_bch_afrkingdoms_military_garrison	1	3	3600	50		0	false	0	0	0	0	false	false				21049	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_military_garrison_3	mk_bch_afrkingdoms_military_garrison	2	4	6300	75		0	false	0	0	0	0	false	false				21050	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_military_garrison_4	mk_bch_afrkingdoms_military_garrison	3	4	10500	100		0	false	0	0	0	0	false	false				21057	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_military_mercs_1	mk_bch_afrkingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				23919	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_military_mercs_2	mk_bch_afrkingdoms_military_barracks	2	5	9000	100		0	false	0	0	0	0	false	false				23927	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_military_siege_1	mk_bch_afrkingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				21059	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_military_siege_2	mk_bch_afrkingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				21065	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_military_siege_3	mk_bch_afrkingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				21074	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_water_major_1	mk_bch_afrkingdoms_water_major	0	1	1500	13		0	false	0	0	0	0	false	false				21157	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_water_major_2	mk_bch_afrkingdoms_water_major	1	2	2250	25		0	false	0	0	0	0	false	false				21162	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_water_major_3	mk_bch_afrkingdoms_water_major	2	3	3750	38		0	false	0	0	0	0	false	false				21167	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_water_major_4	mk_bch_afrkingdoms_water_major	3	4	6000	50		0	false	0	0	0	0	false	false				21170	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_water_minor_1	mk_bch_afrkingdoms_water_minor	0	1	1500	13		0	false	0	0	0	0	false	false				21177	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_water_minor_2	mk_bch_afrkingdoms_water_minor	1	2	2250	25		0	false	0	0	0	0	false	false				21180	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_water_minor_3	mk_bch_afrkingdoms_water_minor	2	3	3750	38		0	false	0	0	0	0	false	false				21187	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_afrkingdoms_water_minor_4	mk_bch_afrkingdoms_water_minor	3	4	6000	50		0	false	0	0	0	0	false	false				21195	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_arakingdoms_military_armory_2	mk_bch_arakingdoms_military_armory	1	3	4500	50		0	false	0	0	0	0	false	false				18939	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_arakingdoms_military_armory_3	mk_bch_arakingdoms_military_armory	2	4	7500	75		0	false	0	0	0	0	false	false			res_rom_iron	18941	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_arakingdoms_military_armory_4	mk_bch_arakingdoms_military_armory	3	5	12000	100		0	false	0	0	0	1	false	false			res_rom_iron	18948	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_arakingdoms_military_barracks_1	mk_bch_arakingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				18951	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_arakingdoms_military_barracks_2	mk_bch_arakingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				18960	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_arakingdoms_military_barracks_3	mk_bch_arakingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				18970	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_arakingdoms_military_garrison_1	mk_bch_arakingdoms_military_garrison	0	2	2250	25		0	false	0	0	0	0	false	false				18976	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_arakingdoms_military_garrison_2	mk_bch_arakingdoms_military_garrison	1	3	3600	50		0	false	0	0	0	0	false	false				18983	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_arakingdoms_military_garrison_3	mk_bch_arakingdoms_military_garrison	2	4	6300	75		0	false	0	0	0	0	false	false				18989	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_arakingdoms_military_garrison_4	mk_bch_arakingdoms_military_garrison	3	4	10500	100		0	false	0	0	0	0	false	false				18994	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_arakingdoms_military_mamluk_1	mk_bch_arakingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false			res_att_slaves	19026	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_arakingdoms_military_mamluk_2	mk_bch_arakingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false			res_att_slaves	19035	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_arakingdoms_military_mamluk_3	mk_bch_arakingdoms_military_barracks	3	5	12000	75		0	false	0	0	0	0	false	false			res_att_slaves	19040	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_arakingdoms_military_siege_1	mk_bch_arakingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				19001	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_arakingdoms_military_siege_2	mk_bch_arakingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				19009	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_arakingdoms_military_siege_3	mk_bch_arakingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				19017	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_arakingdoms_water_major_1	mk_bch_arakingdoms_water_major	0	1	1500	13		0	false	0	0	0	0	false	false				19104	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_arakingdoms_water_major_2	mk_bch_arakingdoms_water_major	1	2	2250	25		0	false	0	0	0	0	false	false				19112	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_arakingdoms_water_major_3	mk_bch_arakingdoms_water_major	2	3	3750	38		0	false	0	0	0	0	false	false				19113	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_arakingdoms_water_major_4	mk_bch_arakingdoms_water_major	3	4	6000	50		0	false	0	0	0	1	false	false				19116	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_arakingdoms_water_minor_1	mk_bch_arakingdoms_water_minor	0	1	1500	13		0	false	0	0	0	0	false	false				19124	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_arakingdoms_water_minor_2	mk_bch_arakingdoms_water_minor	1	2	2250	25		0	false	0	0	0	0	false	false				19134	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_arakingdoms_water_minor_3	mk_bch_arakingdoms_water_minor	2	3	3750	38		0	false	0	0	0	0	false	false				19139	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_arakingdoms_water_minor_4	mk_bch_arakingdoms_water_minor	3	4	6000	50		0	false	0	0	0	1	false	false				19143	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_military_armory_2	mk_bch_cenkingdoms_military_armory	1	3	4500	50		0	false	0	0	0	0	false	false				21677	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_military_armory_3	mk_bch_cenkingdoms_military_armory	2	4	7500	75		0	false	0	0	0	0	false	false			res_rom_iron	21682	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_military_armory_4	mk_bch_cenkingdoms_military_armory	3	5	12000	100		0	false	0	0	0	1	false	false			res_rom_iron	21684	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_military_barracks_1	mk_bch_cenkingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				21688	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_military_barracks_2	mk_bch_cenkingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				21694	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_military_barracks_3	mk_bch_cenkingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				21699	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_military_garrison_1	mk_bch_cenkingdoms_military_garrison	0	2	2250	25		0	false	0	0	0	0	false	false				21704	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_military_garrison_2	mk_bch_cenkingdoms_military_garrison	1	3	3600	50		0	false	0	0	0	0	false	false				21705	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_military_garrison_3	mk_bch_cenkingdoms_military_garrison	2	4	6300	75		0	false	0	0	0	0	false	false				21709	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_military_garrison_4	mk_bch_cenkingdoms_military_garrison	3	4	10500	100		0	false	0	0	0	0	false	false				21719	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_military_mercs_1	mk_bch_cenkingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				23963	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_military_mercs_1_east	mk_bch_cenkingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				23935	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_military_mercs_2	mk_bch_cenkingdoms_military_barracks	2	5	9000	100		0	false	0	0	0	0	false	false				23970	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_military_mercs_2_east	mk_bch_cenkingdoms_military_barracks	2	5	9000	100		0	false	0	0	0	0	false	false				23939	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_military_siege_1	mk_bch_cenkingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				21732	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_military_siege_2	mk_bch_cenkingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				21736	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_military_siege_3	mk_bch_cenkingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				21737	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_military_tournament_1	mk_bch_cenkingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				21743	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_military_tournament_2	mk_bch_cenkingdoms_military_barracks	2	5	9000	100		0	false	0	0	0	0	false	false				21748	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_water_major_1	mk_bch_cenkingdoms_water_major	0	1	1500	13		0	false	0	0	0	0	false	false				21818	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_water_major_2	mk_bch_cenkingdoms_water_major	1	2	2250	25		0	false	0	0	0	0	false	false				21819	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_water_major_3	mk_bch_cenkingdoms_water_major	2	3	3750	38		0	false	0	0	0	0	false	false				21821	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_water_major_4	mk_bch_cenkingdoms_water_major	3	4	6000	50		0	false	0	0	0	0	false	false				21822	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_water_minor_1	mk_bch_cenkingdoms_water_minor	0	1	1500	13		0	false	0	0	0	0	false	false				21832	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_water_minor_2	mk_bch_cenkingdoms_water_minor	1	2	2250	25		0	false	0	0	0	0	false	false				21833	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_water_minor_3	mk_bch_cenkingdoms_water_minor	2	3	3750	38		0	false	0	0	0	0	false	false				21834	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_cenkingdoms_water_minor_4	mk_bch_cenkingdoms_water_minor	3	4	6000	50		0	false	0	0	0	0	false	false				21838	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_crukingdoms_military_armory_2	mk_bch_crukingdoms_military_armory	1	3	4500	50		0	false	0	0	0	0	false	false				22775	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_crukingdoms_military_armory_3	mk_bch_crukingdoms_military_armory	2	4	7500	75		0	false	0	0	0	0	false	false			res_rom_iron	22778	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_crukingdoms_military_armory_4	mk_bch_crukingdoms_military_armory	3	5	12000	100		0	false	0	0	0	1	false	false			res_rom_iron	22781	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_crukingdoms_military_siege_1	mk_bch_crukingdoms_military_armory	1	3	4500	25		0	false	0	0	0	0	false	false				22786	true	att_milupgrades_siege	military	true	0.0000	0	false	true	
+mk_bld_crukingdoms_military_siege_2	mk_bch_crukingdoms_military_armory	2	4	7500	50		0	false	0	0	0	0	false	false				22796	true	att_milupgrades_siege	military	true	0.0000	0	false	true	
+mk_bld_crukingdoms_military_siege_3	mk_bch_crukingdoms_military_armory	3	5	12000	100		0	false	0	0	0	0	false	false				22804	true	att_milupgrades_siege	military	true	0.0000	0	false	true	
+mk_bld_crukingdoms_order_crusader_1	mk_bch_crukingdoms_order	1	3	4500	75		0	false	0	0	0	0	false	false				22918	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_crukingdoms_order_crusader_2	mk_bch_crukingdoms_order	2	4	7500	75		0	false	0	0	0	0	false	false				22920	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_crukingdoms_order_crusader_3	mk_bch_crukingdoms_order	3	5	10000	100		0	false	0	0	0	0	false	false				22926	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_crukingdoms_order_generic	mk_bch_crukingdoms_order	0	2	3000	38		0	false	0	0	0	0	false	false				22872	true	att_military_precursor	military	true	0.0000	0	false	true	
+mk_bld_crukingdoms_order_hospitaller_1	mk_bch_crukingdoms_order	1	3	4500	75		0	false	0	0	0	0	false	false				22882	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_crukingdoms_order_hospitaller_2	mk_bch_crukingdoms_order	2	4	7500	75		0	false	0	0	0	0	false	false				22891	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_crukingdoms_order_hospitaller_3	mk_bch_crukingdoms_order	3	5	10000	100		0	false	0	0	0	0	false	true				22898	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_crukingdoms_order_lazarus_1	mk_bch_crukingdoms_order	1	3	4500	75		0	false	0	0	0	0	false	false				22904	true	att_water_major	military	true	0.0000	0	false	true	
+mk_bld_crukingdoms_order_lazarus_2	mk_bch_crukingdoms_order	2	4	7500	75		0	false	0	0	0	0	false	false				22909	true	att_water_major	military	true	0.0000	0	false	true	
+mk_bld_crukingdoms_order_lazarus_3	mk_bch_crukingdoms_order	3	5	10000	100		0	false	0	0	0	0	false	true				22914	true	att_water_major	military	true	0.0000	0	false	true	
+mk_bld_easkingdoms_military_armory_2	mk_bch_easkingdoms_military_armory	1	3	4500	50		0	false	0	0	0	0	false	false				14858	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_easkingdoms_military_armory_3	mk_bch_easkingdoms_military_armory	2	4	7500	75		0	false	0	0	0	0	false	false			res_rom_iron	14861	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_easkingdoms_military_armory_4	mk_bch_easkingdoms_military_armory	3	5	12000	100		0	false	0	0	0	1	false	false			res_rom_iron	14866	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_easkingdoms_military_barracks_1	mk_bch_easkingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				14874	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_easkingdoms_military_barracks_2	mk_bch_easkingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				14875	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_easkingdoms_military_barracks_3	mk_bch_easkingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				14877	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_easkingdoms_military_garrison_1	mk_bch_easkingdoms_military_garrison	0	2	2250	25		0	false	0	0	0	0	false	false				14620	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_easkingdoms_military_garrison_2	mk_bch_easkingdoms_military_garrison	1	3	3600	50		0	false	0	0	0	0	false	false				14623	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_easkingdoms_military_garrison_3	mk_bch_easkingdoms_military_garrison	2	4	6300	75		0	false	0	0	0	0	false	false				14633	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_easkingdoms_military_garrison_4	mk_bch_easkingdoms_military_garrison	3	4	10500	100		0	false	0	0	0	0	false	false				14641	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_easkingdoms_military_mercs_1	mk_bch_easkingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				23909	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_easkingdoms_military_mercs_2	mk_bch_easkingdoms_military_barracks	2	5	9000	100		0	false	0	0	0	0	false	false				23912	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_easkingdoms_military_siege_1	mk_bch_easkingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				14886	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_easkingdoms_military_siege_2	mk_bch_easkingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				14896	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_easkingdoms_military_siege_3	mk_bch_easkingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				14905	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_easkingdoms_water_major_1	mk_bch_easkingdoms_water_major	0	1	1500	13		0	false	0	0	0	0	false	false				15184	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_easkingdoms_water_major_2	mk_bch_easkingdoms_water_major	1	2	2250	25		0	false	0	0	0	0	false	false				15188	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_easkingdoms_water_major_3	mk_bch_easkingdoms_water_major	2	3	3750	38		0	false	0	0	0	0	false	false				15195	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_easkingdoms_water_major_4	mk_bch_easkingdoms_water_major	3	4	6000	50		0	false	0	0	0	1	false	false				15199	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_easkingdoms_water_minor_1	mk_bch_easkingdoms_water_minor	0	1	1500	13		0	false	0	0	0	0	false	false				15200	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_easkingdoms_water_minor_2	mk_bch_easkingdoms_water_minor	1	2	2250	25		0	false	0	0	0	0	false	false				15209	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_easkingdoms_water_minor_3	mk_bch_easkingdoms_water_minor	2	3	3750	38		0	false	0	0	0	0	false	false				15210	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_easkingdoms_water_minor_4	mk_bch_easkingdoms_water_minor	3	4	6000	50		0	false	0	0	0	1	false	false				15219	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_military_armory_2	mk_bch_ibekingdoms_military_armory	1	3	4500	50		0	false	0	0	0	0	false	false				16544	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_military_armory_3	mk_bch_ibekingdoms_military_armory	2	4	7500	75		0	false	0	0	0	0	false	false			res_rom_iron	16553	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_military_armory_4	mk_bch_ibekingdoms_military_armory	3	5	12000	100		0	false	0	0	0	1	false	false			res_rom_iron	16563	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_military_barracks_1	mk_bch_ibekingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				16573	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_military_barracks_2	mk_bch_ibekingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				16583	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_military_barracks_3	mk_bch_ibekingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				16593	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_military_garrison_1	mk_bch_ibekingdoms_military_garrison	0	2	2250	25		0	false	0	0	0	0	false	false				16597	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_military_garrison_2	mk_bch_ibekingdoms_military_garrison	1	3	3600	50		0	false	0	0	0	0	false	false				16603	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_military_garrison_3	mk_bch_ibekingdoms_military_garrison	2	4	6300	75		0	false	0	0	0	0	false	false				16605	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_military_garrison_4	mk_bch_ibekingdoms_military_garrison	3	4	10500	100		0	false	0	0	0	0	false	false				16611	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_military_siege_1	mk_bch_ibekingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				16617	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_military_siege_2	mk_bch_ibekingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				16627	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_military_siege_3	mk_bch_ibekingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				16629	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_military_tournament_1	mk_bch_ibekingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				16631	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_military_tournament_2	mk_bch_ibekingdoms_military_barracks	2	5	9000	100		0	false	0	0	0	0	false	false				16639	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_water_major_1	mk_bch_ibekingdoms_water_major	0	1	1500	13		0	false	0	0	0	0	false	false				16711	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_water_major_2	mk_bch_ibekingdoms_water_major	1	2	2250	25		0	false	0	0	0	0	false	false				16714	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_water_major_3	mk_bch_ibekingdoms_water_major	2	3	3750	38		0	false	0	0	0	0	false	false				16721	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_water_major_4	mk_bch_ibekingdoms_water_major	3	4	6000	50		0	false	0	0	0	1	false	false				16724	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_water_minor_1	mk_bch_ibekingdoms_water_minor	0	1	1500	13		0	false	0	0	0	0	false	false				16732	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_water_minor_2	mk_bch_ibekingdoms_water_minor	1	2	2250	25		0	false	0	0	0	0	false	false				16735	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_water_minor_3	mk_bch_ibekingdoms_water_minor	2	3	3750	38		0	false	0	0	0	0	false	false				16742	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_ibekingdoms_water_minor_4	mk_bch_ibekingdoms_water_minor	3	4	6000	50		0	false	0	0	0	1	false	false				16744	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_itakingdoms_military_armory_2	mk_bch_itakingdoms_military_armory	1	3	4500	50		0	false	0	0	0	0	false	false				17188	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_itakingdoms_military_armory_3	mk_bch_itakingdoms_military_armory	2	4	7500	75		0	false	0	0	0	0	false	false			res_rom_iron	17197	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_itakingdoms_military_armory_4	mk_bch_itakingdoms_military_armory	3	5	12000	100		0	false	0	0	0	1	false	false			res_rom_iron	17207	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_itakingdoms_military_barracks_1	mk_bch_itakingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				17212	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_itakingdoms_military_barracks_2	mk_bch_itakingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				17213	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_itakingdoms_military_barracks_3	mk_bch_itakingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				17218	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_itakingdoms_military_garrison_1	mk_bch_itakingdoms_military_garrison	0	2	2250	25		0	false	0	0	0	0	false	false				17223	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_itakingdoms_military_garrison_2	mk_bch_itakingdoms_military_garrison	1	3	3600	50		0	false	0	0	0	0	false	false				17232	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_itakingdoms_military_garrison_3	mk_bch_itakingdoms_military_garrison	2	4	6300	75		0	false	0	0	0	0	false	false				17237	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_itakingdoms_military_garrison_4	mk_bch_itakingdoms_military_garrison	3	4	10500	100		0	false	0	0	0	0	false	false				17239	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_itakingdoms_military_siege_1	mk_bch_itakingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				17251	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_itakingdoms_military_siege_2	mk_bch_itakingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				17252	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_itakingdoms_military_siege_3	mk_bch_itakingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				17260	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_itakingdoms_military_tournament_1	mk_bch_itakingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				17265	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_itakingdoms_military_tournament_2	mk_bch_itakingdoms_military_barracks	2	5	9000	100		0	false	0	0	0	0	false	false				17269	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_itakingdoms_water_major_1	mk_bch_itakingdoms_water_major	0	1	1500	13		0	false	0	0	0	0	false	false				17348	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_itakingdoms_water_major_2	mk_bch_itakingdoms_water_major	1	2	2250	25		0	false	0	0	0	0	false	false				17352	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_itakingdoms_water_major_3	mk_bch_itakingdoms_water_major	2	3	3750	38		0	false	0	0	0	0	false	false				17355	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_itakingdoms_water_major_4	mk_bch_itakingdoms_water_major	3	4	6000	50		0	false	0	0	0	1	false	false				17359	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_itakingdoms_water_minor_1	mk_bch_itakingdoms_water_minor	0	1	1500	13		0	false	0	0	0	0	false	false				17369	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_itakingdoms_water_minor_2	mk_bch_itakingdoms_water_minor	1	2	2250	25		0	false	0	0	0	0	false	false				17375	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_itakingdoms_water_minor_3	mk_bch_itakingdoms_water_minor	2	3	3750	38		0	false	0	0	0	0	false	false				17383	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_itakingdoms_water_minor_4	mk_bch_itakingdoms_water_minor	3	4	6000	50		0	false	0	0	0	1	false	false				17392	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_mookingdoms_military_armory_2	mk_bch_mookingdoms_military_armory	1	3	4500	50		0	false	0	0	0	0	false	false				23579	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_mookingdoms_military_armory_3	mk_bch_mookingdoms_military_armory	2	4	7500	75		0	false	0	0	0	0	false	false			res_rom_iron	23585	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_mookingdoms_military_armory_4	mk_bch_mookingdoms_military_armory	3	5	12000	100		0	false	0	0	0	1	false	false			res_rom_iron	23595	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_mookingdoms_military_barracks_1	mk_bch_mookingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				23596	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_mookingdoms_military_barracks_2	mk_bch_mookingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				23601	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_mookingdoms_military_barracks_3	mk_bch_mookingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				23605	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_mookingdoms_military_garrison_1	mk_bch_mookingdoms_military_garrison	0	2	2250	25		0	false	0	0	0	0	false	false				23614	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_mookingdoms_military_garrison_2	mk_bch_mookingdoms_military_garrison	1	3	3600	50		0	false	0	0	0	0	false	false				23621	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_mookingdoms_military_garrison_3	mk_bch_mookingdoms_military_garrison	2	4	6300	75		0	false	0	0	0	0	false	false				23630	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_mookingdoms_military_garrison_4	mk_bch_mookingdoms_military_garrison	3	4	10500	100		0	false	0	0	0	0	false	false				23637	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_mookingdoms_military_mercs_1	mk_bch_mookingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				23904	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_mookingdoms_military_mercs_2	mk_bch_mookingdoms_military_barracks	2	5	9000	100		0	false	0	0	0	0	false	false				23907	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_mookingdoms_military_siege_1	mk_bch_mookingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				23647	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_mookingdoms_military_siege_2	mk_bch_mookingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				23656	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_mookingdoms_military_siege_3	mk_bch_mookingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				23666	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_mookingdoms_water_major_1	mk_bch_mookingdoms_water_major	0	1	1500	13		0	false	0	0	0	0	false	false				23704	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_mookingdoms_water_major_2	mk_bch_mookingdoms_water_major	1	2	2250	25		0	false	0	0	0	0	false	false				23707	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_mookingdoms_water_major_3	mk_bch_mookingdoms_water_major	2	3	3750	38		0	false	0	0	0	0	false	false				23715	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_mookingdoms_water_major_4	mk_bch_mookingdoms_water_major	3	4	6000	50		0	false	0	0	0	1	false	false				23723	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_mookingdoms_water_minor_1	mk_bch_mookingdoms_water_minor	0	1	1500	13		0	false	0	0	0	0	false	false				23724	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_mookingdoms_water_minor_2	mk_bch_mookingdoms_water_minor	1	2	2250	25		0	false	0	0	0	0	false	false				23730	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_mookingdoms_water_minor_3	mk_bch_mookingdoms_water_minor	2	3	3750	38		0	false	0	0	0	0	false	false				23737	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_mookingdoms_water_minor_4	mk_bch_mookingdoms_water_minor	3	4	6000	50		0	false	0	0	0	1	false	false				23744	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_military_armory_2	mk_bch_nomkingdoms_military_armory	1	3	4500	50		0	false	0	0	0	0	false	false				20314	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_military_armory_3	mk_bch_nomkingdoms_military_armory	2	4	7500	75		0	false	0	0	0	0	false	false			res_rom_iron	20315	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_military_armory_4	mk_bch_nomkingdoms_military_armory	3	5	12000	100		0	false	0	0	0	1	false	false			res_rom_iron	20322	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_military_barracks_1	mk_bch_nomkingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				20326	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_military_barracks_2	mk_bch_nomkingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				20329	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_military_barracks_3	mk_bch_nomkingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				20330	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_military_garrison_1	mk_bch_nomkingdoms_military_garrison	0	2	2250	25		0	false	0	0	0	0	false	false				20338	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_military_garrison_2	mk_bch_nomkingdoms_military_garrison	1	3	3600	50		0	false	0	0	0	0	false	false				20345	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_military_garrison_3	mk_bch_nomkingdoms_military_garrison	2	4	6300	75		0	false	0	0	0	0	false	false				20348	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_military_garrison_4	mk_bch_nomkingdoms_military_garrison	3	4	10500	100		0	false	0	0	0	0	false	false				20351	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_military_mercs_1	mk_bch_nomkingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				20385	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_military_mercs_2	mk_bch_nomkingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				20386	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_military_mercs_3	mk_bch_nomkingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				20394	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_military_siege_1	mk_bch_nomkingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				20359	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_military_siege_2	mk_bch_nomkingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				20366	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_military_siege_3	mk_bch_nomkingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				20375	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_water_major_1	mk_bch_nomkingdoms_water_major	0	1	1500	13		0	false	0	0	0	0	false	false				20453	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_water_major_2	mk_bch_nomkingdoms_water_major	1	2	2250	25		0	false	0	0	0	0	false	false				20459	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_water_major_3	mk_bch_nomkingdoms_water_major	2	3	3750	38		0	false	0	0	0	0	false	false				20467	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_water_major_4	mk_bch_nomkingdoms_water_major	3	4	6000	50		0	false	0	0	0	0	false	false				20472	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_water_minor_1	mk_bch_nomkingdoms_water_minor	0	1	1500	13		0	false	0	0	0	0	false	false				20477	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_water_minor_2	mk_bch_nomkingdoms_water_minor	1	2	2250	25		0	false	0	0	0	0	false	false				20482	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_water_minor_3	mk_bch_nomkingdoms_water_minor	2	3	3750	38		0	false	0	0	0	0	false	false				20485	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_nomkingdoms_water_minor_4	mk_bch_nomkingdoms_water_minor	3	4	6000	50		0	false	0	0	0	0	false	false				20494	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_military_armory_2	mk_bch_ortkingdoms_military_armory	1	3	4500	50		0	false	0	0	0	0	false	false				17962	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_military_armory_3	mk_bch_ortkingdoms_military_armory	2	4	7500	75		0	false	0	0	0	0	false	false			res_rom_iron	17967	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_military_armory_4	mk_bch_ortkingdoms_military_armory	3	5	12000	100		0	false	0	0	0	1	false	false			res_rom_iron	17977	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_military_barracks_1	mk_bch_ortkingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				18240	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_military_barracks_2	mk_bch_ortkingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				18241	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_military_barracks_3	mk_bch_ortkingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				18245	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_military_garrison_1	mk_bch_ortkingdoms_military_garrison	0	2	2250	25		0	false	0	0	0	0	false	false				17997	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_military_garrison_2	mk_bch_ortkingdoms_military_garrison	1	3	3600	50		0	false	0	0	0	0	false	false				18002	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_military_garrison_3	mk_bch_ortkingdoms_military_garrison	2	4	6300	75		0	false	0	0	0	0	false	false				18011	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_military_garrison_4	mk_bch_ortkingdoms_military_garrison	3	4	10500	100		0	false	0	0	0	0	false	false				18016	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_military_mercs_1	mk_bch_ortkingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				18038	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_military_mercs_2	mk_bch_ortkingdoms_military_barracks	2	5	9000	100		0	false	0	0	0	0	false	false				18048	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_military_siege_1	mk_bch_ortkingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				18030	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_military_siege_2	mk_bch_ortkingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				18036	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_military_siege_3	mk_bch_ortkingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				18037	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_water_major_1	mk_bch_ortkingdoms_water_major	0	1	1500	13		0	false	0	0	0	0	false	false				18142	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_water_major_2	mk_bch_ortkingdoms_water_major	1	2	2250	25		0	false	0	0	0	0	false	false				18143	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_water_major_3	mk_bch_ortkingdoms_water_major	2	3	3750	38		0	false	0	0	0	0	false	false				18153	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_water_major_4	mk_bch_ortkingdoms_water_major	3	4	6000	50		0	false	0	0	0	1	false	false				18160	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_water_minor_1	mk_bch_ortkingdoms_water_minor	0	1	1500	13		0	false	0	0	0	0	false	false				18162	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_water_minor_2	mk_bch_ortkingdoms_water_minor	1	2	2250	25		0	false	0	0	0	0	false	false				18171	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_water_minor_3	mk_bch_ortkingdoms_water_minor	2	3	3750	38		0	false	0	0	0	0	false	false				18175	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_ortkingdoms_water_minor_4	mk_bch_ortkingdoms_water_minor	3	4	6000	50		0	false	0	0	0	1	false	false				18183	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_religion_baltic_temple_major_1	mk_bch_religion_baltic_major	0	3	3000	25		0	false	0	0	0	0	false	false	att_rel_pag_slavic			19793	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_baltic_temple_major_2	mk_bch_religion_baltic_major	1	4	4500	50		0	false	0	0	0	0	false	false	att_rel_pag_slavic			19796	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_baltic_temple_major_3	mk_bch_religion_baltic_major	2	5	7500	75		0	false	0	0	0	0	false	false	att_rel_pag_slavic			19799	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_baltic_temple_major_4	mk_bch_religion_baltic_major	3	6	10000	100		0	false	0	0	0	1	false	false	att_rel_pag_slavic			19800	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_baltic_temple_minor_1	mk_bch_religion_baltic_minor	0	3	3000	50		0	false	0	0	0	0	false	false	att_rel_pag_slavic			19801	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_baltic_temple_minor_2	mk_bch_religion_baltic_minor	1	4	4500	100		0	false	0	0	0	0	false	false	att_rel_pag_slavic			19804	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_baltic_temple_minor_3	mk_bch_religion_baltic_minor	2	5	7500	150		0	false	0	0	0	0	false	false	att_rel_pag_slavic			19810	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_baltic_temple_minor_4	mk_bch_religion_baltic_minor	3	6	10000	200		0	false	0	0	0	1	false	false	att_rel_pag_slavic			19819	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_bogomilism_major_1	mk_bch_religion_bogomilism_major	0	3	3750	50		0	false	0	0	0	0	false	false	mk_rel_chr_bogomilist			22151	true	att_religious_christian	city	true	0.0000	0	false	true	
+mk_bld_religion_bogomilism_major_church_2	mk_bch_religion_bogomilism_major	1	4	6000	100		0	false	0	0	0	0	false	false	mk_rel_chr_bogomilist			22158	true	att_religious_christian	city	true	0.0000	0	false	true	
+mk_bld_religion_bogomilism_major_church_3	mk_bch_religion_bogomilism_major	2	5	10500	150		0	false	0	0	0	0	false	false	mk_rel_chr_bogomilist			22164	true	att_religious_christian	city	true	0.0000	0	false	true	
+mk_bld_religion_bogomilism_major_church_4	mk_bch_religion_bogomilism_major	3	6	17250	200		0	false	0	0	0	1	false	false	mk_rel_chr_bogomilist			22171	true	att_religious_christian	city	true	0.0000	0	false	true	
+mk_bld_religion_bogomilism_minor_1	mk_bch_religion_bogomilism_minor	0	3	3750	50		0	false	0	0	0	0	false	false	mk_rel_chr_bogomilist			22196	true	att_religious_christian	city	true	0.0000	0	false	true	
+mk_bld_religion_bogomilism_minor_2	mk_bch_religion_bogomilism_minor	1	4	6000	150		0	false	0	0	0	0	false	false	mk_rel_chr_bogomilist			22204	true	att_religious_christian	city	true	0.0000	0	false	true	
+mk_bld_religion_bogomilism_minor_3	mk_bch_religion_bogomilism_minor	2	5	10500	250		0	false	0	0	0	0	false	false	mk_rel_chr_bogomilist			22206	true	att_religious_christian	city	true	0.0000	0	false	true	
+mk_bld_religion_bogomilism_minor_4	mk_bch_religion_bogomilism_minor	3	6	17250	375		0	false	0	0	0	1	false	false	mk_rel_chr_bogomilist			22207	true	att_religious_christian	city	true	0.0000	0	false	true	
+mk_bld_religion_cathar_major_1	mk_bch_religion_catharism_major	0	3	3750	50		0	false	0	0	0	0	false	false	mk_rel_chr_cathar			22079	true	att_religious_christian	city	true	0.0000	0	false	true	
+mk_bld_religion_cathar_major_church_2	mk_bch_religion_catharism_major	1	4	6000	100		0	false	0	0	0	0	false	false	mk_rel_chr_cathar			22089	true	att_religious_christian	city	true	0.0000	0	false	true	
+mk_bld_religion_cathar_major_church_3	mk_bch_religion_catharism_major	2	5	10500	150		0	false	0	0	0	0	false	false	mk_rel_chr_cathar			22098	true	att_religious_christian	city	true	0.0000	0	false	true	
+mk_bld_religion_cathar_major_church_4	mk_bch_religion_catharism_major	3	6	17250	200		0	false	0	0	0	1	false	false	mk_rel_chr_cathar			22100	true	att_religious_christian	city	true	0.0000	0	false	true	
+mk_bld_religion_cathar_minor_1	mk_bch_religion_catharism_minor	0	3	3750	50		0	false	0	0	0	0	false	false	mk_rel_chr_cathar			22117	true	att_religious_christian	city	true	0.0000	0	false	true	
+mk_bld_religion_cathar_minor_2	mk_bch_religion_catharism_minor	1	4	6000	150		0	false	0	0	0	0	false	false	mk_rel_chr_cathar			22118	true	att_religious_christian	city	true	0.0000	0	false	true	
+mk_bld_religion_cathar_minor_3	mk_bch_religion_catharism_minor	2	5	10500	250		0	false	0	0	0	0	false	false	mk_rel_chr_cathar			22121	true	att_religious_christian	city	true	0.0000	0	false	true	
+mk_bld_religion_cathar_minor_4	mk_bch_religion_catharism_minor	3	6	17250	375		0	false	0	0	0	1	false	false	mk_rel_chr_cathar			22126	true	att_religious_christian	city	true	0.0000	0	false	true	
+mk_bld_religion_eastern_major_church_1	mk_bch_religion_eastern_orthodox_major	1	4	6000	100		0	false	0	0	0	0	false	false	att_rel_church_east			20523	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+mk_bld_religion_eastern_major_church_2	mk_bch_religion_eastern_orthodox_major	2	5	10500	150		0	false	0	0	0	0	false	false	att_rel_church_east			20529	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+mk_bld_religion_eastern_major_church_3	mk_bch_religion_eastern_orthodox_major	3	6	17250	200		0	false	0	0	0	0	false	false	att_rel_church_east			20534	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+mk_bld_religion_eastern_major_generic	mk_bch_religion_eastern_orthodox_major	0	3	3750	50		0	false	0	0	0	0	false	false	att_rel_church_east			20516	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+mk_bld_religion_eastern_minor_church_1	mk_bch_religion_eastern_orthodox_minor	1	3	6000	150		0	false	0	0	0	0	false	false	att_rel_church_east			20572	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+mk_bld_religion_eastern_minor_church_2	mk_bch_religion_eastern_orthodox_minor	2	4	10500	250		0	false	0	0	0	0	false	false	att_rel_church_east			20579	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+mk_bld_religion_eastern_minor_church_3	mk_bch_religion_eastern_orthodox_minor	3	5	17250	375		0	false	0	0	0	0	false	false	att_rel_church_east			20585	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+mk_bld_religion_eastern_minor_generic	mk_bch_religion_eastern_orthodox_minor	0	2	3750	50		0	false	0	0	0	0	false	false	att_rel_church_east			20570	true	att_religious_christian	roman_temple	true	0.0000	0	false	true	
+mk_bld_religion_ibadi_major_1	mk_bch_religion_ibadi_major	0	3	3750	50		0	false	0	0	0	0	false	false	mk_rel_ibadi_islam			22231	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_ibadi_major_2	mk_bch_religion_ibadi_major	1	4	6000	100		0	false	0	0	0	0	false	false	mk_rel_ibadi_islam			22234	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_ibadi_major_3	mk_bch_religion_ibadi_major	2	5	10500	150		0	false	0	0	0	0	false	false	mk_rel_ibadi_islam			22242	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_ibadi_major_4	mk_bch_religion_ibadi_major	3	6	17250	200		0	false	0	0	0	1	false	false	mk_rel_ibadi_islam			22248	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_ibadi_minor_1	mk_bch_religion_ibadi_minor	0	3	3750	50		0	false	0	0	0	0	false	false	mk_rel_ibadi_islam			22261	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_ibadi_minor_2	mk_bch_religion_ibadi_minor	1	4	6000	150		0	false	0	0	0	0	false	false	mk_rel_ibadi_islam			22270	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_ibadi_minor_3	mk_bch_religion_ibadi_minor	2	5	10500	250		0	false	0	0	0	0	false	false	mk_rel_ibadi_islam			22273	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_ibadi_minor_4	mk_bch_religion_ibadi_minor	3	6	17250	375		0	false	0	0	0	1	false	false	mk_rel_ibadi_islam			22282	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_jewish_major_synagogue_1	mk_bch_religion_jewish_synagogue_major	0	3	3750	50		0	false	0	0	0	0	false	false	att_rel_judaism			18246	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_jewish_major_synagogue_2	mk_bch_religion_jewish_synagogue_major	1	4	6000	100		0	false	0	0	0	0	false	false	att_rel_judaism			18253	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_jewish_major_synagogue_3	mk_bch_religion_jewish_synagogue_major	2	5	10500	150		0	false	0	0	0	0	false	false	att_rel_judaism			18255	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_jewish_major_synagogue_4	mk_bch_religion_jewish_synagogue_major	3	6	17250	200		0	false	0	0	0	1	false	false	att_rel_judaism			18256	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_jewish_minor_synagogue_1	mk_bch_religion_jewish_synagogue_minor	0	3	3750	50		0	false	0	0	0	0	false	false	att_rel_judaism			18264	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_jewish_minor_synagogue_2	mk_bch_religion_jewish_synagogue_minor	1	4	6000	150		0	false	0	0	0	0	false	false	att_rel_judaism			18273	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_jewish_minor_synagogue_3	mk_bch_religion_jewish_synagogue_minor	2	5	10500	250		0	false	0	0	0	0	false	false	att_rel_judaism			18274	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_jewish_minor_synagogue_4	mk_bch_religion_jewish_synagogue_minor	3	6	17250	375		0	false	0	0	0	1	false	false	att_rel_judaism			18283	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_shia_major_1	mk_bch_religion_shia_major	0	3	3750	50		0	false	0	0	0	0	false	false	mk_rel_shia_islam			18369	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_shia_major_2	mk_bch_religion_shia_major	1	4	6000	100		0	false	0	0	0	0	false	false	mk_rel_shia_islam			18372	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_shia_major_3	mk_bch_religion_shia_major	2	5	10500	150		0	false	0	0	0	0	false	false	mk_rel_shia_islam			18382	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_shia_major_4	mk_bch_religion_shia_major	3	6	17250	200		0	false	0	0	0	1	false	false	mk_rel_shia_islam			18385	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_shia_minor_1	mk_bch_religion_shia_minor	0	3	3750	50		0	false	0	0	0	0	false	false	mk_rel_shia_islam			18398	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_shia_minor_2	mk_bch_religion_shia_minor	1	4	6000	150		0	false	0	0	0	0	false	false	mk_rel_shia_islam			18401	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_shia_minor_3	mk_bch_religion_shia_minor	2	5	10500	250		0	false	0	0	0	0	false	false	mk_rel_shia_islam			18410	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_shia_minor_4	mk_bch_religion_shia_minor	3	6	17250	375		0	false	0	0	0	1	false	false	mk_rel_shia_islam			18418	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_sunni_major_1	mk_bch_religion_sunni_major	0	3	3750	50		0	false	0	0	0	0	false	false	att_rel_semitic_paganism			14574	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_sunni_major_2	mk_bch_religion_sunni_major	1	4	6000	100		0	false	0	0	0	0	false	false	att_rel_semitic_paganism			14578	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_sunni_major_3	mk_bch_religion_sunni_major	2	5	10500	150		0	false	0	0	0	0	false	false	att_rel_semitic_paganism			14588	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_sunni_major_4	mk_bch_religion_sunni_major	3	6	17250	200		0	false	0	0	0	1	false	false	att_rel_semitic_paganism			14592	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_sunni_minor_1	mk_bch_religion_sunni_minor	0	3	3750	50		0	false	0	0	0	0	false	false	att_rel_semitic_paganism			14598	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_sunni_minor_2	mk_bch_religion_sunni_minor	1	4	6000	150		0	false	0	0	0	0	false	false	att_rel_semitic_paganism			14605	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_sunni_minor_3	mk_bch_religion_sunni_minor	2	5	10500	250		0	false	0	0	0	0	false	false	att_rel_semitic_paganism			14608	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_sunni_minor_4	mk_bch_religion_sunni_minor	3	6	17250	375		0	false	0	0	0	1	false	false	att_rel_semitic_paganism			14616	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_tengri_temple_major_1	mk_bch_religion_tengri_major	0	3	3000	25		0	false	0	0	0	0	false	false	att_rel_pag_tengri			19821	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_tengri_temple_major_2	mk_bch_religion_tengri_major	1	4	4500	50		0	false	0	0	0	0	false	false	att_rel_pag_tengri			19826	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_tengri_temple_major_3	mk_bch_religion_tengri_major	2	5	7500	75		0	false	0	0	0	0	false	false	att_rel_pag_tengri			19828	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_tengri_temple_major_4	mk_bch_religion_tengri_major	3	6	10000	100		0	false	0	0	0	1	false	false	att_rel_pag_tengri			19834	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_tengri_temple_minor_1	mk_bch_religion_tengri_minor	0	3	3000	50		0	false	0	0	0	0	false	false	att_rel_pag_tengri			19837	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_tengri_temple_minor_2	mk_bch_religion_tengri_minor	1	4	4500	100		0	false	0	0	0	0	false	false	att_rel_pag_tengri			19847	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_tengri_temple_minor_3	mk_bch_religion_tengri_minor	2	5	7500	150		0	false	0	0	0	0	false	false	att_rel_pag_tengri			19851	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_tengri_temple_minor_4	mk_bch_religion_tengri_minor	3	6	10000	200		0	false	0	0	0	1	false	false	att_rel_pag_tengri			19852	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_zoro_temple_major_1	mk_bch_religion_zoroastrian_major	0	3	3000	25		0	false	0	0	0	0	false	false	att_rel_east_zoroastrian			22295	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_zoro_temple_major_2	mk_bch_religion_zoroastrian_major	1	4	4500	50		0	false	0	0	0	0	false	false	att_rel_east_zoroastrian			22298	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_zoro_temple_major_3	mk_bch_religion_zoroastrian_major	2	5	7500	75		0	false	0	0	0	0	false	false	att_rel_east_zoroastrian			22301	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_zoro_temple_major_4	mk_bch_religion_zoroastrian_major	3	6	10000	100		0	false	0	0	0	1	false	false	att_rel_east_zoroastrian			22306	true	att_religious_major	city	true	0.0000	0	false	true	
+mk_bld_religion_zoro_temple_minor_1	mk_bch_religion_zoroastrian_minor	0	3	3000	50		0	false	0	0	0	0	false	false	att_rel_east_zoroastrian			22307	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_zoro_temple_minor_2	mk_bch_religion_zoroastrian_minor	1	4	4500	100		0	false	0	0	0	0	false	false	att_rel_east_zoroastrian			22310	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_zoro_temple_minor_3	mk_bch_religion_zoroastrian_minor	2	5	7500	150		0	false	0	0	0	0	false	false	att_rel_east_zoroastrian			22318	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_religion_zoro_temple_minor_4	mk_bch_religion_zoroastrian_minor	3	6	10000	200		0	false	0	0	0	1	false	false	att_rel_east_zoroastrian			22324	true	att_religious_minor	city	true	0.0000	0	false	true	
+mk_bld_slakingdoms_military_armory_2	mk_bch_slakingdoms_military_armory	1	3	4500	50		0	false	0	0	0	0	false	false				19598	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_slakingdoms_military_armory_3	mk_bch_slakingdoms_military_armory	2	4	7500	75		0	false	0	0	0	0	false	false			res_rom_iron	19600	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_slakingdoms_military_armory_4	mk_bch_slakingdoms_military_armory	3	5	12000	100		0	false	0	0	0	1	false	false			res_rom_iron	19606	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_slakingdoms_military_barracks_1	mk_bch_slakingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				19615	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_slakingdoms_military_barracks_2	mk_bch_slakingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				19619	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_slakingdoms_military_barracks_3	mk_bch_slakingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				19622	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_slakingdoms_military_garrison_1	mk_bch_slakingdoms_military_garrison	0	2	2250	25		0	false	0	0	0	0	false	false				19641	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_slakingdoms_military_garrison_2	mk_bch_slakingdoms_military_garrison	1	3	3600	50		0	false	0	0	0	0	false	false				19644	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_slakingdoms_military_garrison_3	mk_bch_slakingdoms_military_garrison	2	4	6300	75		0	false	0	0	0	0	false	false				19645	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_slakingdoms_military_garrison_4	mk_bch_slakingdoms_military_garrison	3	4	10500	100		0	false	0	0	0	0	false	false				19650	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_slakingdoms_military_mercs_1	mk_bch_slakingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				19651	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_slakingdoms_military_mercs_2	mk_bch_slakingdoms_military_barracks	2	5	9000	100		0	false	0	0	0	0	false	false				19659	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_slakingdoms_military_siege_1	mk_bch_slakingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				19669	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_slakingdoms_military_siege_2	mk_bch_slakingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				19674	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_slakingdoms_military_siege_3	mk_bch_slakingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				19683	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_slakingdoms_water_major_1	mk_bch_slakingdoms_water_major	0	1	1500	13		0	false	0	0	0	0	false	false				19737	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_slakingdoms_water_major_2	mk_bch_slakingdoms_water_major	1	2	2250	25		0	false	0	0	0	0	false	false				19746	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_slakingdoms_water_major_3	mk_bch_slakingdoms_water_major	2	3	3750	38		0	false	0	0	0	0	false	false				19750	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_slakingdoms_water_major_4	mk_bch_slakingdoms_water_major	3	4	6000	50		0	false	0	0	0	0	false	false				19753	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_slakingdoms_water_minor_1	mk_bch_slakingdoms_water_minor	0	1	1500	13		0	false	0	0	0	0	false	false				19757	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_slakingdoms_water_minor_2	mk_bch_slakingdoms_water_minor	1	2	2250	25		0	false	0	0	0	0	false	false				19767	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_slakingdoms_water_minor_3	mk_bch_slakingdoms_water_minor	2	3	3750	38		0	false	0	0	0	0	false	false				19777	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_slakingdoms_water_minor_4	mk_bch_slakingdoms_water_minor	3	4	6000	50		0	false	0	0	0	0	false	false				19786	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_weskingdoms_military_armory_2	mk_bch_weskingdoms_military_armory	1	3	4500	50		0	false	0	0	0	0	false	false				15674	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_weskingdoms_military_armory_3	mk_bch_weskingdoms_military_armory	2	4	7500	75		0	false	0	0	0	0	false	false			res_rom_iron	15676	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_weskingdoms_military_armory_4	mk_bch_weskingdoms_military_armory	3	5	12000	100		0	false	0	0	0	1	false	false			res_rom_iron	15678	true	att_milupgrades_armor	workshop	true	0.0000	0	false	true	
+mk_bld_weskingdoms_military_barracks_1	mk_bch_weskingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				15680	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_weskingdoms_military_barracks_2	mk_bch_weskingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				15685	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_weskingdoms_military_barracks_3	mk_bch_weskingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				15694	true	att_military_infantry	military	true	0.0000	0	false	true	
+mk_bld_weskingdoms_military_garrison_1	mk_bch_weskingdoms_military_garrison	0	2	2250	25		0	false	0	0	0	0	false	false				15704	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_weskingdoms_military_garrison_2	mk_bch_weskingdoms_military_garrison	1	3	3600	50		0	false	0	0	0	0	false	false				15714	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_weskingdoms_military_garrison_3	mk_bch_weskingdoms_military_garrison	2	4	6300	75		0	false	0	0	0	0	false	false				15719	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_weskingdoms_military_garrison_4	mk_bch_weskingdoms_military_garrison	3	4	10500	100		0	false	0	0	0	0	false	false				15721	true	mk_military_garrison	military	true	0.0000	0	false	true	
+mk_bld_weskingdoms_military_mercs_1	mk_bch_weskingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				23947	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_weskingdoms_military_mercs_2	mk_bch_weskingdoms_military_barracks	2	5	9000	100		0	false	0	0	0	0	false	false				23955	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_weskingdoms_military_siege_1	mk_bch_weskingdoms_military_barracks	1	3	4500	25		0	false	0	0	0	0	false	false				15726	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_weskingdoms_military_siege_2	mk_bch_weskingdoms_military_barracks	2	4	7500	50		0	false	0	0	0	0	false	false				15732	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_weskingdoms_military_siege_3	mk_bch_weskingdoms_military_barracks	3	5	12000	100		0	false	0	0	0	0	false	false				15740	true	att_military_skirmisher	military	true	0.0000	0	false	true	
+mk_bld_weskingdoms_military_tournament_1	mk_bch_weskingdoms_military_barracks	1	3	4500	50		0	false	0	0	0	0	false	false				15880	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_weskingdoms_military_tournament_2	mk_bch_weskingdoms_military_barracks	2	5	9000	100		0	false	0	0	0	0	false	false				15885	true	att_military_cavalry	military	true	0.0000	0	false	true	
+mk_bld_weskingdoms_water_major_1	mk_bch_weskingdoms_water_major	0	1	1500	13		0	false	0	0	0	0	false	false				15787	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_weskingdoms_water_major_2	mk_bch_weskingdoms_water_major	1	2	2250	25		0	false	0	0	0	0	false	false				15793	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_weskingdoms_water_major_3	mk_bch_weskingdoms_water_major	2	3	3750	38		0	false	0	0	0	0	false	false				15796	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_weskingdoms_water_major_4	mk_bch_weskingdoms_water_major	3	4	6000	50		0	false	0	0	0	1	false	false				15805	true	att_water_major	town	true	0.0000	0	false	true	
+mk_bld_weskingdoms_water_minor_1	mk_bch_weskingdoms_water_minor	0	1	1500	13		0	false	0	0	0	0	false	false				15815	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_weskingdoms_water_minor_2	mk_bch_weskingdoms_water_minor	1	2	2250	25		0	false	0	0	0	0	false	false				15821	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_weskingdoms_water_minor_3	mk_bch_weskingdoms_water_minor	2	3	3750	38		0	false	0	0	0	0	false	false				15824	true	att_water_minor	town	true	0.0000	0	false	true	
+mk_bld_weskingdoms_water_minor_4	mk_bch_weskingdoms_water_minor	3	4	6000	50		0	false	0	0	0	1	false	false				15830	true	att_water_minor	town	true	0.0000	0	false	true	

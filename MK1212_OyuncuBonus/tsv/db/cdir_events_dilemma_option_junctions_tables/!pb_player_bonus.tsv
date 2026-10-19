@@ -1,0 +1,8 @@
+id	dilemma_key	option_key	value
+#cdir_events_dilemma_option_junctions_tables;2;db/cdir_events_dilemma_option_junctions_tables/!pb_player_bonus			
+8800014	pb_dilemma_seljuk_divan	CND_CAMPAIGN	main_attila
+8800015	pb_dilemma_seljuk_divan	GEN_TARGET_NONE	
+8800016	pb_dilemma_seljuk_divan	VAR_CHANCE	100
+8800021	pb_dilemma_seljuk_caravanserais	CND_CAMPAIGN	main_attila
+8800022	pb_dilemma_seljuk_caravanserais	GEN_TARGET_NONE	
+8800023	pb_dilemma_seljuk_caravanserais	VAR_CHANCE	100

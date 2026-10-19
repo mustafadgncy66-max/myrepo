@@ -1,0 +1,9 @@
+id	mission_key	option_key	value
+#cdir_events_mission_option_junctions_tables;2;db/cdir_events_mission_option_junctions_tables/!pb_player_bonus			
+8800000	pb_mission_seljuk_sinope	CND_CAMPAIGN	main_attila
+8800001	pb_mission_seljuk_sinope	GEN_TARGET_REGION	
+8800002	pb_mission_seljuk_sinope	GEN_CND_REGION	att_reg_bithynia_amasea
+8800003	pb_mission_seljuk_sinope	GEN_CND_NOT_OWNS	
+8800004	pb_mission_seljuk_sinope	VAR_CHANCE	100
+8800005	pb_mission_seljuk_sinope	VAR_MISSION_LENGTH_MIN	12
+8800006	pb_mission_seljuk_sinope	VAR_MISSION_LENGTH_MAX	12

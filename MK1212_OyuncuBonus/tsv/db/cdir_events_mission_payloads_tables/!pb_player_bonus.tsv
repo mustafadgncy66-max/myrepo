@@ -1,0 +1,5 @@
+id	mission_key	payload_key	status_key	value
+#cdir_events_mission_payloads_tables;1;db/cdir_events_mission_payloads_tables/!pb_player_bonus				
+8800007	pb_mission_seljuk_sinope	TREASURY	SUCCESS	AMOUNT[6000]
+8800008	pb_mission_seljuk_sinope	pb_payload_seljuk_sinope	SUCCESS	DURATION[10];GLOBAL
+8800009	pb_mission_seljuk_sinope	TARGET	SUCCESS	EVENT

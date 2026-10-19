@@ -1,0 +1,3 @@
+key	generate	localised_description	localised_title	mission_type	ui_icon	ui_image	prioritised	event_category
+#missions_tables;2;db/missions_tables/!pb_player_bonus								
+pb_mission_seljuk_sinope	false	Sinope, the jewel of the Black Sea coast, is held by the Greeks. Whoever holds it controls the trade between Anatolia and the northern lands. Sultan Kaykaus has resolved to take it, so that Seljuk caravans may reach the sea in the north as they already do at Attaleia in the south.	The Conquest of Sinope	CAPTURE_REGIONS	rom_event_mission.png	pb_seljuk_sinope	true	Military

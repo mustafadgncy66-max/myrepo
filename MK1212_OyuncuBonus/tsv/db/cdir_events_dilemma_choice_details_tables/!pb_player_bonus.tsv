@@ -1,0 +1,6 @@
+choice_key	dilemma_key
+#cdir_events_dilemma_choice_details_tables;0;db/cdir_events_dilemma_choice_details_tables/!pb_player_bonus	
+FIRST	pb_dilemma_seljuk_divan
+SECOND	pb_dilemma_seljuk_divan
+FIRST	pb_dilemma_seljuk_caravanserais
+SECOND	pb_dilemma_seljuk_caravanserais

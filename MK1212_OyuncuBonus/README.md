@@ -32,6 +32,21 @@ limanları çalışır.
 Başlangıçta 4/8 kervan şehri, 1/4 liman ve kervansaray paketi etkindir; Sinop alınınca
 "Between Two Seas" eklenir.
 
+## Selçuklu hikâye zinciri
+
+Aynı betik, belirli turlarda tarihî olaylar tetikler (MK1212'de yılda 2 tur; 1. tur 1212 ilkbaharı).
+Görseller `ui/eventpics` altındadır (380×214 PNG).
+
+| Tur | Olay | Tür | Sonuç |
+|---|---|---|---|
+| 2 | The Conquest of Sinope | görev (12 tur) | Sinop'u al: 6000 altın + 10 tur kamu düzeni +3, servet +%10 |
+| 12 | A Storm in the East | haber | Harezm'den gelen mülteciler: 10 tur büyüme +3, araştırma +%10 |
+| 12 | The Sultan's Divan | karar | Surları yükselt (−4000; 30 tur kamu düzeni +3, ikmal +15) ya da Türkmenleri çağır (−2000; 20 tur askere alma −%20, ikmal +10) |
+| 19 | The Sultan's Hans | karar | Hanları yaptır (−5000; kalıcı ticaret anlaşması geliri +%20, karadan ticaret +%15) ya da tüccarlara bırak (+3000) |
+
+Sinop 2. turda zaten sizdeyse görev verilmez. Olaylar yalnızca o turun başında tetiklenir; mevcut
+kampanya bu turları geçmişse görülmezler.
+
 Bakım örnekleri:
 
 | Şu anki bakım | Yeni bakım |

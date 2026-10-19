@@ -1,0 +1,3 @@
+key	generate	ui_icon	ui_image	prioritised	event_category
+#incidents_tables;4;db/incidents_tables/!pb_player_bonus					
+pb_incident_seljuk_mongol_threat	false	message_generic_news.png	pb_seljuk_mongol_threat	true	Historical
