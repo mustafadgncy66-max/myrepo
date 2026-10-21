@@ -15,6 +15,7 @@ Bakım bandları ve ezilen satırlar, oyunda geçerli olan tablo değerlerinden 
 import argparse
 import csv
 import glob
+import math
 import os
 import re
 import shutil
@@ -32,8 +33,14 @@ REPLENISHMENT = 10                 # ikmal hızı (AI zorluğa göre +2...+9 al�
 CONSTRUCTION_COST_PCT = -50        # bina yapım ve yükseltme maliyeti
 RECRUIT_COST_PCT = -50             # birim işe alım (yetiştirme) maliyeti
 FARM_FOOD = 20                     # bölge başına tarım gıdası (çiftlik 20-60 verir)
-UPKEEP_FREE_UNTIL = 120            # bu bakıma kadar indirim yok
-UPKEEP_ANCHOR = (460, 180)         # 460 bakımlı birim 180'e iner; aradakiler doğrusal
+# Birim bakımı: ham bakım işe alım maliyetinin %30'udur, yani güçlü birim zaten pahalıdır. Hedef bakım ham
+# bakımla artar (kötü birim iyi birimden pahalı olmaz) ve UPKEEP_CAP'i geçmez:
+#   ham <= UPKEEP_LOW_UNTIL: ham * UPKEEP_LOW_FACTOR (ucuz birimlerin bakımı belirgin düşer)
+#   UPKEEP_LOW_UNTIL..UPKEEP_CAP_AT: doğrusal artış, UPKEEP_CAP_AT ve üstü UPKEEP_CAP
+UPKEEP_LOW_UNTIL = 150
+UPKEEP_LOW_FACTOR = 0.45
+UPKEEP_CAP_AT = 460
+UPKEEP_CAP = 200
 
 # Selçuklu general muhafızlarının sabit bakımı. Bu birimler bandların dışında tutulur ve
 # Selçuklu fraksiyon özelliğinin (-%20, profesyonel birimler) oyuncuda dengelenmesi için
@@ -338,16 +345,20 @@ SIMPLE_EFFECTS = [
 
 
 def target_upkeep(upkeep):
-    """Hedef bakım: eşiğe kadar aynı, sonra (eşik -> çapa) doğrusu üzerinde."""
-    if upkeep <= UPKEEP_FREE_UNTIL:
-        return upkeep
-    old, new = UPKEEP_ANCHOR
-    slope = (new - UPKEEP_FREE_UNTIL) / (old - UPKEEP_FREE_UNTIL)
-    return UPKEEP_FREE_UNTIL + (upkeep - UPKEEP_FREE_UNTIL) * slope
+    """Hedef bakım: ham bakımla artan, UPKEEP_CAP'i geçmeyen eğri."""
+    low = UPKEEP_LOW_UNTIL * UPKEEP_LOW_FACTOR
+    if upkeep <= UPKEEP_LOW_UNTIL:
+        return upkeep * UPKEEP_LOW_FACTOR
+    if upkeep >= UPKEEP_CAP_AT:
+        return UPKEEP_CAP
+    return low + (upkeep - UPKEEP_LOW_UNTIL) * (UPKEEP_CAP - low) / (UPKEEP_CAP_AT - UPKEEP_LOW_UNTIL)
 
 
 def discount_pct(upkeep):
-    return round((1 - target_upkeep(upkeep) / upkeep) * 100) if upkeep > 0 else 0
+    """İndirim yüzdesi, çeyrek yüzde adımıyla yukarı yuvarlanır: hedef bakım hiçbir zaman aşılmaz."""
+    if upkeep <= 0:
+        return 0
+    return math.ceil((1 - target_upkeep(upkeep) / upkeep) * 400 - 1e-9) / 4
 
 
 def read_tsv(path):
@@ -620,7 +631,8 @@ def build_tables(data_dir, out_dir):
     upkeep_col = units_header.index('upkeep_cost')
     bands = upkeep_bands(units, upkeep_col)
     for pct in sorted(bands):
-        add_unit_set_effect(f'{PREFIX}_effect_upkeep_{pct:02d}', f'{PREFIX}_unit_set_upkeep_{pct:02d}', bands[pct],
+        band = f'{round(pct * 4):03d}'  # çeyrek yüzde cinsinden
+        add_unit_set_effect(f'{PREFIX}_effect_upkeep_{band}', f'{PREFIX}_unit_set_upkeep_{band}', bands[pct],
                             -pct, 'Player bonus - Upkeep cost: %+n% for expensive units')
 
     # Selçuklu general muhafızları: sabit bakım + fraksiyon özelliği telafisi.

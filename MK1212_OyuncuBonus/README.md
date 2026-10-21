@@ -15,7 +15,7 @@ verilir, AI fraksiyonları etkilenmez. Tüm zorluk seviyelerinde çalışır.
 | Eyalet başkenti mescitleri | sanitasyon I/II/III/IV: +1/+2/+3/+4 (önce 0/+1/+1/+1) |
 | Birim işe alım (yetiştirme) maliyeti | −%50 (yalnızca oyuncu; Born Commander özelliğindeki −%15 ile toplanır) |
 | Tarım gıdası | bölge başına +20 (çiftlik binaları 20-60 verir; yalnızca oyuncu) |
-| Birim bakımı | 120 ve altı değişmez; 460 → ~180; aradakiler doğrusal |
+| Birim bakımı | Ham bakım ≤150: ×0,45; 150-460 arası doğrusal artış; 460 ve üstü 200 (üst sınır). Güçlü birim zayıftan pahalıdır |
 
 ## Selçuklu Ticaret Ağı (İpek Yolu)
 
@@ -101,24 +101,18 @@ görsellerden birini kullanır (`build.py`'deki `fallback`); görsel `ui/eventpi
 pack yeniden üretilir. Olaylar yalnızca o turun başında tetiklenir; mevcut
 kampanya bu turları geçmişse görülmezler.
 
-Bakım örnekleri:
+Bakım örnekleri (ham → yeni):
 
-| Şu anki bakım | Yeni bakım |
+| Ham bakım | Yeni bakım |
 |---|---|
-| 120 | 120 |
-| 200 | ~134 |
-| 300 | ~153 |
-| 400 | ~168 |
-| 460 | ~179 |
-| 600 | ~204 |
-| 1000 | ~280 |
+| 90 | ~40 |
+| 140 | ~63 |
+| 206 | ~91 |
+| 300 | ~131 |
+| 387 | ~168 |
+| 460 ve üstü | 200 |
 
-Earl'ün Realistic Cavalry modu ayrıca "Imperial Guard" birimlerinin (Ghulam, Kapıkulu...) sayısını bir etkiyle
-sınırlar; binalar bu etkiyi +1/+2 verir. Betik Selçuklu'ya bu etkiyi `9999` olarak verir (Earl'ün tarikat birimleri
-için yaptığı gibi); bu yüzden Realistic Cavalry modu kurulu olmalıdır.
-
-Earl'ün Realistic Cavalry modu bazı Selçuklu elit birimlerine kampanya sınırı koyar (Junior/Senior/Royal Ghulam,
-Kapıkulu ve Yeniçeri birimleri; değer 102-112). Bu pack o 14 birimin sınırını kaldırır.
+Ekranda görünen değer, bunun üstüne fraksiyon özelliği ve komutan etkileri de uygulanmış hâlidir.
 
 Selçuklu general muhafızlarının bakımı sabit **250**'dir (askere alma ekranında ve orduda).
 Bu birimler yukarıdaki ölçeğin dışındadır.
