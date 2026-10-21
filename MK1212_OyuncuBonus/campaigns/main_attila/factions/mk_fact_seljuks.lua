@@ -133,20 +133,21 @@ local function find_character(faction, forename)
 	end
 end
 
+-- Keykubad'ın özellikleri bir kez eklenir; o sırada yaşamıyorsa (ör. 17. turda yeniden eklenecekse)
+-- bir sonraki tur başında tekrar denenir.
 local function give_kayqubad_traits(faction)
-	if cm:get_saved_value("pb_seljuk_kayqubad_traits") or not faction:has_faction_leader() then
+	if cm:get_saved_value("pb_seljuk_kayqubad_traits") then
 		return;
 	end
 
-	local leader = faction:faction_leader();
+	local kayqubad = find_character(faction, KAYQUBAD_NAME);
 
-	-- Keykubad tahta geçince eklenir; henüz geçmediyse bir sonraki tur başında tekrar denenir.
-	if leader:get_forename() ~= KAYQUBAD_NAME then
+	if not kayqubad then
 		return;
 	end
 
 	for i = 1, #KAYQUBAD_TRAITS do
-		cm:force_add_trait("character_cqi:" .. leader:command_queue_index(), KAYQUBAD_TRAITS[i], false);
+		cm:force_add_trait("character_cqi:" .. kayqubad:command_queue_index(), KAYQUBAD_TRAITS[i], false);
 	end
 
 	cm:set_saved_value("pb_seljuk_kayqubad_traits", true);
@@ -297,10 +298,7 @@ cm:add_listener(
 	function(context)
 		PB_Seljuk_Trade_Update(context:faction());
 		PB_Seljuk_Story(context:faction());
-
-		if cm:get_saved_value("pb_seljuk_succession_done") then
-			give_kayqubad_traits(context:faction());
-		end
+		give_kayqubad_traits(context:faction());
 	end,
 	true
 );
@@ -308,6 +306,7 @@ cm:add_listener(
 -- Kayıt yüklenince ya da kampanya başlayınca beklemeden uygula; olmazsa ilk tur başında uygulanır.
 local ok, err = pcall(function()
 	PB_Seljuk_Trade_Update(cm:model():world():faction_by_key(SELJUKS));
+	give_kayqubad_traits(cm:model():world():faction_by_key(SELJUKS));
 end);
 
 if not ok then

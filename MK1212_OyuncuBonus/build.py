@@ -51,13 +51,18 @@ MOSQUE_SANITATION = {1: 1, 2: 2, 3: 3, 4: 4}
 MOSQUE_RELIGIONS = ('sunni', 'shia', 'ibadi')
 
 # Portreler: MK1212 her Selçuklu sultanına aynı "sultan" görünümünü (Alaeddin Keykubad'ın bilinen
-# portresi) verir. Keykâvus'un portre setinde (başlangıç kaydından) sultan görünümü, kendi portresi olan
-# yeni bir görünümle değiştirilir; 3B modeli sultanınkiyle aynıdır. Keykubad tahta geçince sultan
-# görünümünü alır. Aynı seti kullanan başka bir karakter sultan olursa o da Keykâvus'un portresini taşır.
+# portresi) verir. Keykâvus'un portre setinde (başlangıç kaydından) sultan görünümü, setin kendi general
+# görünümüyle değiştirilir ve bu görünüme Keykâvus'un çizilmiş portresi eklenir. Yeni bir görünüm
+# tanımlanmaz: MK1212'nin harita animasyonları ve 3B portre ayarları yalnızca kendi görünümleri için
+# vardır. Portrenin yalnızca Keykâvus'ta görünmesi için setin sultan olmayan karakterleri başka bir general
+# görünümüne geçirilir. Keykubad tahta geçince sultan görünümünü alır.
 # Portre dosyaları ui/portraits altında, tools/portrait.py ile art/kaikaus.jpg'den üretilir.
 KAYKAUS_ART_SET = 'mk_campaign_sel_t1_general_07'
 SULTAN_UNIFORM = 'mk_campaign_sel_t1_general_01'
-KAYKAUS_UNIFORM = 'pb_campaign_sel_kaikaus'
+KAYKAUS_UNIFORM = 'mk_campaign_sel_t1_generic_general_07'
+GENERAL_07_UNIFORM = 'mk_campaign_sel_t1_generic_general_05'
+# Önceki sürümün tanımladığı görünüm; bu sürümle kaydedilmiş oyunlar açılabilsin diye tanımlı kalır.
+OLD_KAYKAUS_UNIFORM = 'pb_campaign_sel_kaikaus'
 
 # Selçuklu Ticaret Ağı: campaigns/main_attila/factions/mk_fact_seljuks.lua, sahip olunan kervan
 # şehri ve liman sayısına göre aşağıdaki paketleri uygular. Liste uzunlukları o dosyadan okunur.
@@ -634,14 +639,16 @@ def build_tables(data_dir, out_dir):
     # Keykâvus'un portresi.
     arts_header, arts_version, arts = effective_rows(data_dir, 'campaign_character_arts_tables', ['id'])
     art_set_col, uniform_col = arts_header.index('art_set_id'), arts_header.index('uniform')
-    art_rows = [row[:uniform_col] + [KAYKAUS_UNIFORM] + row[uniform_col + 1:] for row in arts.values()
-                if row[art_set_col] == KAYKAUS_ART_SET and row[uniform_col] == SULTAN_UNIFORM]
+    new_uniform = {SULTAN_UNIFORM: KAYKAUS_UNIFORM, KAYKAUS_UNIFORM: GENERAL_07_UNIFORM}
+    art_rows = [row[:uniform_col] + [new_uniform[row[uniform_col]]] + row[uniform_col + 1:]
+                for row in arts.values()
+                if row[art_set_col] == KAYKAUS_ART_SET and row[uniform_col] in new_uniform]
     write_tsv(out_dir, 'campaign_character_arts_tables', name, arts_version, arts_header, art_rows)
     uniforms_header, uniforms_version, uniforms = effective_rows(data_dir, 'agent_uniforms_tables',
                                                                  ['uniform_name'])
     uniform = dict(zip(uniforms_header, uniforms[(SULTAN_UNIFORM,)]))
-    uniform['uniform_name'] = uniform['campaign_porthole_filename'] = KAYKAUS_UNIFORM
-    uniform['campaign_politician_filename'] = KAYKAUS_UNIFORM
+    uniform['uniform_name'] = uniform['campaign_porthole_filename'] = OLD_KAYKAUS_UNIFORM
+    uniform['campaign_politician_filename'] = OLD_KAYKAUS_UNIFORM
     write_tsv(out_dir, 'agent_uniforms_tables', name, uniforms_version, uniforms_header,
               [[uniform[c] for c in uniforms_header]])
 
