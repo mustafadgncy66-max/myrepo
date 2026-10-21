@@ -1,6 +1,5 @@
 effect	bonus_value_id
 #effect_bonus_value_basic_junction_tables;0;db/effect_bonus_value_basic_junction_tables/!pb_player_bonus	
-pb_effect_recruitment_points	recruitment_points
 pb_effect_gdp_all	gdp_mod_all
 pb_effect_research_rate	research_rate_mod
 pb_effect_public_order	province_public_order_happiness_building_positive_factor

@@ -1,6 +1,5 @@
 key	text	tooltip
 #Loc;1;text/db/!pb_player_bonus.loc		
-effects_description_pb_effect_recruitment_points	Player bonus - Recruitment points: %+n	true
 effects_description_pb_effect_gdp_all	Player bonus - Wealth: %+n% from all buildings	true
 effects_description_pb_effect_research_rate	Player bonus - Research rate: %+n%	true
 effects_description_pb_effect_public_order	Player bonus - Public order: %+n	true
