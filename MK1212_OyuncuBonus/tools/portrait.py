@@ -1,8 +1,8 @@
-"""Düz arka planlı bir portreden Attila portre dosyalarını üretir.
+"""Yeşil ekran önünde çizilmiş bir portreden Attila portre dosyalarını üretir.
 
     python3 portrait.py <kaynak> <çıktı klasörü> <ad>
 
-Arka plan, kenarlardan başlayıp kenar rengine yakın piksellere yayılarak şeffaf yapılır. Çıktı:
+Kenarlara bağlı yeşil alan şeffaf yapılır; figürün içindeki yeşiller (ör. zümrüt taşlar) korunur. Çıktı:
 ui/portraits/portholes/att_cult_eastern/<ad>.png (180x240) ve ui/portraits/units/att_cult_eastern/<ad>.png
 (64x152), MK1212'nin sultan portresiyle aynı boyut ve kadrajda.
 """
@@ -10,70 +10,60 @@ import os
 import sys
 from collections import deque
 
+import numpy as np
 from PIL import Image, ImageFilter
 
-TOLERANCE = 30          # arka plan rengine uzaklık (RGB)
-WORK_WIDTH = 600        # maske bu genişlikte hesaplanır
+# Yeşillik: G - max(R, B). Arka plan ~95; bu eşiğin üstü arka plan sayılır.
+GREEN_KEY = 40
+# Kenar bandında yumuşak geçiş: yeşillik SOFT_LOW'da opak, SOFT_HIGH'ta tamamen şeffaf.
+SOFT_LOW, SOFT_HIGH = 25, 85
+EDGE_BAND = 13          # kenar bandı genişliği (piksel, tek sayı)
+WORK_WIDTH = 600        # bağlantılı arka plan bu genişlikte bulunur
 # Kadrajlar, kaynak genişliğine/yüksekliğine oranla (sol, üst, sağ, alt).
-PORTHOLE_BOX = (0.18, 0.05, 0.78, 0.65)
-UNIT_BOX = (0.29, 0.05, 0.73, 0.83)
+PORTHOLE_BOX = (0.064, 0.03, 0.874, 0.8365)
+UNIT_BOX = (0.201, 0.03, 0.737, 0.98)
 SIZES = {'portholes': (180, 240), 'units': (64, 152)}
 
 
-def largest_component(mask):
-    """Arka plandaki fırça izlerinden kalan adacıkları atar; yalnızca figür kalır."""
-    w, h = mask.size
-    m = mask.load()
-    seen = set()
-    best = []
-    for start in ((x, y) for y in range(h) for x in range(w)):
-        if m[start] == 0 or start in seen:
-            continue
-        seen.add(start)
-        component, queue = [], deque([start])
-        while queue:
-            x, y = queue.popleft()
-            component.append((x, y))
-            for n in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
-                if 0 <= n[0] < w and 0 <= n[1] < h and m[n] and n not in seen:
-                    seen.add(n)
-                    queue.append(n)
-        if len(component) > len(best):
-            best = component
-    result = Image.new('L', (w, h), 0)
-    r = result.load()
-    for xy in best:
-        r[xy] = 255
-    return result
+def greenness(rgb):
+    return rgb[..., 1] - np.maximum(rgb[..., 0], rgb[..., 2])
 
 
-def background_mask(im):
+def background_region(im):
+    """Kenarlardan erişilebilen yeşil alan (küçük ölçekte, 255 = arka plan)."""
     small = im.resize((WORK_WIDTH, round(im.height * WORK_WIDTH / im.width)), Image.BILINEAR)
-    w, h = small.size
-    px = small.load()
-    border = [px[x, y] for x in range(w) for y in (0, h - 1)] + [px[x, y] for y in range(h) for x in (0, w - 1)]
-    bg = tuple(sorted(c[i] for c in border)[len(border) // 2] for i in range(3))
-    near = lambda c: sum((c[i] - bg[i]) ** 2 for i in range(3)) <= TOLERANCE ** 2
-    mask = Image.new('L', (w, h), 255)
-    m = mask.load()
-    queue = deque((x, y) for x in range(w) for y in (0, h - 1)) + deque((x, y) for y in range(h) for x in (0, w - 1))
+    key = greenness(np.asarray(small, dtype=np.int32)) > GREEN_KEY
+    h, w = key.shape
+    bg = np.zeros_like(key)
+    queue = deque((x, y) for x in range(w) for y in (0, h - 1))
+    queue.extend((x, y) for y in range(h) for x in (0, w - 1))
     while queue:
         x, y = queue.popleft()
-        if m[x, y] == 0 or not near(px[x, y]):
+        if bg[y, x] or not key[y, x]:
             continue
-        m[x, y] = 0
+        bg[y, x] = True
         for nx, ny in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
-            if 0 <= nx < w and 0 <= ny < h and m[nx, ny]:
+            if 0 <= nx < w and 0 <= ny < h and not bg[ny, nx]:
                 queue.append((nx, ny))
-    # Küçük delikleri kapat, kenarı yumuşat.
-    mask = largest_component(mask.filter(ImageFilter.MaxFilter(3)).filter(ImageFilter.MinFilter(3)))
-    return mask.resize(im.size, Image.BILINEAR).filter(ImageFilter.GaussianBlur(2))
+    return Image.fromarray(np.where(bg, 255, 0).astype(np.uint8))
+
+
+def cut_out(im):
+    rgb = np.asarray(im, dtype=np.int32)
+    bg = background_region(im).resize(im.size, Image.NEAREST)
+    band = np.asarray(bg.filter(ImageFilter.MaxFilter(EDGE_BAND))) > 0
+    soft = np.clip((SOFT_HIGH - greenness(rgb)) / (SOFT_HIGH - SOFT_LOW), 0, 1)
+    alpha = np.where(band, soft, 1.0)
+    # Kenardaki yeşil yansımayı temizle.
+    rgb = rgb.copy()
+    rgb[..., 1] = np.where(band, np.minimum(rgb[..., 1], np.maximum(rgb[..., 0], rgb[..., 2])), rgb[..., 1])
+    out = np.dstack([rgb, np.round(alpha * 255)]).astype(np.uint8)
+    return Image.fromarray(out, 'RGBA')
 
 
 def main(source, out_dir, name):
     im = Image.open(source).convert('RGB')
-    rgba = im.copy()
-    rgba.putalpha(background_mask(im))
+    rgba = cut_out(im)
     for kind, box in (('portholes', PORTHOLE_BOX), ('units', UNIT_BOX)):
         crop = rgba.crop(tuple(round(v * (im.width if i % 2 == 0 else im.height)) for i, v in enumerate(box)))
         path = os.path.join(out_dir, 'ui', 'portraits', kind, 'att_cult_eastern', name + '.png')

@@ -1,0 +1,3 @@
+uniform_name	filename	battle_filename	campaign_porthole_filename	audio_armour_type	audio_weapon_type	audio_shield_type	campaign_politician_filename
+#agent_uniforms_tables;6;db/agent_uniforms_tables/!pb_player_bonus							
+pb_campaign_sel_kaikaus	mk_campaign_sel_t1_general_01	mk_campaign_sel_t1_general_01	pb_campaign_sel_kaikaus	segmented	sword	metal	pb_campaign_sel_kaikaus

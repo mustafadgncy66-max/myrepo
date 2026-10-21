@@ -61,7 +61,9 @@ Keykubad'ı seçip veliaht yapın; yapmazsanız tahta oyunun veliahtı (başlang
 ölmüşse 17. turda yeni bir Keykubad veliaht olarak eklenir.
 
 MK1212 her Selçuklu sultanına aynı portreyi (Alaeddin Keykubad'ın bilinen portresi) verir. Bu pack'te
-Keykâvus sultanken kendi portresini taşır; Keykubad tahta geçince o portreyi alır.
+Keykâvus sultanken kendi portresini (sarıklı, kırmızı kaftanlı) taşır; Keykubad tahta geçince bilinen
+portreyi alır. Keykâvus'un portresi `art/kaikaus.jpg` dosyasından `tools/portrait.py` ile üretilir
+(yeşil arka plan şeffaf yapılır, 180×240 ve 64×152).
 
 Görevin hedef bölgesi o turda zaten sizdeyse görev verilmez. Henüz görseli olmayan olaylar mevcut
 görsellerden birini kullanır (`build.py`'deki `fallback`); görsel `ui/eventpics` altına eklenince
