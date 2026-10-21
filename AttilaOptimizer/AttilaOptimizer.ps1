@@ -443,6 +443,16 @@ function Invoke-ExportModData {
     Write-Ok "Attila.exe: $nameCount fonksiyon adı"
     Set-Content -Path (Join-Path $outRoot 'manifest.tsv') -Value $manifest -Encoding UTF8
 
+    # Başlangıç kaydı tek başına ~20 MB; 30 MB yükleme sınırı için ayrı ZIP'e konur.
+    $startposZip = Join-Path $base 'AttilaStartpos.zip'
+    if (Test-Path $startposZip) { Remove-Item $startposZip -Force }
+    $startpos = @(Get-ChildItem $outRoot -Filter 'startpos.esf' -Recurse)
+    if ($startpos.Count -gt 0) {
+        Compress-Archive -Path $startpos[0].FullName -DestinationPath $startposZip
+        $startpos | Remove-Item -Force
+        Write-Ok "Hazır: $startposZip ($([Math]::Round((Get-Item $startposZip).Length / 1MB, 1)) MB)"
+    }
+
     $zip = "$outRoot.zip"
     if (Test-Path $zip) { Remove-Item $zip -Force }
     Compress-Archive -Path (Join-Path $outRoot '*') -DestinationPath $zip
