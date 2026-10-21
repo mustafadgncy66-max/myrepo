@@ -43,7 +43,10 @@ $DxvkMarker = 'attila_optimizer_dxvk.txt'
 $AttilaAppId = '325610'
 
 # Mod yapımı için gereken tablolar (db\<tablo>\ klasör adları).
-$ModDataTablePattern = '^(main_units|land_units|campaign_difficulty_handicap_effects|effects|effect_bonus_value_.+|effect_bundles.*|campaign_effect_scopes|campaign_bonus_value_ids_.+|factions|faction_groups|units_to_.+|unit_set.*|building_units_allowed|building_effects_junction|building_levels|building_chains|building_culture_variants|technologies|technology_effects_junction|missions|mission_issuers|incidents|dilemmas|cdir_events_.+|message_events|message_event_strings|campaign_payload_ui_details)_tables$'
+$ModDataTablePattern = '^(main_units|land_units|campaign_difficulty_handicap_effects|effects|effect_bonus_value_.+|effect_bundles.*|campaign_effect_scopes|campaign_bonus_value_ids_.+|factions|faction_groups|units_to_.+|unit_set.*|building_units_allowed|building_effects_junction|building_levels|building_chains|building_culture_variants|technologies|technology_effects_junction|missions|mission_issuers|incidents|dilemmas|cdir_events_.+|message_events|message_event_strings|campaign_payload_ui_details|campaign_character_art.*)_tables$'
+
+# Attila.exe içindeki betik fonksiyonu adlarından yalnızca karakter ve aileyle ilgili olanlar.
+$ExeNamePattern = 'heir|leader|family|character|art_set|portrait|forename|succession'
 
 function Write-Title($text) {
     Write-Host ''
@@ -120,6 +123,15 @@ function Get-ExeInfo($path) {
         Is64Bit = ($machine -eq 0x8664)
         LargeAddressAware = (($characteristics -band 0x0020) -ne 0)
     }
+}
+
+# Betiklerin çağırabildiği fonksiyonların adları exe'de düz metin olarak durur.
+function Export-ExeNames($exePath, $destFile) {
+    $text = [Text.Encoding]::GetEncoding(28591).GetString([IO.File]::ReadAllBytes($exePath))
+    $names = [regex]::Matches($text, '(?<![A-Za-z0-9_])[a-z][a-z0-9_]{5,60}(?![A-Za-z0-9_])') |
+        ForEach-Object { $_.Value } | Where-Object { $_ -match $ExeNamePattern } | Sort-Object -Unique
+    Set-Content -Path $destFile -Value $names -Encoding UTF8
+    return @($names).Count
 }
 
 # --- preferences.script.txt ---------------------------------------------------
@@ -336,6 +348,8 @@ function Test-ModDataEntry($entryPath, $includeLocs, $includeScripts) {
     if ($parts.Count -eq 3 -and $parts[0] -eq 'db' -and $parts[1] -match $ModDataTablePattern) { return $true }
     # Betikler ve olay görselleri (boyut ve biçim örneği için) yalnızca Workshop modlarından alınır.
     if ($includeScripts -and ($entryPath.EndsWith('.lua') -or $entryPath.StartsWith('ui/eventpics/'))) { return $true }
+    # MK1212'nin başlangıç kaydı: tarihî karakterlerin portre setlerini bulmak için.
+    if ($includeLocs -and $includeScripts -and $entryPath -eq 'campaigns/main_attila/startpos.esf') { return $true }
     return ($includeLocs -and $entryPath.EndsWith('.loc'))
 }
 
@@ -425,6 +439,8 @@ function Invoke-ExportModData {
     # Mod yöneticisinin yükleme sırası, alt modun önceliğini ayarlamak için gerekli.
     $userScript = Join-Path $PrefsDir 'user.script.txt'
     if (Test-Path $userScript) { Copy-Item $userScript $outRoot }
+    $nameCount = Export-ExeNames (Join-Path $dir 'Attila.exe') (Join-Path $outRoot 'exe_names.txt')
+    Write-Ok "Attila.exe: $nameCount fonksiyon adı"
     Set-Content -Path (Join-Path $outRoot 'manifest.tsv') -Value $manifest -Encoding UTF8
 
     $zip = "$outRoot.zip"
