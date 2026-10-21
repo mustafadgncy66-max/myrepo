@@ -111,6 +111,9 @@ Bakım örnekleri:
 | 600 | ~204 |
 | 1000 | ~280 |
 
+Earl'ün Realistic Cavalry modu bazı Selçuklu elit birimlerine kampanya sınırı koyar (Junior/Senior/Royal Ghulam,
+Kapıkulu ve Yeniçeri birimleri; değer 102-112). Bu pack o 14 birimin sınırını kaldırır.
+
 Selçuklu general muhafızlarının bakımı sabit **250**'dir (askere alma ekranında ve orduda).
 Bu birimler yukarıdaki ölçeğin dışındadır.
 

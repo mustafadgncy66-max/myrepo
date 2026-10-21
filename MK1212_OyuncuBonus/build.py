@@ -614,11 +614,21 @@ def build_tables(data_dir, out_dir):
     # Selçuklu general muhafızları: sabit bakım + fraksiyon özelliği telafisi.
     generals = sorted(unit for unit, (_, general) in units.items() if general)
     general_rows = []
+    cap_col = units_header.index('campaign_cap')
     for unit in generals:
         row = list(units[unit][0])
         row[upkeep_col] = str(GENERAL_UPKEEP)
+        row[cap_col] = '0'
+        general_rows.append(row)
+    # Selçuklu birimlerindeki kampanya sınırı (Earl'ün süvari modu elit birimlere 102-112 koyar) kaldırılır.
+    capped = sorted(unit for unit, (row, _) in units.items()
+                    if unit.startswith(GENERAL_UNIT_PREFIX) and unit not in generals and row[cap_col] != '0')
+    for unit in capped:
+        row = list(units[unit][0])
+        row[cap_col] = '0'
         general_rows.append(row)
     write_tsv(out_dir, 'main_units_tables', name, units_version, units_header, general_rows)
+    print(f'Kampanya sınırı kaldırılan Selçuklu birimi: {len(capped)}')
     add_unit_set_effect(f'{PREFIX}_effect_upkeep_generals', f'{PREFIX}_unit_set_generals', generals,
                         GENERAL_TRAIT_COMPENSATION, 'Player bonus - Upkeep cost: %+n% for generals (balance)')
 
