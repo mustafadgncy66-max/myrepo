@@ -48,6 +48,9 @@ $ModDataTablePattern = '^(main_units|land_units|campaign_difficulty_handicap_eff
 # Attila.exe içindeki betik fonksiyonu adlarından yalnızca karakter ve aileyle ilgili olanlar.
 $ExeNamePattern = 'heir|leader|family|character|art_set|portrait|forename|succession'
 
+# Selçuklu general portreleri ve 3B model tanımları.
+$PortraitFilePattern = '^(ui/portraits/|variantmeshes/variantmeshdefinitions/).*(sel_t1|seljuk)'
+
 function Write-Title($text) {
     Write-Host ''
     Write-Host "=== $text ===" -ForegroundColor Cyan
@@ -408,6 +411,8 @@ function Invoke-ExportModData {
     $outRoot = Join-Path $base 'AttilaModData'
     if (Test-Path $outRoot) { Remove-Item $outRoot -Recurse -Force }
     New-Item -ItemType Directory -Path $outRoot | Out-Null
+    $portraitRoot = Join-Path $base 'AttilaPortraits'
+    if (Test-Path $portraitRoot) { Remove-Item $portraitRoot -Recurse -Force }
 
     $manifest = New-Object Collections.Generic.List[string]
     foreach ($pack in $packs) {
@@ -429,6 +434,19 @@ function Invoke-ExportModData {
         if ($isWorkshop) {
             $folder = "workshop_$($pack.Directory.Name)_$($pack.Name)"
             Write-PackIndex $entries (Join-Path $outRoot "$folder\_index.tsv")
+
+            # Portre listesi ve Selçuklu portreleri ayrı ZIP'e konur.
+            $portraitList = @($entries | Where-Object { $_.Path -match '^ui/portraits/' })
+            if ($portraitList.Count -gt 0) {
+                $listFile = Join-Path $portraitRoot "$folder\_portraits.tsv"
+                New-Item -ItemType Directory -Path (Split-Path $listFile) -Force | Out-Null
+                Set-Content -Path $listFile -Value ($portraitList | ForEach-Object { "$($_.Path)`t$($_.Size)" }) -Encoding UTF8
+            }
+            $portraitFiles = @($entries | Where-Object { $_.Path -match $PortraitFilePattern })
+            if ($portraitFiles.Count -gt 0) {
+                Export-PackEntries $pack.FullName $portraitFiles (Join-Path $portraitRoot $folder)
+                Write-Ok "$($pack.Name): $($portraitFiles.Count) portre dosyası"
+            }
         }
         if ($wanted.Count -eq 0) { continue }
         Export-PackEntries $pack.FullName $wanted (Join-Path $outRoot $folder)
@@ -451,6 +469,13 @@ function Invoke-ExportModData {
         Compress-Archive -Path $startpos[0].FullName -DestinationPath $startposZip
         $startpos | Remove-Item -Force
         Write-Ok "Hazır: $startposZip ($([Math]::Round((Get-Item $startposZip).Length / 1MB, 1)) MB)"
+    }
+
+    $portraitZip = "$portraitRoot.zip"
+    if (Test-Path $portraitZip) { Remove-Item $portraitZip -Force }
+    if (Test-Path $portraitRoot) {
+        Compress-Archive -Path (Join-Path $portraitRoot '*') -DestinationPath $portraitZip
+        Write-Ok "Hazır: $portraitZip ($([Math]::Round((Get-Item $portraitZip).Length / 1MB, 1)) MB)"
     }
 
     $zip = "$outRoot.zip"

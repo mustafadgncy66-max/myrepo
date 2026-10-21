@@ -33,7 +33,8 @@ Mod yapımı için:
   `AttilaModData.zip` olarak koyar. 1 GB'lık pack'ler de birkaç saniyede taranır, çünkü
   yalnızca dosya listesi okunur ve sadece istenen tablolar kopyalanır.
   Karakter portre tabloları, MK1212'nin başlangıç kaydı (`startpos.esf`) ve Attila.exe'deki
-  karakterle ilgili betik fonksiyonu adları (`exe_names.txt`) da eklenir.
+  karakterle ilgili betik fonksiyonu adları (`exe_names.txt`) da eklenir. Başlangıç kaydı
+  `AttilaStartpos.zip`, Selçuklu portreleri ve portre listesi `AttilaPortraits.zip` olarak ayrı yazılır.
 
 Geri almak için:
 - **4:** DXVK'yı kaldırır, oyun DirectX 11'e döner.
