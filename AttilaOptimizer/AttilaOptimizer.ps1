@@ -18,12 +18,12 @@
                           ZIP dosyası olarak masaüstüne koyar.
 
     Kullanım: AttilaOptimizer.bat dosyasına çift tıklayın.
-    Ya da: powershell -ExecutionPolicy Bypass -File AttilaOptimizer.ps1 [-Action Status|Tweak|InstallDxvk|RemoveDxvk|RestorePrefs|ExportModData]
+    Ya da: powershell -ExecutionPolicy Bypass -File AttilaOptimizer.ps1 [-Action Status|Tweak|InstallDxvk|RemoveDxvk|RestorePrefs|ExportModData|ExportOneMod]
 #>
 
 [CmdletBinding()]
 param(
-    [ValidateSet('Menu', 'Status', 'Tweak', 'InstallDxvk', 'RemoveDxvk', 'RestorePrefs', 'ExportModData')]
+    [ValidateSet('Menu', 'Status', 'Tweak', 'InstallDxvk', 'RemoveDxvk', 'RestorePrefs', 'ExportModData', 'ExportOneMod')]
     [string]$Action = 'Menu',
 
     # Elle oyun klasörü vermek için (otomatik bulunamazsa).
@@ -508,6 +508,53 @@ function Invoke-ExportModData {
     }
 }
 
+# Tek bir Workshop modunu (yeni indirdiğiniz) ZIP olarak masaüstüne koyar: pack dosyası ve içindeki tüm dosyalar.
+function Invoke-ExportOneMod {
+    Write-Title 'Tek mod dışa aktarma'
+    $dir = Get-GameDirOrAsk
+    $steamapps = Split-Path (Split-Path $dir)
+    $workshop = Join-Path $steamapps "workshop\content\$AttilaAppId"
+    if (-not (Test-Path $workshop)) { throw "Workshop klasörü bulunamadı: $workshop" }
+
+    # En son indirilen modlar üstte.
+    $mods = @(Get-ChildItem $workshop -Directory | Sort-Object CreationTime -Descending | Select-Object -First 8 |
+        ForEach-Object {
+            $pack = Get-ChildItem $_.FullName -Filter '*.pack' -ErrorAction SilentlyContinue | Select-Object -First 1
+            if ($pack) { [pscustomobject]@{ Folder = $_.Name; Pack = $pack; Added = $_.CreationTime } }
+        })
+    if ($mods.Count -eq 0) { throw 'Workshop modu bulunamadı.' }
+
+    for ($i = 0; $i -lt $mods.Count; $i++) {
+        $size = [Math]::Round($mods[$i].Pack.Length / 1MB, 1)
+        Write-Host ("  {0}) {1}  ({2} MB, eklendi: {3:yyyy-MM-dd HH:mm})" -f ($i + 1), $mods[$i].Pack.Name, $size, $mods[$i].Added)
+    }
+    $answer = Read-Host 'Hangi mod? (numara, boş = 1)'
+    $index = 0
+    if ($answer -match '^\d+$') { $index = [int]$answer - 1 }
+    if ($index -lt 0 -or $index -ge $mods.Count) { throw 'Geçersiz numara.' }
+    $mod = $mods[$index]
+    $pack = $mod.Pack
+    if ($pack.Length -gt 25MB) { Write-Warn "Pack $([Math]::Round($pack.Length / 1MB, 1)) MB; ZIP 30 MB sınırını aşabilir." }
+
+    $base = $OutDir
+    if (-not $base) { $base = [Environment]::GetFolderPath('Desktop') }
+    $outRoot = Join-Path $base 'AttilaSubmod'
+    if (Test-Path $outRoot) { Remove-Item $outRoot -Recurse -Force }
+    New-Item -ItemType Directory -Path $outRoot | Out-Null
+
+    $entries = Get-PackEntries $pack.FullName
+    Write-PackIndex $entries (Join-Path $outRoot '_index.tsv')
+    Export-PackEntries $pack.FullName @($entries) (Join-Path $outRoot 'files')
+    Copy-Item $pack.FullName $outRoot
+    Write-Ok "$($pack.Name): $(@($entries).Count) dosya"
+
+    $zip = "$outRoot.zip"
+    if (Test-Path $zip) { Remove-Item $zip -Force }
+    Compress-Archive -Path (Join-Path $outRoot '*') -DestinationPath $zip
+    Write-Ok "Hazır: $zip ($([Math]::Round((Get-Item $zip).Length / 1MB, 1)) MB)"
+    Write-Info 'Bu ZIP dosyasını sohbete yükleyin.'
+}
+
 # --- Durum raporu --------------------------------------------------------------
 
 function Show-Status {
@@ -564,6 +611,7 @@ function Invoke-Action($name) {
             'RemoveDxvk'   { Invoke-RemoveDxvk }
             'RestorePrefs' { Invoke-RestorePrefs }
             'ExportModData' { Invoke-ExportModData }
+            'ExportOneMod' { Invoke-ExportOneMod }
         }
     } catch {
         Write-Err $_.Exception.Message
@@ -583,6 +631,7 @@ while ($true) {
     Write-Host '  4) DXVK kaldır'
     Write-Host '  5) Ayar dosyasını son yedekten geri yükle'
     Write-Host '  6) Mod verisini dışa aktar (tablolar, ZIP olarak masaüstüne)'
+    Write-Host '  7) Tek bir Workshop modunu dışa aktar (yeni indirdiğiniz mod, ZIP olarak masaüstüne)'
     Write-Host '  0) Çıkış'
     switch (Read-Host 'Seçim') {
         '1' { Invoke-Action 'Status' }
@@ -591,6 +640,7 @@ while ($true) {
         '4' { Invoke-Action 'RemoveDxvk' }
         '5' { Invoke-Action 'RestorePrefs' }
         '6' { Invoke-Action 'ExportModData' }
+        '7' { Invoke-Action 'ExportOneMod' }
         '0' { return }
         default { Write-Warn 'Geçersiz seçim.' }
     }

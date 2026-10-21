@@ -36,6 +36,9 @@ Mod yapımı için:
   karakterle ilgili betik fonksiyonu adları (`exe_names.txt`) da eklenir. Başlangıç kaydı
   `AttilaStartpos.zip`, Selçuklu portreleri ve portre listesi `AttilaPortraits.zip` olarak ayrı yazılır.
 
+- **7:** Yeni indirdiğiniz tek bir Workshop modunu (pack dosyası ve içindeki tüm dosyalar) `AttilaSubmod.zip`
+  olarak masaüstüne koyar. Son indirilen modlar listenin başındadır.
+
 Geri almak için:
 - **4:** DXVK'yı kaldırır, oyun DirectX 11'e döner.
 - **5:** Ayar dosyasını son yedekten geri yükler.
