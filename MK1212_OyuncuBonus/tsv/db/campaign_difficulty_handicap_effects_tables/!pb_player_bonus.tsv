@@ -56,6 +56,13 @@ campaign_difficulty_handicap	human	effect	effect_scope	effect_value	optional_cam
 1	true	pb_effect_farm_food	faction_to_region_own	20.0000	
 2	true	pb_effect_farm_food	faction_to_region_own	20.0000	
 3	true	pb_effect_farm_food	faction_to_region_own	20.0000	
+-3	true	earl_effect_force_unit_cap_for_ai_recruitment	faction_to_faction_own_unseen	0.0000	
+-2	true	earl_effect_force_unit_cap_for_ai_recruitment	faction_to_faction_own_unseen	0.0000	
+-1	true	earl_effect_force_unit_cap_for_ai_recruitment	faction_to_faction_own_unseen	0.0000	
+0	true	earl_effect_force_unit_cap_for_ai_recruitment	faction_to_faction_own_unseen	0.0000	
+1	true	earl_effect_force_unit_cap_for_ai_recruitment	faction_to_faction_own_unseen	0.0000	
+2	true	earl_effect_force_unit_cap_for_ai_recruitment	faction_to_faction_own_unseen	0.0000	
+3	true	earl_effect_force_unit_cap_for_ai_recruitment	faction_to_faction_own_unseen	0.0000	
 -3	true	pb_effect_upkeep_220	faction_to_force_own_unseen	-55.0000	
 -2	true	pb_effect_upkeep_220	faction_to_force_own_unseen	-55.0000	
 -1	true	pb_effect_upkeep_220	faction_to_force_own_unseen	-55.0000	
