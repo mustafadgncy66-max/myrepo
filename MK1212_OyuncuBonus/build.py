@@ -65,6 +65,29 @@ ART_UNIFORM_CHANGES = {
 KAYKAUS_PORTRAIT_PACK = 'mk1212_keykavus_portresi.pack'
 # Keykâvus'un portresi tools/portrait.py ile art/kaikaus.jpg'den bu klasöre üretilir.
 KAYKAUS_PORTRAIT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'keykavus_portresi')
+# Keykubad'ın özelliği: yalnızca betikle ona verilir (mk_fact_seljuks.lua'daki KAYQUBAD_TRAIT). Tek seviyelidir ve
+# eşiği 1 puandır, böylece tek çağrıda görünür. Etkiler ve kapsamlar oyunun kendi özelliklerindekilerle aynıdır.
+KAYQUBAD_TRAIT = 'pb_trait_alaeddin_kayqubad'
+KAYQUBAD_TRAIT_NAME = 'Ala al-Din, the Great Sultan'
+KAYQUBAD_TRAIT_TEXT = ('Kayqubad led the Sultanate of Rum to its golden age: a gifted commander and strategist, a builder of '
+                       'caravanserais and fortresses, and a ruler whom emirs and soldiers alike followed.')
+KAYQUBAD_TRAIT_EFFECTS = [
+    ('att_effect_agent_attribute_authority_mod', 'general_to_character_own', 3),
+    ('att_effect_agent_attribute_subterfuge_mod', 'general_to_character_own', 3),
+    ('att_effect_agent_attribute_zeal_mod', 'general_to_character_own', 3),
+    ('att_effect_force_army_battle_unit_morale_land_attack', 'general_to_force_own', 15),
+    ('att_effect_force_army_battle_unit_morale_land_defence', 'general_to_force_own', 15),
+    ('att_effect_force_army_battle_unit_morale_siege_attack', 'general_to_force_own', 15),
+    ('att_effect_force_unit_stat_melee_damage', 'general_to_force_own', 10),
+    ('att_effect_force_unit_stat_missile_damage', 'general_to_force_own', 10),
+    ('att_effect_force_all_campaign_military_morale_factor_characters', 'general_to_force_own', 4),
+    ('att_effect_force_all_campaign_experience_base_all', 'general_to_force_own', 2),
+    ('att_effect_force_all_campaign_recruitment_cost_all', 'general_to_force_own', -15),
+    ('att_effect_general_local_mod_construction_costs', 'general_to_region_own_provincewide_when_governor', -15),
+    ('att_effect_public_order_characters', 'character_to_province_own_factionwide', 2),
+    ('att_effect_character_loyalty_mod_characters', 'character_to_character_own_factionwide', 2),
+]
+
 # Hızlı test pack'i: hikâye olaylarını öne çeken pb_seljuk_test.lua'yı taşır (bkz. mk_fact_seljuks.lua).
 TEST_PACK = 'mk1212_hizli_test.pack'
 TEST_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'hizli_test')
@@ -557,6 +580,25 @@ def write_story_tables(data_dir, out_dir, name, loc):
         write_tsv(out_dir, table, name, version, header, [[row.get(c, '') for c in header] for row in rows])
 
 
+def write_trait_tables(data_dir, out_dir, name, loc):
+    level = f'{KAYQUBAD_TRAIT}_1'
+    tables = {
+        'character_traits_tables': {'key': KAYQUBAD_TRAIT, 'no_going_back_level': '1', 'hidden': 'false',
+                                    'precedence': '1', 'icon': 'ruler_good', 'pre_battle_speech_parameter': ''},
+        'character_trait_levels_tables': {'key': level, 'level': '1', 'trait': KAYQUBAD_TRAIT, 'threshold_points': '1'},
+        'trait_to_included_agents_tables': {'trait': KAYQUBAD_TRAIT, 'agent': 'general'},
+    }
+    for table, row in tables.items():
+        header, version = table_schema(data_dir, table)
+        write_tsv(out_dir, table, name, version, header, [[row[c] for c in header]])
+    header, version = table_schema(data_dir, 'trait_level_effects_tables')
+    write_tsv(out_dir, 'trait_level_effects_tables', name, version, header,
+              [[{'trait_level': level, 'effect': e, 'effect_scope': sc, 'value': f'{v:.4f}'}[c] for c in header]
+               for e, sc, v in KAYQUBAD_TRAIT_EFFECTS])
+    loc.append([f'character_trait_levels_onscreen_name_{level}', KAYQUBAD_TRAIT_NAME, 'true'])
+    loc.append([f'character_trait_levels_colour_text_{level}', KAYQUBAD_TRAIT_TEXT, 'true'])
+
+
 def write_tsv(out_dir, table, file_name, version, header, rows):
     path = os.path.join(out_dir, 'db', table, file_name + '.tsv')
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -663,6 +705,7 @@ def build_tables(data_dir, out_dir):
     # Selçuklu Ticaret Ağı ve hikâye ödül paketleri.
     bundles = trade_bundles() + STORY_BUNDLES
     write_story_tables(data_dir, out_dir, name, loc)
+    write_trait_tables(data_dir, out_dir, name, loc)
     write_story_schedule()
     write_tsv(out_dir, 'effect_bundles_tables', name, 1,
               ['key', 'localised_description', 'localised_title', 'ui_icon', 'bundle_target'],
