@@ -43,13 +43,14 @@ EARL_AI_CAP_EFFECT = 'earl_effect_force_unit_cap_for_ai_recruitment'
 EARL_AI_CAP_SCOPE = 'faction_to_faction_own_unseen'
 FARM_FOOD = 20                     # bölge başına tarım gıdası (çiftlik 20-60 verir)
 # Birim bakımı: ham bakım işe alım maliyetinin %30'udur, yani güçlü birim zaten pahalıdır. Hedef bakım ham
-# bakımla artar (kötü birim iyi birimden pahalı olmaz) ve UPKEEP_CAP'i geçmez:
-#   ham <= UPKEEP_LOW_UNTIL: ham * UPKEEP_LOW_FACTOR (ucuz birimlerin bakımı belirgin düşer)
-#   UPKEEP_LOW_UNTIL..UPKEEP_CAP_AT: doğrusal artış, UPKEEP_CAP_AT ve üstü UPKEEP_CAP
-UPKEEP_LOW_UNTIL = 150
-UPKEEP_LOW_FACTOR = 0.45
-UPKEEP_CAP_AT = 460
+# bakımla artar (kötü birim iyi birimden pahalı olmaz). Sınırlar: en az UPKEEP_MIN, en çok UPKEEP_CAP, ham bakımı
+# UPKEEP_ELITE_RAW ve üstü olan elit birimler en az UPKEEP_ELITE_MIN. Noktalar (ham -> hedef) arası doğrusaldır.
+UPKEEP_MIN = 50
 UPKEEP_CAP = 200
+UPKEEP_ELITE_RAW = 300
+UPKEEP_ELITE_MIN = 120
+UPKEEP_CAP_AT = 460
+UPKEEP_FLOOR_UNTIL = 25            # ham bakımı bu değere kadar olan birimler UPKEEP_MIN olur
 
 # Selçuklu general muhafızlarının sabit bakımı. Bu birimler bandların dışında tutulur ve
 # Selçuklu fraksiyon özelliğinin (-%20, profesyonel birimler) oyuncuda dengelenmesi için
@@ -354,20 +355,24 @@ SIMPLE_EFFECTS = [
 
 
 def target_upkeep(upkeep):
-    """Hedef bakım: ham bakımla artan, UPKEEP_CAP'i geçmeyen eğri."""
-    low = UPKEEP_LOW_UNTIL * UPKEEP_LOW_FACTOR
-    if upkeep <= UPKEEP_LOW_UNTIL:
-        return upkeep * UPKEEP_LOW_FACTOR
-    if upkeep >= UPKEEP_CAP_AT:
+    """Hedef bakım: ham bakımla artan, UPKEEP_MIN ile UPKEEP_CAP arasında kalan eğri."""
+    points = [(UPKEEP_FLOOR_UNTIL, UPKEEP_MIN), (UPKEEP_ELITE_RAW, UPKEEP_ELITE_MIN), (UPKEEP_CAP_AT, UPKEEP_CAP)]
+    if upkeep <= points[0][0]:
+        return UPKEEP_MIN
+    if upkeep >= points[-1][0]:
         return UPKEEP_CAP
-    return low + (upkeep - UPKEEP_LOW_UNTIL) * (UPKEEP_CAP - low) / (UPKEEP_CAP_AT - UPKEEP_LOW_UNTIL)
+    for (x0, y0), (x1, y1) in zip(points, points[1:]):
+        if upkeep <= x1:
+            return y0 + (upkeep - x0) * (y1 - y0) / (x1 - x0)
 
 
 def discount_pct(upkeep):
-    """İndirim yüzdesi, çeyrek yüzde adımıyla yukarı yuvarlanır: hedef bakım hiçbir zaman aşılmaz."""
+    """İndirim yüzdesi (artış için negatif), çeyrek yüzde adımıyla: indirimde yukarı yuvarlanır (hedefi aşmaz),
+    artışta aşağı yuvarlanır (hedefin altına inmez)."""
     if upkeep <= 0:
         return 0
-    return math.ceil((1 - target_upkeep(upkeep) / upkeep) * 400 - 1e-9) / 4
+    ratio = (1 - target_upkeep(upkeep) / upkeep) * 400
+    return (math.ceil(ratio - 1e-9) if ratio >= 0 else math.floor(ratio + 1e-9)) / 4
 
 
 def read_tsv(path):
@@ -431,7 +436,7 @@ def upkeep_bands(units, upkeep_col):
         if general:
             continue
         pct = discount_pct(int(float(row[upkeep_col])))
-        if pct > 0:
+        if pct != 0:
             bands.setdefault(pct, []).append(unit)
     return bands
 
@@ -648,7 +653,7 @@ def build_tables(data_dir, out_dir):
     upkeep_col = units_header.index('upkeep_cost')
     bands = upkeep_bands(units, upkeep_col)
     for pct in sorted(bands):
-        band = f'{round(pct * 4):03d}'  # çeyrek yüzde cinsinden
+        band = f"{'m' if pct < 0 else ''}{abs(round(pct * 4)):03d}"  # çeyrek yüzde cinsinden; m = artış
         add_unit_set_effect(f'{PREFIX}_effect_upkeep_{band}', f'{PREFIX}_unit_set_upkeep_{band}', bands[pct],
                             -pct, 'Player bonus - Upkeep cost: %+n% for expensive units')
 
@@ -744,9 +749,9 @@ def build_tables(data_dir, out_dir):
     write_loc(out_dir, name, loc)
 
     print(f'{len(units)} kara birimi, {sum(map(len, bands.values()))} tanesine indirim, {len(bands)} band')
-    for up in (120, 200, 300, 400, 460, 600, 1000):
+    for up in (20, 90, 140, 206, 300, 387, 460, 600, 1000):
         pct = discount_pct(up)
-        print(f'  {up:5} -> {up * (1 - pct / 100):6.0f}  (-%{pct})')
+        print(f'  {up:5} -> {up * (1 - pct / 100):6.0f}  (indirim %{pct})')
     print(f'General muhafızları ({GENERAL_UPKEEP}): {", ".join(generals)}')
     print(f'Bakımı yarıya inen bina seviyesi: {len(level_rows)}')
     print(f'AI bina bakımı telafisi (zorluk: %): {compensation}')

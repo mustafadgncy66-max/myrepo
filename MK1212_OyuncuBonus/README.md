@@ -15,7 +15,7 @@ verilir, AI fraksiyonları etkilenmez. Tüm zorluk seviyelerinde çalışır.
 | Eyalet başkenti mescitleri | sanitasyon I/II/III/IV: +1/+2/+3/+4 (önce 0/+1/+1/+1) |
 | Birim işe alım (yetiştirme) maliyeti | −%50 (yalnızca oyuncu; Born Commander özelliğindeki −%15 ile toplanır) |
 | Tarım gıdası | bölge başına +20 (çiftlik binaları 20-60 verir; yalnızca oyuncu) |
-| Birim bakımı | Ham bakım ≤150: ×0,45; 150-460 arası doğrusal artış; 460 ve üstü 200 (üst sınır). Güçlü birim zayıftan pahalıdır |
+| Birim bakımı | Zayıf birim güçlüden pahalı olmaz: en az 50, en çok 200; ham bakımı 300 ve üstü olan elit birimler en az 120 |
 
 ## Selçuklu Ticaret Ağı (İpek Yolu)
 
@@ -105,11 +105,12 @@ Bakım örnekleri (ham → yeni):
 
 | Ham bakım | Yeni bakım |
 |---|---|
-| 90 | ~40 |
-| 140 | ~63 |
-| 206 | ~91 |
-| 300 | ~131 |
-| 387 | ~168 |
+| 25 ve altı | 50 |
+| 90 | ~66 |
+| 140 | ~79 |
+| 206 | ~96 |
+| 300 | 120 |
+| 387 | ~163 |
 | 460 ve üstü | 200 |
 
 Ekranda görünen değer, bunun üstüne fraksiyon özelliği ve komutan etkileri de uygulanmış hâlidir.
