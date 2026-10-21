@@ -32,10 +32,6 @@ GROWTH = 8                         # eyalet başına büyüme (teknolojiler +1/+
 REPLENISHMENT = 10                 # ikmal hızı (AI zorluğa göre +2...+9 alır)
 CONSTRUCTION_COST_PCT = -50        # bina yapım ve yükseltme maliyeti
 RECRUIT_COST_PCT = -50             # birim işe alım (yetiştirme) maliyeti
-# Earl'ün Realistic Cavalry modu, "AI işe alım sınırı" grubundaki 14 elit birime zorluk tablosunda insan
-# oyuncu için de -100 uygular. Aynı anahtarlı satırlarla oyuncu için 0'a çekilir (bu pack önce okunur).
-EARL_AI_CAP_EFFECT = 'earl_effect_force_unit_cap_for_ai_recruitment'
-EARL_AI_CAP_SCOPE = 'faction_to_faction_own_unseen'
 FARM_FOOD = 20                     # bölge başına tarım gıdası (çiftlik 20-60 verir)
 # Birim bakımı: ham bakım işe alım maliyetinin %30'udur, yani güçlü birim zaten pahalıdır. Hedef bakım ham
 # bakımla artar (kötü birim iyi birimden pahalı olmaz) ve UPKEEP_CAP'i geçmez:
@@ -629,11 +625,6 @@ def build_tables(data_dir, out_dir):
         add_effect(effect, icons, priority, text)
         basic.extend([effect, bonus] for bonus in bonuses)
         handicap.extend([d, 'true', effect, scope, f'{value:.4f}', ''] for d in DIFFICULTIES)
-
-    # Earl'ün AI işe alım sınırını oyuncuda kaldır (mod kurulu değilse atlanır).
-    _, _, effects_present = effective_rows(data_dir, 'effects_tables', ['effect'])
-    if (EARL_AI_CAP_EFFECT,) in effects_present:
-        handicap.extend([d, 'true', EARL_AI_CAP_EFFECT, EARL_AI_CAP_SCOPE, '0.0000', ''] for d in DIFFICULTIES)
 
     # Birim bakımı.
     units_header, units_version, units = effective_land_units(data_dir)
