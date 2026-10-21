@@ -11,6 +11,7 @@ verilir, AI fraksiyonları etkilenmez. Tüm zorluk seviyelerinde çalışır.
 | Büyüme | eyalet başına +8 |
 | Bina bakım maliyeti | tüm binalarda yarıya (kartlarda görünür; ör. Ghulam Barracks 100 → 50) |
 | İkmal | +10 |
+| Eyalet işe alım puanı | +10 (elit birimlerin aynı anda eğitim sırası sınırını açar; yalnızca oyuncu) |
 | Bina yapım ve yükseltme maliyeti | −%50 (yalnızca oyuncu; ör. Small Mosque 6000 → 3000) |
 | Eyalet başkenti mescitleri | sanitasyon I/II/III/IV: +1/+2/+3/+4 (önce 0/+1/+1/+1) |
 | Birim bakımı | 120 ve altı değişmez; 460 → ~180; aradakiler doğrusal |

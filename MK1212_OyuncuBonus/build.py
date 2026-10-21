@@ -308,7 +308,13 @@ STORY_FIRST_ID = 8800000           # MK1212'nin kimlikleri 440000'in altında
 
 # (anahtar, bonus_value_id'ler, kapsam, değer, (simge, negatif simge), öncelik, açıklama)
 # Simgeler oyundaki eşdeğer efektlerden alındı; maliyet efektlerinde ters çevrilidir.
+# Eyalet başına işe alım puanı: elit birimlerin aynı anda eğitim sırası bu puanla sınırlıdır.
+# Oyunun zorluk tablosu da AI ve oyuncuya +3'e kadar verir; binalar eyalet başına 1-4 puan verir.
+RECRUITMENT_POINTS = 10
+
 SIMPLE_EFFECTS = [
+    ('recruitment_points', ('recruitment_points',), 'faction_to_province_own', RECRUITMENT_POINTS,
+     ('army_positive.png', 'army_negative.png'), 270, 'Player bonus - Recruitment points: %+n'),
     ('gdp_all', ('gdp_mod_all',), 'faction_to_region_own', INCOME_PCT,
      ('wealth_positive.png', 'wealth_negative.png'), 162, 'Player bonus - Wealth: %+n% from all buildings'),
     ('research_rate', ('research_rate_mod',), 'faction_to_faction_own', RESEARCH_PCT,
