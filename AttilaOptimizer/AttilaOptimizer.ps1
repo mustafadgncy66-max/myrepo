@@ -48,8 +48,10 @@ $ModDataTablePattern = '^(main_units|land_units|campaign_difficulty_handicap_eff
 # Attila.exe içindeki betik fonksiyonu adlarından yalnızca karakter ve aileyle ilgili olanlar.
 $ExeNamePattern = 'heir|leader|family|character|art_set|portrait|forename|succession'
 
-# Selçuklu general portreleri ve 3B model tanımları.
-$PortraitFilePattern = '^(ui/portraits/|variantmeshes/variantmeshdefinitions/).*(sel_t1|seljuk)'
+# Selçuklu general portreleri, 3B model tanımları ve portre ayarları.
+$PortraitFilePattern = '^((ui/portraits/|variantmeshes/variantmeshdefinitions/).*(sel_t1|seljuk)|ui/portraits/portholes/portrait_settings\.xml$)'
+# Oyun klasöründeki betik kayıtları (alt mod ve MK1212).
+$GameLogFiles = @('pb_seljuk_log.txt', 'MK1212log.txt')
 
 function Write-Title($text) {
     Write-Host ''
@@ -469,6 +471,15 @@ function Invoke-ExportModData {
         Compress-Archive -Path $startpos[0].FullName -DestinationPath $startposZip
         $startpos | Remove-Item -Force
         Write-Ok "Hazır: $startposZip ($([Math]::Round((Get-Item $startposZip).Length / 1MB, 1)) MB)"
+    }
+
+    foreach ($log in $GameLogFiles) {
+        $logPath = Join-Path $dir $log
+        if (Test-Path $logPath) {
+            New-Item -ItemType Directory -Path $portraitRoot -Force | Out-Null
+            Copy-Item $logPath $portraitRoot
+            Write-Ok "Kayıt: $log"
+        }
     }
 
     $portraitZip = "$portraitRoot.zip"

@@ -7,6 +7,26 @@ setfenv(1, _G.script_env);
 
 local SELJUKS = "mk_fact_seljuks";
 
+-- Oyun klasöründeki pb_seljuk_log.txt dosyasına yazar; betiğin oyunda ne yaptığını görmek için.
+local LOG_FILE = "pb_seljuk_log.txt";
+
+local function pb_log(text)
+	pcall(function()
+		local file = io.open(LOG_FILE, "a");
+		file:write(tostring(text) .. "\n");
+		file:close();
+	end);
+end
+
+-- Bir adımı çalıştırır; hata olursa kaydeder ve sonraki adımlara devam edilir.
+local function try_step(name, fn, ...)
+	local ok, err = pcall(fn, ...);
+
+	if not ok then
+		pb_log(name .. " failed: " .. tostring(err));
+	end
+end
+
 -- Anadolu İpek Yolu'nun kervan şehirleri: Konya, Kayseri, Ankara, Malatya, Sis (Ayas limanı),
 -- Diyarbakır, Dvin (Erzurum yolu) ve Tebriz.
 PB_CARAVAN_CITIES = {
@@ -143,6 +163,7 @@ local function give_kayqubad_traits(faction)
 	local kayqubad = find_character(faction, KAYQUBAD_NAME);
 
 	if not kayqubad then
+		pb_log("traits: Kayqubad not found");
 		return;
 	end
 
@@ -150,12 +171,14 @@ local function give_kayqubad_traits(faction)
 
 	for i = 1, #KAYQUBAD_TRAITS do
 		if not kayqubad:has_trait(KAYQUBAD_TRAITS[i]) then
+			pb_log("traits: adding " .. KAYQUBAD_TRAITS[i] .. " to cqi " .. kayqubad:command_queue_index());
 			cm:force_add_trait("character_cqi:" .. kayqubad:command_queue_index(), KAYQUBAD_TRAITS[i], false);
 			missing = missing + 1;
 		end
 	end
 
 	if missing == 0 then
+		pb_log("traits: all present");
 		cm:set_saved_value("pb_seljuk_kayqubad_traits_done", true);
 	end
 end
@@ -276,6 +299,8 @@ function PB_Seljuk_Story(faction)
 
 			-- Hedef bölge zaten bizdeyse görev verilmez.
 			if not (event.unless_owned and owned[event.unless_owned]) then
+				pb_log("story: " .. event.kind .. " " .. event.key);
+
 				if event.kind == "action" then
 					STORY_ACTIONS[event.key](faction);
 				elseif event.kind == "mission" then
@@ -303,18 +328,19 @@ cm:add_listener(
 	"FactionTurnStart",
 	function(context) return context:faction():name() == SELJUKS end,
 	function(context)
-		PB_Seljuk_Trade_Update(context:faction());
-		PB_Seljuk_Story(context:faction());
-		give_kayqubad_traits(context:faction());
+		local faction = context:faction();
+		pb_log("turn " .. cm:model():turn_number());
+		try_step("trade", PB_Seljuk_Trade_Update, faction);
+		try_step("story", PB_Seljuk_Story, faction);
+		try_step("traits", give_kayqubad_traits, faction);
 	end,
 	true
 );
 
 -- Kayıt yüklenince ya da kampanya başlayınca beklemeden uygula; olmazsa ilk tur başında uygulanır.
-local ok, err = pcall(function()
-	PB_Seljuk_Trade_Update(cm:model():world():faction_by_key(SELJUKS));
-end);
-
-if not ok then
-	output("PB Seljuk trade: initial update failed: " .. tostring(err));
-end
+-- Özellikler arayüz kurulurken eklenemez, bu yüzden biraz sonra denenir.
+pb_log("loaded");
+try_step("initial trade", function() PB_Seljuk_Trade_Update(cm:model():world():faction_by_key(SELJUKS)) end);
+cm:callback(function()
+	try_step("initial traits", function() give_kayqubad_traits(cm:model():world():faction_by_key(SELJUKS)) end);
+end, 1);
