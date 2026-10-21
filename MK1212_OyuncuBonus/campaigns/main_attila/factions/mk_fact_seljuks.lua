@@ -210,6 +210,14 @@ local function give_kayqubad_traits(faction)
 
 	if faction:has_faction_leader() and faction:faction_leader():get_forename() == KAYQUBAD_NAME then
 		give_traits(kayqubad, KAYQUBAD_SULTAN_TRAITS, "pb_seljuk_kayqubad_sultan_traits");
+
+		-- MK1212'nin lakap sistemi: "the Great" en yüksek öncelikli lakaptır, sonradan özelliklerden gelen
+		-- lakaplar onu değiştirmez.
+		if not cm:get_saved_value("pb_seljuk_kayqubad_the_great") and type(Add_Character_Nickname) == "function" then
+			Add_Character_Nickname(kayqubad:command_queue_index(), "the_great", true);
+			cm:set_saved_value("pb_seljuk_kayqubad_the_great", true);
+			pb_log("nickname: the_great for cqi " .. kayqubad:command_queue_index());
+		end
 	end
 end
 

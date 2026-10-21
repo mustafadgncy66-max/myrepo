@@ -84,7 +84,9 @@ Keykubad'a betikle oyunun kendi özellikleri en yüksek seviyeleriyle verilir (A
 
 - **Oyunun başından:** Master Strategist, Superior Attacker, Superior Defender, Into the Breach!,
   Take No Prisoners!, Utterly Fearless, Vital, Military Secretary.
-- **Tahta geçince:** Upright, mimar (3. seviye), karizmatik.
+- **Tahta geçince:** Upright, mimar (3. seviye), karizmatik ve MK1212'nin lakap sisteminden **"the Great"** lakabı
+  (en yüksek öncelikli lakap; sonradan özelliklerden gelen lakaplar onu değiştirmez). Tahta geçmeden önce MK1212,
+  Take No Prisoners! özelliğinden ötürü "the Ruthless" lakabını verir.
 
 Özellikler tur başında eklenir; oyun onları bir sonraki tur geçişinde gösterir. MK1212'nin "Kaiqobad" adının
 metni "Alaeddin Keykubad" olarak değiştirilir (Attila'da karakter adı betikle değiştirilemez).
