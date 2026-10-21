@@ -34,6 +34,11 @@ CONSTRUCTION_COST_PCT = -50        # bina yapım ve yükseltme maliyeti
 RECRUIT_COST_PCT = -50             # birim işe alım (yetiştirme) maliyeti
 # Earl'ün Realistic Cavalry modu, "AI işe alım sınırı" grubundaki 14 elit birime zorluk tablosunda insan
 # oyuncu için de -100 uygular. Aynı anahtarlı satırlarla oyuncu için 0'a çekilir (bu pack önce okunur).
+# Oyunun zorluk tablosu insana eyalet başına yalnızca +3 işe alım puanı verir; puan yetmeyince sıradaki birimler
+# süresiz bekler (∞). Aynı anahtarlı satırlarla oyunun kendi etkisinin değeri oyuncu için yükseltilir.
+RECRUITMENT_POINTS = 40
+RECRUITMENT_POINT_EFFECTS = (('att_effect_unit_recruitment_points', 'faction_to_province_own'),
+                             ('att_effect_unit_recruitment_points_naval', 'faction_to_sea_region_own'))
 EARL_AI_CAP_EFFECT = 'earl_effect_force_unit_cap_for_ai_recruitment'
 EARL_AI_CAP_SCOPE = 'faction_to_faction_own_unseen'
 FARM_FOOD = 20                     # bölge başına tarım gıdası (çiftlik 20-60 verir)
@@ -629,6 +634,9 @@ def build_tables(data_dir, out_dir):
         add_effect(effect, icons, priority, text)
         basic.extend([effect, bonus] for bonus in bonuses)
         handicap.extend([d, 'true', effect, scope, f'{value:.4f}', ''] for d in DIFFICULTIES)
+
+    for effect, scope in RECRUITMENT_POINT_EFFECTS:
+        handicap.extend([d, 'true', effect, scope, f'{RECRUITMENT_POINTS:.4f}', ''] for d in DIFFICULTIES)
 
     # Earl'ün AI işe alım sınırını oyuncuda kaldır (mod kurulu değilse atlanır).
     _, _, effects_present = effective_rows(data_dir, 'effects_tables', ['effect'])
