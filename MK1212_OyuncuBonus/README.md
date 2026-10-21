@@ -73,6 +73,12 @@ resim dosyaları ezilebilir. Keykâvus da tahta geçen Keykubad da aynı resim d
 Keykâvus'un portresi `art/kaikaus.jpg` dosyasından `tools/portrait.py` ile `keykavus_portresi/` altına üretilir
 (yeşil arka plan şeffaf yapılır, 180×240 ve 64×152).
 
+### Hızlı test
+
+`mk1212_hizli_test.pack` yüklüyken hikâye olayları 14 tur erken gelir: hastalık haberi 1. turda, Keykâvus'un
+ölümü 3. turda. Yeni bir kampanyada denemek içindir; normal oyunda kapatın. Erteleme miktarı
+`hizli_test/campaigns/main_attila/factions/pb_seljuk_test.lua` dosyasındadır.
+
 Betik, oyun klasörüne `pb_seljuk_log.txt` adlı bir kayıt dosyası yazar.
 
 Keykubad'ın mimar, zeki ve enerjik özellikleri, pack yüklüyken bir sonraki tur başında eklenir.

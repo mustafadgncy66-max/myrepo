@@ -65,6 +65,9 @@ ART_UNIFORM_CHANGES = {
 KAYKAUS_PORTRAIT_PACK = 'mk1212_keykavus_portresi.pack'
 # Keykâvus'un portresi tools/portrait.py ile art/kaikaus.jpg'den bu klasöre üretilir.
 KAYKAUS_PORTRAIT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'keykavus_portresi')
+# Hızlı test pack'i: hikâye olaylarını öne çeken pb_seljuk_test.lua'yı taşır (bkz. mk_fact_seljuks.lua).
+TEST_PACK = 'mk1212_hizli_test.pack'
+TEST_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'hizli_test')
 # Önceki bir sürümün tanımladığı görünüm; o sürümle kaydedilmiş oyunlar açılabilsin diye tanımlı kalır.
 OLD_KAYKAUS_UNIFORM = 'pb_campaign_sel_kaikaus'
 
@@ -721,13 +724,15 @@ def main():
                        check=True)
     print(f'Pack: {pack}')
 
-    portrait_pack = os.path.join(args.out, KAYKAUS_PORTRAIT_PACK)
-    if os.path.exists(portrait_pack):
-        os.remove(portrait_pack)
-    subprocess.run([args.rpfm, '-g', 'attila', 'pack', 'create', '-p', portrait_pack], check=True)
-    subprocess.run([args.rpfm, '-g', 'attila', 'pack', 'add', '-p', portrait_pack, '-F',
-                    f'{os.path.join(KAYKAUS_PORTRAIT_DIR, "ui")};ui'], check=True)
-    print(f'Pack: {portrait_pack}')
+    # Ayrı açılıp kapatılan küçük pack'ler.
+    for name, folder in ((KAYKAUS_PORTRAIT_PACK, os.path.join(KAYKAUS_PORTRAIT_DIR, 'ui') + ';ui'),
+                         (TEST_PACK, os.path.join(TEST_DIR, 'campaigns') + ';campaigns')):
+        extra = os.path.join(args.out, name)
+        if os.path.exists(extra):
+            os.remove(extra)
+        subprocess.run([args.rpfm, '-g', 'attila', 'pack', 'create', '-p', extra], check=True)
+        subprocess.run([args.rpfm, '-g', 'attila', 'pack', 'add', '-p', extra, '-F', folder], check=True)
+        print(f'Pack: {extra}')
 
 
 if __name__ == '__main__':

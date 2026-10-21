@@ -292,8 +292,13 @@ end
 
 local STORY_ACTIONS = { succession = succession };
 
+-- Hızlı test: mk1212_hizli_test.pack yüklüyse olaylar o pack'teki pb_seljuk_test.lua'nın verdiği kadar
+-- tur erken gelir. Pack yoksa require başarısız olur ve takvim değişmez.
+local test_ok, test_settings = pcall(require, "pb_seljuk_test");
+local STORY_TURN_OFFSET = test_ok and type(test_settings) == "table" and test_settings.turn_offset or 0;
+
 function PB_Seljuk_Story(faction)
-	local turn = cm:model():turn_number();
+	local turn = cm:model():turn_number() + STORY_TURN_OFFSET;
 	local owned = nil;
 
 	for i = 1, #PB_STORY_EVENTS do
@@ -344,7 +349,7 @@ cm:add_listener(
 
 -- Kayıt yüklenince ya da kampanya başlayınca beklemeden uygula; olmazsa ilk tur başında uygulanır.
 -- Özellikler arayüz kurulurken eklenemez, bu yüzden biraz sonra denenir.
-pb_log("loaded");
+pb_log("loaded, story turn offset " .. STORY_TURN_OFFSET);
 try_step("initial trade", function() PB_Seljuk_Trade_Update(cm:model():world():faction_by_key(SELJUKS)) end);
 cm:callback(function()
 	try_step("initial traits", function() give_kayqubad_traits(cm:model():world():faction_by_key(SELJUKS)) end);
