@@ -65,37 +65,9 @@ ART_UNIFORM_CHANGES = {
 KAYKAUS_PORTRAIT_PACK = 'mk1212_keykavus_portresi.pack'
 # Keykâvus'un portresi tools/portrait.py ile art/kaikaus.jpg'den bu klasöre üretilir.
 KAYKAUS_PORTRAIT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'keykavus_portresi')
-# Keykubad'ın özellikleri: yalnızca betikle ona verilir (mk_fact_seljuks.lua'daki KAYQUBAD_*_TRAIT). Komutan
-# özelliği oyunun başından, sultan özelliği tahta geçince eklenir. Tek seviyelidirler ve eşikleri 1 puandır, böylece
-# tek çağrıda görünürler. Etkiler ve kapsamlar oyunun kendi özelliklerindekilerle aynıdır.
-# (anahtar, ad, açıklama, simge, [(efekt, kapsam, değer)])
-KAYQUBAD_TRAITS = [
-    ('pb_trait_kayqubad_commander', 'Born Commander',
-     'Even as a prince holding Ankara, Kayqubad was a bold and clever commander whom his soldiers followed anywhere.',
-     'military_good', [
-         ('att_effect_agent_attribute_authority_mod', 'general_to_character_own', 2),
-         ('att_effect_agent_attribute_subterfuge_mod', 'general_to_character_own', 3),
-         ('att_effect_agent_attribute_zeal_mod', 'general_to_character_own', 2),
-         ('att_effect_force_army_battle_unit_morale_land_attack', 'general_to_force_own', 15),
-         ('att_effect_force_army_battle_unit_morale_land_defence', 'general_to_force_own', 15),
-         ('att_effect_force_army_battle_unit_morale_siege_attack', 'general_to_force_own', 15),
-         ('att_effect_force_unit_stat_melee_damage', 'general_to_force_own', 10),
-         ('att_effect_force_unit_stat_missile_damage', 'general_to_force_own', 10),
-         ('att_effect_force_all_campaign_military_morale_factor_characters', 'general_to_force_own', 4),
-         ('att_effect_force_all_campaign_experience_base_all', 'general_to_force_own', 2),
-         ('att_effect_force_all_campaign_recruitment_cost_all', 'general_to_force_own', -15),
-     ]),
-    ('pb_trait_alaeddin_kayqubad', 'Ala al-Din, the Great Sultan',
-     'Sultan Kayqubad leads the Sultanate of Rum to its golden age: a builder of caravanserais and fortresses, and a '
-     'ruler whom emirs and soldiers alike obey.',
-     'ruler_good', [
-         ('att_effect_agent_attribute_authority_mod', 'general_to_character_own', 2),
-         ('att_effect_economy_gdp_mod_all', 'character_to_region_own_factionwide', 10),
-         ('att_effect_public_order_characters', 'character_to_province_own_factionwide', 2),
-         ('att_effect_character_loyalty_mod_characters', 'character_to_character_own_factionwide', 2),
-         ('att_effect_general_local_mod_construction_costs', 'general_to_region_own_provincewide_when_governor', -15),
-     ]),
-]
+# Keykubad'ın adı. Attila'da karakter adı betikle değiştirilemez; MK1212'nin "Kaiqobad" adının metni değiştirilir
+# (bu adı taşıyan her karakter için, oyunun başından itibaren).
+NAME_OVERRIDES = [('names_name_2147363203', 'Alaeddin Keykubad')]
 
 # Hızlı test pack'i: hikâye olaylarını öne çeken pb_seljuk_test.lua'yı taşır (bkz. mk_fact_seljuks.lua).
 TEST_PACK = 'mk1212_hizli_test.pack'
@@ -589,24 +561,6 @@ def write_story_tables(data_dir, out_dir, name, loc):
         write_tsv(out_dir, table, name, version, header, [[row.get(c, '') for c in header] for row in rows])
 
 
-def write_trait_tables(data_dir, out_dir, name, loc):
-    rows = {'character_traits_tables': [], 'character_trait_levels_tables': [], 'trait_to_included_agents_tables': [],
-            'trait_level_effects_tables': []}
-    for key, title, text, icon, effects in KAYQUBAD_TRAITS:
-        level = f'{key}_1'
-        rows['character_traits_tables'].append({'key': key, 'no_going_back_level': '1', 'hidden': 'false',
-                                                'precedence': '1', 'icon': icon, 'pre_battle_speech_parameter': ''})
-        rows['character_trait_levels_tables'].append({'key': level, 'level': '1', 'trait': key, 'threshold_points': '1'})
-        rows['trait_to_included_agents_tables'].append({'trait': key, 'agent': 'general'})
-        rows['trait_level_effects_tables'].extend({'trait_level': level, 'effect': e, 'effect_scope': sc,
-                                                   'value': f'{v:.4f}'} for e, sc, v in effects)
-        loc.append([f'character_trait_levels_onscreen_name_{level}', title, 'true'])
-        loc.append([f'character_trait_levels_colour_text_{level}', text, 'true'])
-    for table, table_rows in rows.items():
-        header, version = table_schema(data_dir, table)
-        write_tsv(out_dir, table, name, version, header, [[r[c] for c in header] for r in table_rows])
-
-
 def write_tsv(out_dir, table, file_name, version, header, rows):
     path = os.path.join(out_dir, 'db', table, file_name + '.tsv')
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -713,7 +667,7 @@ def build_tables(data_dir, out_dir):
     # Selçuklu Ticaret Ağı ve hikâye ödül paketleri.
     bundles = trade_bundles() + STORY_BUNDLES
     write_story_tables(data_dir, out_dir, name, loc)
-    write_trait_tables(data_dir, out_dir, name, loc)
+    loc.extend([key, text, 'true'] for key, text in NAME_OVERRIDES)
     write_story_schedule()
     write_tsv(out_dir, 'effect_bundles_tables', name, 1,
               ['key', 'localised_description', 'localised_title', 'ui_icon', 'bundle_target'],

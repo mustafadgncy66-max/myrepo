@@ -79,15 +79,15 @@ Keykâvus'un portresi `art/kaikaus.jpg` dosyasından `tools/portrait.py` ile `ke
 ölümü 3. turda. Yeni bir kampanyada denemek içindir; normal oyunda kapatın. Erteleme miktarı
 `hizli_test/campaigns/main_attila/factions/pb_seljuk_test.lua` dosyasındadır.
 
-Keykubad'a betikle yalnızca ona ait iki özellik verilir:
+Keykubad'a betikle oyunun kendi özellikleri en yüksek seviyeleriyle verilir (Attila'da moddan eklenen yeni
+özellikler oyun tarafından tanınmadı):
 
-- **Born Commander** (oyunun başından): yetki +2, kurnazlık +3, gayret +2; ordusunda saldırı, savunma ve
-  kuşatmada moral +15, yakın ve menzilli hasar +%10, kampanya morali +4, yeni askerlere +2 deneyim,
-  askere alma −%15.
-- **Ala al-Din, the Great Sultan** (tahta geçince): yetki +2; tüm bölgelerde servet +%10, tüm eyaletlerde kamu
-  düzeni +2, tüm karakterlerin sadakati +2; valisi olduğu eyalette inşa −%15.
+- **Oyunun başından:** Master Strategist, Superior Attacker, Superior Defender, Into the Breach!,
+  Take No Prisoners!, Utterly Fearless, Vital, Military Secretary.
+- **Tahta geçince:** Upright, mimar (3. seviye), karizmatik.
 
-Özellikler tur başında eklenir; oyun özelliği bir sonraki tur geçişinde gösterebilir.
+Özellikler tur başında eklenir; oyun onları bir sonraki tur geçişinde gösterir. MK1212'nin "Kaiqobad" adının
+metni "Alaeddin Keykubad" olarak değiştirilir (Attila'da karakter adı betikle değiştirilemez).
 
 Betik, oyun klasörüne `pb_seljuk_log.txt` adlı bir kayıt dosyası yazar.
 

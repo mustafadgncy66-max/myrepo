@@ -140,10 +140,24 @@ local KAYKAUS_NAME = "names_name_2147363192";    -- "Kaikaus"
 local KAYQUBAD_NAME = "names_name_2147363203";   -- "Kaiqobad"
 local KAYQUBAD_AGE = 32;
 local KAYQUBAD_ART_SET = "mk_campaign_sel_t1_general_06";
--- Yalnızca Keykubad'a verilen özellikler (build.py'deki KAYQUBAD_TRAITS); eşikleri 1 puan olduğu için tek çağrıda
--- görünürler. Komutan özelliği oyunun başından, sultan özelliği tahta geçince verilir.
-local KAYQUBAD_COMMANDER_TRAIT = "pb_trait_kayqubad_commander";
-local KAYQUBAD_SULTAN_TRAIT = "pb_trait_alaeddin_kayqubad";
+-- Keykubad'ın özellikleri: oyunun kendi özellikleri, en yüksek seviyeleri için gereken puanla
+-- (character_trait_levels: 3. seviye 6 puan, tek seviyeliler 2 puan). force_add_trait her çağrıda 1 puan verir.
+-- Komutan seti oyunun başından, sultan seti tahta geçince verilir.
+local KAYQUBAD_COMMANDER_TRAITS = {
+	{"att_trait_general_military_all_strategist", 6},          -- Master Strategist: kurnazlık +3
+	{"att_trait_general_military_army_all_attacker_good", 6},  -- Superior Attacker: saldırıda moral +15
+	{"att_trait_general_military_army_all_defender_good", 6},  -- Superior Defender: savunmada moral +15
+	{"att_trait_general_military_army_all_besieger_good", 6},  -- Into the Breach!: kuşatmada moral +15
+	{"att_trait_general_military_all_high_casualties", 6},     -- Take No Prisoners!: hasar +%15
+	{"att_trait_general_personality_all_bravery", 6},          -- Utterly Fearless: gayret +3, moral +4
+	{"att_trait_all_personality_all_energetic", 6},            -- Vital: yetki +2, kurnazlık +1, gayret +3
+	{"att_trait_general_government_all_military_admin", 6},    -- Military Secretary: askere alma -%15
+};
+local KAYQUBAD_SULTAN_TRAITS = {
+	{"att_trait_general_personality_all_honest", 6},           -- Upright: yolsuzluk -%15, sadakat +2
+	{"att_trait_general_government_all_architect", 6},         -- inşa maliyeti -%15 (valisi olduğu eyalet)
+	{"att_trait_all_personality_all_innate_charismatic", 2},   -- yetki +1
+};
 
 local function find_character(faction, forename)
 	local characters = faction:character_list();
@@ -157,22 +171,32 @@ local function find_character(faction, forename)
 	end
 end
 
--- Bir özelliği bir kez ekler; bir tur başında yerinde görülünce bir daha bakılmaz.
-local function give_trait(character, trait)
-	local flag = "pb_seljuk_trait_done_" .. trait;
-
+-- Bir özellik setini hedef puanlara tamamlar; hepsi bir tur başında hedefte görülünce bir daha bakılmaz.
+local function give_traits(character, traits, flag)
 	if cm:get_saved_value(flag) then
 		return;
 	end
 
-	if character:has_trait(trait) then
-		pb_log("traits: " .. trait .. " present");
-		cm:set_saved_value(flag, true);
-		return;
+	local lookup = "character_cqi:" .. character:command_queue_index();
+	local missing = 0;
+
+	for i = 1, #traits do
+		local trait, target = traits[i][1], traits[i][2];
+		local points = math.max(character:trait_points(trait) or 0, 0);
+
+		if points < target then
+			pb_log("traits: " .. trait .. " " .. points .. " -> " .. target .. " for " .. lookup);
+			for _ = points + 1, target do
+				cm:force_add_trait(lookup, trait, false);
+			end
+			missing = missing + 1;
+		end
 	end
 
-	pb_log("traits: adding " .. trait .. " to cqi " .. character:command_queue_index());
-	cm:force_add_trait("character_cqi:" .. character:command_queue_index(), trait, false);
+	if missing == 0 then
+		pb_log("traits: " .. flag .. " complete");
+		cm:set_saved_value(flag, true);
+	end
 end
 
 local function give_kayqubad_traits(faction)
@@ -182,10 +206,10 @@ local function give_kayqubad_traits(faction)
 		return;
 	end
 
-	give_trait(kayqubad, KAYQUBAD_COMMANDER_TRAIT);
+	give_traits(kayqubad, KAYQUBAD_COMMANDER_TRAITS, "pb_seljuk_kayqubad_commander_traits");
 
 	if faction:has_faction_leader() and faction:faction_leader():get_forename() == KAYQUBAD_NAME then
-		give_trait(kayqubad, KAYQUBAD_SULTAN_TRAIT);
+		give_traits(kayqubad, KAYQUBAD_SULTAN_TRAITS, "pb_seljuk_kayqubad_sultan_traits");
 	end
 end
 
