@@ -31,6 +31,7 @@ GROWTH = 8                         # eyalet başına büyüme (teknolojiler +1/+
 REPLENISHMENT = 10                 # ikmal hızı (AI zorluğa göre +2...+9 alır)
 CONSTRUCTION_COST_PCT = -50        # bina yapım ve yükseltme maliyeti
 RECRUIT_COST_PCT = -50             # birim işe alım (yetiştirme) maliyeti
+FARM_FOOD = 20                     # bölge başına tarım gıdası (çiftlik 20-60 verir)
 UPKEEP_FREE_UNTIL = 120            # bu bakıma kadar indirim yok
 UPKEEP_ANCHOR = (460, 180)         # 460 bakımlı birim 180'e iner; aradakiler doğrusal
 
@@ -331,6 +332,8 @@ SIMPLE_EFFECTS = [
     ('recruit_cost', ('recruitment_mod_cost_land_all', 'recruitment_mod_cost_naval_all'), 'faction_to_force_own',
      RECRUIT_COST_PCT, ('wealth_negative.png', 'wealth_positive.png'), 101,
      'Player bonus - Recruitment cost: %+n%'),
+    ('farm_food', ('food_production_buildings',), 'faction_to_region_own', FARM_FOOD,
+     ('food_positive.png', 'food_negative.png'), 101, 'Player bonus - Food: %+n from agriculture'),
 ]
 
 

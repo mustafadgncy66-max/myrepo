@@ -14,6 +14,7 @@ verilir, AI fraksiyonları etkilenmez. Tüm zorluk seviyelerinde çalışır.
 | Bina yapım ve yükseltme maliyeti | −%50 (yalnızca oyuncu; ör. Small Mosque 6000 → 3000) |
 | Eyalet başkenti mescitleri | sanitasyon I/II/III/IV: +1/+2/+3/+4 (önce 0/+1/+1/+1) |
 | Birim işe alım (yetiştirme) maliyeti | −%50 (yalnızca oyuncu; Born Commander özelliğindeki −%15 ile toplanır) |
+| Tarım gıdası | bölge başına +20 (çiftlik binaları 20-60 verir; yalnızca oyuncu) |
 | Birim bakımı | 120 ve altı değişmez; 460 → ~180; aradakiler doğrusal |
 
 ## Selçuklu Ticaret Ağı (İpek Yolu)

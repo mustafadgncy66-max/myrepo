@@ -7,6 +7,7 @@ effects_description_pb_effect_growth	Player bonus - Growth: %+n	true
 effects_description_pb_effect_replenishment	Player bonus - Replenishment: %+n%	true
 effects_description_pb_effect_construction_cost	Player bonus - Construction cost: %+n%	true
 effects_description_pb_effect_recruit_cost	Player bonus - Recruitment cost: %+n%	true
+effects_description_pb_effect_farm_food	Player bonus - Food: %+n from agriculture	true
 effects_description_pb_effect_upkeep_01	Player bonus - Upkeep cost: %+n% for expensive units	true
 effects_description_pb_effect_upkeep_02	Player bonus - Upkeep cost: %+n% for expensive units	true
 effects_description_pb_effect_upkeep_03	Player bonus - Upkeep cost: %+n% for expensive units	true

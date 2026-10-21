@@ -49,6 +49,13 @@ campaign_difficulty_handicap	human	effect	effect_scope	effect_value	optional_cam
 1	true	pb_effect_recruit_cost	faction_to_force_own	-50.0000	
 2	true	pb_effect_recruit_cost	faction_to_force_own	-50.0000	
 3	true	pb_effect_recruit_cost	faction_to_force_own	-50.0000	
+-3	true	pb_effect_farm_food	faction_to_region_own	20.0000	
+-2	true	pb_effect_farm_food	faction_to_region_own	20.0000	
+-1	true	pb_effect_farm_food	faction_to_region_own	20.0000	
+0	true	pb_effect_farm_food	faction_to_region_own	20.0000	
+1	true	pb_effect_farm_food	faction_to_region_own	20.0000	
+2	true	pb_effect_farm_food	faction_to_region_own	20.0000	
+3	true	pb_effect_farm_food	faction_to_region_own	20.0000	
 -3	true	pb_effect_upkeep_01	faction_to_force_own_unseen	-1.0000	
 -2	true	pb_effect_upkeep_01	faction_to_force_own_unseen	-1.0000	
 -1	true	pb_effect_upkeep_01	faction_to_force_own_unseen	-1.0000	
