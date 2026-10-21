@@ -29,7 +29,7 @@ pb_bundle_seljuk_scholars	Placeholder	The Sultan of Scholars	tax_growth_3.png	fa
 pb_bundle_seljuk_sultan_han	Placeholder	The Sultan Han	tax_growth_5.png	faction
 pb_bundle_seljuk_yassi_chemen	Placeholder	Veterans of Yassi Chemen	faction_leader_positive.png	faction
 pb_bundle_seljuk_babai_crushed	Placeholder	The Revolt Crushed	faction_leader_negative.png	faction
-pb_bundle_seljuk_babai_pardon	Placeholder	The Tribes Pardoned	faction_leader_positive.png	faction
+pb_bundle_seljuk_babai_pardon	Placeholder	The Tribes Pardoned	faction_leader_negative.png	faction
 pb_bundle_seljuk_kose_dag_field	Placeholder	The Host of Rum	faction_leader_positive.png	faction
 pb_bundle_seljuk_kose_dag_walls	Placeholder	Behind the Walls	faction_leader_positive.png	faction
 pb_bundle_seljuk_tribute	Placeholder	Tribute to the Khan	faction_leader_negative.png	faction

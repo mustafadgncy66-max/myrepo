@@ -126,9 +126,10 @@ STORY_BUNDLES = [
     ('pb_bundle_seljuk_babai_crushed', 'faction_leader_negative.png', 'The Revolt Crushed',
      'The rebels have been broken, but the Turkmen of the frontier will not soon forget it.',
      [(*PUBLIC_ORDER_EFFECT, -3), (*INTEGRITY, 1)]),
-    ('pb_bundle_seljuk_babai_pardon', 'faction_leader_positive.png', 'The Tribes Pardoned',
-     'Taxes on the frontier have been lowered and the tribes have returned to their pastures.',
-     [(*PUBLIC_ORDER_EFFECT, 3), (*RECRUITMENT_COST, -10)]),
+    ('pb_bundle_seljuk_babai_pardon', 'faction_leader_negative.png', 'The Tribes Pardoned',
+     'Taxes on the frontier have been lowered and the tribes have returned to their pastures. The emirs whose '
+     'lands were plundered resent the Sultan\'s leniency, and the treasury feels the loss.',
+     [(*PUBLIC_ORDER_EFFECT, 2), (*GDP_ALL, -10), (*LOYALTY, -2)]),
     ('pb_bundle_seljuk_kose_dag_field', 'faction_leader_positive.png', 'The Host of Rum',
      'Emirs, ghulams, Turkmen and Frankish and Georgian mercenaries stand together against the horde.',
      [(*MORALE_VS_NOMADS, 6), (*INTEGRITY, 3), (*REPLENISHMENT_EFFECT, 20)]),
@@ -205,6 +206,7 @@ STORY_DILEMMAS = [{
     ],
 }, {
     'turn': 17, 'key': 'pb_dilemma_seljuk_succession', 'image': 'pb_seljuk_succession', 'fallback': 'pb_seljuk_divan',
+    'action': 'succession',
     'title': 'The Death of Kaykaus',
     'description': 'Sultan Kaykaus has died of consumption at the height of his power. His brother Kayqubad, long '
                    'held prisoner in a fortress, has been brought out and raised to the throne. The emirs who once '
@@ -245,9 +247,9 @@ STORY_DILEMMAS = [{
                    'Sultan\'s governors and taxes. His followers have taken Amasya and defeated the first armies '
                    'sent against them.',
     'choices': [
-        ('FIRST', 'Crush the revolt', 'Frankish mercenaries break the rebel host, and Baba Ishak is hanged.',
+        ('FIRST', 'Crush the revolt', 'The rebels gather in arms near Amasya. An army must march to break them.',
          [('pb_bundle_seljuk_babai_crushed', 'DURATION[10];GLOBAL')]),
-        ('SECOND', 'Lower the taxes and pardon the tribes', 'The tribes lay down their arms and return to their pastures.',
+        ('SECOND', 'Lower the taxes and pardon the tribes', 'The tribes lay down their arms, but the emirs and the treasury pay the price.',
          [('TREASURY', 'AMOUNT[-6000]'), ('pb_bundle_seljuk_babai_pardon', 'DURATION[15];GLOBAL')]),
     ],
 }, {
@@ -437,9 +439,10 @@ def write_story_schedule():
     """mk_fact_seljuks.lua'daki takvim bloğunu olay listelerinden yeniden yazar."""
     events = ([(m['turn'], 'mission', m['key'], m['region']) for m in STORY_MISSIONS] +
               [(i['turn'], 'incident', i['key'], None) for i in STORY_INCIDENTS] +
-              [(d['turn'], 'dilemma', d['key'], None) for d in STORY_DILEMMAS])
-    # Aynı turda önce görev, sonra haber, en son karar gelir.
-    order = {'mission': 0, 'incident': 1, 'dilemma': 2}
+              [(d['turn'], 'dilemma', d['key'], None) for d in STORY_DILEMMAS] +
+              [(d['turn'], 'action', d['action'], None) for d in STORY_DILEMMAS if 'action' in d])
+    # Aynı turda önce betik eylemi (ör. tahta geçiş), sonra görev, haber ve en son karar gelir.
+    order = {'action': -1, 'mission': 0, 'incident': 1, 'dilemma': 2}
     lines = ['PB_STORY_EVENTS = {']
     for turn, kind, key, region in sorted(events, key=lambda e: (e[0], order[e[1]])):
         unless = f', unless_owned = "{region}"' if region else ''

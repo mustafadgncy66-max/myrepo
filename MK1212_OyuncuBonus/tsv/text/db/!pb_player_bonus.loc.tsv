@@ -126,9 +126,9 @@ cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_khwa
 dilemmas_localised_title_pb_dilemma_seljuk_khwarazm_envoy	The Envoy of the Khwarazmshah	true
 dilemmas_localised_description_pb_dilemma_seljuk_khwarazm_envoy	Jalal ad-Din, the last Khwarazmshah, has carved out a new realm in the east after fleeing the Mongols. His envoy proposes an alliance against the horde, but many at court fear the Khwarazmian more than the Mongols, for his armies plunder friend and foe alike.	true
 cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_babaiFIRST	Crush the revolt	true
-cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_babaiFIRST	Frankish mercenaries break the rebel host, and Baba Ishak is hanged.	true
+cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_babaiFIRST	The rebels gather in arms near Amasya. An army must march to break them.	true
 cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_babaiSECOND	Lower the taxes and pardon the tribes	true
-cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_babaiSECOND	The tribes lay down their arms and return to their pastures.	true
+cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_babaiSECOND	The tribes lay down their arms, but the emirs and the treasury pay the price.	true
 dilemmas_localised_title_pb_dilemma_seljuk_babai	The Babai Revolt	true
 dilemmas_localised_description_pb_dilemma_seljuk_babai	Baba Ishak, a dervish preacher, has raised the Turkmen of the frontier in revolt against the Sultan's governors and taxes. His followers have taken Amasya and defeated the first armies sent against them.	true
 cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_kose_dagFIRST	Meet them in the field	true
@@ -198,7 +198,7 @@ effect_bundles_localised_description_pb_bundle_seljuk_yassi_chemen	The soldiers 
 effect_bundles_localised_title_pb_bundle_seljuk_babai_crushed	The Revolt Crushed	true
 effect_bundles_localised_description_pb_bundle_seljuk_babai_crushed	The rebels have been broken, but the Turkmen of the frontier will not soon forget it.	true
 effect_bundles_localised_title_pb_bundle_seljuk_babai_pardon	The Tribes Pardoned	true
-effect_bundles_localised_description_pb_bundle_seljuk_babai_pardon	Taxes on the frontier have been lowered and the tribes have returned to their pastures.	true
+effect_bundles_localised_description_pb_bundle_seljuk_babai_pardon	Taxes on the frontier have been lowered and the tribes have returned to their pastures. The emirs whose lands were plundered resent the Sultan's leniency, and the treasury feels the loss.	true
 effect_bundles_localised_title_pb_bundle_seljuk_kose_dag_field	The Host of Rum	true
 effect_bundles_localised_description_pb_bundle_seljuk_kose_dag_field	Emirs, ghulams, Turkmen and Frankish and Georgian mercenaries stand together against the horde.	true
 effect_bundles_localised_title_pb_bundle_seljuk_kose_dag_walls	Behind the Walls	true

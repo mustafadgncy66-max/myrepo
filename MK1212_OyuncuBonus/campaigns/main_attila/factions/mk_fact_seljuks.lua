@@ -93,6 +93,7 @@ PB_STORY_EVENTS = {
 	{ turn = 2, kind = "mission", key = "pb_mission_seljuk_sinope", unless_owned = "att_reg_bithynia_amasea" },
 	{ turn = 12, kind = "incident", key = "pb_incident_seljuk_mongol_threat" },
 	{ turn = 12, kind = "dilemma", key = "pb_dilemma_seljuk_divan" },
+	{ turn = 17, kind = "action", key = "succession" },
 	{ turn = 17, kind = "dilemma", key = "pb_dilemma_seljuk_succession" },
 	{ turn = 19, kind = "mission", key = "pb_mission_seljuk_crimea", unless_owned = "att_reg_sarmatia_europaea_chersonessus" },
 	{ turn = 20, kind = "incident", key = "pb_incident_seljuk_alaiye" },
@@ -106,6 +107,135 @@ PB_STORY_EVENTS = {
 };
 -- END STORY SCHEDULE
 
+-- Keykâvus'un ölümü (1220): Keykubad, MK1212'nin papa değişiminde yaptığı gibi veliaht olarak aile
+-- ağacına eklenir, ardından eski lider ölür (aile ağacında ölü görünür) ve Keykubad tahta geçer.
+local KAYQUBAD_NAME = "names_name_2147363203";   -- "Kaiqobad"
+local KAYQUBAD_AGE = 32;
+local KAYQUBAD_TRAITS = {
+	"att_trait_general_government_all_architect",
+	"att_trait_all_personality_all_innate_intelligent",
+	"att_trait_all_personality_all_energetic"
+};
+
+local function give_kayqubad_traits(faction)
+	if cm:get_saved_value("pb_seljuk_kayqubad_traits") or not faction:has_faction_leader() then
+		return;
+	end
+
+	local leader = faction:faction_leader();
+
+	-- Tahta henüz eski lider oturuyorsa bir sonraki tur başında tekrar denenir.
+	if leader:command_queue_index() == cm:get_saved_value("pb_seljuk_old_leader_cqi") then
+		return;
+	end
+
+	for i = 1, #KAYQUBAD_TRAITS do
+		cm:force_add_trait("character_cqi:" .. leader:command_queue_index(), KAYQUBAD_TRAITS[i], false);
+	end
+
+	cm:set_saved_value("pb_seljuk_kayqubad_traits", true);
+end
+
+local function succession(faction)
+	if cm:get_saved_value("pb_seljuk_succession_done") then
+		return;
+	end
+
+	cm:set_saved_value("pb_seljuk_succession_done", true);
+
+	local old_cqi = faction:has_faction_leader() and faction:faction_leader():command_queue_index() or -1;
+	cm:set_saved_value("pb_seljuk_old_leader_cqi", old_cqi);
+
+	cm:spawn_character_into_family_tree(
+		SELJUKS,			-- Faction Key
+		KAYQUBAD_NAME,		-- Forename Key
+		"",					-- Family Name Key
+		"",					-- Clan Name Key
+		"",					-- Other Name Key
+		KAYQUBAD_AGE,		-- Age
+		true,				-- Is Male?
+		"",					-- Father Lookup
+		"",					-- Mother Lookup
+		false,				-- Is Immortal?
+		"",					-- Art Set ID (kültürün portrelerinden biri)
+		true,				-- Make Heir?
+		false				-- Is Attila?
+	);
+
+	if old_cqi ~= -1 then
+		cm:set_character_immortality("character_cqi:" .. old_cqi, false);
+		cm:kill_character("character_cqi:" .. old_cqi, false, false);
+	end
+
+	give_kayqubad_traits(cm:model():world():faction_by_key(SELJUKS));
+end
+
+-- Babai İsyanı (1240): "Bastır" seçilirse Amasya çevresinde Türkmen isyancılarından bir ordu çıkar.
+local SEPARATISTS = "mk_fact_separatists_seljuks";
+local BABAI_DILEMMA = "pb_dilemma_seljuk_babai";
+local BABAI_REGIONS = {
+	"att_reg_bithynia_amasea",				-- Amasya (oyunda Sinop bölgesi)
+	"att_reg_bithynia_ancyra",
+	"att_reg_cappadocia_caesarea_eusebia",
+	"att_reg_cilicia_iconium"
+};
+local BABAI_UNITS = "mk_rum_t1_uc_turkleri,mk_rum_t1_uc_turkleri,mk_rum_t1_uc_turkleri,"
+	.. "mk_rum_t1_ghazi_horse_archers,mk_rum_t1_ghazi_horse_archers,mk_rum_t1_ghazi_horse_archers,"
+	.. "mk_rum_t1_ghazi_archers,mk_rum_t1_ghazi_archers,mk_rum_t1_ghazi_spearmen,mk_rum_t1_ghazi_spearmen,"
+	.. "mk_rum_t1_ghazi_swordsmen,mk_rum_t1_ghazi_swordsmen,mk_rum_t1_hasher,mk_rum_t1_hasher";
+-- Yerleşimin üstüne ordu çıkarılamaz; sırayla yakındaki karelerde denenir.
+local BABAI_OFFSETS = { {4, 0}, {-4, 0}, {0, 4}, {0, -4}, {6, 6}, {-6, -6}, {6, -6}, {-6, 6} };
+
+local function babai_army()
+	if cm:get_saved_value("pb_seljuk_babai_army") then
+		return;
+	end
+
+	cm:set_saved_value("pb_seljuk_babai_army", true);
+
+	local owned = owned_regions(cm:model():world():faction_by_key(SELJUKS));
+	local region_key = nil;
+
+	for i = 1, #BABAI_REGIONS do
+		if owned[BABAI_REGIONS[i]] then
+			region_key = BABAI_REGIONS[i];
+			break;
+		end
+	end
+
+	if not region_key then
+		region_key = next(owned);
+	end
+
+	if not region_key then
+		return;
+	end
+
+	local settlement = cm:model():world():region_manager():region_by_key(region_key):settlement();
+	local x, y = settlement:logical_position_x(), settlement:logical_position_y();
+	local spawned = false;
+
+	local function try_spawn(i)
+		if spawned or i > #BABAI_OFFSETS then
+			return;
+		end
+
+		cm:create_force(SEPARATISTS, BABAI_UNITS, region_key, x + BABAI_OFFSETS[i][1], y + BABAI_OFFSETS[i][2],
+			"pb_babai_rebels_" .. i, true,
+			function(cqi)
+				spawned = true;
+				cm:force_declare_war(SEPARATISTS, SELJUKS);
+			end
+		);
+
+		cm:callback(function() try_spawn(i + 1) end, 0.5);
+	end
+
+	try_spawn(1);
+end
+
+local STORY_ACTIONS = { succession = succession };
+
 function PB_Seljuk_Story(faction)
 	local turn = cm:model():turn_number();
 	local owned = nil;
@@ -118,7 +248,9 @@ function PB_Seljuk_Story(faction)
 
 			-- Hedef bölge zaten bizdeyse görev verilmez.
 			if not (event.unless_owned and owned[event.unless_owned]) then
-				if event.kind == "mission" then
+				if event.kind == "action" then
+					STORY_ACTIONS[event.key](faction);
+				elseif event.kind == "mission" then
 					cm:trigger_mission(SELJUKS, event.key);
 				elseif event.kind == "incident" then
 					cm:trigger_incident(SELJUKS, event.key);
@@ -131,12 +263,24 @@ function PB_Seljuk_Story(faction)
 end
 
 cm:add_listener(
+	"DilemmaChoiceMadeEvent_PB_Seljuk_Babai",
+	"DilemmaChoiceMadeEvent",
+	function(context) return context:dilemma() == BABAI_DILEMMA and context:choice() == 0 end,
+	function(context) babai_army() end,
+	true
+);
+
+cm:add_listener(
 	"FactionTurnStart_PB_Seljuk_Trade",
 	"FactionTurnStart",
 	function(context) return context:faction():name() == SELJUKS end,
 	function(context)
 		PB_Seljuk_Trade_Update(context:faction());
 		PB_Seljuk_Story(context:faction());
+
+		if cm:get_saved_value("pb_seljuk_succession_done") then
+			give_kayqubad_traits(context:faction());
+		end
 	end,
 	true
 );
