@@ -34,9 +34,10 @@ CONSTRUCTION_COST_PCT = -50        # bina yapım ve yükseltme maliyeti
 RECRUIT_COST_PCT = -50             # birim işe alım (yetiştirme) maliyeti
 # Earl'ün Realistic Cavalry modu, "AI işe alım sınırı" grubundaki 14 elit birime zorluk tablosunda insan
 # oyuncu için de -100 uygular. Aynı anahtarlı satırlarla oyuncu için 0'a çekilir (bu pack önce okunur).
-# Oyunun zorluk tablosu insana eyalet başına yalnızca +3 işe alım puanı verir; puan yetmeyince sıradaki birimler
-# süresiz bekler (∞). Aynı anahtarlı satırlarla oyunun kendi etkisinin değeri oyuncu için yükseltilir.
-RECRUITMENT_POINTS = 40
+# İşe alım puanı, bir eyalette tur başına kaç birim üretilebileceğini sınırlar (elit birimlerin sayı sınırından
+# ayrıdır). Oyunun zorluk tablosu insana eyalet başına +3 verir; binalar (+1/+2) ve vali özellikleri (Military
+# Secretary +1) üstüne ekler. Aynı anahtarlı satırlarla oyunun kendi etkisi oyuncu için ılımlı biçimde artırılır.
+RECRUITMENT_POINTS = 4
 RECRUITMENT_POINT_EFFECTS = (('att_effect_unit_recruitment_points', 'faction_to_province_own'),
                              ('att_effect_unit_recruitment_points_naval', 'faction_to_sea_region_own'))
 EARL_AI_CAP_EFFECT = 'earl_effect_force_unit_cap_for_ai_recruitment'
