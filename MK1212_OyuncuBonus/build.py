@@ -30,6 +30,7 @@ PUBLIC_ORDER = 5                   # eyalet başına kamu düzeni
 GROWTH = 8                         # eyalet başına büyüme (teknolojiler +1/+2 verir)
 REPLENISHMENT = 10                 # ikmal hızı (AI zorluğa göre +2...+9 alır)
 CONSTRUCTION_COST_PCT = -50        # bina yapım ve yükseltme maliyeti
+RECRUIT_COST_PCT = -50             # birim işe alım (yetiştirme) maliyeti
 UPKEEP_FREE_UNTIL = 120            # bu bakıma kadar indirim yok
 UPKEEP_ANCHOR = (460, 180)         # 460 bakımlı birim 180'e iner; aradakiler doğrusal
 
@@ -327,6 +328,9 @@ SIMPLE_EFFECTS = [
     ('construction_cost', ('building_cost_mod', 'building_conversion_cost_mod'), 'faction_to_region_own',
      CONSTRUCTION_COST_PCT, ('construction_negative.png', 'construction_positive.png'), 101,
      'Player bonus - Construction cost: %+n%'),
+    ('recruit_cost', ('recruitment_mod_cost_land_all', 'recruitment_mod_cost_naval_all'), 'faction_to_force_own',
+     RECRUIT_COST_PCT, ('wealth_negative.png', 'wealth_positive.png'), 101,
+     'Player bonus - Recruitment cost: %+n%'),
 ]
 
 
