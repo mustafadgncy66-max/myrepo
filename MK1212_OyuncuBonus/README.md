@@ -60,18 +60,20 @@ Keykubad MK1212'de aile ağacında zaten vardır. Tahta onun geçmesi için 17. 
 Keykubad'ı seçip veliaht yapın; yapmazsanız tahta oyunun veliahtı (başlangıçta İbrahim) geçer. Keykubad
 ölmüşse 17. turda yeni bir Keykubad veliaht olarak eklenir.
 
-MK1212 her Selçuklu sultanına aynı portreyi (Alaeddin Keykubad'ın bilinen portresi) verir. Bu pack'te:
+MK1212 her Selçuklu sultanına aynı portreyi (Alaeddin Keykubad'ın bilinen portresi) verir. Aile ağacı
+portresi MK1212'nin `portrait_settings.xml` dosyasından, harita modeli ve ayrıntı panelindeki 3B portre
+karakterin görünümünden gelir. Bu pack, o dosyanın değiştirilmiş bir kopyasını taşır:
 
-- Sultan portresinin dosyası Keykâvus'un çizilmiş portresiyle (sarıklı, kırmızı kaftanlı) değiştirilir.
-  Bu dosyanın MK1212'ninkini ezmesi için mod, yükleme sırasında MK1212'nin **üstünde** olmalıdır.
-- Her portre setinin sultan satırları setin kendi general görünümüne geçer (atlı harita modeli ve
-  animasyonlarıyla). Keykâvus'un setinin görünümü onun portresini, Keykubad'ın setinin görünümü Alaeddin
-  portresini taşır; diğer setlerden çıkan sultanlar kendi 3B yüzleriyle görünür.
-- Keykâvus'un portresi yalnızca onda görünsün diye aynı seti kullanan diğer generaller başka bir Selçuklu
-  general görünümüne geçer. Keykubad'ın setini kullanan generaller Alaeddin portresini taşır.
+- **Keykâvus** sultanken çizilmiş portresini (sarıklı, kırmızı kaftanlı) ve kendi general görünümünü taşır.
+- **Keykubad**ın portre seti yetişkinken her zaman Alaeddin portresini ve sultan görünümünü taşır; bu sette
+  doğan yeni generaller de böyle görünür.
+- Diğer sultanlar MK1212'deki gibi Alaeddin portresini taşır.
 
+Resim dosyalarının MK1212'ninkileri ezmesi için mod, yükleme sırasında MK1212'nin **üstünde** olmalıdır.
 Keykâvus'un portresi `art/kaikaus.jpg` dosyasından `tools/portrait.py` ile üretilir (yeşil arka plan şeffaf
 yapılır, 180×240 ve 64×152).
+
+Betik, oyun klasörüne `pb_seljuk_log.txt` adlı bir kayıt dosyası yazar.
 
 Keykubad'ın mimar, zeki ve enerjik özellikleri, pack yüklüyken bir sonraki tur başında eklenir.
 
@@ -146,7 +148,8 @@ Mod Manager'dan işareti kaldırın. Pack dosyasını `data` klasöründen sileb
 Değerler `build.py` dosyasının başında. Değiştirip şu komutla yeniden üretilir:
 
 ```
-python3 build.py --data <TSV klasörü> --rpfm <rpfm_cli> --schema <schema_att.ron> --out .
+python3 build.py --data <TSV klasörü> --rpfm <rpfm_cli> --schema <schema_att.ron> --out . \
+    --portrait-settings <MK1212'nin portrait_settings.xml dosyası>
 ```
 
 `--data`, AttilaOptimizer'ın 6. seçeneğiyle dışa aktarılan tabloların TSV'ye çevrilmiş halidir.

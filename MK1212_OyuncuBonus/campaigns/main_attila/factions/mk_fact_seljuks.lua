@@ -10,10 +10,15 @@ local SELJUKS = "mk_fact_seljuks";
 -- Oyun klasöründeki pb_seljuk_log.txt dosyasına yazar; betiğin oyunda ne yaptığını görmek için.
 local LOG_FILE = "pb_seljuk_log.txt";
 
+-- Kampanya betik ortamında io görünmeyebilir; Lua'nın yüklü kütüphanelerinden alınır.
+local iolib = io or (package and package.loaded and package.loaded.io);
+
 local function pb_log(text)
+	local _, turn = pcall(function() return cm:model():turn_number() end);
+
 	pcall(function()
-		local file = io.open(LOG_FILE, "a");
-		file:write(tostring(text) .. "\n");
+		local file = iolib.open(LOG_FILE, "a");
+		file:write("[" .. tostring(turn) .. "] " .. tostring(text) .. "\n");
 		file:close();
 	end);
 end
@@ -329,7 +334,7 @@ cm:add_listener(
 	function(context) return context:faction():name() == SELJUKS end,
 	function(context)
 		local faction = context:faction();
-		pb_log("turn " .. cm:model():turn_number());
+		pb_log("turn start");
 		try_step("trade", PB_Seljuk_Trade_Update, faction);
 		try_step("story", PB_Seljuk_Story, faction);
 		try_step("traits", give_kayqubad_traits, faction);

@@ -50,6 +50,8 @@ $ExeNamePattern = 'heir|leader|family|character|art_set|portrait|forename|succes
 
 # Selçuklu general portreleri, 3B model tanımları ve portre ayarları.
 $PortraitFilePattern = '^((ui/portraits/|variantmeshes/variantmeshdefinitions/).*(sel_t1|seljuk)|ui/portraits/portholes/portrait_settings\.xml$)'
+# Özellik tabloları (tüm pack'lerden), portrelerle aynı ZIP'e.
+$TraitTablePattern = '^db/(character_traits|character_trait_levels|trait_to_included_agents|trait_to_antitraits|trait_level_effects)_tables/'
 # Oyun klasöründeki betik kayıtları (alt mod ve MK1212).
 $GameLogFiles = @('pb_seljuk_log.txt', 'MK1212log.txt')
 
@@ -449,6 +451,11 @@ function Invoke-ExportModData {
                 Export-PackEntries $pack.FullName $portraitFiles (Join-Path $portraitRoot $folder)
                 Write-Ok "$($pack.Name): $($portraitFiles.Count) portre dosyası"
             }
+        }
+        $traitTables = @($entries | Where-Object { $_.Path -match $TraitTablePattern })
+        if ($traitTables.Count -gt 0) {
+            Export-PackEntries $pack.FullName $traitTables (Join-Path $portraitRoot $folder)
+            Write-Ok "$($pack.Name): $($traitTables.Count) özellik tablosu"
         }
         if ($wanted.Count -eq 0) { continue }
         Export-PackEntries $pack.FullName $wanted (Join-Path $outRoot $folder)

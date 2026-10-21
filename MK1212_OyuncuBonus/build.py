@@ -50,24 +50,31 @@ BUILDING_UPKEEP_EFFECT = 'att_effect_building_upkeep_mod'
 MOSQUE_SANITATION = {1: 1, 2: 2, 3: 3, 4: 4}
 MOSQUE_RELIGIONS = ('sunni', 'shia', 'ibadi')
 
-# Portreler: MK1212 her Selçuklu sultanına aynı "sultan" görünümünü (mk_campaign_sel_t1_general_01) verir;
-# portresi Alaeddin Keykubad'ın bilinen portresidir. Oyun açık bir kampanyada aile ağacı portresini her zaman
-# tablodan yeniden okumadığı için:
-# - sultan görünümünün portre dosyası Keykâvus'un portresiyle değiştirilir (Keykâvus şu an onu taşır);
-# - her portre setinin sultan satırları setin kendi general görünümüne geçer. Keykâvus'un setinin (07)
-#   görünümü Keykâvus'un, Keykubad'ın setinin (06) görünümü Alaeddin portresini alır. Diğer setlerden
-#   çıkan sultanlar kendi 3B yüzleriyle görünür.
-# - 07 setinin sultan olmayan karakterleri başka bir general görünümüne geçer; böylece Keykâvus'un portresi
-#   yalnızca onda görünür. 06 setinin generalleri (Keykubad dahil) Alaeddin portresini taşır.
+# Portreler. Aile ağacı portresi, MK1212'nin ui/portraits/portholes/portrait_settings.xml dosyasında her portre
+# setinin yaş, sultanlık ve rütbeye göre gösterdiği resimdir; 3B model ve ayrıntı panelindeki portre ise
+# campaign_character_arts tablosundaki görünümden (uniform) gelir. MK1212'de her Selçuklu sultanı aynı sultan
+# resmini (Alaeddin Keykubad'ın bilinen portresi) ve sultan görünümünü taşır. Bu pack'te:
+# - Keykâvus'un seti (07) sultanken onun çizilmiş portresini ve setin kendi general görünümünü taşır.
+# - Keykubad'ın seti (06) yetişkinken her zaman Alaeddin portresini ve sultan görünümünü taşır.
+# - Diğer setlerden çıkan sultanlar MK1212'deki gibi Alaeddin portresini taşır.
+# - Sultan resminin dosyası da Keykâvus'un portresiyle değiştirilir: açık bir kampanyada Keykâvus'un portresi
+#   bu dosyadan okunmaya devam edebilir. Bu yüzden artık hiçbir set o dosyayı göstermez.
 # Yeni bir görünüm tanımlanmaz: MK1212'nin harita animasyonları ve 3B portre ayarları yalnızca kendi
-# görünümleri için vardır. Portre dosyaları ui/portraits altındadır; Keykâvus'unki tools/portrait.py ile
-# art/kaikaus.jpg'den üretilir, Alaeddin portresi MK1212'nin sultan portresinin kopyasıdır.
+# görünümleri için vardır. Keykâvus'un portresi tools/portrait.py ile art/kaikaus.jpg'den üretilir; Alaeddin
+# portresi MK1212'nin sultan portresinin kopyasıdır.
 SELJUK_ART_SET = 'mk_campaign_sel_t1_general_{:02d}'
-SELJUK_GENERAL_UNIFORM = 'mk_campaign_sel_t1_generic_general_{:02d}'
+KAYKAUS_ART_SET = SELJUK_ART_SET.format(7)
+KAYQUBAD_ART_SET = SELJUK_ART_SET.format(6)
 SULTAN_UNIFORM = 'mk_campaign_sel_t1_general_01'
-# Sultan olmayan karakterleri başka görünüme geçen setler: {set: yeni görünüm}
-SELJUK_GENERAL_REPLACEMENTS = {7: 5}
-# Önceki sürümün tanımladığı görünüm; bu sürümle kaydedilmiş oyunlar açılabilsin diye tanımlı kalır.
+ART_UNIFORM_CHANGES = {
+    (KAYKAUS_ART_SET, SULTAN_UNIFORM): 'mk_campaign_sel_t1_generic_general_07',
+    (KAYQUBAD_ART_SET, 'mk_campaign_sel_t1_generic_general_06'): SULTAN_UNIFORM,
+}
+PORTHOLE_DIR = 'UI/Portraits/Portholes/att_cult_eastern/'
+KAYKAUS_PORTRAIT = PORTHOLE_DIR + 'pb_campaign_sel_kaikaus.png'
+ALAEDDIN_PORTRAIT = PORTHOLE_DIR + 'pb_campaign_sel_alaeddin.png'
+ADULT_AGE = '16'
+# Önceki bir sürümün tanımladığı görünüm; o sürümle kaydedilmiş oyunlar açılabilsin diye tanımlı kalır.
 OLD_KAYKAUS_UNIFORM = 'pb_campaign_sel_kaikaus'
 
 # Selçuklu Ticaret Ağı: campaigns/main_attila/factions/mk_fact_seljuks.lua, sahip olunan kervan
@@ -645,14 +652,9 @@ def build_tables(data_dir, out_dir):
     # Selçuklu sultan portreleri.
     arts_header, arts_version, arts = effective_rows(data_dir, 'campaign_character_arts_tables', ['id'])
     art_set_col, uniform_col = arts_header.index('art_set_id'), arts_header.index('uniform')
-    new_uniform = {}
-    for n in range(1, 8):
-        new_uniform[(SELJUK_ART_SET.format(n), SULTAN_UNIFORM)] = SELJUK_GENERAL_UNIFORM.format(n)
-    for n, other in SELJUK_GENERAL_REPLACEMENTS.items():
-        new_uniform[(SELJUK_ART_SET.format(n), SELJUK_GENERAL_UNIFORM.format(n))] = SELJUK_GENERAL_UNIFORM.format(other)
     art_rows = []
     for row in arts.values():
-        uniform = new_uniform.get((row[art_set_col], row[uniform_col]))
+        uniform = ART_UNIFORM_CHANGES.get((row[art_set_col], row[uniform_col]))
         if uniform:
             art_rows.append(row[:uniform_col] + [uniform] + row[uniform_col + 1:])
     write_tsv(out_dir, 'campaign_character_arts_tables', name, arts_version, arts_header, art_rows)
@@ -703,17 +705,66 @@ def build_tables(data_dir, out_dir):
           f'karar {len(STORY_DILEMMAS)}')
 
 
+def seljuk_portrait(art_set, age, faction_leader):
+    """Bir Selçuklu portre seti varyantının yeni resmi; değişmiyorsa None."""
+    if age != ADULT_AGE:
+        return None
+    if art_set == KAYQUBAD_ART_SET:
+        return ALAEDDIN_PORTRAIT
+    if faction_leader == '1':
+        return KAYKAUS_PORTRAIT if art_set == KAYKAUS_ART_SET else ALAEDDIN_PORTRAIT
+    return None
+
+
+def write_portrait_settings(source, out_dir):
+    """MK1212'nin portre ayarlarını Selçuklu portreleri değiştirilmiş olarak yazar; değişen varyant sayısı."""
+    with open(source, encoding='utf-8', newline='') as fh:
+        text = fh.read()
+    changed = 0
+
+    def entry(m):
+        nonlocal changed
+        art_set, body = m.group(1), m.group(2)
+        if not re.fullmatch(SELJUK_ART_SET.replace('{:02d}', r'\d\d'), art_set):
+            return m.group(0)
+
+        def variant(v):
+            nonlocal changed
+            age = re.search(r'<Age>([^<]*)</Age>', v.group(0)).group(1)
+            leader = re.search(r'<FactionLeader>([^<]*)</FactionLeader>', v.group(0)).group(1)
+            portrait = seljuk_portrait(art_set, age, leader)
+            if not portrait:
+                return v.group(0)
+            changed += 1
+            return re.sub(r'<FileDiffuse>[^<]*</FileDiffuse>', f'<FileDiffuse>{portrait}</FileDiffuse>', v.group(0))
+
+        return m.group(0).replace(body, re.sub(r'<Variant id="[^"]*">.*?</Variant>', variant, body, flags=re.S))
+
+    text = re.sub(r'<Entry id="([^"]+)">(.*?)</Entry>', entry, text, flags=re.S)
+    path = os.path.join(out_dir, 'ui', 'portraits', 'portholes', 'portrait_settings.xml')
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, 'w', encoding='utf-8', newline='') as fh:
+        fh.write(text)
+    return changed
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--data', required=True)
     ap.add_argument('--rpfm', required=True)
     ap.add_argument('--schema', required=True)
     ap.add_argument('--out', required=True)
+    ap.add_argument('--portrait-settings', required=True,
+                    help="MK1212'nin ui/portraits/portholes/portrait_settings.xml dosyası")
     args = ap.parse_args()
 
     tsv_dir = os.path.join(args.out, 'tsv')
     shutil.rmtree(tsv_dir, ignore_errors=True)
     build_tables(args.data, tsv_dir)
+    # Üretilen dosyalar (28 MB'lık portre ayarları) depoya girmez, yalnızca pack'e eklenir.
+    generated = os.path.join(args.out, 'generated')
+    shutil.rmtree(generated, ignore_errors=True)
+    print(f'Portre ayarlarında değişen Selçuklu varyantı: {write_portrait_settings(args.portrait_settings, generated)}')
 
     pack = os.path.join(args.out, 'mk1212_oyuncu_bonus.pack')
     if os.path.exists(pack):
@@ -723,7 +774,7 @@ def main():
     campaigns = os.path.dirname(os.path.dirname(os.path.dirname(TRADE_SCRIPT)))
     ui = os.path.join(os.path.dirname(campaigns), 'ui')
     for folder in (f'{os.path.join(tsv_dir, "db")};', f'{os.path.join(tsv_dir, "text")};', f'{campaigns};campaigns',
-                   f'{ui};ui'):
+                   f'{ui};ui', f'{os.path.join(generated, "ui")};ui'):
         subprocess.run([args.rpfm, '-g', 'attila', 'pack', 'add', '-p', pack, '-t', args.schema, '-F', folder],
                        check=True)
     print(f'Pack: {pack}')
