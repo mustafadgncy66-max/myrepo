@@ -1,8 +1,9 @@
 id	incident_key	payload_key	value
 #cdir_events_incident_payloads_tables;2;db/cdir_events_incident_payloads_tables/!pb_player_bonus			
 8800023	pb_incident_seljuk_mongol_threat	pb_payload_seljuk_refugees	DURATION[10];GLOBAL
-8800027	pb_incident_seljuk_alaiye	pb_payload_seljuk_alaiye	DURATION[0];GLOBAL
-8800031	pb_incident_seljuk_scholars	pb_payload_seljuk_scholars	DURATION[30];GLOBAL
-8800035	pb_incident_seljuk_sultan_han	pb_payload_seljuk_sultan_han	DURATION[0];GLOBAL
-8800039	pb_incident_seljuk_yassi_chemen	TREASURY	AMOUNT[5000]
-8800040	pb_incident_seljuk_yassi_chemen	pb_payload_seljuk_yassi_chemen	DURATION[15];GLOBAL
+8800027	pb_incident_seljuk_illness	pb_payload_seljuk_illness	DURATION[4];GLOBAL
+8800031	pb_incident_seljuk_alaiye	pb_payload_seljuk_alaiye	DURATION[0];GLOBAL
+8800035	pb_incident_seljuk_scholars	pb_payload_seljuk_scholars	DURATION[30];GLOBAL
+8800039	pb_incident_seljuk_sultan_han	pb_payload_seljuk_sultan_han	DURATION[0];GLOBAL
+8800043	pb_incident_seljuk_yassi_chemen	TREASURY	AMOUNT[5000]
+8800044	pb_incident_seljuk_yassi_chemen	pb_payload_seljuk_yassi_chemen	DURATION[15];GLOBAL

@@ -18,6 +18,7 @@ pb_bundle_seljuk_sinope	Placeholder	The Conquest of Sinope	faction_leader_positi
 pb_bundle_seljuk_refugees	Placeholder	Refugees from the East	tax_growth_2.png	faction
 pb_bundle_seljuk_walls	Placeholder	Walls of the Sultanate	faction_leader_positive.png	faction
 pb_bundle_seljuk_frontier	Placeholder	Call of the Frontier	faction_leader_positive.png	faction
+pb_bundle_seljuk_illness	Placeholder	The Sultan's Illness	faction_leader_negative.png	faction
 pb_bundle_seljuk_iqta	Placeholder	The Emirs' Iqta	faction_leader_positive.png	faction
 pb_bundle_seljuk_ghulams	Placeholder	The Sultan's Ghulams	faction_leader_positive.png	faction
 pb_bundle_seljuk_crimea	Placeholder	Lord of the Black Sea	tax_growth_4.png	faction

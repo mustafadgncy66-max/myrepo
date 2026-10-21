@@ -50,6 +50,14 @@ BUILDING_UPKEEP_EFFECT = 'att_effect_building_upkeep_mod'
 MOSQUE_SANITATION = {1: 1, 2: 2, 3: 3, 4: 4}
 MOSQUE_RELIGIONS = ('sunni', 'shia', 'ibadi')
 
+# Portreler: MK1212 her Selçuklu sultanına aynı "sultan" görünümünü (Alaeddin Keykubad'ın bilinen
+# portresi) verir. Keykâvus'un portre setinde (başlangıç kaydından) sultan görünümü kendi görünümüyle
+# değiştirilir; Keykubad tahta geçince sultan görünümünü alır. Aynı seti kullanan başka bir karakter
+# sultan olursa o da sultan görünümü yerine kendi görünümünü taşır.
+KAYKAUS_ART_SET = 'mk_campaign_sel_t1_general_07'
+SULTAN_UNIFORM = 'mk_campaign_sel_t1_general_01'
+KAYKAUS_UNIFORM = 'mk_campaign_sel_t1_generic_general_07'
+
 # Selçuklu Ticaret Ağı: campaigns/main_attila/factions/mk_fact_seljuks.lua, sahip olunan kervan
 # şehri ve liman sayısına göre aşağıdaki paketleri uygular. Liste uzunlukları o dosyadan okunur.
 TRADE_SCRIPT = os.path.join(os.path.dirname(os.path.abspath(__file__)),
@@ -93,6 +101,9 @@ STORY_BUNDLES = [
     ('pb_bundle_seljuk_frontier', 'faction_leader_positive.png', 'Call of the Frontier',
      'The Turkmen of the frontier have answered the Sultan\'s call, and their riders fill the ranks.',
      [(*RECRUITMENT_COST, -20), (*REPLENISHMENT_EFFECT, 10)]),
+    ('pb_bundle_seljuk_illness', 'faction_leader_negative.png', 'The Sultan\'s Illness',
+     'The Sultan lies ill in his palace, and the emirs are already choosing sides.',
+     [(*PUBLIC_ORDER_EFFECT, -1)]),
     ('pb_bundle_seljuk_iqta', 'faction_leader_positive.png', 'The Emirs\' Iqta',
      'The great emirs hold rich iqta estates from the new Sultan and have sworn their oaths to him.',
      [(*LOYALTY, 2), (*PUBLIC_ORDER_EFFECT, 2), (*GDP_ALL, -5)]),
@@ -165,6 +176,13 @@ STORY_INCIDENTS = [{
                    'craftsmen and whole families seek shelter in the lands of Rum.',
     'payloads': [('pb_bundle_seljuk_refugees', 'DURATION[10];GLOBAL')],
 }, {
+    'turn': 15, 'key': 'pb_incident_seljuk_illness', 'image': 'pb_seljuk_illness', 'fallback': 'pb_seljuk_divan',
+    'title': 'The Sultan Falls Ill',
+    'description': 'Since the failed march on Aleppo, Sultan Kaykaus has been wasting away with consumption, and '
+                   'his physicians say he will not live to see many more seasons. The emirs whisper about who will '
+                   'follow him. If Kayqubad is to rule, name him heir in the family tree before the Sultan dies.',
+    'payloads': [('pb_bundle_seljuk_illness', 'DURATION[4];GLOBAL')],
+}, {
     'turn': 20, 'key': 'pb_incident_seljuk_alaiye', 'image': 'pb_seljuk_alaiye', 'fallback': 'pb_seljuk_sinope',
     'title': 'Kalon Oros Becomes Alaiye',
     'description': 'The Greek lord of the coastal fortress of Kalon Oros has surrendered to Sultan Kayqubad, who '
@@ -208,8 +226,8 @@ STORY_DILEMMAS = [{
     'turn': 17, 'key': 'pb_dilemma_seljuk_succession', 'image': 'pb_seljuk_succession', 'fallback': 'pb_seljuk_divan',
     'action': 'succession',
     'title': 'The Death of Kaykaus',
-    'description': 'Sultan Kaykaus has died of consumption at the height of his power. His brother Kayqubad, long '
-                   'held prisoner in a fortress, has been brought out and raised to the throne. The emirs who once '
+    'description': 'Sultan Kaykaus has died of consumption at the height of his power. His brother Kayqubad, whom '
+                   'Kaykaus long kept far from power, has been raised to the throne. The emirs who once '
                    'backed Kaykaus watch the new Sultan closely. How will he secure the throne?',
     'choices': [
         ('FIRST', 'Grant the emirs iqta lands', 'The emirs receive rich estates and swear their oaths.',
@@ -612,6 +630,13 @@ def build_tables(data_dir, out_dir):
     write_tsv(out_dir, 'building_effects_junction_tables', name, 3,
               ['building', 'effect', 'effect_scope', 'value', 'value_damaged', 'value_ruined'], building_effects)
 
+    # Keykâvus'un portresi.
+    arts_header, arts_version, arts = effective_rows(data_dir, 'campaign_character_arts_tables', ['id'])
+    art_set_col, uniform_col = arts_header.index('art_set_id'), arts_header.index('uniform')
+    art_rows = [row[:uniform_col] + [KAYKAUS_UNIFORM] + row[uniform_col + 1:] for row in arts.values()
+                if row[art_set_col] == KAYKAUS_ART_SET and row[uniform_col] == SULTAN_UNIFORM]
+    write_tsv(out_dir, 'campaign_character_arts_tables', name, arts_version, arts_header, art_rows)
+
     # Selçuklu Ticaret Ağı ve hikâye ödül paketleri.
     bundles = trade_bundles() + STORY_BUNDLES
     write_story_tables(data_dir, out_dir, name, loc)
@@ -646,6 +671,7 @@ def build_tables(data_dir, out_dir):
     print(f'General muhafızları ({GENERAL_UPKEEP}): {", ".join(generals)}')
     print(f'Bakımı yarıya inen bina seviyesi: {len(level_rows)}')
     print(f'AI bina bakımı telafisi (zorluk: %): {compensation}')
+    print(f'Keykâvus portre satırı: {len(art_rows)}')
     print(f'Ticaret ve hikâye paketleri: {len(bundles)}; görev {len(STORY_MISSIONS)}, haber {len(STORY_INCIDENTS)}, '
           f'karar {len(STORY_DILEMMAS)}')
 

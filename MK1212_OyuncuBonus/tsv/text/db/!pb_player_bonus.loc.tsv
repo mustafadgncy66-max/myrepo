@@ -93,6 +93,8 @@ missions_localised_title_pb_mission_seljuk_crimea	The Crimean Expedition	true
 missions_localised_description_pb_mission_seljuk_crimea	Kipchak raiders and Rus princes trouble the merchants of the Crimea, and Seljuk goods sold at Sinope must cross the sea to reach them. The Sultan orders an expedition across the Black Sea to seize the trading ports of the Crimea, as his armies did at Sudak.	true
 incidents_localised_title_pb_incident_seljuk_mongol_threat	A Storm in the East	true
 incidents_localised_description_pb_incident_seljuk_mongol_threat	Merchants and refugees pour in from Khwarazm with terrible news: a horde from the eastern steppes, led by a khan called Chinggis, is burning the great cities of Transoxiana. Scholars, craftsmen and whole families seek shelter in the lands of Rum.	true
+incidents_localised_title_pb_incident_seljuk_illness	The Sultan Falls Ill	true
+incidents_localised_description_pb_incident_seljuk_illness	Since the failed march on Aleppo, Sultan Kaykaus has been wasting away with consumption, and his physicians say he will not live to see many more seasons. The emirs whisper about who will follow him. If Kayqubad is to rule, name him heir in the family tree before the Sultan dies.	true
 incidents_localised_title_pb_incident_seljuk_alaiye	Kalon Oros Becomes Alaiye	true
 incidents_localised_description_pb_incident_seljuk_alaiye	The Greek lord of the coastal fortress of Kalon Oros has surrendered to Sultan Kayqubad, who has renamed it Alaiye after himself. A shipyard is being built beneath the cliffs, and the Sultanate now has a second window on the Mediterranean.	true
 incidents_localised_title_pb_incident_seljuk_scholars	The Sultan of Scholars	true
@@ -112,7 +114,7 @@ cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_succ
 cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_successionSECOND	Rely on the ghulam guard	true
 cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_successionSECOND	The Sultan surrounds himself with soldiers loyal to him alone.	true
 dilemmas_localised_title_pb_dilemma_seljuk_succession	The Death of Kaykaus	true
-dilemmas_localised_description_pb_dilemma_seljuk_succession	Sultan Kaykaus has died of consumption at the height of his power. His brother Kayqubad, long held prisoner in a fortress, has been brought out and raised to the throne. The emirs who once backed Kaykaus watch the new Sultan closely. How will he secure the throne?	true
+dilemmas_localised_description_pb_dilemma_seljuk_succession	Sultan Kaykaus has died of consumption at the height of his power. His brother Kayqubad, whom Kaykaus long kept far from power, has been raised to the throne. The emirs who once backed Kaykaus watch the new Sultan closely. How will he secure the throne?	true
 cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_caravanseraisFIRST	Build them	true
 cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_caravanseraisFIRST	The great hans rise along the roads, and the caravans follow.	true
 cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_caravanseraisSECOND	Leave it to the merchants	true
@@ -175,6 +177,8 @@ effect_bundles_localised_title_pb_bundle_seljuk_walls	Walls of the Sultanate	tru
 effect_bundles_localised_description_pb_bundle_seljuk_walls	The walls of Konya, Kayseri and Sivas have been rebuilt in stone. The people sleep easier behind them.	true
 effect_bundles_localised_title_pb_bundle_seljuk_frontier	Call of the Frontier	true
 effect_bundles_localised_description_pb_bundle_seljuk_frontier	The Turkmen of the frontier have answered the Sultan's call, and their riders fill the ranks.	true
+effect_bundles_localised_title_pb_bundle_seljuk_illness	The Sultan's Illness	true
+effect_bundles_localised_description_pb_bundle_seljuk_illness	The Sultan lies ill in his palace, and the emirs are already choosing sides.	true
 effect_bundles_localised_title_pb_bundle_seljuk_iqta	The Emirs' Iqta	true
 effect_bundles_localised_description_pb_bundle_seljuk_iqta	The great emirs hold rich iqta estates from the new Sultan and have sworn their oaths to him.	true
 effect_bundles_localised_title_pb_bundle_seljuk_ghulams	The Sultan's Ghulams	true

@@ -42,7 +42,8 @@ Görseller `ui/eventpics` altındadır (380×214 PNG).
 | 2 | 1212 | The Conquest of Sinope | görev (12 tur) | Sinop'u al: 6000 altın + 10 tur kamu düzeni +3, servet +%10 |
 | 12 | 1217 | A Storm in the East | haber | Harezm'den mülteciler: 10 tur büyüme +3, araştırma +%10 |
 | 12 | 1217 | The Sultan's Divan | karar | Surlar (−4000; 30 tur kamu düzeni +3, ikmal +15) / Türkmenler (−2000; 20 tur askere alma −%20, ikmal +10) |
-| 17 | 1220 | The Death of Kaykaus | tahta geçiş + karar | Keykubad (32 yaşında; mimar, zeki, enerjik) veliaht olarak eklenir, Keykâvus ölür ve aile ağacında ölü görünür. Ardından karar: emirlere ikta (20 tur sadakat +2, kamu düzeni +2, servet −%5) / Gulam muhafızı (−3000; 20 tur bütünlük +2, yeni askerlere +1 deneyim) |
+| 15 | 1219 | The Sultan Falls Ill | haber | 4 tur kamu düzeni −1. Keykubad'ı aile ağacından veliaht yapmanız için hatırlatma |
+| 17 | 1220 | The Death of Kaykaus | tahta geçiş + karar | Keykâvus ölür ve aile ağacında ölü görünür, tahta veliaht geçer. Keykubad sultan olunca mimar, zeki ve enerjik özelliklerini alır. Ardından karar: emirlere ikta (20 tur sadakat +2, kamu düzeni +2, servet −%5) / Gulam muhafızı (−3000; 20 tur bütünlük +2, yeni askerlere +1 deneyim) |
 | 19 | 1221 | The Crimean Expedition | görev (16 tur) | Kırım limanını (oyunda Caffa) al: 5000 altın + 20 tur deniz ticareti +%20, ticaret anlaşması +%10 |
 | 20 | 1221 | Kalon Oros Becomes Alaiye | haber | Kalıcı: deniz ticareti +%10, ticaret anlaşması +%5 |
 | 25 | 1224 | The Sultan's Hans | karar | Hanları yaptır (−5000; kalıcı ticaret anlaşması +%20, karadan ticaret +%15) / tüccarlara bırak (+3000) |
@@ -55,8 +56,12 @@ Görseller `ui/eventpics` altındadır (380×214 PNG).
 
 Haraç seçeneği yalnızca etki paketi verir; Moğollarla barışı zorlamaz.
 
-Keykubad'ın portresi Selçuklu kültürünün portre havuzundan seçilir. Belirli bir portre atanamaz.
-Özellikler, Keykubad tahta geçtiği tur başında eklenir (en geç 18. tur).
+Keykubad MK1212'de aile ağacında zaten vardır. Tahta onun geçmesi için 17. turdan önce aile ağacında
+Keykubad'ı seçip veliaht yapın; yapmazsanız tahta oyunun veliahtı (başlangıçta İbrahim) geçer. Keykubad
+ölmüşse 17. turda yeni bir Keykubad veliaht olarak eklenir.
+
+MK1212 her Selçuklu sultanına aynı portreyi (Alaeddin Keykubad'ın bilinen portresi) verir. Bu pack'te
+Keykâvus sultanken kendi portresini taşır; Keykubad tahta geçince o portreyi alır.
 
 Görevin hedef bölgesi o turda zaten sizdeyse görev verilmez. Henüz görseli olmayan olaylar mevcut
 görsellerden birini kullanır (`build.py`'deki `fallback`); görsel `ui/eventpics` altına eklenince

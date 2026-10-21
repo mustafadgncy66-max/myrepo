@@ -93,6 +93,7 @@ PB_STORY_EVENTS = {
 	{ turn = 2, kind = "mission", key = "pb_mission_seljuk_sinope", unless_owned = "att_reg_bithynia_amasea" },
 	{ turn = 12, kind = "incident", key = "pb_incident_seljuk_mongol_threat" },
 	{ turn = 12, kind = "dilemma", key = "pb_dilemma_seljuk_divan" },
+	{ turn = 15, kind = "incident", key = "pb_incident_seljuk_illness" },
 	{ turn = 17, kind = "action", key = "succession" },
 	{ turn = 17, kind = "dilemma", key = "pb_dilemma_seljuk_succession" },
 	{ turn = 19, kind = "mission", key = "pb_mission_seljuk_crimea", unless_owned = "att_reg_sarmatia_europaea_chersonessus" },
@@ -107,15 +108,30 @@ PB_STORY_EVENTS = {
 };
 -- END STORY SCHEDULE
 
--- Keykâvus'un ölümü (1220): Keykubad, MK1212'nin papa değişiminde yaptığı gibi veliaht olarak aile
--- ağacına eklenir, ardından eski lider ölür (aile ağacında ölü görünür) ve Keykubad tahta geçer.
+-- Keykâvus'un ölümü (1220): MK1212'de Keykubad aile ağacında zaten vardır. Keykâvus ölür (aile ağacında
+-- ölü görünür) ve tahta veliaht geçer. Oyuncu Keykubad'ı daha önce veliaht yapmış olmalıdır.
+-- Keykubad ölmüşse MK1212'nin papa değişiminde yaptığı gibi yeni bir Keykubad veliaht olarak eklenir.
+local KAYKAUS_NAME = "names_name_2147363192";    -- "Kaikaus"
 local KAYQUBAD_NAME = "names_name_2147363203";   -- "Kaiqobad"
 local KAYQUBAD_AGE = 32;
+local KAYQUBAD_ART_SET = "mk_campaign_sel_t1_general_06";
 local KAYQUBAD_TRAITS = {
 	"att_trait_general_government_all_architect",
 	"att_trait_all_personality_all_innate_intelligent",
 	"att_trait_all_personality_all_energetic"
 };
+
+local function find_character(faction, forename)
+	local characters = faction:character_list();
+
+	for i = 0, characters:num_items() - 1 do
+		local character = characters:item_at(i);
+
+		if not character:is_null_interface() and character:get_forename() == forename then
+			return character;
+		end
+	end
+end
 
 local function give_kayqubad_traits(faction)
 	if cm:get_saved_value("pb_seljuk_kayqubad_traits") or not faction:has_faction_leader() then
@@ -124,8 +140,8 @@ local function give_kayqubad_traits(faction)
 
 	local leader = faction:faction_leader();
 
-	-- Tahta henüz eski lider oturuyorsa bir sonraki tur başında tekrar denenir.
-	if leader:command_queue_index() == cm:get_saved_value("pb_seljuk_old_leader_cqi") then
+	-- Keykubad tahta geçince eklenir; henüz geçmediyse bir sonraki tur başında tekrar denenir.
+	if leader:get_forename() ~= KAYQUBAD_NAME then
 		return;
 	end
 
@@ -143,29 +159,33 @@ local function succession(faction)
 
 	cm:set_saved_value("pb_seljuk_succession_done", true);
 
-	local old_cqi = faction:has_faction_leader() and faction:faction_leader():command_queue_index() or -1;
-	cm:set_saved_value("pb_seljuk_old_leader_cqi", old_cqi);
-
-	cm:spawn_character_into_family_tree(
-		SELJUKS,			-- Faction Key
-		KAYQUBAD_NAME,		-- Forename Key
-		"",					-- Family Name Key
-		"",					-- Clan Name Key
-		"",					-- Other Name Key
-		KAYQUBAD_AGE,		-- Age
-		true,				-- Is Male?
-		"",					-- Father Lookup
-		"",					-- Mother Lookup
-		false,				-- Is Immortal?
-		"",					-- Art Set ID (kültürün portrelerinden biri)
-		true,				-- Make Heir?
-		false				-- Is Attila?
-	);
-
-	if old_cqi ~= -1 then
-		cm:set_character_immortality("character_cqi:" .. old_cqi, false);
-		cm:kill_character("character_cqi:" .. old_cqi, false, false);
+	-- Keykâvus daha önce öldüyse tarih zaten ilerlemiştir.
+	if not faction:has_faction_leader() or faction:faction_leader():get_forename() ~= KAYKAUS_NAME then
+		give_kayqubad_traits(faction);
+		return;
 	end
+
+	if not find_character(faction, KAYQUBAD_NAME) then
+		cm:spawn_character_into_family_tree(
+			SELJUKS,			-- Faction Key
+			KAYQUBAD_NAME,		-- Forename Key
+			"",					-- Family Name Key
+			"",					-- Clan Name Key
+			"",					-- Other Name Key
+			KAYQUBAD_AGE,		-- Age
+			true,				-- Is Male?
+			"",					-- Father Lookup
+			"",					-- Mother Lookup
+			false,				-- Is Immortal?
+			KAYQUBAD_ART_SET,	-- Art Set ID
+			true,				-- Make Heir?
+			false				-- Is Attila?
+		);
+	end
+
+	local kaykaus_cqi = faction:faction_leader():command_queue_index();
+	cm:set_character_immortality("character_cqi:" .. kaykaus_cqi, false);
+	cm:kill_character("character_cqi:" .. kaykaus_cqi, false, false);
 
 	give_kayqubad_traits(cm:model():world():faction_by_key(SELJUKS));
 end
