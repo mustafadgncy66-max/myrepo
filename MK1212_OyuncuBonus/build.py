@@ -310,7 +310,7 @@ STORY_FIRST_ID = 8800000           # MK1212'nin kimlikleri 440000'in altında
 # Simgeler oyundaki eşdeğer efektlerden alındı; maliyet efektlerinde ters çevrilidir.
 # Eyalet başına işe alım puanı: elit birimlerin aynı anda eğitim sırası bu puanla sınırlıdır.
 # Oyunun zorluk tablosu da AI ve oyuncuya +3'e kadar verir; binalar eyalet başına 1-4 puan verir.
-RECRUITMENT_POINTS = 10
+RECRUITMENT_POINTS = 40
 
 SIMPLE_EFFECTS = [
     ('recruitment_points', ('recruitment_points',), 'faction_to_province_own', RECRUITMENT_POINTS,
