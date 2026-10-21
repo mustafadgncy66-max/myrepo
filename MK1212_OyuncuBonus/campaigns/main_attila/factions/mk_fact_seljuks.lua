@@ -99,6 +99,9 @@ local function set_bundle(key, active, faction_name)
 	end
 end
 
+-- Ghulam, Kapıkulu ve benzeri elit birimlerin sayı sınırını açar (Earl'ün Realistic Cavalry modu bu sınırı koyar).
+local GUARD_BUNDLE = "pb_bundle_seljuk_imperial_guard";
+
 function PB_Seljuk_Trade_Update(faction)
 	local faction_name = faction:name();
 	local owned = owned_regions(faction);
@@ -373,6 +376,7 @@ cm:add_listener(
 	function(context)
 		local faction = context:faction();
 		pb_log("turn start");
+		try_step("guard", set_bundle, GUARD_BUNDLE, true, SELJUKS);
 		try_step("trade", PB_Seljuk_Trade_Update, faction);
 		try_step("story", PB_Seljuk_Story, faction);
 		try_step("traits", give_kayqubad_traits, faction);
@@ -383,6 +387,7 @@ cm:add_listener(
 -- Kayıt yüklenince ya da kampanya başlayınca beklemeden uygula; olmazsa ilk tur başında uygulanır.
 -- Özellikler arayüz kurulurken eklenemez, bu yüzden biraz sonra denenir.
 pb_log("loaded, story turn offset " .. STORY_TURN_OFFSET);
+try_step("initial guard", function() set_bundle(GUARD_BUNDLE, true, SELJUKS) end);
 try_step("initial trade", function() PB_Seljuk_Trade_Update(cm:model():world():faction_by_key(SELJUKS)) end);
 cm:callback(function()
 	try_step("initial traits", function() give_kayqubad_traits(cm:model():world():faction_by_key(SELJUKS)) end);

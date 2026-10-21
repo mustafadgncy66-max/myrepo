@@ -111,6 +111,10 @@ Bakım örnekleri:
 | 600 | ~204 |
 | 1000 | ~280 |
 
+Earl'ün Realistic Cavalry modu ayrıca "Imperial Guard" birimlerinin (Ghulam, Kapıkulu...) sayısını bir etkiyle
+sınırlar; binalar bu etkiyi +1/+2 verir. Betik Selçuklu'ya bu etkiyi `9999` olarak verir (Earl'ün tarikat birimleri
+için yaptığı gibi); bu yüzden Realistic Cavalry modu kurulu olmalıdır.
+
 Earl'ün Realistic Cavalry modu bazı Selçuklu elit birimlerine kampanya sınırı koyar (Junior/Senior/Royal Ghulam,
 Kapıkulu ve Yeniçeri birimleri; değer 102-112). Bu pack o 14 birimin sınırını kaldırır.
 

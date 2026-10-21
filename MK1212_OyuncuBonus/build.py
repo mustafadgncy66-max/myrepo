@@ -105,6 +105,11 @@ RECRUIT_XP = ('att_effect_force_all_campaign_experience_base_all', 'faction_to_p
 # 'fallback' görseli kullanılır.
 # Ödül paketleri: (anahtar, simge, başlık, açıklama, [(efekt, kapsam, değer)])
 STORY_BUNDLES = [
+    # Earl'ün Realistic Cavalry modu Imperial Guard birimlerinin (Ghulam, Kapıkulu...) sayısını bu etkiyle sınırlar;
+    # binalar +1/+2 verir. Earl kendi tarikat birimlerine 9999 vererek sınırı kaldırır; aynısı Selçuklu'ya verilir.
+    ('pb_bundle_seljuk_imperial_guard', 'faction_leader_positive.png', 'The Sultan\'s Guard',
+     'The Sultanate can raise as many ghulams and household troops as it can afford.',
+     [('earl_effect_force_army_campaign_imperial_guard_unit_cap', 'province_to_faction_unseen', 9999)]),
     ('pb_bundle_seljuk_sinope', 'faction_leader_positive.png', 'The Conquest of Sinope',
      'Sinope has fallen and its harbour now serves the Sultanate. Merchants from the Crimea and the Pontic '
      'coast pay their dues to Seljuk officials.',
