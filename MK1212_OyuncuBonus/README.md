@@ -79,10 +79,15 @@ Keykâvus'un portresi `art/kaikaus.jpg` dosyasından `tools/portrait.py` ile `ke
 ölümü 3. turda. Yeni bir kampanyada denemek içindir; normal oyunda kapatın. Erteleme miktarı
 `hizli_test/campaigns/main_attila/factions/pb_seljuk_test.lua` dosyasındadır.
 
-Keykubad'a betikle yalnızca ona ait bir özellik verilir: **Ala al-Din, the Great Sultan** (yetki, kurnazlık ve
-gayret +3; ordusunda saldırı, savunma ve kuşatmada moral +15, yakın ve menzilli hasar +%10, kampanya morali +4,
-yeni askerlere +2 deneyim, askere alma −%15; valisi olduğu eyalette inşa −%15; tüm eyaletlerde kamu düzeni +2,
-tüm karakterlerin sadakati +2). Özellik pack yüklüyken bir sonraki tur başında eklenir.
+Keykubad'a betikle yalnızca ona ait iki özellik verilir:
+
+- **Born Commander** (oyunun başından): yetki +2, kurnazlık +3, gayret +2; ordusunda saldırı, savunma ve
+  kuşatmada moral +15, yakın ve menzilli hasar +%10, kampanya morali +4, yeni askerlere +2 deneyim,
+  askere alma −%15.
+- **Ala al-Din, the Great Sultan** (tahta geçince): yetki +2; tüm bölgelerde servet +%10, tüm eyaletlerde kamu
+  düzeni +2, tüm karakterlerin sadakati +2; valisi olduğu eyalette inşa −%15.
+
+Özellikler tur başında eklenir; oyun özelliği bir sonraki tur geçişinde gösterebilir.
 
 Betik, oyun klasörüne `pb_seljuk_log.txt` adlı bir kayıt dosyası yazar.
 

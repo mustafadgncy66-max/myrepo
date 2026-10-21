@@ -140,8 +140,10 @@ local KAYKAUS_NAME = "names_name_2147363192";    -- "Kaikaus"
 local KAYQUBAD_NAME = "names_name_2147363203";   -- "Kaiqobad"
 local KAYQUBAD_AGE = 32;
 local KAYQUBAD_ART_SET = "mk_campaign_sel_t1_general_06";
--- Yalnızca Keykubad'a verilen özellik (build.py'deki KAYQUBAD_TRAIT); eşiği 1 puan olduğu için tek çağrıda görünür.
-local KAYQUBAD_TRAIT = "pb_trait_alaeddin_kayqubad";
+-- Yalnızca Keykubad'a verilen özellikler (build.py'deki KAYQUBAD_TRAITS); eşikleri 1 puan olduğu için tek çağrıda
+-- görünürler. Komutan özelliği oyunun başından, sultan özelliği tahta geçince verilir.
+local KAYQUBAD_COMMANDER_TRAIT = "pb_trait_kayqubad_commander";
+local KAYQUBAD_SULTAN_TRAIT = "pb_trait_alaeddin_kayqubad";
 
 local function find_character(faction, forename)
 	local characters = faction:character_list();
@@ -155,27 +157,36 @@ local function find_character(faction, forename)
 	end
 end
 
--- Keykubad'ın özelliği tur başında eklenir; bir tur başında yerinde görülünce bir daha bakılmaz.
-local function give_kayqubad_traits(faction)
-	if cm:get_saved_value("pb_seljuk_kayqubad_alaeddin_done") then
+-- Bir özelliği bir kez ekler; bir tur başında yerinde görülünce bir daha bakılmaz.
+local function give_trait(character, trait)
+	local flag = "pb_seljuk_trait_done_" .. trait;
+
+	if cm:get_saved_value(flag) then
 		return;
 	end
 
+	if character:has_trait(trait) then
+		pb_log("traits: " .. trait .. " present");
+		cm:set_saved_value(flag, true);
+		return;
+	end
+
+	pb_log("traits: adding " .. trait .. " to cqi " .. character:command_queue_index());
+	cm:force_add_trait("character_cqi:" .. character:command_queue_index(), trait, false);
+end
+
+local function give_kayqubad_traits(faction)
 	local kayqubad = find_character(faction, KAYQUBAD_NAME);
 
 	if not kayqubad then
-		pb_log("traits: Kayqubad not found");
 		return;
 	end
 
-	if kayqubad:has_trait(KAYQUBAD_TRAIT) then
-		pb_log("traits: " .. KAYQUBAD_TRAIT .. " present");
-		cm:set_saved_value("pb_seljuk_kayqubad_alaeddin_done", true);
-		return;
-	end
+	give_trait(kayqubad, KAYQUBAD_COMMANDER_TRAIT);
 
-	pb_log("traits: adding " .. KAYQUBAD_TRAIT .. " to cqi " .. kayqubad:command_queue_index());
-	cm:force_add_trait("character_cqi:" .. kayqubad:command_queue_index(), KAYQUBAD_TRAIT, false);
+	if faction:has_faction_leader() and faction:faction_leader():get_forename() == KAYQUBAD_NAME then
+		give_trait(kayqubad, KAYQUBAD_SULTAN_TRAIT);
+	end
 end
 
 local function succession(faction)
