@@ -1,7 +1,7 @@
 key	generate	ui_icon	ui_image	prioritised	event_category
 #incidents_tables;4;db/incidents_tables/!pb_player_bonus					
 pb_incident_seljuk_mongol_threat	false	message_generic_news.png	pb_seljuk_mongol_threat	true	Historical
-pb_incident_seljuk_alaiye	false	message_generic_news.png	pb_seljuk_sinope	true	Historical
-pb_incident_seljuk_scholars	false	message_generic_news.png	pb_seljuk_divan	true	Historical
+pb_incident_seljuk_alaiye	false	message_generic_news.png	pb_seljuk_alaiye	true	Historical
+pb_incident_seljuk_scholars	false	message_generic_news.png	pb_seljuk_scholars	true	Historical
 pb_incident_seljuk_sultan_han	false	message_generic_news.png	pb_seljuk_caravanserai	true	Historical
 pb_incident_seljuk_yassi_chemen	false	message_generic_news.png	pb_seljuk_sinope	true	Historical
