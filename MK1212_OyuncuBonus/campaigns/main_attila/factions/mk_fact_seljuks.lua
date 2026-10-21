@@ -133,10 +133,10 @@ local function find_character(faction, forename)
 	end
 end
 
--- Keykubad'ın özellikleri bir kez eklenir; o sırada yaşamıyorsa (ör. 17. turda yeniden eklenecekse)
--- bir sonraki tur başında tekrar denenir.
+-- Keykubad'ın eksik özellikleri tur başında eklenir. Hepsi bir tur başında yerinde görülünce bir daha
+-- bakılmaz; böylece oyun içinde kaybettiği bir özellik geri verilmez.
 local function give_kayqubad_traits(faction)
-	if cm:get_saved_value("pb_seljuk_kayqubad_traits") then
+	if cm:get_saved_value("pb_seljuk_kayqubad_traits_done") then
 		return;
 	end
 
@@ -146,11 +146,18 @@ local function give_kayqubad_traits(faction)
 		return;
 	end
 
+	local missing = 0;
+
 	for i = 1, #KAYQUBAD_TRAITS do
-		cm:force_add_trait("character_cqi:" .. kayqubad:command_queue_index(), KAYQUBAD_TRAITS[i], false);
+		if not kayqubad:has_trait(KAYQUBAD_TRAITS[i]) then
+			cm:force_add_trait("character_cqi:" .. kayqubad:command_queue_index(), KAYQUBAD_TRAITS[i], false);
+			missing = missing + 1;
+		end
 	end
 
-	cm:set_saved_value("pb_seljuk_kayqubad_traits", true);
+	if missing == 0 then
+		cm:set_saved_value("pb_seljuk_kayqubad_traits_done", true);
+	end
 end
 
 local function succession(faction)
@@ -306,7 +313,6 @@ cm:add_listener(
 -- Kayıt yüklenince ya da kampanya başlayınca beklemeden uygula; olmazsa ilk tur başında uygulanır.
 local ok, err = pcall(function()
 	PB_Seljuk_Trade_Update(cm:model():world():faction_by_key(SELJUKS));
-	give_kayqubad_traits(cm:model():world():faction_by_key(SELJUKS));
 end);
 
 if not ok then

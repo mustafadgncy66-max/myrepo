@@ -50,17 +50,23 @@ BUILDING_UPKEEP_EFFECT = 'att_effect_building_upkeep_mod'
 MOSQUE_SANITATION = {1: 1, 2: 2, 3: 3, 4: 4}
 MOSQUE_RELIGIONS = ('sunni', 'shia', 'ibadi')
 
-# Portreler: MK1212 her Selçuklu sultanına aynı "sultan" görünümünü (Alaeddin Keykubad'ın bilinen
-# portresi) verir. Keykâvus'un portre setinde (başlangıç kaydından) sultan görünümü, setin kendi general
-# görünümüyle değiştirilir ve bu görünüme Keykâvus'un çizilmiş portresi eklenir. Yeni bir görünüm
-# tanımlanmaz: MK1212'nin harita animasyonları ve 3B portre ayarları yalnızca kendi görünümleri için
-# vardır. Portrenin yalnızca Keykâvus'ta görünmesi için setin sultan olmayan karakterleri başka bir general
-# görünümüne geçirilir. Keykubad tahta geçince sultan görünümünü alır.
-# Portre dosyaları ui/portraits altında, tools/portrait.py ile art/kaikaus.jpg'den üretilir.
-KAYKAUS_ART_SET = 'mk_campaign_sel_t1_general_07'
+# Portreler: MK1212 her Selçuklu sultanına aynı "sultan" görünümünü (mk_campaign_sel_t1_general_01) verir;
+# portresi Alaeddin Keykubad'ın bilinen portresidir. Oyun açık bir kampanyada aile ağacı portresini her zaman
+# tablodan yeniden okumadığı için:
+# - sultan görünümünün portre dosyası Keykâvus'un portresiyle değiştirilir (Keykâvus şu an onu taşır);
+# - her portre setinin sultan satırları setin kendi general görünümüne geçer. Keykâvus'un setinin (07)
+#   görünümü Keykâvus'un, Keykubad'ın setinin (06) görünümü Alaeddin portresini alır. Diğer setlerden
+#   çıkan sultanlar kendi 3B yüzleriyle görünür.
+# - 07 setinin sultan olmayan karakterleri başka bir general görünümüne geçer; böylece Keykâvus'un portresi
+#   yalnızca onda görünür. 06 setinin generalleri (Keykubad dahil) Alaeddin portresini taşır.
+# Yeni bir görünüm tanımlanmaz: MK1212'nin harita animasyonları ve 3B portre ayarları yalnızca kendi
+# görünümleri için vardır. Portre dosyaları ui/portraits altındadır; Keykâvus'unki tools/portrait.py ile
+# art/kaikaus.jpg'den üretilir, Alaeddin portresi MK1212'nin sultan portresinin kopyasıdır.
+SELJUK_ART_SET = 'mk_campaign_sel_t1_general_{:02d}'
+SELJUK_GENERAL_UNIFORM = 'mk_campaign_sel_t1_generic_general_{:02d}'
 SULTAN_UNIFORM = 'mk_campaign_sel_t1_general_01'
-KAYKAUS_UNIFORM = 'mk_campaign_sel_t1_generic_general_07'
-GENERAL_07_UNIFORM = 'mk_campaign_sel_t1_generic_general_05'
+# Sultan olmayan karakterleri başka görünüme geçen setler: {set: yeni görünüm}
+SELJUK_GENERAL_REPLACEMENTS = {7: 5}
 # Önceki sürümün tanımladığı görünüm; bu sürümle kaydedilmiş oyunlar açılabilsin diye tanımlı kalır.
 OLD_KAYKAUS_UNIFORM = 'pb_campaign_sel_kaikaus'
 
@@ -636,13 +642,19 @@ def build_tables(data_dir, out_dir):
     write_tsv(out_dir, 'building_effects_junction_tables', name, 3,
               ['building', 'effect', 'effect_scope', 'value', 'value_damaged', 'value_ruined'], building_effects)
 
-    # Keykâvus'un portresi.
+    # Selçuklu sultan portreleri.
     arts_header, arts_version, arts = effective_rows(data_dir, 'campaign_character_arts_tables', ['id'])
     art_set_col, uniform_col = arts_header.index('art_set_id'), arts_header.index('uniform')
-    new_uniform = {SULTAN_UNIFORM: KAYKAUS_UNIFORM, KAYKAUS_UNIFORM: GENERAL_07_UNIFORM}
-    art_rows = [row[:uniform_col] + [new_uniform[row[uniform_col]]] + row[uniform_col + 1:]
-                for row in arts.values()
-                if row[art_set_col] == KAYKAUS_ART_SET and row[uniform_col] in new_uniform]
+    new_uniform = {}
+    for n in range(1, 8):
+        new_uniform[(SELJUK_ART_SET.format(n), SULTAN_UNIFORM)] = SELJUK_GENERAL_UNIFORM.format(n)
+    for n, other in SELJUK_GENERAL_REPLACEMENTS.items():
+        new_uniform[(SELJUK_ART_SET.format(n), SELJUK_GENERAL_UNIFORM.format(n))] = SELJUK_GENERAL_UNIFORM.format(other)
+    art_rows = []
+    for row in arts.values():
+        uniform = new_uniform.get((row[art_set_col], row[uniform_col]))
+        if uniform:
+            art_rows.append(row[:uniform_col] + [uniform] + row[uniform_col + 1:])
     write_tsv(out_dir, 'campaign_character_arts_tables', name, arts_version, arts_header, art_rows)
     uniforms_header, uniforms_version, uniforms = effective_rows(data_dir, 'agent_uniforms_tables',
                                                                  ['uniform_name'])
@@ -686,7 +698,7 @@ def build_tables(data_dir, out_dir):
     print(f'General muhafızları ({GENERAL_UPKEEP}): {", ".join(generals)}')
     print(f'Bakımı yarıya inen bina seviyesi: {len(level_rows)}')
     print(f'AI bina bakımı telafisi (zorluk: %): {compensation}')
-    print(f'Keykâvus portre satırı: {len(art_rows)}')
+    print(f'Selçuklu portre satırı: {len(art_rows)}')
     print(f'Ticaret ve hikâye paketleri: {len(bundles)}; görev {len(STORY_MISSIONS)}, haber {len(STORY_INCIDENTS)}, '
           f'karar {len(STORY_DILEMMAS)}')
 

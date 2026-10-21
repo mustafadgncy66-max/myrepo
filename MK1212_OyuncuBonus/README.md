@@ -60,14 +60,20 @@ Keykubad MK1212'de aile ağacında zaten vardır. Tahta onun geçmesi için 17. 
 Keykubad'ı seçip veliaht yapın; yapmazsanız tahta oyunun veliahtı (başlangıçta İbrahim) geçer. Keykubad
 ölmüşse 17. turda yeni bir Keykubad veliaht olarak eklenir.
 
-MK1212 her Selçuklu sultanına aynı portreyi (Alaeddin Keykubad'ın bilinen portresi) verir. Bu pack'te
-Keykâvus sultanken kendi general görünümünü (atlı harita modeli ve animasyonlarıyla) ve çizilmiş portresini
-(sarıklı, kırmızı kaftanlı) taşır; Keykubad tahta geçince bilinen portreyi alır. Portre yalnızca Keykâvus'ta
-görünsün diye aynı portre setini kullanan diğer generaller başka bir Selçuklu general görünümüne geçer.
+MK1212 her Selçuklu sultanına aynı portreyi (Alaeddin Keykubad'ın bilinen portresi) verir. Bu pack'te:
+
+- Sultan portresinin dosyası Keykâvus'un çizilmiş portresiyle (sarıklı, kırmızı kaftanlı) değiştirilir.
+  Bu dosyanın MK1212'ninkini ezmesi için mod, yükleme sırasında MK1212'nin **üstünde** olmalıdır.
+- Her portre setinin sultan satırları setin kendi general görünümüne geçer (atlı harita modeli ve
+  animasyonlarıyla). Keykâvus'un setinin görünümü onun portresini, Keykubad'ın setinin görünümü Alaeddin
+  portresini taşır; diğer setlerden çıkan sultanlar kendi 3B yüzleriyle görünür.
+- Keykâvus'un portresi yalnızca onda görünsün diye aynı seti kullanan diğer generaller başka bir Selçuklu
+  general görünümüne geçer. Keykubad'ın setini kullanan generaller Alaeddin portresini taşır.
+
 Keykâvus'un portresi `art/kaikaus.jpg` dosyasından `tools/portrait.py` ile üretilir (yeşil arka plan şeffaf
 yapılır, 180×240 ve 64×152).
 
-Keykubad'ın mimar, zeki ve enerjik özellikleri, pack yüklü ilk tur başında eklenir.
+Keykubad'ın mimar, zeki ve enerjik özellikleri, pack yüklüyken bir sonraki tur başında eklenir.
 
 Görevin hedef bölgesi o turda zaten sizdeyse görev verilmez. Henüz görseli olmayan olaylar mevcut
 görsellerden birini kullanır (`build.py`'deki `fallback`); görsel `ui/eventpics` altına eklenince
