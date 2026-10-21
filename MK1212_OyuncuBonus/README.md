@@ -37,14 +37,27 @@ Başlangıçta 4/8 kervan şehri, 1/4 liman ve kervansaray paketi etkindir; Sino
 Aynı betik, belirli turlarda tarihî olaylar tetikler (MK1212'de yılda 2 tur; 1. tur 1212 ilkbaharı).
 Görseller `ui/eventpics` altındadır (380×214 PNG).
 
-| Tur | Olay | Tür | Sonuç |
-|---|---|---|---|
-| 2 | The Conquest of Sinope | görev (12 tur) | Sinop'u al: 6000 altın + 10 tur kamu düzeni +3, servet +%10 |
-| 12 | A Storm in the East | haber | Harezm'den gelen mülteciler: 10 tur büyüme +3, araştırma +%10 |
-| 12 | The Sultan's Divan | karar | Surları yükselt (−4000; 30 tur kamu düzeni +3, ikmal +15) ya da Türkmenleri çağır (−2000; 20 tur askere alma −%20, ikmal +10) |
-| 19 | The Sultan's Hans | karar | Hanları yaptır (−5000; kalıcı ticaret anlaşması geliri +%20, karadan ticaret +%15) ya da tüccarlara bırak (+3000) |
+| Tur | Yıl | Olay | Tür | Sonuç |
+|---|---|---|---|---|
+| 2 | 1212 | The Conquest of Sinope | görev (12 tur) | Sinop'u al: 6000 altın + 10 tur kamu düzeni +3, servet +%10 |
+| 12 | 1217 | A Storm in the East | haber | Harezm'den mülteciler: 10 tur büyüme +3, araştırma +%10 |
+| 12 | 1217 | The Sultan's Divan | karar | Surlar (−4000; 30 tur kamu düzeni +3, ikmal +15) / Türkmenler (−2000; 20 tur askere alma −%20, ikmal +10) |
+| 17 | 1220 | The Death of Kaykaus | karar | Emirlere ikta (20 tur sadakat +2, kamu düzeni +2, servet −%5) / Gulam muhafızı (−3000; 20 tur bütünlük +2, yeni askerlere +1 deneyim) |
+| 19 | 1221 | The Crimean Expedition | görev (16 tur) | Kırım limanını (oyunda Caffa) al: 5000 altın + 20 tur deniz ticareti +%20, ticaret anlaşması +%10 |
+| 20 | 1221 | Kalon Oros Becomes Alaiye | haber | Kalıcı: deniz ticareti +%10, ticaret anlaşması +%5 |
+| 25 | 1224 | The Sultan's Hans | karar | Hanları yaptır (−5000; kalıcı ticaret anlaşması +%20, karadan ticaret +%15) / tüccarlara bırak (+3000) |
+| 31 | 1227 | The Envoy of the Khwarazmshah | karar | İttifak (−2000; 10 tur göçebelere karşı moral +4, bütünlük +1) / Doğu'yu koru (10 tur ikmal +10, deneyim +1) |
+| 33 | 1228 | The Sultan of Scholars | haber | Bahaeddin Veled ve ailesi Konya'da: 30 tur araştırma +%15, kamu düzeni +2 |
+| 35 | 1229 | The Sultan Han | haber | Kalıcı: ticaret anlaşması +%10, karadan ticaret +%10 |
+| 38 | 1230 | Victory at Yassi Chemen | haber | 5000 altın + 15 tur bütünlük +2, deneyim +1 |
+| 57 | 1240 | The Babai Revolt | karar | Bastır (10 tur kamu düzeni −3, bütünlük +1) / Vergiyi indir ve affet (−6000; 15 tur kamu düzeni +3, askere alma −%10) |
+| 63 | 1243 | The Road to Kose Dag | karar | Sahada karşıla (10 tur göçebelere karşı moral +6, bütünlük +3, ikmal +20) / Kalelerde bekle (20 tur kamu düzeni +3, ikmal +15) / Haraç (−15000; 30 tur kamu düzeni +4, servet −%10) |
 
-Sinop 2. turda zaten sizdeyse görev verilmez. Olaylar yalnızca o turun başında tetiklenir; mevcut
+Haraç seçeneği yalnızca etki paketi verir; Moğollarla barışı zorlamaz.
+
+Görevin hedef bölgesi o turda zaten sizdeyse görev verilmez. Henüz görseli olmayan olaylar mevcut
+görsellerden birini kullanır (`build.py`'deki `fallback`); görsel `ui/eventpics` altına eklenince
+pack yeniden üretilir. Olaylar yalnızca o turun başında tetiklenir; mevcut
 kampanya bu turları geçmişse görülmezler.
 
 Bakım örnekleri:

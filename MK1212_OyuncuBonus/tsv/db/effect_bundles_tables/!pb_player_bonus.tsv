@@ -18,4 +18,18 @@ pb_bundle_seljuk_sinope	Placeholder	The Conquest of Sinope	faction_leader_positi
 pb_bundle_seljuk_refugees	Placeholder	Refugees from the East	tax_growth_2.png	faction
 pb_bundle_seljuk_walls	Placeholder	Walls of the Sultanate	faction_leader_positive.png	faction
 pb_bundle_seljuk_frontier	Placeholder	Call of the Frontier	faction_leader_positive.png	faction
+pb_bundle_seljuk_iqta	Placeholder	The Emirs' Iqta	faction_leader_positive.png	faction
+pb_bundle_seljuk_ghulams	Placeholder	The Sultan's Ghulams	faction_leader_positive.png	faction
+pb_bundle_seljuk_crimea	Placeholder	Lord of the Black Sea	tax_growth_4.png	faction
+pb_bundle_seljuk_alaiye	Placeholder	The Shipyard of Alaiye	tax_growth_3.png	faction
 pb_bundle_seljuk_hans	Placeholder	The Sultan's Hans	tax_growth_4.png	faction
+pb_bundle_seljuk_khwarazm_alliance	Placeholder	Alliance with the Khwarazmshah	faction_leader_positive.png	faction
+pb_bundle_seljuk_eastern_watch	Placeholder	Watch on the East	faction_leader_positive.png	faction
+pb_bundle_seljuk_scholars	Placeholder	The Sultan of Scholars	tax_growth_3.png	faction
+pb_bundle_seljuk_sultan_han	Placeholder	The Sultan Han	tax_growth_5.png	faction
+pb_bundle_seljuk_yassi_chemen	Placeholder	Veterans of Yassi Chemen	faction_leader_positive.png	faction
+pb_bundle_seljuk_babai_crushed	Placeholder	The Revolt Crushed	faction_leader_negative.png	faction
+pb_bundle_seljuk_babai_pardon	Placeholder	The Tribes Pardoned	faction_leader_positive.png	faction
+pb_bundle_seljuk_kose_dag_field	Placeholder	The Host of Rum	faction_leader_positive.png	faction
+pb_bundle_seljuk_kose_dag_walls	Placeholder	Behind the Walls	faction_leader_positive.png	faction
+pb_bundle_seljuk_tribute	Placeholder	Tribute to the Khan	faction_leader_negative.png	faction

@@ -85,23 +85,48 @@ function PB_Seljuk_Trade_Update(faction)
 	set_bundle("pb_bundle_seljuk_two_seas", owned[SINOPE] == true and owned[ATTALEIA] == true, faction_name);
 end
 
--- Selçuklu hikâye zinciri (MK1212'de yılda 2 tur, 1. tur 1212 ilkbaharı). Her olay tek bir turda
--- tetiklenir ve FactionTurnStart her tur bir kez geldiği için ayrıca kayıt tutmaya gerek yoktur.
--- Görev, haber ve kararların içeriği ve ödülleri build.py'dedir.
-local SINOPE_MISSION_TURN = 2;   -- Sinop'un fethi (tarihte 1214)
-local MONGOL_EVENT_TURN = 12;    -- Harezm'in düşüşü haberi; MK1212'nin Moğol istilası 15. turda
-local CARAVANSERAI_TURN = 19;    -- Alaeddin Keykubad dönemi, Sultan hanları (1221)
+-- Selçuklu hikâye zinciri (MK1212'de yılda 2 tur, 1. tur 1212 ilkbaharı). Her olay kendi turunda bir kez
+-- tetiklenir; FactionTurnStart her tur bir kez geldiği için ayrıca kayıt tutmaya gerek yoktur.
+-- Aşağıdaki takvim build.py tarafından olay listelerinden yazılır; elle düzenlemeyin.
+-- BEGIN STORY SCHEDULE (build.py)
+PB_STORY_EVENTS = {
+	{ turn = 2, kind = "mission", key = "pb_mission_seljuk_sinope", unless_owned = "att_reg_bithynia_amasea" },
+	{ turn = 12, kind = "incident", key = "pb_incident_seljuk_mongol_threat" },
+	{ turn = 12, kind = "dilemma", key = "pb_dilemma_seljuk_divan" },
+	{ turn = 17, kind = "dilemma", key = "pb_dilemma_seljuk_succession" },
+	{ turn = 19, kind = "mission", key = "pb_mission_seljuk_crimea", unless_owned = "att_reg_sarmatia_europaea_chersonessus" },
+	{ turn = 20, kind = "incident", key = "pb_incident_seljuk_alaiye" },
+	{ turn = 25, kind = "dilemma", key = "pb_dilemma_seljuk_caravanserais" },
+	{ turn = 31, kind = "dilemma", key = "pb_dilemma_seljuk_khwarazm_envoy" },
+	{ turn = 33, kind = "incident", key = "pb_incident_seljuk_scholars" },
+	{ turn = 35, kind = "incident", key = "pb_incident_seljuk_sultan_han" },
+	{ turn = 38, kind = "incident", key = "pb_incident_seljuk_yassi_chemen" },
+	{ turn = 57, kind = "dilemma", key = "pb_dilemma_seljuk_babai" },
+	{ turn = 63, kind = "dilemma", key = "pb_dilemma_seljuk_kose_dag" },
+};
+-- END STORY SCHEDULE
 
 function PB_Seljuk_Story(faction)
 	local turn = cm:model():turn_number();
+	local owned = nil;
 
-	if turn == SINOPE_MISSION_TURN and not owned_regions(faction)[SINOPE] then
-		cm:trigger_mission(SELJUKS, "pb_mission_seljuk_sinope");
-	elseif turn == MONGOL_EVENT_TURN then
-		cm:trigger_incident(SELJUKS, "pb_incident_seljuk_mongol_threat");
-		cm:trigger_dilemma(SELJUKS, "pb_dilemma_seljuk_divan");
-	elseif turn == CARAVANSERAI_TURN then
-		cm:trigger_dilemma(SELJUKS, "pb_dilemma_seljuk_caravanserais");
+	for i = 1, #PB_STORY_EVENTS do
+		local event = PB_STORY_EVENTS[i];
+
+		if event.turn == turn then
+			owned = owned or owned_regions(faction);
+
+			-- Hedef bölge zaten bizdeyse görev verilmez.
+			if not (event.unless_owned and owned[event.unless_owned]) then
+				if event.kind == "mission" then
+					cm:trigger_mission(SELJUKS, event.key);
+				elseif event.kind == "incident" then
+					cm:trigger_incident(SELJUKS, event.key);
+				else
+					cm:trigger_dilemma(SELJUKS, event.key);
+				end
+			end
+		end
 	end
 end
 

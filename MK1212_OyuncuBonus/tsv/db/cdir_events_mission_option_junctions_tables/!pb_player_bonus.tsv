@@ -7,3 +7,10 @@ id	mission_key	option_key	value
 8800004	pb_mission_seljuk_sinope	VAR_CHANCE	100
 8800005	pb_mission_seljuk_sinope	VAR_MISSION_LENGTH_MIN	12
 8800006	pb_mission_seljuk_sinope	VAR_MISSION_LENGTH_MAX	12
+8800010	pb_mission_seljuk_crimea	CND_CAMPAIGN	main_attila
+8800011	pb_mission_seljuk_crimea	GEN_TARGET_REGION	
+8800012	pb_mission_seljuk_crimea	GEN_CND_REGION	att_reg_sarmatia_europaea_chersonessus
+8800013	pb_mission_seljuk_crimea	GEN_CND_NOT_OWNS	
+8800014	pb_mission_seljuk_crimea	VAR_CHANCE	100
+8800015	pb_mission_seljuk_crimea	VAR_MISSION_LENGTH_MIN	16
+8800016	pb_mission_seljuk_crimea	VAR_MISSION_LENGTH_MAX	16

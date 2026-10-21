@@ -70,7 +70,14 @@ RESEARCH = ('att_effect_technology_research_points_mod', 'faction_to_faction_own
 REPLENISHMENT_EFFECT = ('att_effect_force_all_campaign_replenishment_rate', 'faction_to_force_own')
 RECRUITMENT_COST = ('att_effect_force_all_campaign_recruitment_cost_all', 'faction_to_force_own_unseen')
 
-# Selçuklu hikâye zinciri. Tetikleme turları mk_fact_seljuks.lua'dadır; olay görselleri ui/eventpics altındadır.
+LOYALTY = ('att_effect_character_loyalty_mod_faction', 'faction_to_character_own')
+INTEGRITY = ('att_effect_force_all_campaign_military_morale_factor_faction', 'faction_to_force_own')
+MORALE_VS_NOMADS = ('att_effect_morale_against_nomads', 'faction_to_force_own')
+RECRUIT_XP = ('att_effect_force_all_campaign_experience_base_all', 'faction_to_province_own_unseen')
+
+# Selçuklu hikâye zinciri. Her olay kendi turunun başında tetiklenir (MK1212'de yılda 2 tur, 1. tur
+# 1212 ilkbaharı); takvim mk_fact_seljuks.lua'ya bu listeden yazılır. Görsel ui/eventpics altında yoksa
+# 'fallback' görseli kullanılır.
 # Ödül paketleri: (anahtar, simge, başlık, açıklama, [(efekt, kapsam, değer)])
 STORY_BUNDLES = [
     ('pb_bundle_seljuk_sinope', 'faction_leader_positive.png', 'The Conquest of Sinope',
@@ -86,30 +93,107 @@ STORY_BUNDLES = [
     ('pb_bundle_seljuk_frontier', 'faction_leader_positive.png', 'Call of the Frontier',
      'The Turkmen of the frontier have answered the Sultan\'s call, and their riders fill the ranks.',
      [(*RECRUITMENT_COST, -20), (*REPLENISHMENT_EFFECT, 10)]),
+    ('pb_bundle_seljuk_iqta', 'faction_leader_positive.png', 'The Emirs\' Iqta',
+     'The great emirs hold rich iqta estates from the new Sultan and have sworn their oaths to him.',
+     [(*LOYALTY, 2), (*PUBLIC_ORDER_EFFECT, 2), (*GDP_ALL, -5)]),
+    ('pb_bundle_seljuk_ghulams', 'faction_leader_positive.png', 'The Sultan\'s Ghulams',
+     'Slave soldiers raised in the palace and loyal to the Sultan alone guard the throne.',
+     [(*INTEGRITY, 2), (*RECRUIT_XP, 1)]),
+    ('pb_bundle_seljuk_crimea', 'tax_growth_4.png', 'Lord of the Black Sea',
+     'Seljuk governors sit in the trading ports of the Crimea, and the Black Sea trade flows through Sinope.',
+     [(*COMMERCE_SEA, 20), (*TARIFF, 10)]),
+    ('pb_bundle_seljuk_alaiye', 'tax_growth_3.png', 'The Shipyard of Alaiye',
+     'From the shipyard beneath the cliffs of Alaiye, Seljuk ships sail to Cyprus, Egypt and Venice.',
+     [(*COMMERCE_SEA, 10), (*TARIFF, 5)]),
     ('pb_bundle_seljuk_hans', 'tax_growth_4.png', 'The Sultan\'s Hans',
      'A chain of great caravanserais, a day\'s journey apart, shelters the caravans that cross Anatolia.',
      [(*TARIFF, 20), (*COMMERCE_LAND, 15)]),
+    ('pb_bundle_seljuk_khwarazm_alliance', 'faction_leader_positive.png', 'Alliance with the Khwarazmshah',
+     'Khwarazmian veterans who know the Mongol way of war share their hard-won lessons with Seljuk commanders.',
+     [(*MORALE_VS_NOMADS, 4), (*INTEGRITY, 1)]),
+    ('pb_bundle_seljuk_eastern_watch', 'faction_leader_positive.png', 'Watch on the East',
+     'The eastern garrisons are reinforced and drilled against raiders from beyond the mountains.',
+     [(*REPLENISHMENT_EFFECT, 10), (*RECRUIT_XP, 1)]),
+    ('pb_bundle_seljuk_scholars', 'tax_growth_3.png', 'The Sultan of Scholars',
+     'Preachers, poets and students gather in the madrasas of Konya around the family of Baha al-Din Walad.',
+     [(*RESEARCH, 15), (*PUBLIC_ORDER_EFFECT, 2)]),
+    ('pb_bundle_seljuk_sultan_han', 'tax_growth_5.png', 'The Sultan Han',
+     'The greatest caravanserai of Anatolia stands on the road between Konya and Aksaray.',
+     [(*TARIFF, 10), (*COMMERCE_LAND, 10)]),
+    ('pb_bundle_seljuk_yassi_chemen', 'faction_leader_positive.png', 'Veterans of Yassi Chemen',
+     'The soldiers who broke the Khwarazmians return home as veterans, and the recruits want to be like them.',
+     [(*INTEGRITY, 2), (*RECRUIT_XP, 1)]),
+    ('pb_bundle_seljuk_babai_crushed', 'faction_leader_negative.png', 'The Revolt Crushed',
+     'The rebels have been broken, but the Turkmen of the frontier will not soon forget it.',
+     [(*PUBLIC_ORDER_EFFECT, -3), (*INTEGRITY, 1)]),
+    ('pb_bundle_seljuk_babai_pardon', 'faction_leader_positive.png', 'The Tribes Pardoned',
+     'Taxes on the frontier have been lowered and the tribes have returned to their pastures.',
+     [(*PUBLIC_ORDER_EFFECT, 3), (*RECRUITMENT_COST, -10)]),
+    ('pb_bundle_seljuk_kose_dag_field', 'faction_leader_positive.png', 'The Host of Rum',
+     'Emirs, ghulams, Turkmen and Frankish and Georgian mercenaries stand together against the horde.',
+     [(*MORALE_VS_NOMADS, 6), (*INTEGRITY, 3), (*REPLENISHMENT_EFFECT, 20)]),
+    ('pb_bundle_seljuk_kose_dag_walls', 'faction_leader_positive.png', 'Behind the Walls',
+     'The Sultanate waits for the horde behind the stone walls of its cities.',
+     [(*PUBLIC_ORDER_EFFECT, 3), (*REPLENISHMENT_EFFECT, 15)]),
+    ('pb_bundle_seljuk_tribute', 'faction_leader_negative.png', 'Tribute to the Khan',
+     'A heavy tribute is sent east each year. The people grumble at the taxes but are glad to be spared.',
+     [(*PUBLIC_ORDER_EFFECT, 4), (*GDP_ALL, -10)]),
 ]
 
 STORY_MISSIONS = [{
-    'key': 'pb_mission_seljuk_sinope', 'image': 'pb_seljuk_sinope', 'region': 'att_reg_bithynia_amasea',
-    'turns': 12, 'title': 'The Conquest of Sinope',
+    'turn': 2, 'key': 'pb_mission_seljuk_sinope', 'image': 'pb_seljuk_sinope', 'fallback': 'pb_seljuk_sinope',
+    'region': 'att_reg_bithynia_amasea', 'turns': 12, 'title': 'The Conquest of Sinope',
     'description': 'Sinope, the jewel of the Black Sea coast, is held by the Greeks. Whoever holds it controls the '
                    'trade between Anatolia and the northern lands. Sultan Kaykaus has resolved to take it, so that '
                    'Seljuk caravans may reach the sea in the north as they already do at Attaleia in the south.',
     'payloads': [('TREASURY', 'AMOUNT[6000]'), ('pb_bundle_seljuk_sinope', 'DURATION[10];GLOBAL')],
+}, {
+    'turn': 19, 'key': 'pb_mission_seljuk_crimea', 'image': 'pb_seljuk_crimea', 'fallback': 'pb_seljuk_sinope',
+    'region': 'att_reg_sarmatia_europaea_chersonessus', 'turns': 16, 'title': 'The Crimean Expedition',
+    'description': 'Kipchak raiders and Rus princes trouble the merchants of the Crimea, and Seljuk goods sold at '
+                   'Sinope must cross the sea to reach them. The Sultan orders an expedition across the Black Sea '
+                   'to seize the trading ports of the Crimea, as his armies did at Sudak.',
+    'payloads': [('TREASURY', 'AMOUNT[5000]'), ('pb_bundle_seljuk_crimea', 'DURATION[20];GLOBAL')],
 }]
 
 STORY_INCIDENTS = [{
-    'key': 'pb_incident_seljuk_mongol_threat', 'image': 'pb_seljuk_mongol_threat', 'title': 'A Storm in the East',
+    'turn': 12, 'key': 'pb_incident_seljuk_mongol_threat', 'image': 'pb_seljuk_mongol_threat',
+    'fallback': 'pb_seljuk_mongol_threat', 'title': 'A Storm in the East',
     'description': 'Merchants and refugees pour in from Khwarazm with terrible news: a horde from the eastern '
                    'steppes, led by a khan called Chinggis, is burning the great cities of Transoxiana. Scholars, '
                    'craftsmen and whole families seek shelter in the lands of Rum.',
     'payloads': [('pb_bundle_seljuk_refugees', 'DURATION[10];GLOBAL')],
+}, {
+    'turn': 20, 'key': 'pb_incident_seljuk_alaiye', 'image': 'pb_seljuk_alaiye', 'fallback': 'pb_seljuk_sinope',
+    'title': 'Kalon Oros Becomes Alaiye',
+    'description': 'The Greek lord of the coastal fortress of Kalon Oros has surrendered to Sultan Kayqubad, who '
+                   'has renamed it Alaiye after himself. A shipyard is being built beneath the cliffs, and the '
+                   'Sultanate now has a second window on the Mediterranean.',
+    'payloads': [('pb_bundle_seljuk_alaiye', 'DURATION[0];GLOBAL')],
+}, {
+    'turn': 33, 'key': 'pb_incident_seljuk_scholars', 'image': 'pb_seljuk_scholars', 'fallback': 'pb_seljuk_divan',
+    'title': 'The Sultan of Scholars',
+    'description': 'Baha al-Din Walad, the great preacher called the Sultan of Scholars, has arrived in Konya with '
+                   'his family at the Sultan\'s invitation. His young son Jalal al-Din, who will one day be known '
+                   'as Rumi, already draws students of his own. Konya is becoming a city of learning.',
+    'payloads': [('pb_bundle_seljuk_scholars', 'DURATION[30];GLOBAL')],
+}, {
+    'turn': 35, 'key': 'pb_incident_seljuk_sultan_han', 'image': 'pb_seljuk_sultan_han',
+    'fallback': 'pb_seljuk_caravanserai', 'title': 'The Sultan Han',
+    'description': 'On the road between Konya and Aksaray, the largest caravanserai in Anatolia has been '
+                   'completed. Its great carved portal welcomes caravans travelling from Tabriz to Attaleia.',
+    'payloads': [('pb_bundle_seljuk_sultan_han', 'DURATION[0];GLOBAL')],
+}, {
+    'turn': 38, 'key': 'pb_incident_seljuk_yassi_chemen', 'image': 'pb_seljuk_yassi_chemen',
+    'fallback': 'pb_seljuk_sinope', 'title': 'Victory at Yassi Chemen',
+    'description': 'Near Erzincan, the armies of the Sultanate have routed Jalal ad-Din and his Khwarazmians. The '
+                   'spoils of his camp are rich, and the Sultan\'s soldiers return home as veterans.',
+    'payloads': [('TREASURY', 'AMOUNT[5000]'), ('pb_bundle_seljuk_yassi_chemen', 'DURATION[15];GLOBAL')],
 }]
 
 STORY_DILEMMAS = [{
-    'key': 'pb_dilemma_seljuk_divan', 'image': 'pb_seljuk_divan', 'title': 'The Sultan\'s Divan',
+    'turn': 12, 'key': 'pb_dilemma_seljuk_divan', 'image': 'pb_seljuk_divan', 'fallback': 'pb_seljuk_divan',
+    'title': 'The Sultan\'s Divan',
     'description': 'The emirs gather before the Sultan. The horde has not yet reached Anatolia, but none doubt that '
                    'it will. Some urge that the walls of Konya, Kayseri and Sivas be rebuilt in stone; others say '
                    'the Turkmen of the frontier should be summoned and armed.',
@@ -120,7 +204,20 @@ STORY_DILEMMAS = [{
          [('TREASURY', 'AMOUNT[-2000]'), ('pb_bundle_seljuk_frontier', 'DURATION[20];GLOBAL')]),
     ],
 }, {
-    'key': 'pb_dilemma_seljuk_caravanserais', 'image': 'pb_seljuk_caravanserai', 'title': 'The Sultan\'s Hans',
+    'turn': 17, 'key': 'pb_dilemma_seljuk_succession', 'image': 'pb_seljuk_succession', 'fallback': 'pb_seljuk_divan',
+    'title': 'The Death of Kaykaus',
+    'description': 'Sultan Kaykaus has died of consumption at the height of his power. His brother Kayqubad, long '
+                   'held prisoner in a fortress, has been brought out and raised to the throne. The emirs who once '
+                   'backed Kaykaus watch the new Sultan closely. How will he secure the throne?',
+    'choices': [
+        ('FIRST', 'Grant the emirs iqta lands', 'The emirs receive rich estates and swear their oaths.',
+         [('pb_bundle_seljuk_iqta', 'DURATION[20];GLOBAL')]),
+        ('SECOND', 'Rely on the ghulam guard', 'The Sultan surrounds himself with soldiers loyal to him alone.',
+         [('TREASURY', 'AMOUNT[-3000]'), ('pb_bundle_seljuk_ghulams', 'DURATION[20];GLOBAL')]),
+    ],
+}, {
+    'turn': 25, 'key': 'pb_dilemma_seljuk_caravanserais', 'image': 'pb_seljuk_caravanserai',
+    'fallback': 'pb_seljuk_caravanserai', 'title': 'The Sultan\'s Hans',
     'description': 'Trade along the Anatolian roads grows, but merchants fear bandits and harsh winters. The vizier '
                    'proposes a chain of great caravanserais, a day\'s journey apart, built and guarded by the state.',
     'choices': [
@@ -128,6 +225,45 @@ STORY_DILEMMAS = [{
          [('TREASURY', 'AMOUNT[-5000]'), ('pb_bundle_seljuk_hans', 'DURATION[0];GLOBAL')]),
         ('SECOND', 'Leave it to the merchants', 'The merchants build their own inns and pay the Sultan for the privilege.',
          [('TREASURY', 'AMOUNT[3000]')]),
+    ],
+}, {
+    'turn': 31, 'key': 'pb_dilemma_seljuk_khwarazm_envoy', 'image': 'pb_seljuk_khwarazm_envoy',
+    'fallback': 'pb_seljuk_divan', 'title': 'The Envoy of the Khwarazmshah',
+    'description': 'Jalal ad-Din, the last Khwarazmshah, has carved out a new realm in the east after fleeing the '
+                   'Mongols. His envoy proposes an alliance against the horde, but many at court fear the '
+                   'Khwarazmian more than the Mongols, for his armies plunder friend and foe alike.',
+    'choices': [
+        ('FIRST', 'Accept the alliance', 'Gifts are exchanged, and Khwarazmian officers visit the Sultan\'s camps.',
+         [('TREASURY', 'AMOUNT[-2000]'), ('pb_bundle_seljuk_khwarazm_alliance', 'DURATION[10];GLOBAL')]),
+        ('SECOND', 'Refuse and guard the east', 'The envoy leaves empty-handed, and the eastern garrisons are reinforced.',
+         [('pb_bundle_seljuk_eastern_watch', 'DURATION[10];GLOBAL')]),
+    ],
+}, {
+    'turn': 57, 'key': 'pb_dilemma_seljuk_babai', 'image': 'pb_seljuk_babai', 'fallback': 'pb_seljuk_divan',
+    'title': 'The Babai Revolt',
+    'description': 'Baba Ishak, a dervish preacher, has raised the Turkmen of the frontier in revolt against the '
+                   'Sultan\'s governors and taxes. His followers have taken Amasya and defeated the first armies '
+                   'sent against them.',
+    'choices': [
+        ('FIRST', 'Crush the revolt', 'Frankish mercenaries break the rebel host, and Baba Ishak is hanged.',
+         [('pb_bundle_seljuk_babai_crushed', 'DURATION[10];GLOBAL')]),
+        ('SECOND', 'Lower the taxes and pardon the tribes', 'The tribes lay down their arms and return to their pastures.',
+         [('TREASURY', 'AMOUNT[-6000]'), ('pb_bundle_seljuk_babai_pardon', 'DURATION[15];GLOBAL')]),
+    ],
+}, {
+    'turn': 63, 'key': 'pb_dilemma_seljuk_kose_dag', 'image': 'pb_seljuk_kose_dag', 'fallback': 'pb_seljuk_mongol_threat',
+    'title': 'The Road to Kose Dag',
+    'description': 'A Mongol army under the general Baiju has taken Erzurum and marches into the Sultanate. The '
+                   'Sultan has gathered his emirs, his ghulams and Frankish and Georgian mercenaries. History '
+                   'remembers what befell the Sultanate when it met the Mongols at Kose Dag; this time the choice '
+                   'is yours.',
+    'choices': [
+        ('FIRST', 'Meet them in the field', 'The host of Rum rides out to face the horde.',
+         [('pb_bundle_seljuk_kose_dag_field', 'DURATION[10];GLOBAL')]),
+        ('SECOND', 'Hold the fortresses', 'The Sultanate shuts its gates and waits for the storm to break.',
+         [('pb_bundle_seljuk_kose_dag_walls', 'DURATION[20];GLOBAL')]),
+        ('THIRD', 'Send tribute to the Khan', 'A heavy tribute is sent east, and the people are spared, for now.',
+         [('TREASURY', 'AMOUNT[-15000]'), ('pb_bundle_seljuk_tribute', 'DURATION[30];GLOBAL')]),
     ],
 }]
 
@@ -287,6 +423,36 @@ def table_schema(data_dir, table):
     return max((read_tsv(path)[:2] for path in table_files(data_dir, table)), key=lambda hv: hv[1])
 
 
+EVENTPICS = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ui', 'eventpics')
+
+
+def event_image(event):
+    """Olayın görseli henüz yoksa yedek görsel."""
+    if os.path.exists(os.path.join(EVENTPICS, event['image'] + '.png')):
+        return event['image']
+    return event['fallback']
+
+
+def write_story_schedule():
+    """mk_fact_seljuks.lua'daki takvim bloğunu olay listelerinden yeniden yazar."""
+    events = ([(m['turn'], 'mission', m['key'], m['region']) for m in STORY_MISSIONS] +
+              [(i['turn'], 'incident', i['key'], None) for i in STORY_INCIDENTS] +
+              [(d['turn'], 'dilemma', d['key'], None) for d in STORY_DILEMMAS])
+    # Aynı turda önce görev, sonra haber, en son karar gelir.
+    order = {'mission': 0, 'incident': 1, 'dilemma': 2}
+    lines = ['PB_STORY_EVENTS = {']
+    for turn, kind, key, region in sorted(events, key=lambda e: (e[0], order[e[1]])):
+        unless = f', unless_owned = "{region}"' if region else ''
+        lines.append(f'\t{{ turn = {turn}, kind = "{kind}", key = "{key}"{unless} }},')
+    lines.append('};')
+    begin, finish = '-- BEGIN STORY SCHEDULE (build.py)\n', '-- END STORY SCHEDULE\n'
+    lua = open(TRADE_SCRIPT, encoding='utf-8').read()
+    head, rest = lua.split(begin)
+    _, tail = rest.split(finish)
+    with open(TRADE_SCRIPT, 'w', encoding='utf-8', newline='\n') as fh:
+        fh.write(head + begin + '\n'.join(lines) + '\n' + finish + tail)
+
+
 def payload_key(payload):
     """Efekt paketleri cdir_events_payloads üzerinden bağlanır; TREASURY gibi hazır anahtarlar olduğu gibi kalır."""
     return payload.replace('pb_bundle_', 'pb_payload_') if payload.startswith('pb_bundle_') else payload
@@ -302,7 +468,7 @@ def write_story_tables(data_dir, out_dir, name, loc):
     for m in STORY_MISSIONS:
         add('missions_tables', {'key': m['key'], 'generate': 'false', 'localised_description': m['description'],
                                 'localised_title': m['title'], 'mission_type': 'CAPTURE_REGIONS',
-                                'ui_icon': 'rom_event_mission.png', 'ui_image': m['image'], 'prioritised': 'true',
+                                'ui_icon': 'rom_event_mission.png', 'ui_image': event_image(m), 'prioritised': 'true',
                                 'event_category': 'Military'})
         options = [('CND_CAMPAIGN', 'main_attila'), ('GEN_TARGET_REGION', ''), ('GEN_CND_REGION', m['region']),
                    ('GEN_CND_NOT_OWNS', ''), ('VAR_CHANCE', '100'), ('VAR_MISSION_LENGTH_MIN', str(m['turns'])),
@@ -320,7 +486,7 @@ def write_story_tables(data_dir, out_dir, name, loc):
 
     for i in STORY_INCIDENTS:
         add('incidents_tables', {'key': i['key'], 'generate': 'false', 'ui_icon': 'message_generic_news.png',
-                                 'ui_image': i['image'], 'prioritised': 'true', 'event_category': 'Historical'})
+                                 'ui_image': event_image(i), 'prioritised': 'true', 'event_category': 'Historical'})
         for option, value in (('CND_CAMPAIGN', 'main_attila'), ('GEN_TARGET_NONE', ''), ('VAR_CHANCE', '100')):
             add('cdir_events_incident_option_junctions_tables',
                 {'id': str(next(ids)), 'incident_key': i['key'], 'option_key': option, 'value': value})
@@ -333,7 +499,7 @@ def write_story_tables(data_dir, out_dir, name, loc):
     for d in STORY_DILEMMAS:
         add('dilemmas_tables', {'key': d['key'], 'generate': 'false', 'localised_description': d['description'],
                                 'localised_title': d['title'], 'ui_icon': 'rom_event_document.png',
-                                'ui_image': d['image'], 'prioritized': 'true', 'event_category': 'Historical'})
+                                'ui_image': event_image(d), 'prioritized': 'true', 'event_category': 'Historical'})
         for option, value in (('CND_CAMPAIGN', 'main_attila'), ('GEN_TARGET_NONE', ''), ('VAR_CHANCE', '100')):
             add('cdir_events_dilemma_option_junctions_tables',
                 {'id': str(next(ids)), 'dilemma_key': d['key'], 'option_key': option, 'value': value})
@@ -446,6 +612,7 @@ def build_tables(data_dir, out_dir):
     # Selçuklu Ticaret Ağı ve hikâye ödül paketleri.
     bundles = trade_bundles() + STORY_BUNDLES
     write_story_tables(data_dir, out_dir, name, loc)
+    write_story_schedule()
     write_tsv(out_dir, 'effect_bundles_tables', name, 1,
               ['key', 'localised_description', 'localised_title', 'ui_icon', 'bundle_target'],
               [[key, 'Placeholder', title, icon, 'faction'] for key, icon, title, _, _ in bundles])

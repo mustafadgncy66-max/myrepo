@@ -3,3 +3,6 @@ id	mission_key	payload_key	status_key	value
 8800007	pb_mission_seljuk_sinope	TREASURY	SUCCESS	AMOUNT[6000]
 8800008	pb_mission_seljuk_sinope	pb_payload_seljuk_sinope	SUCCESS	DURATION[10];GLOBAL
 8800009	pb_mission_seljuk_sinope	TARGET	SUCCESS	EVENT
+8800017	pb_mission_seljuk_crimea	TREASURY	SUCCESS	AMOUNT[5000]
+8800018	pb_mission_seljuk_crimea	pb_payload_seljuk_crimea	SUCCESS	DURATION[20];GLOBAL
+8800019	pb_mission_seljuk_crimea	TARGET	SUCCESS	EVENT

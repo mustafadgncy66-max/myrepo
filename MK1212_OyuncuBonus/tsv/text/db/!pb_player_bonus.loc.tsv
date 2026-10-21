@@ -89,20 +89,56 @@ effects_description_pb_effect_upkeep_generals	Player bonus - Upkeep cost: %+n% f
 effects_description_pb_effect_building_upkeep_ai	Maintenance cost: %+n%	true
 missions_localised_title_pb_mission_seljuk_sinope	The Conquest of Sinope	true
 missions_localised_description_pb_mission_seljuk_sinope	Sinope, the jewel of the Black Sea coast, is held by the Greeks. Whoever holds it controls the trade between Anatolia and the northern lands. Sultan Kaykaus has resolved to take it, so that Seljuk caravans may reach the sea in the north as they already do at Attaleia in the south.	true
+missions_localised_title_pb_mission_seljuk_crimea	The Crimean Expedition	true
+missions_localised_description_pb_mission_seljuk_crimea	Kipchak raiders and Rus princes trouble the merchants of the Crimea, and Seljuk goods sold at Sinope must cross the sea to reach them. The Sultan orders an expedition across the Black Sea to seize the trading ports of the Crimea, as his armies did at Sudak.	true
 incidents_localised_title_pb_incident_seljuk_mongol_threat	A Storm in the East	true
 incidents_localised_description_pb_incident_seljuk_mongol_threat	Merchants and refugees pour in from Khwarazm with terrible news: a horde from the eastern steppes, led by a khan called Chinggis, is burning the great cities of Transoxiana. Scholars, craftsmen and whole families seek shelter in the lands of Rum.	true
+incidents_localised_title_pb_incident_seljuk_alaiye	Kalon Oros Becomes Alaiye	true
+incidents_localised_description_pb_incident_seljuk_alaiye	The Greek lord of the coastal fortress of Kalon Oros has surrendered to Sultan Kayqubad, who has renamed it Alaiye after himself. A shipyard is being built beneath the cliffs, and the Sultanate now has a second window on the Mediterranean.	true
+incidents_localised_title_pb_incident_seljuk_scholars	The Sultan of Scholars	true
+incidents_localised_description_pb_incident_seljuk_scholars	Baha al-Din Walad, the great preacher called the Sultan of Scholars, has arrived in Konya with his family at the Sultan's invitation. His young son Jalal al-Din, who will one day be known as Rumi, already draws students of his own. Konya is becoming a city of learning.	true
+incidents_localised_title_pb_incident_seljuk_sultan_han	The Sultan Han	true
+incidents_localised_description_pb_incident_seljuk_sultan_han	On the road between Konya and Aksaray, the largest caravanserai in Anatolia has been completed. Its great carved portal welcomes caravans travelling from Tabriz to Attaleia.	true
+incidents_localised_title_pb_incident_seljuk_yassi_chemen	Victory at Yassi Chemen	true
+incidents_localised_description_pb_incident_seljuk_yassi_chemen	Near Erzincan, the armies of the Sultanate have routed Jalal ad-Din and his Khwarazmians. The spoils of his camp are rich, and the Sultan's soldiers return home as veterans.	true
 cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_divanFIRST	Raise the walls	true
 cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_divanFIRST	Stone by stone, the walls of the great cities rise again.	true
 cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_divanSECOND	Summon the Turkmen	true
 cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_divanSECOND	Riders from the frontier answer the Sultan's call.	true
 dilemmas_localised_title_pb_dilemma_seljuk_divan	The Sultan's Divan	true
 dilemmas_localised_description_pb_dilemma_seljuk_divan	The emirs gather before the Sultan. The horde has not yet reached Anatolia, but none doubt that it will. Some urge that the walls of Konya, Kayseri and Sivas be rebuilt in stone; others say the Turkmen of the frontier should be summoned and armed.	true
+cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_successionFIRST	Grant the emirs iqta lands	true
+cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_successionFIRST	The emirs receive rich estates and swear their oaths.	true
+cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_successionSECOND	Rely on the ghulam guard	true
+cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_successionSECOND	The Sultan surrounds himself with soldiers loyal to him alone.	true
+dilemmas_localised_title_pb_dilemma_seljuk_succession	The Death of Kaykaus	true
+dilemmas_localised_description_pb_dilemma_seljuk_succession	Sultan Kaykaus has died of consumption at the height of his power. His brother Kayqubad, long held prisoner in a fortress, has been brought out and raised to the throne. The emirs who once backed Kaykaus watch the new Sultan closely. How will he secure the throne?	true
 cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_caravanseraisFIRST	Build them	true
 cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_caravanseraisFIRST	The great hans rise along the roads, and the caravans follow.	true
 cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_caravanseraisSECOND	Leave it to the merchants	true
 cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_caravanseraisSECOND	The merchants build their own inns and pay the Sultan for the privilege.	true
 dilemmas_localised_title_pb_dilemma_seljuk_caravanserais	The Sultan's Hans	true
 dilemmas_localised_description_pb_dilemma_seljuk_caravanserais	Trade along the Anatolian roads grows, but merchants fear bandits and harsh winters. The vizier proposes a chain of great caravanserais, a day's journey apart, built and guarded by the state.	true
+cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_khwarazm_envoyFIRST	Accept the alliance	true
+cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_khwarazm_envoyFIRST	Gifts are exchanged, and Khwarazmian officers visit the Sultan's camps.	true
+cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_khwarazm_envoySECOND	Refuse and guard the east	true
+cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_khwarazm_envoySECOND	The envoy leaves empty-handed, and the eastern garrisons are reinforced.	true
+dilemmas_localised_title_pb_dilemma_seljuk_khwarazm_envoy	The Envoy of the Khwarazmshah	true
+dilemmas_localised_description_pb_dilemma_seljuk_khwarazm_envoy	Jalal ad-Din, the last Khwarazmshah, has carved out a new realm in the east after fleeing the Mongols. His envoy proposes an alliance against the horde, but many at court fear the Khwarazmian more than the Mongols, for his armies plunder friend and foe alike.	true
+cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_babaiFIRST	Crush the revolt	true
+cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_babaiFIRST	Frankish mercenaries break the rebel host, and Baba Ishak is hanged.	true
+cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_babaiSECOND	Lower the taxes and pardon the tribes	true
+cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_babaiSECOND	The tribes lay down their arms and return to their pastures.	true
+dilemmas_localised_title_pb_dilemma_seljuk_babai	The Babai Revolt	true
+dilemmas_localised_description_pb_dilemma_seljuk_babai	Baba Ishak, a dervish preacher, has raised the Turkmen of the frontier in revolt against the Sultan's governors and taxes. His followers have taken Amasya and defeated the first armies sent against them.	true
+cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_kose_dagFIRST	Meet them in the field	true
+cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_kose_dagFIRST	The host of Rum rides out to face the horde.	true
+cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_kose_dagSECOND	Hold the fortresses	true
+cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_kose_dagSECOND	The Sultanate shuts its gates and waits for the storm to break.	true
+cdir_events_dilemma_choice_details_localised_choice_label_pb_dilemma_seljuk_kose_dagTHIRD	Send tribute to the Khan	true
+cdir_events_dilemma_choice_details_localised_choice_title_pb_dilemma_seljuk_kose_dagTHIRD	A heavy tribute is sent east, and the people are spared, for now.	true
+dilemmas_localised_title_pb_dilemma_seljuk_kose_dag	The Road to Kose Dag	true
+dilemmas_localised_description_pb_dilemma_seljuk_kose_dag	A Mongol army under the general Baiju has taken Erzurum and marches into the Sultanate. The Sultan has gathered his emirs, his ghulams and Frankish and Georgian mercenaries. History remembers what befell the Sultanate when it met the Mongols at Kose Dag; this time the choice is yours.	true
 effect_bundles_localised_title_pb_bundle_seljuk_caravan_1	Silk Road: Caravan Cities (1/8)	true
 effect_bundles_localised_description_pb_bundle_seljuk_caravan_1	Your caravans reach 1 of the 8 great trade cities of the Anatolian Silk Road: Iconion, Kayseri, Ancyra, Malatya, Sis, Diyarbakir, Dvin and Tabriz.	true
 effect_bundles_localised_title_pb_bundle_seljuk_caravan_2	Silk Road: Caravan Cities (2/8)	true
@@ -139,5 +175,33 @@ effect_bundles_localised_title_pb_bundle_seljuk_walls	Walls of the Sultanate	tru
 effect_bundles_localised_description_pb_bundle_seljuk_walls	The walls of Konya, Kayseri and Sivas have been rebuilt in stone. The people sleep easier behind them.	true
 effect_bundles_localised_title_pb_bundle_seljuk_frontier	Call of the Frontier	true
 effect_bundles_localised_description_pb_bundle_seljuk_frontier	The Turkmen of the frontier have answered the Sultan's call, and their riders fill the ranks.	true
+effect_bundles_localised_title_pb_bundle_seljuk_iqta	The Emirs' Iqta	true
+effect_bundles_localised_description_pb_bundle_seljuk_iqta	The great emirs hold rich iqta estates from the new Sultan and have sworn their oaths to him.	true
+effect_bundles_localised_title_pb_bundle_seljuk_ghulams	The Sultan's Ghulams	true
+effect_bundles_localised_description_pb_bundle_seljuk_ghulams	Slave soldiers raised in the palace and loyal to the Sultan alone guard the throne.	true
+effect_bundles_localised_title_pb_bundle_seljuk_crimea	Lord of the Black Sea	true
+effect_bundles_localised_description_pb_bundle_seljuk_crimea	Seljuk governors sit in the trading ports of the Crimea, and the Black Sea trade flows through Sinope.	true
+effect_bundles_localised_title_pb_bundle_seljuk_alaiye	The Shipyard of Alaiye	true
+effect_bundles_localised_description_pb_bundle_seljuk_alaiye	From the shipyard beneath the cliffs of Alaiye, Seljuk ships sail to Cyprus, Egypt and Venice.	true
 effect_bundles_localised_title_pb_bundle_seljuk_hans	The Sultan's Hans	true
 effect_bundles_localised_description_pb_bundle_seljuk_hans	A chain of great caravanserais, a day's journey apart, shelters the caravans that cross Anatolia.	true
+effect_bundles_localised_title_pb_bundle_seljuk_khwarazm_alliance	Alliance with the Khwarazmshah	true
+effect_bundles_localised_description_pb_bundle_seljuk_khwarazm_alliance	Khwarazmian veterans who know the Mongol way of war share their hard-won lessons with Seljuk commanders.	true
+effect_bundles_localised_title_pb_bundle_seljuk_eastern_watch	Watch on the East	true
+effect_bundles_localised_description_pb_bundle_seljuk_eastern_watch	The eastern garrisons are reinforced and drilled against raiders from beyond the mountains.	true
+effect_bundles_localised_title_pb_bundle_seljuk_scholars	The Sultan of Scholars	true
+effect_bundles_localised_description_pb_bundle_seljuk_scholars	Preachers, poets and students gather in the madrasas of Konya around the family of Baha al-Din Walad.	true
+effect_bundles_localised_title_pb_bundle_seljuk_sultan_han	The Sultan Han	true
+effect_bundles_localised_description_pb_bundle_seljuk_sultan_han	The greatest caravanserai of Anatolia stands on the road between Konya and Aksaray.	true
+effect_bundles_localised_title_pb_bundle_seljuk_yassi_chemen	Veterans of Yassi Chemen	true
+effect_bundles_localised_description_pb_bundle_seljuk_yassi_chemen	The soldiers who broke the Khwarazmians return home as veterans, and the recruits want to be like them.	true
+effect_bundles_localised_title_pb_bundle_seljuk_babai_crushed	The Revolt Crushed	true
+effect_bundles_localised_description_pb_bundle_seljuk_babai_crushed	The rebels have been broken, but the Turkmen of the frontier will not soon forget it.	true
+effect_bundles_localised_title_pb_bundle_seljuk_babai_pardon	The Tribes Pardoned	true
+effect_bundles_localised_description_pb_bundle_seljuk_babai_pardon	Taxes on the frontier have been lowered and the tribes have returned to their pastures.	true
+effect_bundles_localised_title_pb_bundle_seljuk_kose_dag_field	The Host of Rum	true
+effect_bundles_localised_description_pb_bundle_seljuk_kose_dag_field	Emirs, ghulams, Turkmen and Frankish and Georgian mercenaries stand together against the horde.	true
+effect_bundles_localised_title_pb_bundle_seljuk_kose_dag_walls	Behind the Walls	true
+effect_bundles_localised_description_pb_bundle_seljuk_kose_dag_walls	The Sultanate waits for the horde behind the stone walls of its cities.	true
+effect_bundles_localised_title_pb_bundle_seljuk_tribute	Tribute to the Khan	true
+effect_bundles_localised_description_pb_bundle_seljuk_tribute	A heavy tribute is sent east each year. The people grumble at the taxes but are glad to be spared.	true
