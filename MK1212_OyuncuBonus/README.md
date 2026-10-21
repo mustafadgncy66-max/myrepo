@@ -60,18 +60,18 @@ Keykubad MK1212'de aile ağacında zaten vardır. Tahta onun geçmesi için 17. 
 Keykubad'ı seçip veliaht yapın; yapmazsanız tahta oyunun veliahtı (başlangıçta İbrahim) geçer. Keykubad
 ölmüşse 17. turda yeni bir Keykubad veliaht olarak eklenir.
 
-MK1212 her Selçuklu sultanına aynı portreyi (Alaeddin Keykubad'ın bilinen portresi) verir. Aile ağacı
-portresi MK1212'nin `portrait_settings.xml` dosyasından, harita modeli ve ayrıntı panelindeki 3B portre
-karakterin görünümünden gelir. Bu pack, o dosyanın değiştirilmiş bir kopyasını taşır:
+MK1212 her Selçuklu sultanına aynı portreyi (Alaeddin Keykubad'ın bilinen portresi) verir. Aile ağacı portresi
+MK1212'nin `portrait_settings.xml` dosyasından gelir; oyun bu dosyanın moddaki bir kopyasını kullanmaz, yalnızca
+resim dosyaları ezilebilir. Keykâvus da tahta geçen Keykubad da aynı resim dosyasını gösterir. Bu yüzden:
 
-- **Keykâvus** sultanken çizilmiş portresini (sarıklı, kırmızı kaftanlı) ve kendi general görünümünü taşır.
-- **Keykubad**ın portre seti yetişkinken her zaman Alaeddin portresini ve sultan görünümünü taşır; bu sette
-  doğan yeni generaller de böyle görünür.
-- Diğer sultanlar MK1212'deki gibi Alaeddin portresini taşır.
+- Keykâvus'un çizilmiş portresi (sarıklı, kırmızı kaftanlı) ayrı bir pack'tedir: `mk1212_keykavus_portresi.pack`.
+  Bu pack MK1212'nin **üstünde** olmalı ve **17. turda Keykâvus ölünce kapatılmalıdır**; yoksa Keykubad da
+  sultan olunca Keykâvus'un portresini taşır. Pack yalnızca bir resim içerir, kampanya ortasında kapatılabilir.
+- Keykubad tahta geçince MK1212'nin Alaeddin portresini ve sultan görünümünü alır.
+- Keykâvus sultanken 3B modeli sultanınki değil, kendi general görünümüdür (atlı harita modeli ve animasyonlarıyla).
 
-Resim dosyalarının MK1212'ninkileri ezmesi için mod, yükleme sırasında MK1212'nin **üstünde** olmalıdır.
-Keykâvus'un portresi `art/kaikaus.jpg` dosyasından `tools/portrait.py` ile üretilir (yeşil arka plan şeffaf
-yapılır, 180×240 ve 64×152).
+Keykâvus'un portresi `art/kaikaus.jpg` dosyasından `tools/portrait.py` ile `keykavus_portresi/` altına üretilir
+(yeşil arka plan şeffaf yapılır, 180×240 ve 64×152).
 
 Betik, oyun klasörüne `pb_seljuk_log.txt` adlı bir kayıt dosyası yazar.
 
@@ -148,8 +148,7 @@ Mod Manager'dan işareti kaldırın. Pack dosyasını `data` klasöründen sileb
 Değerler `build.py` dosyasının başında. Değiştirip şu komutla yeniden üretilir:
 
 ```
-python3 build.py --data <TSV klasörü> --rpfm <rpfm_cli> --schema <schema_att.ron> --out . \
-    --portrait-settings <MK1212'nin portrait_settings.xml dosyası>
+python3 build.py --data <TSV klasörü> --rpfm <rpfm_cli> --schema <schema_att.ron> --out .
 ```
 
 `--data`, AttilaOptimizer'ın 6. seçeneğiyle dışa aktarılan tabloların TSV'ye çevrilmiş halidir.
