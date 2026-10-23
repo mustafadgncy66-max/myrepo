@@ -143,6 +143,9 @@ Sünni cami (büyük/küçük, seviye 1-4) ve dergah (seviye 2-4) binalarının 
 cami 3/6/9/12 -> 6/12/18/24, dergah 3/4/5 -> 6/8/10. Bina satırı olduğu için Sünni yapay zekâ devletleri de
 yararlanır. Çarpan `build.py` içinde `SUNNI_SPREAD_MULT`.
 
+Oyuncuya özel iki ek (zorluk tablosu, human=true): her bölgede +8 Sünni dönüşümü (`SUNNI_PLAYER_SPREAD`;
+komşu dinlerin yayılmasını dengeler) ve imam (dignitary) üretim sınırı +3 (`IMAM_CAP`).
+
 ## Nasıl çalışır
 
 - Bonuslar oyunun zorluk tablosuna (`campaign_difficulty_handicap_effects`) `human = true`

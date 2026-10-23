@@ -90,6 +90,10 @@ MOSQUE_RELIGIONS = ('sunni', 'shia', 'ibadi')
 # 'semitic_paganism' dönüşüm etkisidir). Bina satırları olduğu için yapay zekâ Sünni devletleri de yararlanır.
 SUNNI_SPREAD = 'att_effect_religion_conversion_semitic_paganism'
 SUNNI_SPREAD_MULT = 2
+# Oyuncuya özel: her bölgede ek Sünni dönüşümü (komşu dinlerin yayılmasını dengeler) ve imam (dignitary) sınırı.
+SUNNI_PLAYER_SPREAD = 8
+IMAM_CAP = 3
+IMAM_CAP_EFFECT = ('att_effect_agent_recruitment_cap_dignitary', 'faction_to_faction_own')
 
 # Portreler. Aile ağacı portresi MK1212'nin portrait_settings.xml dosyasında her portre setine atanmış resimdir;
 # oyun bu dosyanın bir moddaki kopyasını kullanmaz, yalnızca resim dosyalarının kendisi ezilebilir. MK1212 her
@@ -664,6 +668,9 @@ def build_tables(data_dir, out_dir):
         basic.extend([effect, bonus] for bonus in bonuses)
         handicap.extend([d, 'true', effect, scope, f'{value:.4f}', ''] for d in DIFFICULTIES)
 
+    handicap.extend([d, 'true', SUNNI_SPREAD, 'faction_to_region_own', f'{SUNNI_PLAYER_SPREAD:.4f}', '']
+                    for d in DIFFICULTIES)
+    handicap.extend([d, 'true', IMAM_CAP_EFFECT[0], IMAM_CAP_EFFECT[1], f'{IMAM_CAP:.4f}', ''] for d in DIFFICULTIES)
     handicap.extend([d, 'true', LOYALTY_ALL[0], LOYALTY_ALL[1], f'{LOYALTY_BONUS:.4f}', ''] for d in DIFFICULTIES)
     handicap.extend([d, 'true', MILITARY_RESEARCH[0], MILITARY_RESEARCH[1], f'{MILITARY_RESEARCH_PCT:.4f}', '']
                     for d in DIFFICULTIES)
