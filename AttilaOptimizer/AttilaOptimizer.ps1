@@ -43,7 +43,7 @@ $DxvkMarker = 'attila_optimizer_dxvk.txt'
 $AttilaAppId = '325610'
 
 # Mod yapımı için gereken tablolar (db\<tablo>\ klasör adları).
-$ModDataTablePattern = '^(main_units|land_units|campaign_difficulty_handicap_effects|effects|effect_bonus_value_.+|effect_bundles.*|campaign_effect_scopes|campaign_bonus_value_ids_.+|factions|faction_groups|units_to_.+|unit_set.*|building_units_allowed|building_effects_junction|building_levels|building_chains|building_culture_variants|technologies|technology_effects_junction|missions|mission_issuers|incidents|dilemmas|cdir_events_.+|message_events|message_event_strings|campaign_payload_ui_details|campaign_character_art.*|agent_uniforms)_tables$'
+$ModDataTablePattern = '^(main_units|land_units|campaign_difficulty_handicap_effects|effects|effect_bonus_value_.+|effect_bundles.*|campaign_effect_scopes|campaign_bonus_value_ids_.+|factions|faction_groups|units_to_.+|unit_set.*|building_units_allowed|building_effects_junction|building_levels|building_chains|building_culture_variants|technologies|technology_effects_junction|missions|mission_issuers|incidents|dilemmas|cdir_events_.+|message_events|message_event_strings|campaign_payload_ui_details|campaign_character_art.*|agent_uniforms|projectiles.*|projectile_.*|battlefield_building.*|siege_.*)_tables$'
 
 # Attila.exe içindeki betik fonksiyonu adlarından yalnızca karakter ve aileyle ilgili olanlar.
 $ExeNamePattern = 'heir|leader|family|character|art_set|portrait|forename|succession'
