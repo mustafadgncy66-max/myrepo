@@ -56,6 +56,13 @@ campaign_difficulty_handicap	human	effect	effect_scope	effect_value	optional_cam
 1	true	pb_effect_farm_food	faction_to_region_own	20.0000	
 2	true	pb_effect_farm_food	faction_to_region_own	20.0000	
 3	true	pb_effect_farm_food	faction_to_region_own	20.0000	
+-3	true	att_effect_character_loyalty_mod_faction	faction_to_character_own_unseen	6.0000	
+-2	true	att_effect_character_loyalty_mod_faction	faction_to_character_own_unseen	6.0000	
+-1	true	att_effect_character_loyalty_mod_faction	faction_to_character_own_unseen	6.0000	
+0	true	att_effect_character_loyalty_mod_faction	faction_to_character_own_unseen	6.0000	
+1	true	att_effect_character_loyalty_mod_faction	faction_to_character_own_unseen	6.0000	
+2	true	att_effect_character_loyalty_mod_faction	faction_to_character_own_unseen	6.0000	
+3	true	att_effect_character_loyalty_mod_faction	faction_to_character_own_unseen	6.0000	
 -3	true	att_effect_technology_research_points_mod_military	faction_to_faction_own	200.0000	
 -2	true	att_effect_technology_research_points_mod_military	faction_to_faction_own	200.0000	
 -1	true	att_effect_technology_research_points_mod_military	faction_to_faction_own	200.0000	

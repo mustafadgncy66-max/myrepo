@@ -30,6 +30,10 @@ INCOME_PCT = 15                    # tüm binalardan servet
 # toplam +%300 olması (hız x4, süre dörtte bire) beklenir: 38 tur -> ~10. Toplama biçimi oyunda doğrulanmalı.
 MILITARY_RESEARCH_PCT = 200
 MILITARY_RESEARCH = ('att_effect_technology_research_points_mod_military', 'faction_to_faction_own')
+# Tüm karakterlere (general, vali, soylu) sürekli sadakat; oyunun kendi etkisi, yalnızca oyuncu. Sadakat her tur
+# düşüp isyan/iç savaş ve "Secure Loyalty" influence harcaması yaratıyorsa tamponu büyütür.
+LOYALTY_BONUS = 6
+LOYALTY_ALL = ('att_effect_character_loyalty_mod_faction', 'faction_to_character_own_unseen')
 RESEARCH_PCT = 100                 # araştırma hızı; +%100 = süre yarıya
 PUBLIC_ORDER = 5                   # eyalet başına kamu düzeni
 GROWTH = 8                         # eyalet başına büyüme (teknolojiler +1/+2 verir)
@@ -645,6 +649,7 @@ def build_tables(data_dir, out_dir):
         basic.extend([effect, bonus] for bonus in bonuses)
         handicap.extend([d, 'true', effect, scope, f'{value:.4f}', ''] for d in DIFFICULTIES)
 
+    handicap.extend([d, 'true', LOYALTY_ALL[0], LOYALTY_ALL[1], f'{LOYALTY_BONUS:.4f}', ''] for d in DIFFICULTIES)
     handicap.extend([d, 'true', MILITARY_RESEARCH[0], MILITARY_RESEARCH[1], f'{MILITARY_RESEARCH_PCT:.4f}', '']
                     for d in DIFFICULTIES)
     for effect, scope in RECRUITMENT_POINT_EFFECTS:

@@ -8,6 +8,7 @@ verilir, AI fraksiyonları etkilenmez. Tüm zorluk seviyelerinde çalışır.
 | Tüm binalardan servet | +%15 |
 | Araştırma hızı | +%100 (teknoloji süresi yarıya iner) |
 | Askeri araştırma hızı | ek +%200 (genelle toplanıp askeri teknoloji süresi ~dörtte bire iner; sivil aynı) |
+| Sadakat | tüm karakterlere +6 (general, vali, soylu; yalnızca oyuncu) |
 | Kamu düzeni | eyalet başına +5 |
 | Büyüme | eyalet başına +8 |
 | Bina bakım maliyeti | tüm binalarda yarıya (kartlarda görünür; ör. Ghulam Barracks 100 → 50) |
