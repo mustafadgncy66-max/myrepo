@@ -34,6 +34,15 @@ MILITARY_RESEARCH = ('att_effect_technology_research_points_mod_military', 'fact
 # düşüp isyan/iç savaş ve "Secure Loyalty" influence harcaması yaratıyorsa tamponu büyütür.
 LOYALTY_BONUS = 6
 LOYALTY_ALL = ('att_effect_character_loyalty_mod_faction', 'faction_to_character_own_unseen')
+# Earl'ün Realistic Missile modu taş atan kuşatma silahlarının hasarını düşürür (trebüşe 250 -> 125, mancınık
+# 200 -> 50; kartta "Wall Damage") ve zırh delmeyi yükseltir. Sur yıkımı çok yavaşladığı için hasar MK1212'nin
+# kendi değerine geri alınır. Hasar birliklere de vurduğu için etkisi yalnızca surlarla sınırlı değildir.
+# Mermi tablosu küreseldir: yapay zekâ da etkilenir.
+PROJECTILE_DAMAGE = {
+    'mk_catapult_rock': 200,
+    'mk_trebuchet_rock': 250,
+    'mk_trebuchet_rock_short': 250,
+}
 RESEARCH_PCT = 100                 # araştırma hızı; +%100 = süre yarıya
 PUBLIC_ORDER = 5                   # eyalet başına kamu düzeni
 GROWTH = 8                         # eyalet başına büyüme (teknolojiler +1/+2 verir)
@@ -716,6 +725,19 @@ def build_tables(data_dir, out_dir):
                         for religion in MOSQUE_RELIGIONS for level, value in MOSQUE_SANITATION.items()]
     write_tsv(out_dir, 'building_effects_junction_tables', name, 3,
               ['building', 'effect', 'effect_scope', 'value', 'value_damaged', 'value_ruined'], building_effects)
+
+    # Taş atan kuşatma silahlarının hasarı.
+    proj_header, proj_version, projs = effective_rows(data_dir, 'projectiles_tables', ['key'])
+    damage_col = proj_header.index('damage')
+    proj_rows = []
+    for key, damage in PROJECTILE_DAMAGE.items():
+        if (key,) in projs:
+            row = list(projs[(key,)])
+            row[damage_col] = str(damage)
+            proj_rows.append(row)
+    if proj_rows:
+        write_tsv(out_dir, 'projectiles_tables', name, proj_version, proj_header, proj_rows)
+    print(f'Hasarı geri alınan taş mermisi: {len(proj_rows)}')
 
     # Selçuklu sultan portreleri.
     arts_header, arts_version, arts = effective_rows(data_dir, 'campaign_character_arts_tables', ['id'])

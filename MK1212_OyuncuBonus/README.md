@@ -126,6 +126,17 @@ Ekranda görünen değer, bunun üstüne fraksiyon özelliği ve komutan etkiler
 Selçuklu general muhafızlarının bakımı sabit **250**'dir (askere alma ekranında ve orduda).
 Bu birimler yukarıdaki ölçeğin dışındadır.
 
+## Kuşatma hasarı ve korsanlar
+
+- **Taş atan kuşatma silahları:** Earl'ün Realistic Missile modu trebüşe ve mancınığın "Wall Damage" değerini
+  düşürüp zırh delmeyi yükseltir; surlar çok yavaş yıkılır. `projectiles_tables` içinde `mk_trebuchet_rock` ve
+  `mk_trebuchet_rock_short` 250, `mk_catapult_rock` 200 olarak MK1212 değerine geri alınır. Mermi tablosu
+  küreseldir (yapay zekâ da etkilenir) ve hasar birliklere de vurur.
+- **Korsan sistemi kapalı:** `campaigns/main_attila/earl_pirate/main.lua` Earl'ün Realistic Navy modundaki dosyanın
+  yerine geçen boş bir taslaktır (`Pirate_Initializer` hiçbir şey yapmaz); periyodik korsan filoları çıkmaz. Bunun
+  için paket Earl'ün donanma paketinin üstünde yüklenmelidir. Eski kayıttaki mevcut korsan filoları kalır,
+  korsan grupları ve birimleri tanımlı kalır.
+
 ## Nasıl çalışır
 
 - Bonuslar oyunun zorluk tablosuna (`campaign_difficulty_handicap_effects`) `human = true`
