@@ -348,6 +348,89 @@ local function babai_army()
 	try_spawn(1);
 end
 
+-- Köse Dağ (1243): "Sahada karşıla" ya da "Kaleleri tut" seçilirse Baycu Noyan'ın ordusu Erzurum çevresinde
+-- Moğol (İlhanlı) fraksiyonundan üç ordu olarak çıkar, Selçuklu'ya savaş ilan eder ve yapay zekâ Selçuklu'ya
+-- saldırmaya yönlendirilir. Kayseri ve Sivas'a yürüyüşü yapay zekâ kendisi yapar; belirli bir şehre elle
+-- yürütme komutunu doğrulayamadığım için yürüyüş yönlendirilmez. Ordular gerçektir; oyuncu yenebilir.
+-- Moğol birimleri MK1212'nin kendi istila listesinden (ILKHANATE_INVASION_ARMY) alınır.
+local MONGOLS = "mk_fact_ilkhanate";
+local KOSE_DAG_DILEMMA = "pb_dilemma_seljuk_kose_dag";
+local BAIJU_REGIONS = { "att_reg_armenia_theodosiopolis", "att_reg_armenia_duin" };	-- Erzurum, yedek: Dvin
+local BAIJU_ARMIES = 3;
+local BAIJU_OFFSETS = { {3, 0}, {-3, 0}, {0, 3}, {0, -3}, {5, 5}, {-5, -5}, {5, -5}, {-5, 5} };
+
+local function spawn_baiju_army(index, region_key, x, y, attempt)
+	if attempt > #BAIJU_OFFSETS then
+		pb_log("baiju: army " .. index .. " could not be placed");
+		return;
+	end
+
+	local placed = false;
+	local offset = BAIJU_OFFSETS[(attempt + index - 2) % #BAIJU_OFFSETS + 1];
+
+	cm:create_force(MONGOLS, ILKHANATE_INVASION_ARMY, region_key, x + offset[1], y + offset[2],
+		"pb_baiju_army_" .. index, true,
+		function(cqi)
+			placed = true;
+			pb_log("baiju: army " .. index .. " spawned, cqi " .. tostring(cqi));
+		end
+	);
+
+	cm:callback(function()
+		if not placed then
+			spawn_baiju_army(index, region_key, x, y, attempt + 1);
+		end
+	end, 0.5);
+end
+
+local function baiju_invasion()
+	if cm:get_saved_value("pb_seljuk_baiju_done") then
+		return;
+	end
+
+	cm:set_saved_value("pb_seljuk_baiju_done", true);
+
+	if type(ILKHANATE_INVASION_ARMY) ~= "string" then
+		pb_log("baiju: ILKHANATE_INVASION_ARMY not available, skipped");
+		return;
+	end
+
+	local region_key, settlement = nil, nil;
+
+	for i = 1, #BAIJU_REGIONS do
+		local ok, found = pcall(function()
+			return cm:model():world():region_manager():region_by_key(BAIJU_REGIONS[i]):settlement();
+		end);
+
+		if ok and found then
+			region_key, settlement = BAIJU_REGIONS[i], found;
+			break;
+		end
+	end
+
+	if not region_key then
+		pb_log("baiju: no spawn region found");
+		return;
+	end
+
+	local x, y = settlement:logical_position_x(), settlement:logical_position_y();
+
+	for index = 1, BAIJU_ARMIES do
+		spawn_baiju_army(index, region_key, x, y, 1);
+	end
+
+	cm:callback(function()
+		try_step("baiju war", function()
+			cm:force_declare_war(MONGOLS, SELJUKS);
+			cm:cai_strategic_stance_manager_clear_all_promotions_between_factions(MONGOLS, SELJUKS);
+			cm:cai_strategic_stance_manager_clear_all_blocking_between_factions(MONGOLS, SELJUKS);
+			cm:cai_strategic_stance_manager_promote_specified_stance_towards_target_faction(MONGOLS, SELJUKS, "CAI_STRATEGIC_STANCE_BITTER_ENEMIES");
+			cm:cai_strategic_stance_manager_block_all_stances_but_that_specified_towards_target_faction(MONGOLS, SELJUKS, "CAI_STRATEGIC_STANCE_BITTER_ENEMIES");
+			pb_log("baiju: war declared from " .. region_key);
+		end);
+	end, 2);
+end
+
 local STORY_ACTIONS = { succession = succession };
 
 -- Hızlı test: mk1212_hizli_test.pack yüklüyse olaylar o pack'teki pb_seljuk_test.lua'nın verdiği kadar
@@ -388,6 +471,14 @@ cm:add_listener(
 	"DilemmaChoiceMadeEvent",
 	function(context) return context:dilemma() == BABAI_DILEMMA and context:choice() == 0 end,
 	function(context) babai_army() end,
+	true
+);
+
+cm:add_listener(
+	"DilemmaChoiceMadeEvent_PB_Seljuk_KoseDag",
+	"DilemmaChoiceMadeEvent",
+	function(context) return context:dilemma() == KOSE_DAG_DILEMMA and context:choice() <= 1 end,
+	function(context) try_step("baiju", baiju_invasion) end,
 	true
 );
 

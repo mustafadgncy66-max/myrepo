@@ -60,6 +60,12 @@ Görseller `ui/eventpics` altındadır (380×214 PNG).
 
 Haraç seçeneği yalnızca etki paketi verir; Moğollarla barışı zorlamaz.
 
+**Köse Dağ ordusu (deneysel):** "Sahada karşıla" ya da "Kaleleri tut" seçilirse Erzurum çevresinde Moğol
+(İlhanlı) fraksiyonundan MK1212'nin istila ordusuyla üç ordu çıkar, Selçuklu'ya savaş ilan eder ve yapay zekâ
+Selçuklu'ya saldırmaya yönlendirilir. Kayseri ve Sivas'a yürüyüşü yapay zekâ yapar; belirli şehre elle
+yürütme komutu doğrulanamadığı için yönlendirilmez. Erzurum'un bölge anahtarı doğrulanamadı; bulunamazsa
+Dvin kullanılır. Test için `mk1212_kosedag_test.pack`: karar 2. turda gelir (hızlı test pack'iyle birlikte kullanılmaz).
+
 Keykubad MK1212'de aile ağacında zaten vardır. Tahta onun geçmesi için 17. turdan önce aile ağacında
 Keykubad'ı seçip veliaht yapın; yapmazsanız tahta oyunun veliahtı (başlangıçta İbrahim) geçer. Keykubad
 ölmüşse 17. turda yeni bir Keykubad veliaht olarak eklenir.

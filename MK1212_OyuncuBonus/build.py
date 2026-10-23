@@ -100,6 +100,8 @@ NAME_OVERRIDES = [('names_name_2147363203', 'Alaeddin Keykubad')]
 # Hızlı test pack'i: hikâye olaylarını öne çeken pb_seljuk_test.lua'yı taşır (bkz. mk_fact_seljuks.lua).
 TEST_PACK = 'mk1212_hizli_test.pack'
 TEST_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'hizli_test')
+KOSEDAG_TEST_PACK = 'mk1212_kosedag_test.pack'
+KOSEDAG_TEST_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'kosedag_test')
 # Önceki bir sürümün tanımladığı görünüm; o sürümle kaydedilmiş oyunlar açılabilsin diye tanımlı kalır.
 OLD_KAYKAUS_UNIFORM = 'pb_campaign_sel_kaikaus'
 
@@ -799,7 +801,8 @@ def main():
 
     # Ayrı açılıp kapatılan küçük pack'ler.
     for name, folder in ((KAYKAUS_PORTRAIT_PACK, os.path.join(KAYKAUS_PORTRAIT_DIR, 'ui') + ';ui'),
-                         (TEST_PACK, os.path.join(TEST_DIR, 'campaigns') + ';campaigns')):
+                         (TEST_PACK, os.path.join(TEST_DIR, 'campaigns') + ';campaigns'),
+                         (KOSEDAG_TEST_PACK, os.path.join(KOSEDAG_TEST_DIR, 'campaigns') + ';campaigns')):
         extra = os.path.join(args.out, name)
         if os.path.exists(extra):
             os.remove(extra)
