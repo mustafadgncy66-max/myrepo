@@ -137,6 +137,12 @@ Bu birimler yukarıdaki ölçeğin dışındadır.
   için paket Earl'ün donanma paketinin üstünde yüklenmelidir. Eski kayıttaki mevcut korsan filoları kalır,
   korsan grupları ve birimleri tanımlı kalır.
 
+## Sünni yayılımı
+
+Sünni cami (büyük/küçük, seviye 1-4) ve dergah (seviye 2-4) binalarının din yayma değeri iki katına çıkar:
+cami 3/6/9/12 -> 6/12/18/24, dergah 3/4/5 -> 6/8/10. Bina satırı olduğu için Sünni yapay zekâ devletleri de
+yararlanır. Çarpan `build.py` içinde `SUNNI_SPREAD_MULT`.
+
 ## Nasıl çalışır
 
 - Bonuslar oyunun zorluk tablosuna (`campaign_difficulty_handicap_effects`) `human = true`

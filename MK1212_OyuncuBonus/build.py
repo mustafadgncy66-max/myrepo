@@ -86,6 +86,10 @@ BUILDING_UPKEEP_EFFECT = 'att_effect_building_upkeep_mod'
 # Bina tanımı değiştiği için bu, AI'nın mescitlerini de etkiler.
 MOSQUE_SANITATION = {1: 1, 2: 2, 3: 3, 4: 4}
 MOSQUE_RELIGIONS = ('sunni', 'shia', 'ibadi')
+# Sünni cami ve dergah (hanikâh) binalarının din yayma değerinin çarpanı (MK1212'de Sünnilik dahili olarak
+# 'semitic_paganism' dönüşüm etkisidir). Bina satırları olduğu için yapay zekâ Sünni devletleri de yararlanır.
+SUNNI_SPREAD = 'att_effect_religion_conversion_semitic_paganism'
+SUNNI_SPREAD_MULT = 2
 
 # Portreler. Aile ağacı portresi MK1212'nin portrait_settings.xml dosyasında her portre setine atanmış resimdir;
 # oyun bu dosyanın bir moddaki kopyasını kullanmaz, yalnızca resim dosyalarının kendisi ezilebilir. MK1212 her
@@ -723,6 +727,17 @@ def build_tables(data_dir, out_dir):
     building_effects = [[f'mk_bld_religion_{religion}_major_{level}', 'att_effect_sanitation_buildings',
                          'region_to_region_own', f'{value:.4f}', '0.0000', '0.0000']
                         for religion in MOSQUE_RELIGIONS for level, value in MOSQUE_SANITATION.items()]
+    bld_header, _, bld_all = effective_rows(data_dir, 'building_effects_junction_tables', ['building', 'effect'])
+    value_cols = [bld_header.index(c) for c in ('value', 'value_damaged', 'value_ruined')]
+    spread_rows = 0
+    for (building, effect), row in bld_all.items():
+        if effect == SUNNI_SPREAD and building.startswith('mk_bld_religion_sunni_'):
+            row = list(row)
+            for i in value_cols:
+                row[i] = f'{float(row[i] or 0) * SUNNI_SPREAD_MULT:.4f}'
+            building_effects.append(row)
+            spread_rows += 1
+    print(f'Sünni yayılımı artan bina satırı: {spread_rows}')
     write_tsv(out_dir, 'building_effects_junction_tables', name, 3,
               ['building', 'effect', 'effect_scope', 'value', 'value_damaged', 'value_ruined'], building_effects)
 
