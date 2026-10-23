@@ -6,6 +6,7 @@
 setfenv(1, _G.script_env);
 
 local SELJUKS = "mk_fact_seljuks";
+local SEPARATISTS = "mk_fact_separatists_seljuks";
 
 -- Oyun klasöründeki pb_seljuk_log.txt dosyasına yazar; betiğin oyunda ne yaptığını görmek için.
 local LOG_FILE = "pb_seljuk_log.txt";
@@ -224,6 +225,28 @@ local function give_kayqubad_traits(faction)
 	end
 end
 
+-- Ayrılıkçı fraksiyonun durumunu kayda yazar (iç savaş cezasının neden sürdüğünü anlamak için).
+-- Ayrılıkçılar yoksa ya da değişmediyse satır yazılmaz.
+local last_separatist_state = nil;
+
+local function log_separatists(faction)
+	local separatists = cm:model():world():faction_by_key(SEPARATISTS);
+
+	if not separatists or separatists:is_null_interface() then
+		return;
+	end
+
+	local state = "regions=" .. separatists:region_list():num_items()
+		.. " forces=" .. separatists:military_force_list():num_items()
+		.. " home_region=" .. tostring(separatists:has_home_region())
+		.. " at_war=" .. tostring(separatists:at_war_with(faction));
+
+	if state ~= last_separatist_state then
+		last_separatist_state = state;
+		pb_log("separatists: " .. state);
+	end
+end
+
 local function succession(faction)
 	if cm:get_saved_value("pb_seljuk_succession_done") then
 		return;
@@ -263,7 +286,6 @@ local function succession(faction)
 end
 
 -- Babai İsyanı (1240): "Bastır" seçilirse Amasya çevresinde Türkmen isyancılarından bir ordu çıkar.
-local SEPARATISTS = "mk_fact_separatists_seljuks";
 local BABAI_DILEMMA = "pb_dilemma_seljuk_babai";
 local BABAI_REGIONS = {
 	"att_reg_bithynia_amasea",				-- Amasya (oyunda Sinop bölgesi)
@@ -380,6 +402,7 @@ cm:add_listener(
 		try_step("trade", PB_Seljuk_Trade_Update, faction);
 		try_step("story", PB_Seljuk_Story, faction);
 		try_step("traits", give_kayqubad_traits, faction);
+		try_step("separatists", log_separatists, faction);
 	end,
 	true
 );
