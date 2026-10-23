@@ -26,6 +26,10 @@ DIFFICULTIES = range(-3, 4)        # tüm zorluk seviyeleri
 
 # Ayarlanabilir değerler.
 INCOME_PCT = 15                    # tüm binalardan servet
+# Askeri teknolojiler için ek araştırma hızı (oyunun kendi etkisi, kategoriye bağlı). Genel +%100 ile toplanıp
+# toplam +%300 olması (hız x4, süre dörtte bire) beklenir: 38 tur -> ~10. Toplama biçimi oyunda doğrulanmalı.
+MILITARY_RESEARCH_PCT = 200
+MILITARY_RESEARCH = ('att_effect_technology_research_points_mod_military', 'faction_to_faction_own')
 RESEARCH_PCT = 100                 # araştırma hızı; +%100 = süre yarıya
 PUBLIC_ORDER = 5                   # eyalet başına kamu düzeni
 GROWTH = 8                         # eyalet başına büyüme (teknolojiler +1/+2 verir)
@@ -641,6 +645,8 @@ def build_tables(data_dir, out_dir):
         basic.extend([effect, bonus] for bonus in bonuses)
         handicap.extend([d, 'true', effect, scope, f'{value:.4f}', ''] for d in DIFFICULTIES)
 
+    handicap.extend([d, 'true', MILITARY_RESEARCH[0], MILITARY_RESEARCH[1], f'{MILITARY_RESEARCH_PCT:.4f}', '']
+                    for d in DIFFICULTIES)
     for effect, scope in RECRUITMENT_POINT_EFFECTS:
         handicap.extend([d, 'true', effect, scope, f'{RECRUITMENT_POINTS:.4f}', ''] for d in DIFFICULTIES)
 
